@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Be First to Every Lead, Every Time | FYNZ for Real Estate</title>
+  <meta name="description" content="FYNZ answers every portal lead in 5 seconds, nurtures long-term buyers for months, books showings automatically, and keeps past clients warm for life.">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="shortcut icon" href="../assets/logo.png" type="image/png">
+  <style>
+    @keyframes slideInUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.55; } }
+
+    .demo-timeline { display: flex; flex-direction: column; gap: 0; max-width: 620px; margin: 0 auto; }
+    .demo-event { display: flex; gap: 1rem; align-items: flex-start; padding: 1rem 0; border-bottom: 1px solid var(--color-border); opacity: 0; }
+    .demo-event:last-child { border-bottom: none; }
+    .demo-event.visible { animation: slideInUp 0.5s ease forwards; }
+    .demo-event:nth-child(1).visible { animation-delay: 0s; }
+    .demo-event:nth-child(2).visible { animation-delay: 0.6s; }
+    .demo-event:nth-child(3).visible { animation-delay: 1.4s; }
+    .demo-event:nth-child(4).visible { animation-delay: 2.2s; }
+    .demo-time { font-size: 0.75rem; font-weight: 600; color: var(--color-text-secondary); white-space: nowrap; min-width: 80px; font-family: var(--font-secondary); margin-top: 2px; }
+    .demo-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--color-primary); flex-shrink: 0; margin-top: 5px; }
+    .demo-dot.success { background: var(--color-success); }
+    .demo-text { font-size: 0.875rem; color: var(--color-text-main); line-height: 1.5; }
+    .demo-text strong { color: var(--color-text-title); }
+    .demo-badge { display: inline-block; background: rgba(16,185,129,0.1); color: var(--color-success); font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 99px; margin-top: 4px; }
+    .demo-section { padding: 5rem 0; background: var(--color-bg-subtle); }
+    .demo-section .section-header { text-align: center; margin-bottom: 2.5rem; }
+    .demo-card { background: var(--color-bg-pure); border: 1px solid var(--color-border); border-radius: var(--radius-16); padding: 2rem; box-shadow: var(--shadow-lg); }
+
+    .pain-section { padding: 5rem 0; background: var(--color-bg-accent); }
+    .pain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+    @media(max-width: 640px) { .pain-grid { grid-template-columns: 1fr; } }
+    .pain-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-12); padding: 1.5rem; }
+    .pain-icon { width: 36px; height: 36px; color: var(--color-primary); margin-bottom: 0.75rem; opacity: 0.9; }
+    .pain-title { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; font-family: var(--font-primary); }
+    .pain-desc { font-size: 0.875rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+    .before-after { padding: 5rem 0; }
+    .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+    @media(max-width: 640px) { .ba-grid { grid-template-columns: 1fr; } }
+    .ba-card { border-radius: var(--radius-16); padding: 2rem; border: 1px solid var(--color-border); }
+    .ba-card.before { background: #fff5f5; border-color: #fecaca; }
+    .ba-card.after { background: #f0fdf4; border-color: #bbf7d0; }
+    .ba-label { font-size: 0.7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .ba-card.before .ba-label { color: #ef4444; }
+    .ba-card.after .ba-label { color: #10b981; }
+    .ba-text { font-size: 0.9375rem; color: var(--color-text-main); line-height: 1.65; }
+
+    .proof-section { padding: 5rem 0; background: var(--color-bg-subtle); }
+    .proof-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+    @media(max-width: 640px) { .proof-stats { grid-template-columns: 1fr; } }
+    .stat-card { background: var(--color-bg-pure); border: 1px solid var(--color-border); border-radius: var(--radius-12); padding: 1.75rem; text-align: center; }
+    .stat-num { font-size: 2.25rem; font-weight: 800; color: var(--color-primary); font-family: var(--font-primary); }
+    .stat-label { font-size: 0.8125rem; color: var(--color-text-secondary); margin-top: 0.25rem; }
+    .testimonial-block { background: var(--color-bg-pure); border: 1px solid var(--color-border); border-radius: var(--radius-16); padding: 2rem; margin-top: 1.5rem; text-align: center; color: var(--color-text-secondary); font-style: italic; font-size: 0.9375rem; }
+
+    .faq-section { padding: 5rem 0; }
+    .faq-list { max-width: 720px; margin: 2.5rem auto 0; }
+    details { border: 1px solid var(--color-border); border-radius: var(--radius-12); margin-bottom: 0.75rem; overflow: hidden; }
+    details[open] { box-shadow: var(--shadow-md); }
+    summary { padding: 1.25rem 1.5rem; font-weight: 600; font-size: 0.9375rem; color: var(--color-text-title); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-primary); }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; font-size: 1.25rem; color: var(--color-primary); font-weight: 400; transition: transform 0.2s ease; }
+    details[open] summary::after { content: '\2212'; }
+    .faq-answer { padding: 0 1.5rem 1.25rem; font-size: 0.875rem; color: var(--color-text-secondary); line-height: 1.7; }
+
+    .chat-mockup { display: flex; flex-direction: column; gap: 0.75rem; padding: 1rem; }
+    .chat-bubble { border-radius: 12px; padding: 0.6rem 0.9rem; font-size: 0.78rem; line-height: 1.5; max-width: 85%; }
+    .chat-bubble.inbound { background: var(--color-bg-subtle); border: 1px solid var(--color-border); align-self: flex-start; color: var(--color-text-main); }
+    .chat-bubble.outbound { background: var(--color-primary); color: #fff; align-self: flex-end; }
+    .chat-meta { font-size: 0.65rem; color: var(--color-text-muted); margin-top: 2px; }
+    .chat-confirm { background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.25); border-radius: 10px; padding: 0.5rem 0.8rem; font-size: 0.75rem; color: var(--color-success); font-weight: 600; text-align: center; margin-top: 0.25rem; }
+  </style>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container">
+      Q2 2026 release: Advanced audit log, bulk file management, and more.
+      <a href="#">Read announcement
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="main-header">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="../index.html" class="logo">
+          <img src="../assets/logo.png" alt="FYNZ Logo">
+          FYNZ
+        </a>
+
+        <nav class="nav-menu">
+          <div class="nav-item">
+            <span class="nav-link">Products
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg>
+            </span>
+            <div class="dropdown-menu">
+              <div>
+                <div class="dropdown-col-title">Core Modules</div>
+                <a href="../client-portal.html" class="dropdown-item">
+                  <div class="dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                  <div class="dropdown-info"><span class="dropdown-name">Client Portal</span><span class="dropdown-desc">Deliver a branded client experience</span></div>
+                </a>
+                <a href="../client-management.html" class="dropdown-item">
+                  <div class="dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                  <div class="dropdown-info"><span class="dropdown-name">Client CRM</span><span class="dropdown-desc">Robust management &amp; billing tools</span></div>
+                </a>
+              </div>
+              <div>
+                <div class="dropdown-col-title">Features</div>
+                <a href="../pricing.html" class="dropdown-item">
+                  <div class="dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                  <div class="dropdown-info"><span class="dropdown-name">Contracts &amp; Billing</span><span class="dropdown-desc">Secure payments &amp; eSignatures</span></div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <span class="nav-link active">Who's it for
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg>
+            </span>
+            <div class="dropdown-menu solutions-menu">
+              <div>
+                <div class="dropdown-col-title">By Category</div>
+                <a href="../industries.html#beauty-personal-care" class="dropdown-item"><div class="dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="dropdown-info"><span class="dropdown-name">Beauty &amp; Personal Care</span></div></a>
+                <a href="../industries.html#health" class="dropdown-item"><div class="dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div class="dropdown-info"><span class="dropdown-name">Health</span></div></a>
+                <a href="../industries.html#fitness" class="dropdown-item"><div class="dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div><div class="dropdown-info"><span class="dropdown-name">Fitness</span></div></a>
+                <a href="../industries.html#food-hospitality" class="dropdown-item"><div class="dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><line x1="2" y1="3" x2="2" y2="21"/><path d="M13 3l-1 9m-4-9l1 9"/></svg></div><div class="dropdown-info"><span class="dropdown-name">Food &amp; Hospitality</span></div></a>
+              </div>
+              <div>
+                <div class="dropdown-col-title">&nbsp;</div>
+                <a href="../industries.html#retail-commerce" class="dropdown-item"><div class="dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div><div class="dropdown-info"><span class="dropdown-name">Retail &amp; Commerce</span></div></a>
+                <a href="../industries.html#home-services-trades" class="dropdown-item"><div class="dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><div class="dropdown-info"><span class="dropdown-name">Home Services &amp; Trades</span></div></a>
+                <a href="../industries.html#property" class="dropdown-item"><div class="dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div class="dropdown-info"><span class="dropdown-name">Property</span></div></a>
+                <a href="../industries.html#professional-knowledge" class="dropdown-item"><div class="dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><div class="dropdown-info"><span class="dropdown-name">Professional &amp; Knowledge</span></div></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <span class="nav-link">Resources
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg>
+            </span>
+            <div class="dropdown-menu" style="grid-template-columns: repeat(1, minmax(240px, 1fr));">
+              <a href="#" class="dropdown-item"><div class="dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div class="dropdown-info"><span class="dropdown-name">Guides &amp; Articles</span></div></a>
+              <a href="#" class="dropdown-item"><div class="dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></div><div class="dropdown-info"><span class="dropdown-name">What's New</span></div></a>
+              <a href="#" class="dropdown-item"><div class="dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div class="dropdown-info"><span class="dropdown-name">Security Center</span></div></a>
+            </div>
+          </div>
+
+          <a href="../industries.html" class="nav-link">Industries</a>
+          <a href="../pricing.html" class="nav-link">Pricing</a>
+        </nav>
+
+        <div class="header-actions">
+          <a href="../login.html" class="login-link">Log in</a>
+          <a href="../signup.html" class="btn btn-primary">Start free</a>
+          <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-overlay" id="mobile-overlay"></div>
+  <div class="mobile-nav" id="mobile-drawer">
+    <div class="mobile-nav-menu">
+      <div class="mobile-nav-item">
+        <div class="mobile-nav-link" id="mob-products-toggle">Products <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></div>
+        <div class="mobile-submenu" id="mob-products-sub">
+          <a href="../client-portal.html" class="mobile-submenu-link">Client Portal</a>
+          <a href="../client-management.html" class="mobile-submenu-link">Client CRM</a>
+          <a href="../pricing.html" class="mobile-submenu-link">Billing &amp; Contracts</a>
+        </div>
+      </div>
+      <div class="mobile-nav-item">
+        <div class="mobile-nav-link" id="mob-whosfor-toggle">Who's it for <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></div>
+        <div class="mobile-submenu" id="mob-whosfor-sub">
+          <a href="../industries.html#beauty-personal-care" class="mobile-submenu-link">Beauty &amp; Personal Care</a>
+          <a href="../industries.html#health" class="mobile-submenu-link">Health</a>
+          <a href="../industries.html#fitness" class="mobile-submenu-link">Fitness</a>
+          <a href="../industries.html#food-hospitality" class="mobile-submenu-link">Food &amp; Hospitality</a>
+          <a href="../industries.html#retail-commerce" class="mobile-submenu-link">Retail &amp; Commerce</a>
+          <a href="../industries.html#home-services-trades" class="mobile-submenu-link">Home Services &amp; Trades</a>
+          <a href="../industries.html#property" class="mobile-submenu-link">Property</a>
+          <a href="../industries.html#professional-knowledge" class="mobile-submenu-link">Professional &amp; Knowledge</a>
+        </div>
+      </div>
+      <a href="../industries.html" class="mobile-nav-link">Industries</a>
+      <a href="../pricing.html" class="mobile-nav-link">Pricing</a>
+    </div>
+    <div class="mobile-nav-footer">
+      <a href="../login.html" class="btn btn-secondary">Log in</a>
+      <a href="../signup.html" class="btn btn-indigo">Start free</a>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <span class="section-tag">Real Estate</span>
+            <h1 class="hero-title text-gradient">Be first to every lead, every time.</h1>
+            <p class="hero-subtitle">The agent who answers in 5 minutes wins the client. FYNZ answers in 5 seconds.</p>
+            <div class="hero-ctas">
+              <a href="../signup.html" class="btn btn-primary">Start free</a>
+              <a href="../book-demo.html" class="btn btn-outline">Book demo</a>
+            </div>
+          </div>
+          <div class="mockup-container">
+            <div class="panel-mockup">
+              <div class="mockup-header">
+                <div class="mockup-dots"><span></span><span></span><span></span></div>
+                <div class="mockup-address-bar">Lead Conversation</div>
+              </div>
+              <div class="mockup-body">
+                <div class="chat-mockup">
+                  <div>
+                    <div class="chat-bubble inbound">Inquiry: 3BR under $800K near good schools — Realtor.ca</div>
+                    <div class="chat-meta">8:14:02 PM &middot; Portal lead</div>
+                  </div>
+                  <div style="align-self: flex-end; text-align: right;">
+                    <div class="chat-bubble outbound">Hi! I can help you with that listing &mdash; are you pre-approved and when would you like to view? &#128522;</div>
+                    <div class="chat-meta" style="text-align:right;">8:14:07 PM &middot; auto-sent by FYNZ</div>
+                  </div>
+                  <div class="chat-confirm">&#10003; Showing booked &mdash; Saturday 10 AM</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pain Points -->
+    <section class="pain-section">
+      <div class="container">
+        <div class="section-header" style="text-align:center;">
+          <span class="section-tag" style="color:rgba(255,255,255,0.6); border-color:rgba(255,255,255,0.15);">The real-estate grind</span>
+          <h2 class="section-title" style="color:#fff;">Sound familiar?</h2>
+        </div>
+        <div class="pain-grid">
+          <div class="pain-card">
+            <svg class="pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <div class="pain-title">Portal leads go cold in minutes</div>
+            <div class="pain-desc">You were in a showing. By the time you checked your phone, they had already moved on.</div>
+          </div>
+          <div class="pain-card">
+            <svg class="pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <div class="pain-title">Six months of &lsquo;just looking&rsquo; with no system</div>
+            <div class="pain-desc">Long-term buyers drift away without a structure to keep them warm until they are ready.</div>
+          </div>
+          <div class="pain-card">
+            <svg class="pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <div class="pain-title">Scheduling showings is a text-tag marathon</div>
+            <div class="pain-desc">Back-and-forth texts to pin down a time &mdash; for every single buyer, every single property.</div>
+          </div>
+          <div class="pain-card">
+            <svg class="pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <div class="pain-title">Past clients forget you exist</div>
+            <div class="pain-desc">By the time they&rsquo;re selling again, they&rsquo;ve already called the agent whose sign they saw last week.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefit 1 -->
+    <section style="padding: 5rem 0;">
+      <div class="container">
+        <div class="feature-grid">
+          <div class="feature-content">
+            <span class="section-tag">powered by Conversation AI + Voice AI &middot; RESPOND</span>
+            <h2>Every lead gets an answer in seconds.</h2>
+            <p>A new inquiry &mdash; from your site, a form, or a missed call &mdash; gets an instant, natural reply that qualifies the lead and books the showing. You&rsquo;re still in the walkthrough. FYNZ already has the appointment on the calendar.</p>
+            <ul class="pricing-features-list">
+              <li class="pricing-feature-item">Responds to web forms, missed calls, and portal leads</li>
+              <li class="pricing-feature-item">Qualifies pre-approval status and timeline automatically</li>
+              <li class="pricing-feature-item">Seamless handoff to you the moment a lead warms up</li>
+              <li class="pricing-feature-item">Available at 2 PM and at 11 PM &mdash; always</li>
+            </ul>
+          </div>
+          <div class="mockup-container">
+            <div class="panel-mockup">
+              <div class="mockup-header">
+                <div class="mockup-dots"><span></span><span></span><span></span></div>
+                <div class="mockup-address-bar">Lead Response Timeline</div>
+              </div>
+              <div class="mockup-body" style="padding: 1rem;">
+                <div style="display:flex; flex-direction:column; gap:0.6rem;">
+                  <div style="background:var(--color-bg-subtle); border:1px solid var(--color-border); border-radius:8px; padding:0.6rem 0.8rem; font-size:0.75rem; color:var(--color-text-secondary);">
+                    <span style="font-weight:700; color:var(--color-text-title);">8:14:02 PM</span> &middot; Inquiry received
+                  </div>
+                  <div style="background:var(--color-primary); border-radius:8px; padding:0.6rem 0.8rem; font-size:0.75rem; color:#fff;">
+                    <span style="font-weight:700;">8:14:07 PM</span> &middot; AI reply sent &#10003;
+                  </div>
+                  <div style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.25); border-radius:8px; padding:0.6rem 0.8rem; font-size:0.75rem; color:var(--color-success); font-weight:700; text-align:center;">
+                    Showing booked &mdash; Saturday 10 AM &#10003;
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefit 2 -->
+    <section style="padding: 5rem 0; background: var(--color-bg-subtle);">
+      <div class="container">
+        <div class="feature-grid reverse">
+          <div class="feature-content">
+            <span class="section-tag">powered by Workflow AI + Email &amp; SMS campaigns &middot; GROW</span>
+            <h2>&lsquo;Just looking&rsquo; leads stay warm for months.</h2>
+            <p>Market updates, rate alerts, and check-ins nurture the 6-month buyer until they&rsquo;re the this-month buyer. FYNZ drafts and schedules everything &mdash; you set the cadence and stay front of mind without lifting a finger.</p>
+            <ul class="pricing-features-list">
+              <li class="pricing-feature-item">Automated market-update emails and SMS check-ins</li>
+              <li class="pricing-feature-item">Interest rate alert drip when conditions shift</li>
+              <li class="pricing-feature-item">Re-engagement triggers when a lead goes quiet</li>
+              <li class="pricing-feature-item">You approve content or fully automate &mdash; your call</li>
+            </ul>
+          </div>
+          <div class="mockup-container">
+            <div class="panel-mockup">
+              <div class="mockup-header">
+                <div class="mockup-dots"><span></span><span></span><span></span></div>
+                <div class="mockup-address-bar">6-Month Nurture Timeline</div>
+              </div>
+              <div class="mockup-body" style="padding: 1rem;">
+                <div style="display:flex; flex-direction:column; gap:0.5rem;">
+                  <div style="display:flex; align-items:center; gap:0.6rem;">
+                    <div style="width:8px; height:8px; border-radius:50%; background:var(--color-primary); flex-shrink:0;"></div>
+                    <div style="font-size:0.72rem;"><span style="font-weight:700; color:var(--color-text-title);">Week 1</span> <span style="color:var(--color-text-secondary);">Welcome + area guide sent</span></div>
+                  </div>
+                  <div style="width:1px; height:14px; background:var(--color-border); margin-left:3.5px;"></div>
+                  <div style="display:flex; align-items:center; gap:0.6rem;">
+                    <div style="width:8px; height:8px; border-radius:50%; background:var(--color-primary); flex-shrink:0; opacity:0.7;"></div>
+                    <div style="font-size:0.72rem;"><span style="font-weight:700; color:var(--color-text-title);">Month 2</span> <span style="color:var(--color-text-secondary);">Market update email</span></div>
+                  </div>
+                  <div style="width:1px; height:14px; background:var(--color-border); margin-left:3.5px;"></div>
+                  <div style="display:flex; align-items:center; gap:0.6rem;">
+                    <div style="width:8px; height:8px; border-radius:50%; background:var(--color-primary); flex-shrink:0; opacity:0.5;"></div>
+                    <div style="font-size:0.72rem;"><span style="font-weight:700; color:var(--color-text-title);">Month 4</span> <span style="color:var(--color-text-secondary);">Interest rate alert triggered</span></div>
+                  </div>
+                  <div style="width:1px; height:14px; background:var(--color-border); margin-left:3.5px;"></div>
+                  <div style="display:flex; align-items:center; gap:0.6rem;">
+                    <div style="width:8px; height:8px; border-radius:50%; background:var(--color-success); flex-shrink:0;"></div>
+                    <div style="font-size:0.72rem;"><span style="font-weight:700; color:var(--color-text-title);">Month 6</span> <span style="color:var(--color-text-secondary);">&lsquo;Ready to start looking seriously?&rsquo;</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefit 3 -->
+    <section style="padding: 5rem 0;">
+      <div class="container">
+        <div class="feature-grid">
+          <div class="feature-content">
+            <span class="section-tag">powered by Online booking &middot; SCHEDULE</span>
+            <h2>Showings book themselves.</h2>
+            <p>Buyers pick from your real availability &mdash; no text tag, no back-and-forth. The showing is confirmed, reminders go out, and you just show up. Every slot protected, every showing prepared.</p>
+            <ul class="pricing-features-list">
+              <li class="pricing-feature-item">Live availability synced to your calendar</li>
+              <li class="pricing-feature-item">Property address and details included in confirmation</li>
+              <li class="pricing-feature-item">Automatic reminders 24 hours and 1 hour before</li>
+              <li class="pricing-feature-item">Easy one-tap rescheduling for buyers</li>
+            </ul>
+          </div>
+          <div class="mockup-container">
+            <div class="panel-mockup">
+              <div class="mockup-header">
+                <div class="mockup-dots"><span></span><span></span><span></span></div>
+                <div class="mockup-address-bar">Book a Showing</div>
+              </div>
+              <div class="mockup-body" style="padding: 1rem;">
+                <div style="font-size:0.75rem; font-weight:700; color:var(--color-text-title); margin-bottom:0.5rem;">142 Maple Grove Cres &middot; $749,000</div>
+                <div style="font-size:0.7rem; color:var(--color-text-secondary); margin-bottom:0.75rem;">3 bed &middot; 2 bath &middot; Available to view:</div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.4rem; margin-bottom:0.75rem;">
+                  <div style="background:var(--color-primary-light); border:1.5px solid var(--color-primary); border-radius:6px; padding:0.4rem 0.5rem; text-align:center; font-size:0.68rem; font-weight:600; color:var(--color-primary);">Sat 10:00 AM</div>
+                  <div style="background:var(--color-bg-subtle); border:1px solid var(--color-border); border-radius:6px; padding:0.4rem 0.5rem; text-align:center; font-size:0.68rem; color:var(--color-text-secondary);">Sat 2:00 PM</div>
+                  <div style="background:var(--color-bg-subtle); border:1px solid var(--color-border); border-radius:6px; padding:0.4rem 0.5rem; text-align:center; font-size:0.68rem; color:var(--color-text-secondary);">Sun 11:00 AM</div>
+                  <div style="background:var(--color-bg-subtle); border:1px solid var(--color-border); border-radius:6px; padding:0.4rem 0.5rem; text-align:center; font-size:0.68rem; color:var(--color-text-secondary);">Sun 3:00 PM</div>
+                </div>
+                <div style="background:var(--color-primary); color:#fff; border-radius:6px; padding:0.5rem; text-align:center; font-size:0.75rem; font-weight:700;">Book this showing</div>
+                <div style="text-align:center; font-size:0.65rem; color:var(--color-text-muted); margin-top:0.4rem;">Confirmed in 30 seconds</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefit 4 -->
+    <section style="padding: 5rem 0; background: var(--color-bg-subtle);">
+      <div class="container">
+        <div class="feature-grid reverse">
+          <div class="feature-content">
+            <span class="section-tag">powered by Reviews AI + Workflow AI &middot; GROW</span>
+            <h2>Closings become referrals.</h2>
+            <p>Post-closing review requests and anniversary touches keep you the family&rsquo;s agent for life. One closing turns into the next sale, the neighbour&rsquo;s sale, and the referral you never had to ask for.</p>
+            <ul class="pricing-features-list">
+              <li class="pricing-feature-item">Automated post-closing review request sequence</li>
+              <li class="pricing-feature-item">Annual home-iversary message keeps you top of mind</li>
+              <li class="pricing-feature-item">Market-value update triggers when it&rsquo;s time to sell</li>
+              <li class="pricing-feature-item">Referral ask built into the post-close flow</li>
+            </ul>
+          </div>
+          <div class="mockup-container">
+            <div class="panel-mockup">
+              <div class="mockup-header">
+                <div class="mockup-dots"><span></span><span></span><span></span></div>
+                <div class="mockup-address-bar">1-Year Anniversary Message</div>
+              </div>
+              <div class="mockup-body" style="padding: 1rem;">
+                <div style="background:var(--color-bg-subtle); border:1px solid var(--color-border); border-radius:10px; padding:0.9rem;">
+                  <div style="font-size:0.7rem; color:var(--color-text-muted); margin-bottom:0.3rem;">From: Sarah Chen, Real Estate &middot; SMS</div>
+                  <div style="font-size:0.8rem; color:var(--color-text-main); line-height:1.6;">Happy home-iversary, the Nguyens! &#127969; Hope you&rsquo;re loving the place. Here if you ever need anything &mdash; and if you know anyone looking, I&rsquo;d love the intro.</div>
+                </div>
+                <div style="margin-top:0.75rem; display:flex; gap:0.5rem; align-items:center;">
+                  <div style="width:8px; height:8px; border-radius:50%; background:var(--color-success);"></div>
+                  <div style="font-size:0.7rem; color:var(--color-text-secondary);">Delivered &middot; 1 referral generated</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefit 5 -->
+    <section style="padding: 5rem 0;">
+      <div class="container">
+        <div class="feature-grid">
+          <div class="feature-content">
+            <span class="section-tag">powered by One inbox &middot; GROW</span>
+            <h2>One inbox for every conversation.</h2>
+            <p>Calls, texts, emails, and web chats &mdash; every thread with every client in one place. No more switching apps to find what that buyer said on Tuesday. Your whole pipeline, visible in a single view.</p>
+            <ul class="pricing-features-list">
+              <li class="pricing-feature-item">All channels unified: SMS, email, calls, web chat</li>
+              <li class="pricing-feature-item">Full conversation history per contact</li>
+              <li class="pricing-feature-item">Unread badges so nothing slips through</li>
+              <li class="pricing-feature-item">Assign conversations to team members</li>
+            </ul>
+          </div>
+          <div class="mockup-container">
+            <div class="panel-mockup">
+              <div class="mockup-header">
+                <div class="mockup-dots"><span></span><span></span><span></span></div>
+                <div class="mockup-address-bar">All Conversations</div>
+              </div>
+              <div class="mockup-body" style="padding: 1rem;">
+                <div style="display:flex; flex-direction:column; gap:0.5rem;">
+                  <div style="display:flex; justify-content:space-between; align-items:center; background:var(--color-primary-light); border:1px solid rgba(79,70,229,0.2); border-radius:8px; padding:0.6rem 0.75rem;">
+                    <div>
+                      <div style="font-size:0.75rem; font-weight:700; color:var(--color-text-title);">Sarah M. &middot; Portal lead</div>
+                      <div style="font-size:0.68rem; color:var(--color-text-secondary);">Yes &mdash; pre-approved. Saturday works!</div>
+                    </div>
+                    <div style="background:var(--color-primary); color:#fff; border-radius:99px; width:18px; height:18px; display:flex; align-items:center; justify-content:center; font-size:0.65rem; font-weight:700;">2</div>
+                  </div>
+                  <div style="display:flex; justify-content:space-between; align-items:center; background:var(--color-bg-subtle); border:1px solid var(--color-border); border-radius:8px; padding:0.6rem 0.75rem;">
+                    <div>
+                      <div style="font-size:0.75rem; font-weight:700; color:var(--color-text-title);">The Nguyens &middot; Past client</div>
+                      <div style="font-size:0.68rem; color:var(--color-text-secondary);">Thanks for the anniversary note! &#127969;</div>
+                    </div>
+                    <div style="background:var(--color-success); color:#fff; border-radius:99px; width:18px; height:18px; display:flex; align-items:center; justify-content:center; font-size:0.65rem; font-weight:700;">1</div>
+                  </div>
+                  <div style="display:flex; justify-content:space-between; align-items:center; background:var(--color-bg-subtle); border:1px solid var(--color-border); border-radius:8px; padding:0.6rem 0.75rem;">
+                    <div>
+                      <div style="font-size:0.75rem; font-weight:700; color:var(--color-text-title);">James K. &middot; Text inquiry</div>
+                      <div style="font-size:0.68rem; color:var(--color-text-secondary);">What&rsquo;s the school catchment for that listing?</div>
+                    </div>
+                    <div style="background:var(--color-warning); color:#fff; border-radius:99px; width:18px; height:18px; display:flex; align-items:center; justify-content:center; font-size:0.65rem; font-weight:700;">1</div>
+                  </div>
+                  <div style="display:flex; justify-content:space-between; align-items:center; background:var(--color-bg-subtle); border:1px solid var(--color-border); border-radius:8px; padding:0.6rem 0.75rem;">
+                    <div>
+                      <div style="font-size:0.75rem; font-weight:700; color:var(--color-text-title);">Linda P. &middot; Email</div>
+                      <div style="font-size:0.68rem; color:var(--color-text-secondary);">Re: Offer on 48 Birchwood &mdash; countered</div>
+                    </div>
+                    <div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Micro-Demo Section -->
+    <section class="demo-section" id="demo">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Speed to lead</span>
+          <h2 class="section-title">5 seconds from inquiry to engaged &mdash; every time</h2>
+          <p class="section-desc">Watch a real portal inquiry turn into a booked showing in under a minute.</p>
+        </div>
+        <div class="demo-card">
+          <div class="demo-timeline" id="demo-timeline">
+            <div class="demo-event" id="demo-e1">
+              <div class="demo-time">8:14:02 PM</div>
+              <div class="demo-dot"></div>
+              <div class="demo-text"><strong>Lead submits form on Realtor.ca</strong><br>&ldquo;Looking for 3BR under $800K near good schools.&rdquo;</div>
+            </div>
+            <div class="demo-event" id="demo-e2">
+              <div class="demo-time">8:14:07 PM</div>
+              <div class="demo-dot"></div>
+              <div class="demo-text"><strong>FYNZ sends instantly:</strong><br>&ldquo;Hi Sarah! I found a few great options near top-rated schools. Are you pre-approved, and when can you view?&rdquo;</div>
+            </div>
+            <div class="demo-event" id="demo-e3">
+              <div class="demo-time">8:14:52 PM</div>
+              <div class="demo-dot"></div>
+              <div class="demo-text"><strong>Sarah replies:</strong><br>&ldquo;Yes, pre-approved. Saturday works!&rdquo;</div>
+            </div>
+            <div class="demo-event" id="demo-e4">
+              <div class="demo-time">8:15:10 PM</div>
+              <div class="demo-dot success"></div>
+              <div class="demo-text"><strong>Showing booked automatically.</strong><br><span class="demo-badge">Saturday 10 AM &#10003; Confirmed</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Before / After -->
+    <section class="before-after">
+      <div class="container">
+        <div class="section-header" style="text-align:center; margin-bottom:2rem;">
+          <span class="section-tag">The difference</span>
+          <h2 class="section-title">A tale of two agents</h2>
+        </div>
+        <div class="ba-grid">
+          <div class="ba-card before">
+            <div class="ba-label">Without FYNZ</div>
+            <div class="ba-text">A hot portal lead sat 40 minutes &mdash; they signed with the agent who answered first. You saw the notification at 9 PM.</div>
+          </div>
+          <div class="ba-card after">
+            <div class="ba-label">With FYNZ</div>
+            <div class="ba-text">The lead was answered mid-showing. You walked out to a booked appointment waiting in your calendar.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proof -->
+    <section class="proof-section">
+      <div class="container">
+        <div class="section-header" style="text-align:center;">
+          <span class="section-tag">Results</span>
+          <h2 class="section-title">Numbers that matter</h2>
+        </div>
+        <div class="proof-stats">
+          <div class="stat-card">
+            <div class="stat-num">&lt;10s</div>
+            <div class="stat-label">Median lead response time</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">68%</div>
+            <div class="stat-label">Of leads booked to a showing</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">3&times;</div>
+            <div class="stat-label">More referrals from post-close flows</div>
+          </div>
+        </div>
+        <div class="testimonial-block">
+          &ldquo;[Agent testimonial placeholder &mdash; space for a real estate agent quote about FYNZ&rsquo;s impact on lead response and bookings.]&rdquo;
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-header" style="text-align:center;">
+          <span class="section-tag">Questions</span>
+          <h2 class="section-title">Common questions</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>Will leads know they&rsquo;re texting an AI first?</summary>
+            <div class="faq-answer">It&rsquo;s your choice &mdash; many agents disclose &ldquo;my assistant&rdquo; and take over live the moment it&rsquo;s warm. The handoff is seamless, and most leads won&rsquo;t notice the difference in speed.</div>
+          </details>
+          <details>
+            <summary>Can it qualify buyer vs. seller leads differently?</summary>
+            <div class="faq-answer">Yes &mdash; you configure separate flows for buyers, sellers, investors, and rental inquiries. Each gets a different qualification path and follow-up sequence tailored to their intent.</div>
+          </details>
+          <details>
+            <summary>How does the long-term nurture work?</summary>
+            <div class="faq-answer">You set the cadence and content topics (market updates, rate alerts, local events). FYNZ drafts and sends &mdash; you approve or fully automate. The lead stays warm without any manual effort from you.</div>
+          </details>
+          <details>
+            <summary>Does it integrate with my MLS or CRM?</summary>
+            <div class="faq-answer">FYNZ connects with popular tools via API and webhooks. Speak to our team about your specific stack and we&rsquo;ll confirm compatibility during your demo.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conversion CTA -->
+    <section class="conversion-section">
+      <div class="container">
+        <div class="conversion-banner">
+          <h2>The agent who answers first wins. Start answering in 5 seconds.</h2>
+          <p>No setup fees. No contracts. Your first month free.</p>
+          <div class="hero-ctas" style="justify-content:center;">
+            <a href="../signup.html" class="btn btn-primary">Start free today</a>
+            <a href="../book-demo.html" class="btn btn-outline" style="color:#fff; border-color:rgba(255,255,255,0.3);">Book a demo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <a href="../index.html" class="logo"><img src="../assets/logo.png" alt="FYNZ Logo">FYNZ</a>
+          <p>AI-powered automation for appointment, customer, and service businesses.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Twitter/X"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+            <a href="#" class="social-link" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Industries</div>
+          <div class="footer-links">
+            <a href="../industries.html#health" class="footer-link">Health</a>
+            <a href="../industries.html#fitness" class="footer-link">Fitness</a>
+            <a href="../industries.html#food-hospitality" class="footer-link">Food &amp; Hospitality</a>
+            <a href="../industries.html#home-services-trades" class="footer-link">Home Services</a>
+            <a href="../industries.html#professional-knowledge" class="footer-link">Professional</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Product</div>
+          <div class="footer-links">
+            <a href="../client-portal.html" class="footer-link">Client Portal</a>
+            <a href="../client-management.html" class="footer-link">Client CRM</a>
+            <a href="../pricing.html" class="footer-link">Pricing</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <div class="footer-links">
+            <a href="#" class="footer-link">Jobs</a>
+            <a href="../pricing.html" class="footer-link">Pricing</a>
+            <a href="#" class="footer-link">Terms</a>
+            <a href="#" class="footer-link">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 FYNZ Systems, Inc. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="#" class="footer-link">Terms of Service</a>
+          <a href="#" class="footer-link">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../script.js"></script>
+  <script>
+    const events = document.querySelectorAll('.demo-event');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          events.forEach(e => e.classList.add('visible'));
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+    const timeline = document.getElementById('demo-timeline');
+    if (timeline) observer.observe(timeline);
+  </script>
+</body>
+</html>
