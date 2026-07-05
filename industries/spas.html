@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>FYNZ for Spas — Fill quiet weekdays and sell more packages.</title>
-<meta name="description" content="FYNZ fills your spa&#39;s slow days, sells your series and gift cards online, and turns one-time visitors into members — while you keep the room quiet." />
+<meta name="description" content="FYNZ fills your spa's slow weekdays, sells series and gift cards online, wins back lapsed guests, and turns one-time visitors into members — while you keep the room quiet. Booking, no-show protection, marketing, and an AI front desk in one platform." />
 <script>try{if(localStorage.getItem("fynz-theme")==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -934,147 +934,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (max-width:640px){
   .bgrid.g3,.bgrid.g2{grid-template-columns:1fr}
 }
-
-/* ============ SPA HERO FLOATS ============ */
-.gift-float{
-  position:absolute;left:-56px;bottom:-34px;width:210px;z-index:2;
-  background:var(--navy-900);border:1px solid var(--line);border-radius:14px;
-  box-shadow:var(--shadow-lg);padding:12px;animation:bkfloat 6s ease-in-out infinite reverse;
-}
-.gift-float .gc{
-  border-radius:9px;padding:12px 12px 10px;color:var(--copper-ink);
-  background:linear-gradient(120deg,var(--copper) 0%,#B0705A 100%);margin-bottom:9px;
-}
-.gift-float .gc b{font-family:var(--font-display);font-weight:800;font-size:0.72rem;display:block}
-.gift-float .gc small{font-family:var(--font-mono);font-size:6.5px;letter-spacing:0.12em;opacity:.85}
-.gift-float .gc .amt{font-family:var(--font-display);font-weight:800;font-size:1.05rem;display:block;margin-top:6px}
-.gift-float > small{font-family:var(--font-mono);font-size:7px;letter-spacing:0.1em;color:var(--green);display:block}
-.ig-mock.spa{left:auto;right:-20px;top:-34px;bottom:auto;width:200px;animation-duration:7s}
-
-/* ============ NEW VIZ: booking upsells itself ============ */
-.vz-upsell .base{
-  position:absolute;top:34px;left:14px;right:14px;
-  background:rgba(244,246,251,0.04);border:1px solid var(--line-soft);border-radius:10px;
-  padding:10px 12px;font-family:var(--font-display);font-weight:600;font-size:0.78rem;
-  display:flex;justify-content:space-between;align-items:center;
-}
-.vz-upsell .base small{font-family:var(--font-mono);font-weight:400;font-size:7px;letter-spacing:0.1em;color:var(--faint)}
-.vz-upsell .adds{position:absolute;top:82px;left:14px;right:14px;display:flex;gap:7px;flex-wrap:wrap}
-.ben-group.in .vz-upsell .adds .vchip{animation:vuAdd 7s infinite}
-.ben-group.in .vz-upsell .adds .vchip:nth-child(2){animation-delay:.5s}
-@keyframes vuAdd{0%,18%{opacity:.35;border-style:dashed}30%,92%{opacity:1;border-style:solid}100%{opacity:.35}}
-.vz-upsell .tot{
-  position:absolute;bottom:16px;left:14px;right:14px;display:flex;justify-content:space-between;
-  font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;color:var(--faint);
-}
-.vz-upsell .tot b{color:var(--copper);font-weight:500;position:relative}
-.vz-upsell .tot b s{position:absolute;right:0;top:0;color:var(--faint);text-decoration:line-through;opacity:0}
-.ben-group.in .vz-upsell .tot b s{animation:vuOld 7s infinite}
-.ben-group.in .vz-upsell .tot b i{font-style:normal}
-.ben-group.in .vz-upsell .tot b{animation:vuNew 7s infinite}
-@keyframes vuOld{0%,28%{opacity:1}34%,100%{opacity:0}}
-@keyframes vuNew{0%,28%{color:rgba(244,246,251,0.4)}36%,100%{color:#D9967D}}
-
-/* ============ NEW VIZ: couples suite matching ============ */
-.vz-couple .pc{
-  position:absolute;font-family:var(--font-mono);font-size:7.5px;letter-spacing:0.1em;
-  border:1px solid var(--line-soft);border-radius:999px;padding:5px 11px;color:var(--muted);
-  background:var(--navy-800);
-}
-.vz-couple .pc.t1{top:34px;left:14px}
-.vz-couple .pc.t2{top:34px;right:14px}
-.vz-couple .pc.rm{top:62px;left:50%;transform:translateX(-50%)}
-.ben-group.in .vz-couple .pc{animation:vcMerge 7s infinite}
-.ben-group.in .vz-couple .pc.t2{animation-delay:.2s}
-.ben-group.in .vz-couple .pc.rm{animation-delay:.4s}
-@keyframes vcMerge{0%,14%{opacity:1;transform:none}40%,86%{opacity:0}94%,100%{opacity:1}}
-.vz-couple .pc.rm{--noop:0}
-.vz-couple .match{
-  position:absolute;top:56%;left:14px;right:14px;text-align:center;
-}
-.ben-group.in .vz-couple .match .vchip{animation:vcMatch 7s infinite}
-@keyframes vcMatch{0%,32%{opacity:0;transform:translateY(10px)}46%,92%{opacity:1;transform:none}100%{opacity:0}}
-.vz-couple .sub{
-  position:absolute;bottom:16px;left:0;right:0;text-align:center;
-  font-family:var(--font-mono);font-size:7.5px;letter-spacing:0.14em;color:var(--faint);
-}
-
-/* ============ SHOW IT: quiet-tuesday campaign demo ============ */
-.cpn{
-  background:var(--navy-900);border:1px solid var(--line);border-radius:var(--r-lg);
-  box-shadow:var(--shadow-md);padding:18px;display:flex;flex-direction:column;
-}
-.cpn-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}
-.cpn-head b{font-family:var(--font-mono);font-size:10px;letter-spacing:0.16em;color:var(--faint);font-weight:500}
-.cpn-head span{font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;color:var(--green);display:flex;align-items:center;gap:6px}
-.cpn-head span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 7px var(--green)}
-.cpn-sms{
-  background:var(--copper-tint);border:1px solid rgba(217,150,125,0.3);
-  border-radius:12px 12px 12px 4px;padding:10px 13px;font-size:0.8rem;color:var(--ink);line-height:1.5;
-  margin-bottom:14px;opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s;
-}
-.cpn-sms.show{opacity:1;transform:none}
-.cpn-sms small{display:block;font-family:var(--font-mono);font-size:7.5px;letter-spacing:0.1em;color:var(--faint);margin-top:5px}
-.cpn-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:14px}
-.tb{
-  border:1px dashed var(--line-soft);border-radius:8px;padding:11px 4px;text-align:center;
-  font-family:var(--font-mono);font-size:7.5px;letter-spacing:0.06em;color:var(--faint);
-  transition:all .35s;
-}
-.tb.fill{border-style:solid;border-color:rgba(127,178,229,0.5);background:rgba(127,178,229,0.1);color:#CFE2F6}
-.cpn-meter{display:flex;align-items:center;gap:12px}
-.cpn-meter small{font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;color:var(--faint);flex-shrink:0}
-.cpn-bar{flex:1;height:8px;border-radius:4px;background:rgba(244,246,251,0.07);overflow:hidden}
-.cpn-bar i{display:block;height:100%;width:0;background:var(--copper);transition:width .5s ease}
-.cpn-pct{font-family:var(--font-mono);font-size:10px;color:var(--copper);width:38px;text-align:right}
-
-/* ============ SHOW IT: 8 PM purchase demo ============ */
-.pur{
-  background:var(--navy-900);border:1px solid var(--line);border-radius:var(--r-lg);
-  box-shadow:var(--shadow-md);padding:18px;display:flex;flex-direction:column;position:relative;
-}
-.pur-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}
-.pur-head b{font-family:var(--font-mono);font-size:10px;letter-spacing:0.16em;color:var(--faint);font-weight:500}
-.pur-head span{font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;color:var(--copper)}
-.pur-item{
-  display:flex;justify-content:space-between;align-items:center;gap:12px;
-  background:var(--inset);border:1px solid var(--line-soft);border-radius:10px;
-  padding:12px 14px;margin-bottom:9px;
-  opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s;
-}
-.pur-item.show{opacity:1;transform:none}
-.pur-item .nm{font-family:var(--font-display);font-weight:600;font-size:0.86rem}
-.pur-item .nm small{display:block;font-family:var(--font-mono);font-weight:400;font-size:7px;letter-spacing:0.1em;color:var(--faint);margin-top:3px}
-.pur-item .pr{font-family:var(--font-mono);font-size:10.5px;color:var(--copper)}
-.pur-total{
-  display:flex;justify-content:space-between;padding:11px 4px;border-top:1px solid var(--line-soft);
-  font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;color:var(--muted);
-}
-.pur-stamp{
-  position:absolute;top:44%;left:50%;transform:translate(-50%,-50%) rotate(-8deg) scale(1.4);
-  font-family:var(--font-display);font-weight:800;font-size:1.5rem;color:var(--green);
-  border:3px solid var(--green);border-radius:10px;padding:4px 18px;opacity:0;
-  transition:opacity .3s,transform .3s;pointer-events:none;
-}
-.pur-stamp.show{opacity:1;transform:translate(-50%,-50%) rotate(-8deg) scale(1)}
-.pur-rec{
-  margin-top:5px;text-align:center;opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s;
-}
-.pur-rec.show{opacity:1;transform:none}
-.pur-replay{
-  display:block;width:100%;margin-top:12px;padding:10px;border-top:1px solid var(--line-soft);
-  font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.16em;color:var(--faint);transition:color .2s;
-}
-.pur-replay:hover{color:var(--copper)}
-
-@media (max-width:1020px){
-  .gift-float{left:0;bottom:-28px}
-  .ig-mock.spa{right:0;top:-26px}
-}
-@media (max-width:640px){
-  .gift-float,.ig-mock.spa{position:static;width:100%;margin-top:14px;animation:none}
-  .cpn-grid{grid-template-columns:repeat(5,1fr)}
-}
 /* ============ APP + FINAL CTA ============ */
 .final{position:relative;overflow:hidden;text-align:center;padding:130px 0}
 .final::before{
@@ -1292,19 +1151,16 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
         <div class="bk-svc"><span class="nm">60-min massage<small>ADD HOT STONES +$25</small></span><span class="pr">$110</span></div>
         <div class="bk-svc"><span class="nm">Signature facial<small>75 MIN</small></span><span class="pr">$135</span></div>
         <div class="bk-svc"><span class="nm">Couples retreat<small>2 THERAPISTS · SUITE</small></span><span class="pr">$240</span></div>
+        <div class="bk-staff"><span class="on">SR</span><span>LM</span><span>KT</span><span>DP</span></div>
         <div class="bk-times"><b>10:00</b><b class="on">2:00</b><b>3:30</b><b>5:00</b></div>
         <span class="bk-cta">Book Tuesday — 2:00 PM</span>
         <span class="bk-float">TUESDAY 85% BOOKED · OFFER SENT ✓</span>
       </div>
-      <div class="ig-mock spa">
+      <div class="ig-mock">
         <div class="ig-top"><i></i><b>serenedayspa</b></div>
         <div class="ig-img"></div>
         <p>The Zen room, ready for you ✨ Midweek escapes now booking…</p>
         <span class="ig-sch">SCHEDULED ✓ IG · FB · GOOGLE BUSINESS</span>
-      </div>
-      <div class="gift-float">
-        <div class="gc"><b>SERENE DAY SPA</b><small>DIGITAL GIFT CARD</small><span class="amt">$200</span></div>
-        <small>PURCHASED ONLINE · 7:45 PM ✓</small>
       </div>
     </div>
   </div>
@@ -1333,72 +1189,42 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Here's what changes</span>
-      <h2 class="h2">Keep the room quiet. FYNZ handles <span class="cw">the noise</span>.</h2>
+      <h2 class="h2">Keep the room quiet. FYNZ runs <span class="cw">everything else</span>.</h2>
     </div>
 
     <div class="ben-group reveal">
-      <h3><span class="gi">01</span>Fill quiet days, and every hour.</h3>
+      <h3><span class="gi">01</span>Fill every room.</h3>
       <div class="bgrid g3">
         <div class="bcard">
-          <div class="bviz vz-tue" aria-hidden="true">
-            <span class="vlabel">BOOKINGS BY DAY</span>
-            <span class="vchip cu offer">MIDWEEK OFFER → LAPSED CLIENTS ONLY</span>
-            <div class="bars">
-              <div class="bar" style="height:58%"><i>MON</i></div>
-              <div class="bar tu"><i>TUE</i></div>
-              <div class="bar" style="height:50%"><i>WED</i></div>
-              <div class="bar" style="height:72%"><i>THU</i></div>
-              <div class="bar" style="height:96%"><i>FRI</i></div>
-            </div>
+          <div class="bviz vz-book" aria-hidden="true">
+            <span class="vlabel">YOUR BOOKING PAGE — 2:04 AM</span>
+            <div class="slots"><b>10:00</b><b class="pick">2:00 AM ▸ TUE 11:30</b><b>4:45</b></div>
+            <div class="toast"><span class="vchip ok">BOOKED — TUE 11:30 · CONFIRMATION SENT ✓</span></div>
           </div>
-          <h4>Slow days fill themselves.</h4>
-          <p>A midweek offer goes to the exact clients who haven't visited in a while — no ad spend, no discount to your regulars who'd come anyway.</p>
-          <span class="tag">powered by <b>Email &amp; SMS campaigns · GROW</b></span>
-        </div>
-        <div class="bcard">
-          <div class="bviz vz-upsell" aria-hidden="true">
-            <span class="vlabel">AT BOOKING — NOT AT CHECKOUT</span>
-            <div class="base">60-min massage<small>TUE 2:00 PM</small></div>
-            <div class="adds"><span class="vchip cu">+ HOT STONES $25 ✓</span><span class="vchip cu">+ AROMATHERAPY $15 ✓</span></div>
-            <div class="tot"><span>TICKET TOTAL</span><b><s>$110</s><i>$150</i></b></div>
-          </div>
-          <h4>Every booking upsells itself.</h4>
-          <p>Hot-stone add-ons, extended time, aromatherapy — offered at booking, not awkwardly at checkout. Average ticket rises without a conversation.</p>
+          <h4>Get booked 24/7 — even while the room stays quiet.</h4>
+          <p>Guests pick a real open slot from your page, Instagram, or Google at 2 PM or 2 AM. Every booking taken is one you would have missed.</p>
           <span class="tag">powered by <b>Online booking · SCHEDULE</b></span>
-        </div>
-        <div class="bcard">
-          <div class="bviz vz-couple" aria-hidden="true">
-            <span class="vlabel">COUPLES RETREAT — THURSDAY 3:00 PM</span>
-            <span class="pc t1">THERAPIST · ANA</span>
-            <span class="pc t2">THERAPIST · KIM</span>
-            <span class="pc rm">SUITE · ROOM 2</span>
-            <div class="match"><span class="vchip ok">MATCHED — ANA + KIM · ROOM 2 · 3:00 PM ✓</span></div>
-            <div class="sub">NO FRONT-DESK TETRIS · NO DOUBLE-BOOKING</div>
-          </div>
-          <h4>Couples suites and multi-room bookings — without the Tetris.</h4>
-          <p>Two therapists, one room, right time — matched automatically so the front desk stops juggling.</p>
-          <span class="tag">powered by <b>Staff calendars + Online booking · SCHEDULE</b></span>
         </div>
         <div class="bcard">
           <div class="bviz vz-voice" aria-hidden="true">
             <span class="vlabel">INCOMING CALL — MID-TREATMENT</span>
             <span class="ring"></span><span class="ring r2"></span>
             <span class="ph">✆</span>
-            <div class="sms">"Our couples retreat is $240 for 90 minutes — Thursday 3:00 is open. Shall I add a gift card for the occasion?"<small>VOICE AI · THE ROOM STAYED QUIET</small></div>
+            <div class="sms">Sorry we missed you! Book in 10 seconds: fynz.io/serene ✨<small>AUTO-TEXT · SENT IN 4 SECONDS</small></div>
           </div>
-          <h4>Every call answered, even mid-treatment.</h4>
-          <p>The receptionist takes questions about services, gift cards, and pricing — and books the appointment — while the room stays quiet.</p>
-          <span class="tag">powered by <b>Voice AI</b></span>
+          <h4>Every call answered — every missed call texted back in seconds.</h4>
+          <p>The front desk takes the call, checks the calendar, and books the appointment while your therapists stay with their guests. Missed calls get an instant text back so the caller doesn't book the next spa.</p>
+          <span class="tag">powered by <b>Voice AI</b> + <b>Missed-call text-back · GROW</b></span>
         </div>
         <div class="bcard">
           <div class="bviz vz-remind" aria-hidden="true">
-            <span class="vlabel">COUPLES SUITE — PEAK SLOT</span>
-            <div class="appt">Couples retreat — 90 min<small>SAT 3:00 PM · 2 THERAPISTS · CARD ON FILE</small></div>
+            <span class="vlabel">SATURDAY 2:00 PM — COUPLES SUITE</span>
+            <div class="appt">Hannah M. — Couples retreat<small>SAT 2:00 PM · CARD ON FILE</small></div>
             <div class="vrow bells"><span class="vchip cu b1">🔔 −24H SENT ✓</span><span class="vchip cu b2">🔔 −2H CONFIRMED ✓</span></div>
-            <span class="vchip ok dep">DEPOSIT HELD — $50</span>
+            <span class="vchip ok dep">DEPOSIT HELD — $20</span>
           </div>
-          <h4>No-shows stop stealing your best hours.</h4>
-          <p>Reminders confirm every visit; a small deposit on peak slots and couples suites means people show up — or you're covered.</p>
+          <h4>No-shows stop costing you your best rooms.</h4>
+          <p>Automatic reminders confirm every visit, and a card-on-file deposit on suites and peak slots means guests show up — or you're covered.</p>
           <span class="tag">powered by <b>Reminders &amp; confirmations · SCHEDULE</b> + <b>Deposits &amp; payments · SHOP</b></span>
         </div>
       </div>
@@ -1408,40 +1234,40 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <h3><span class="gi">02</span>Keep them coming back.</h3>
       <div class="bgrid g3">
         <div class="bcard">
-          <div class="bviz vz-bday" aria-hidden="true">
-            <span class="vlabel">LAPSED CLIENT — DETECTED</span>
-            <span class="sp" style="top:26px;right:30px"></span>
-            <span class="sp s2" style="top:44px;right:16px"></span>
-            <span class="sp s3" style="top:22px;right:52px"></span>
-            <div class="msg">We've missed you at Serene ✨ Your favorite therapist has openings this week — shall we save you a quiet hour?<small>SENT AUTOMATICALLY · IN YOUR VOICE</small></div>
-            <span class="vchip cu aut">5 LAPSED CLIENTS NUDGED THIS WEEK</span>
-          </div>
-          <h4>"We miss you" goes out before they're gone.</h4>
-          <p>Lapsed clients get a warm, well-timed nudge — automatically, in your tone.</p>
-          <span class="tag">powered by <b>Workflow AI</b></span>
-        </div>
-        <div class="bcard">
           <div class="bviz vz-rebook" aria-hidden="true">
-            <span class="vlabel">MAYA — MONTHLY MAINTENANCE</span>
-            <div class="nudge">Same time next month, Maya? Tuesday the 12th at 2:00 is yours if you want it.</div>
+            <span class="vlabel">MAYA — MONTHLY MASSAGE</span>
+            <div class="nudge">Hi Maya! It's been a month — ready to unwind again? Book: fynz.io/serene</div>
             <div class="line"></div>
-            <span class="dot" style="left:24px"><span>APR</span></span>
-            <span class="dot" style="left:34%"><span>MAY</span></span>
-            <span class="dot" style="left:62%"><span>JUN</span></span>
+            <span class="dot" style="left:24px"><span>JAN 4</span></span>
+            <span class="dot" style="left:34%"><span>FEB 15</span></span>
+            <span class="dot" style="left:62%"><span>MAR 29</span></span>
             <span class="dot due" style="right:24px"><span>DUE NOW</span></span>
           </div>
-          <h4>The next visit gets proposed at every checkout.</h4>
-          <p>Monthly maintenance clients rebook on cadence; regulars never fall out of their rhythm.</p>
+          <h4>Every guest rebooks on schedule.</h4>
+          <p>When someone's due for their next visit, FYNZ nudges them at their usual cadence, in your tone — before they drift away.</p>
           <span class="tag">powered by <b>Recurring appointments · SCHEDULE</b> + <b>Workflow AI</b></span>
         </div>
         <div class="bcard">
-          <div class="bviz vz-review" aria-hidden="true">
-            <span class="vlabel">NEW GOOGLE REVIEW — POST-VISIT</span>
-            <div class="stars"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div>
-            <div class="reply">Thank you, Maya — so glad the signature facial felt like a reset. The Zen room will be waiting. ✨<small>REPLY DRAFTED &amp; POSTED BY REVIEWS AI</small></div>
+          <div class="bviz vz-bday" aria-hidden="true">
+            <span class="vlabel">CLIENT DATES — TRACKED FOR YOU</span>
+            <span class="sp" style="top:26px;right:30px"></span>
+            <span class="sp s2" style="top:44px;right:16px"></span>
+            <span class="sp s3" style="top:22px;right:52px"></span>
+            <div class="msg">🎂 Happy birthday, Maya! Enjoy 15% off any treatment this month — from all of us at Serene.<small>SENT AUTOMATICALLY · 9:00 AM ON HER DAY</small></div>
+            <span class="vchip cu aut">1-YEAR ANNIVERSARY OFFER — QUEUED</span>
           </div>
-          <h4>Your calm shows up in your reviews.</h4>
-          <p>Post-visit review requests keep your rating — and your search ranking — rising.</p>
+          <h4>Birthdays, anniversaries, and big moments — remembered.</h4>
+          <p>A birthday treat, a "one-year with us" thank you, a first-visit anniversary offer — all sent automatically, timed to each guest.</p>
+          <span class="tag">powered by <b>Email &amp; SMS campaigns · GROW</b> + <b>Workflow AI</b></span>
+        </div>
+        <div class="bcard">
+          <div class="bviz vz-review" aria-hidden="true">
+            <span class="vlabel">NEW GOOGLE REVIEW — 2 MIN AFTER VISIT</span>
+            <div class="stars"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div>
+            <div class="reply">Thank you, Maya! So glad you left feeling restored — see you next month. 🧖<small>REPLY DRAFTED &amp; POSTED BY REVIEWS AI</small></div>
+          </div>
+          <h4>Five-star reviews, without the awkward ask.</h4>
+          <p>After a great visit, the review request sends itself and routes happy guests straight to Google. Every fresh review is a new guest Google sends your way.</p>
           <span class="tag">powered by <b>Reviews AI</b></span>
         </div>
       </div>
@@ -1449,10 +1275,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
     <div class="ben-group reveal">
       <h3><span class="gi">03</span>Grow past word of mouth.</h3>
-      <div class="bgrid g3">
+      <div class="bgrid g2">
         <div class="bcard">
           <div class="bviz vz-social" aria-hidden="true">
-            <span class="vlabel">CONTENT AI — THE ZEN ROOM SHOT</span>
+            <span class="vlabel">CONTENT AI — TODAY'S ROOM</span>
             <div class="post">
               <div class="pimg"></div>
               <div class="ln"></div>
@@ -1464,21 +1290,37 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
               <span class="vchip ok">GOOGLE BUSINESS ✓</span>
             </div>
           </div>
-          <h4>Your treatments become your marketing.</h4>
-          <p>Post the ambience, the new facial, the Zen-room shot — Content AI drafts the caption in your voice and schedules it to Instagram, Facebook, and Google Business.</p>
+          <h4>Social posts that actually go out.</h4>
+          <p>A serene room shot, a seasonal ritual, a weekly special — the caption is drafted in your voice and posted to Instagram, Facebook, and Google Business on schedule.</p>
           <span class="tag">powered by <b>Content AI</b> + <b>Social planner · GROW</b></span>
         </div>
         <div class="bcard">
+          <div class="bviz vz-tue" aria-hidden="true">
+            <span class="vlabel">BOOKINGS BY DAY</span>
+            <span class="vchip cu offer">OFFER SENT 8:00 AM → LAPSED CLIENTS ONLY</span>
+            <div class="bars">
+              <div class="bar" style="height:62%"><i>MON</i></div>
+              <div class="bar tu"><i>TUE</i></div>
+              <div class="bar" style="height:54%"><i>WED</i></div>
+              <div class="bar" style="height:70%"><i>THU</i></div>
+              <div class="bar" style="height:96%"><i>FRI</i></div>
+            </div>
+          </div>
+          <h4>Quiet Tuesdays fill themselves.</h4>
+          <p>A midweek "escape" offer goes to the exact guests who haven't visited in a while — no ad spend, no discount to your regulars who'd come anyway.</p>
+          <span class="tag">powered by <b>Email &amp; SMS campaigns · GROW</b></span>
+        </div>
+        <div class="bcard">
           <div class="bviz vz-ref" aria-hidden="true">
-            <span class="vlabel">REFERRAL LINK — SHARED BY A REGULAR</span>
+            <span class="vlabel">REFERRAL LINK — SHARED BY A HAPPY CLIENT</span>
             <span class="av a1">MAYA</span>
             <div class="lnk"></div>
-            <span class="av a2">ERIN</span>
+            <span class="av a2">JESS</span>
             <span class="cr c1" style="color:var(--copper)">+ $25 CREDIT ✓</span>
             <span class="cr c2" style="color:var(--green)">+ $25 OFF · BOOKED ✓</span>
           </div>
           <h4>Referrals reward themselves.</h4>
-          <p>"Send a friend, both get $25 off your next visit" as a shareable link — when the friend books, both get credit automatically.</p>
+          <p>Happy guests get a shareable "$25 off for you and a friend" link; when the friend books, both get credit — no punch cards, no tracking by hand.</p>
           <span class="tag">powered by <b>Referrals · GROW</b> + <b>Workflow AI</b></span>
         </div>
         <div class="bcard">
@@ -1492,8 +1334,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
             </div>
             <span class="vchip ok done">WIRED TO YOUR CALENDAR ✓</span>
           </div>
-          <h4>A spa website that books — not just sits there.</h4>
-          <p>A calm, on-brand page with your services, therapists, and gallery, wired straight to your calendar. Drafted for you in an afternoon.</p>
+          <h4>A website that books clients — not just sits there.</h4>
+          <p>A spa-styled page with your treatments, prices, and gallery, wired to your calendar. Drafted for you in an afternoon.</p>
           <span class="tag">powered by <b>Website &amp; Funnel AI</b></span>
         </div>
       </div>
@@ -1504,13 +1346,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <div class="bgrid g2">
         <div class="bcard">
           <div class="bviz vz-gift" aria-hidden="true">
-            <span class="vlabel">SOLD ONLINE — TRACKED AUTOMATICALLY</span>
-            <div class="card"><b>SERENE DAY SPA</b><small>5-VISIT SERIES · GIFT CARD · CORPORATE BULK</small></div>
-            <div class="bal">VISITS LEFT<br/><b>5 → 4</b></div>
-            <span class="vchip ok red">NO PAPER CERTIFICATES · NO SPREADSHEET ✓</span>
+            <span class="vlabel">SOLD ONLINE — REDEEMED IN-ROOM</span>
+            <div class="card"><b>SERENE DAY SPA</b><small>GIFT CARD · MASSAGE SERIES</small></div>
+            <div class="bal">BALANCE<br/><b>$200 → $150</b></div>
+            <span class="vchip ok red">REDEEMED IN-ROOM — NO PAPER BALANCE ✓</span>
           </div>
-          <h4>Packages, memberships, and gift cards on your page.</h4>
-          <p>Sell 5- and 10-visit series, monthly memberships, and gift cards online — plus bulk corporate and holiday gift cards without the paper certificates.</p>
+          <h4>Series, memberships, and gift cards on your page.</h4>
+          <p>Sell 5-massage series, monthly memberships, and gift cards online — guests redeem in-room without a paper balance to keep.</p>
           <span class="tag">powered by <b>Memberships &amp; packages + Gift cards · SHOP</b></span>
         </div>
         <div class="bcard">
@@ -1519,11 +1361,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
             <div class="prod"></div>
             <span class="fly"></span>
             <div class="cart">🛒<u>1</u></div>
-            <span class="vchip ok paid">ORDER #327 — PAID ✓</span>
-            <span class="hrs">CANDLES + OILS · ORDERED 9:30 PM · SPA CLOSED</span>
+            <span class="vchip ok paid">ORDER #218 — PAID ✓</span>
+            <span class="hrs">ORDERED 10:40 PM · SPA CLOSED</span>
           </div>
           <h4>Retail products, sold when the spa is closed.</h4>
-          <p>Your candles, oils, skincare, and post-treatment care available online — clients restock without waiting for their next appointment.</p>
+          <p>Your skincare, candles, and home-care products for sale online — regulars restock without waiting for their next visit.</p>
           <span class="tag">powered by <b>Online store · SHOP</b></span>
         </div>
       </div>
@@ -1539,23 +1381,23 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
             <span class="src s2">FACEBOOK</span>
             <span class="src s3">TEXTS</span>
             <span class="src s4">WEBCHAT</span>
-            <div class="tray">One inbox <span class="vchip cu">5 NEW · ONE THREAD PER CLIENT ✓</span></div>
+            <div class="tray">One inbox <span class="vchip cu">4 NEW · ALL ANSWERED ✓</span></div>
           </div>
           <h4>Every message in one place.</h4>
-          <p>Instagram, Facebook, texts, and webchat land in the same inbox — every gift card question, every couples-booking request, one thread per client.</p>
+          <p>Instagram, Facebook, texts, and webchat all land in the same inbox — and get answered even when the front desk is with a guest.</p>
           <span class="tag">powered by <b>One inbox · GROW</b> + <b>Conversation AI</b></span>
         </div>
         <div class="bcard">
           <div class="bviz vz-ask" aria-hidden="true">
             <span class="vlabel">ASK AI</span>
-            <div class="q">▸ <i>How many gift cards did we sell in December?</i></div>
+            <div class="q">▸ <i>What's my top service this quarter?</i></div>
             <div class="ans">
-              <b>DECEMBER — 112 GIFT CARDS · $14.2K</b>
-              <div class="abars"><i style="height:38%"></i><i style="height:55%"></i><i class="top" style="height:100%"></i></div>
+              <b>MASSAGE SERIES — $9.1K THIS QUARTER</b>
+              <div class="abars"><i class="top" style="height:100%"></i><i style="height:64%"></i><i style="height:41%"></i></div>
             </div>
           </div>
           <h4>Ask your spa anything.</h4>
-          <p>"What's my top package this quarter?" "Which therapist is fully booked next weekend?" "How many gift cards did we sell in December?" — answered in plain language, from your real numbers.</p>
+          <p>"What's my top service this quarter?" "Which therapist is fully booked next week?" — answered in plain language, from your real numbers.</p>
           <span class="tag">powered by <b>Ask AI</b> + <b>Reports &amp; insights · OPS (LIVE)</b></span>
         </div>
       </div>
@@ -1568,41 +1410,47 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Watch it work</span>
-      <h2 class="h2">Two things FYNZ did <span class="cw">while the room stayed quiet</span></h2>
+      <h2 class="h2">Two things FYNZ did <span class="cw">while you kept the room quiet</span></h2>
     </div>
     <div class="demo2">
       <div class="reveal">
         <div class="demo-card-copy">
-          <b>A quiet Tuesday <span class="cw">fills itself</span>.</b>
-          <p>The "midweek escape" text goes out Friday to lapsed clients only. By Tuesday morning, the book is 85% full.</p>
+          <b>A treatment slot <span class="cw">refills itself</span>.</b>
+          <p>Your 2:00 cancels. The waitlist gets a text before you've seen it — booked again by 2:12.</p>
         </div>
-        <div class="cpn" id="cpnDemo">
-          <div class="cpn-head"><b>TUESDAY — THE QUIET DAY</b><span>LIVE</span></div>
-          <div class="cpn-sms" id="cpnSms">Midweek escape ✨ This Tuesday only: 20% off any 60-min treatment. Quiet rooms, your favorite therapist. Book: fynz.io/serene<small>SENT FRIDAY 5 PM · 400 LAPSED CLIENTS · NOT YOUR REGULARS</small></div>
-          <div class="cpn-grid" id="cpnGrid">
-            <div class="tb">10:00</div><div class="tb">11:00</div><div class="tb">12:00</div><div class="tb">1:00</div><div class="tb">2:00</div>
-            <div class="tb">3:00</div><div class="tb">4:00</div><div class="tb">5:00</div><div class="tb">6:00</div><div class="tb">7:00</div>
+        <div class="wl" id="wlDemo">
+          <div class="wl-head"><b>TODAY — TREATMENT ROOM 2</b><span>LIVE</span></div>
+          <div class="wl-rows">
+            <div class="wl-slot"><span class="t">11:00 AM</span><span class="who">Grace L.</span><span class="svc">60-min massage</span><span class="wl-badge"></span></div>
+            <div class="wl-slot" id="wlTarget"><span class="t">2:00 PM</span><span class="who" id="wlWho">Hannah M.</span><span class="svc" id="wlSvc">Signature facial</span><span class="wl-badge" id="wlBadge"></span></div>
+            <div class="wl-slot"><span class="t">4:30 PM</span><span class="who">Dana K.</span><span class="svc">Hot stone</span><span class="wl-badge"></span></div>
           </div>
-          <div class="cpn-meter"><small>TUESDAY</small><div class="cpn-bar"><i id="cpnBar"></i></div><span class="cpn-pct" id="cpnPct">0%</span></div>
-          <button class="pur-replay" id="cpnReplay">↺ REPLAY THE WEEKEND</button>
+          <div class="wl-sms" id="wlSms">
+            <div class="b">Hi Jess! A spot just opened at Serene today at 2:00 PM for your facial. Want it? Reply YES to grab it. ✨<small>WAITLIST TEXT · SENT 2:01 PM</small></div>
+          </div>
+          <button class="wl-replay" id="wlReplay">↺ REPLAY THE AFTERNOON</button>
         </div>
-        <span class="tag" style="display:block;margin-top:12px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;color:var(--faint)">powered by <b style="color:rgba(217,150,125,0.75);font-weight:500">Email &amp; SMS campaigns · GROW</b></span>
+        <span class="tag" style="display:block;margin-top:12px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;color:var(--faint)">powered by <b style="color:rgba(217,150,125,0.75);font-weight:500">Class schedules &amp; waitlists · SCHEDULE</b></span>
       </div>
       <div class="reveal d1">
         <div class="demo-card-copy">
-          <b>A $650 sale at 8 PM — <span class="cw">no front desk</span>.</b>
-          <p>A gift card and a 5-massage series, bought online after close. Both land in the client's record, ready to redeem.</p>
+          <b>A post <span class="cw">writes itself</span>.</b>
+          <p>You snapped the Zen room. Content AI drafts the caption and schedules it everywhere.</p>
         </div>
-        <div class="pur" id="purDemo">
-          <div class="pur-head"><b>ONLINE CHECKOUT — 8:00 PM</b><span>SPA CLOSED</span></div>
-          <div class="pur-item" id="purI1"><span class="nm">Digital gift card<small>FOR: MOM · DELIVERED BY EMAIL</small></span><span class="pr">$200</span></div>
-          <div class="pur-item" id="purI2"><span class="nm">5-massage series<small>60-MIN · NEVER EXPIRES</small></span><span class="pr">$450</span></div>
-          <div class="pur-total"><span>TOTAL</span><span>$650.00</span></div>
-          <span class="pur-stamp" id="purStamp">PAID ✓</span>
-          <div class="pur-rec" id="purRec"><span class="vchip ok">ADDED TO CLIENT RECORD — READY TO REDEEM ✓</span></div>
-          <button class="pur-replay" id="purReplay">↺ REPLAY THE SALE</button>
+        <div class="sp" id="spDemo">
+          <div class="sp-head"><b>CONTENT AI — DRAFTING POST</b><span>WORKING</span></div>
+          <div class="sp-img"><i>THE ZEN ROOM.JPG</i></div>
+          <div class="sp-cap"><span id="spText"></span><span class="caret" id="spCaret"></span></div>
+          <div class="sp-chips">
+            <span class="sp-chip" data-i="0">INSTAGRAM</span>
+            <span class="sp-chip" data-i="1">FACEBOOK</span>
+            <span class="sp-chip" data-i="2">GOOGLE BUSINESS</span>
+            <span class="sp-chip ok" data-i="3">SCHEDULED — SAT 9:00 AM ✓</span>
+          </div>
+          <span class="sp-stamp" id="spStamp">YOU APPROVED IT IN 10 SECONDS</span>
+          <button class="sp-replay" id="spReplay">↺ DRAFT IT AGAIN</button>
         </div>
-        <span class="tag" style="display:block;margin-top:12px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;color:var(--faint)">powered by <b style="color:rgba(217,150,125,0.75);font-weight:500">Memberships &amp; packages + Gift cards · SHOP</b></span>
+        <span class="tag" style="display:block;margin-top:12px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;color:var(--faint)">powered by <b style="color:rgba(217,150,125,0.75);font-weight:500">Content AI</b> + <b style="color:rgba(217,150,125,0.75);font-weight:500">Social planner · GROW</b></span>
       </div>
     </div>
   </div>
@@ -1622,17 +1470,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
         <div class="mo"><span class="tm">10:00 AM</span><p>Someone calls asking about couples massage — the front-desk person takes the call, misses two check-ins.</p></div>
         <div class="mo"><span class="tm">12:00 PM</span><p>Client checks out. You explain the 5-massage series. She'll "think about it." Never buys.</p></div>
         <div class="mo"><span class="tm">3:00 PM</span><p>A client no-shows the couples suite. Ninety minutes and two therapists wasted.</p></div>
-        <div class="mo"><span class="tm">6:00 PM</span><p>You post to Instagram between clients. Twelve likes.</p></div>
         <div class="mo"><span class="tm">8:00 PM</span><p>Someone stops by asking for a Mother's Day gift card. Handwritten certificate.</p></div>
       </div>
       <div class="day after">
         <span class="lbl">SAME TUESDAY, WITH FYNZ</span>
-        <div class="mo"><span class="tm">8:00 AM</span><p>The Friday "midweek escape" text hit 400 clients over the weekend. <b>Tuesday is 85% booked before you unlock the door.</b></p></div>
-        <div class="mo"><span class="tm">10:00 AM</span><p>Voice AI took the couples-massage call, <b>booked for Thursday</b>, and offered the gift card upsell — she added one to the checkout.</p></div>
+        <div class="mo"><span class="tm">8:00 AM</span><p>The Friday "midweek escape" text hit 400 guests over the weekend. <b>Tuesday is 85% booked before you unlock the door.</b></p></div>
+        <div class="mo"><span class="tm">10:00 AM</span><p>Voice AI took the couples-massage call, <b>booked it for Thursday</b>, and offered the gift-card upsell — she added one at checkout.</p></div>
         <div class="mo"><span class="tm">12:00 PM</span><p>Checkout offered the 5-massage series at the payment screen. <b>She bought it in two taps.</b></p></div>
-        <div class="mo"><span class="tm">3:00 PM</span><p>The couples suite deposit held. The no-show is covered; the waitlist got the slot; <b>the room refilled by 3:20.</b></p></div>
-        <div class="mo"><span class="tm">6:00 PM</span><p>Content AI posted the "Zen room" shot to Instagram at 4 PM. <b>180 likes and four saved posts.</b></p></div>
-        <div class="mo"><span class="tm">8:00 PM</span><p>The Mother's Day gift card was <b>bought online at 7:45</b>. Delivered by email, tracked to the buyer's record, ready to redeem.</p></div>
+        <div class="mo"><span class="tm">3:00 PM</span><p>The couples-suite deposit held. The no-show is covered; the waitlist got the slot; <b>the room refilled by 3:20.</b></p></div>
+        <div class="mo"><span class="tm">8:00 PM</span><p>The Mother's Day gift card was <b>bought online at 7:45</b> — delivered by email, tracked to the buyer, ready to redeem.</p></div>
       </div>
     </div>
   </div>
@@ -1647,7 +1493,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     </div>
     <!-- PLACEHOLDER: real data needed (all stats + testimonial below are provisional shapes) -->
     <div class="proof-stats reveal">
-      <div class="pstat"><span class="n">—%</span><span class="l">LIFT IN WEEKDAY BOOKINGS</span></div>
+      <div class="pstat"><span class="n">—</span><span class="l">GIFT CARDS SOLD ONLINE / MONTH</span></div>
       <div class="pstat"><span class="n">—</span><span class="l">PACKAGES SOLD ONLINE / MONTH</span></div>
       <div class="pstat"><span class="n">—</span><span class="l">GIFT CARDS SOLD ONLINE / MONTH</span></div>
       <div class="pstat"><span class="n">—%</span><span class="l">LAPSED CLIENTS RECOVERED BY WIN-BACK</span></div>
@@ -1673,16 +1519,16 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
         <div class="faq-a"><p>No. Setup is guided step by step, and once it's running, it runs itself. If you can post to Instagram, you can run FYNZ.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Will it sound like a robot to my clients?<span class="x"></span></button>
-        <div class="faq-a"><p>It speaks and texts in a natural voice, in your tone — and it hands the conversation to you the moment it should.</p></div>
-      </div>
-      <div class="faq-item">
         <button class="faq-q" aria-expanded="false">Will the messages feel premium — not like retail marketing?<span class="x"></span></button>
         <div class="faq-a"><p>Every message uses your voice, cadence, and pacing; approve-first mode lets you review anything before it sends. Members and regulars are never treated like a sale.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">Can I keep my phone number?<span class="x"></span></button>
         <div class="faq-a"><p>Yes. Your existing number keeps working — FYNZ just makes sure it always gets answered.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Can each therapist have their own calendar, booking link, and commission?<span class="x"></span></button>
+        <div class="faq-a"><p>Yes — every therapist gets their own services, hours, calendar, and reminders, with their own link to share and their own reporting.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">How long does setup take?<span class="x"></span></button>
@@ -1705,7 +1551,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <div class="wrap">
     <span class="eyebrow reveal">For spas</span>
     <h2 class="reveal">Keep the room quiet. FYNZ fills <span style="color:var(--copper)">the book</span>.</h2>
-    <p class="lede reveal">Full Tuesdays, packages that sell themselves, and gift cards without the drawer — from day one.</p>
+    <p class="lede reveal">Full Tuesdays, packages that sell themselves, and gift cards without the drawer — on autopilot from day one.</p>
     <div class="final-ctas reveal">
       <a class="btn btn-copper" href="../pricing.html">Start free</a>
       <a class="btn btn-ghost" href="../schedule.html">See how it works →</a>
@@ -1862,90 +1708,107 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   });
   syncThemeLabel();
 
-  /* ---- demo A: quiet-Tuesday campaign fills the book ---- */
-  var cpn = document.getElementById("cpnDemo");
-  if (cpn){
-    var sms = document.getElementById("cpnSms");
-    var blocks = Array.prototype.slice.call(document.querySelectorAll("#cpnGrid .tb"));
-    var bar = document.getElementById("cpnBar");
-    var pct = document.getElementById("cpnPct");
-    var order = [4, 1, 7, 2, 9, 0, 5, 8, 3];   // 9 of 10 fill = ~85%
-    var ctimers = [];
-    function cClear(){ ctimers.forEach(clearTimeout); ctimers = []; }
-    function cSet(n){
-      var p = Math.round((n / blocks.length) * 100);
-      bar.style.width = p + "%";
-      pct.textContent = p + "%";
+  /* ---- demo A: waitlist refill ---- */
+  var demo = document.getElementById("wlDemo");
+  if (demo){
+    var slot = document.getElementById("wlTarget");
+    var who = document.getElementById("wlWho");
+    var svc = document.getElementById("wlSvc");
+    var badge = document.getElementById("wlBadge");
+    var sms = document.getElementById("wlSms");
+    var timers = [];
+    function clearTimers(){ timers.forEach(clearTimeout); timers = []; }
+    function setState(state){
+      slot.classList.remove("cancelled","open","filled");
+      if (state === "start"){
+        who.textContent = "Hannah M.";
+        svc.textContent = "Signature facial"; badge.textContent = "";
+        sms.classList.remove("show");
+      } else if (state === "cancelled"){
+        slot.classList.add("cancelled");
+        badge.textContent = "CANCELLED 1:58";
+      } else if (state === "open"){
+        slot.classList.add("open");
+        who.textContent = "Open slot…";
+        badge.textContent = "";
+        sms.classList.add("show");
+      } else if (state === "filled"){
+        slot.classList.add("filled");
+        who.textContent = "Jess T.";
+        svc.textContent = "Signature facial";
+        badge.textContent = "REBOOKED 2:12 \u2713";
+        sms.classList.add("show");
+      }
     }
-    function cReset(){
-      cClear();
-      sms.classList.remove("show");
-      blocks.forEach(function(t){ t.classList.remove("fill"); });
-      cSet(0);
+    function play(){
+      clearTimers();
+      setState("start");
+      if (prefersReduced){ setState("filled"); return; }
+      timers.push(setTimeout(function(){ setState("cancelled"); }, 700));
+      timers.push(setTimeout(function(){ setState("open"); }, 2100));
+      timers.push(setTimeout(function(){ setState("filled"); }, 4300));
     }
-    function cFinal(){
-      cReset();
-      sms.classList.add("show");
-      order.forEach(function(i){ blocks[i].classList.add("fill"); });
-      cSet(order.length);
-    }
-    function cPlay(){
-      cReset();
-      if (prefersReduced){ cFinal(); return; }
-      ctimers.push(setTimeout(function(){ sms.classList.add("show"); }, 500));
-      order.forEach(function(idx, n){
-        ctimers.push(setTimeout(function(){
-          blocks[idx].classList.add("fill");
-          cSet(n + 1);
-        }, 1600 + n * 420));
-      });
-    }
-    var cPlayed = false;
-    var cIO = new IntersectionObserver(function(entries){
+    var played = false;
+    var dIO = new IntersectionObserver(function(entries){
       entries.forEach(function(en){
-        if (en.isIntersecting && !cPlayed){ cPlayed = true; cPlay(); cIO.unobserve(cpn); }
+        if (en.isIntersecting && !played){ played = true; play(); dIO.unobserve(demo); }
       });
     }, { threshold: 0.35 });
-    cIO.observe(cpn);
-    document.getElementById("cpnReplay").addEventListener("click", cPlay);
+    dIO.observe(demo);
+    document.getElementById("wlReplay").addEventListener("click", play);
   }
 
-  /* ---- demo B: 8 PM gift card + series purchase ---- */
-  var pur = document.getElementById("purDemo");
-  if (pur){
-    var i1 = document.getElementById("purI1");
-    var i2 = document.getElementById("purI2");
-    var stamp = document.getElementById("purStamp");
-    var rec = document.getElementById("purRec");
-    var ptimers = [];
-    function pClear(){ ptimers.forEach(clearTimeout); ptimers = []; }
-    function pReset(){
-      pClear();
-      [i1, i2].forEach(function(el){ el.classList.remove("show"); });
-      stamp.classList.remove("show");
-      rec.classList.remove("show");
+  /* ---- demo B: Content AI drafts + schedules a post ---- */
+  var sp = document.getElementById("spDemo");
+  if (sp){
+    var spText = document.getElementById("spText");
+    var spCaret = document.getElementById("spCaret");
+    var spStamp = document.getElementById("spStamp");
+    var chips = sp.querySelectorAll(".sp-chip");
+    var CAPTION = "The Zen room is ready \u2728 A few midweek escapes still open this week \u2014 tap the link in bio to book yours.";
+    var spTimers = [];
+    function spClear(){ spTimers.forEach(clearTimeout); spTimers = []; }
+    function spReset(){
+      spClear();
+      spText.textContent = "";
+      spCaret.style.display = "";
+      spStamp.classList.remove("show");
+      chips.forEach(function(c){ c.classList.remove("show"); });
     }
-    function pFinal(){
-      pReset();
-      i1.classList.add("show"); i2.classList.add("show");
-      stamp.classList.add("show"); rec.classList.add("show");
+    function spFinal(){
+      spReset();
+      spText.textContent = CAPTION;
+      spCaret.style.display = "none";
+      chips.forEach(function(c){ c.classList.add("show"); });
+      spStamp.classList.add("show");
     }
-    function pPlay(){
-      pReset();
-      if (prefersReduced){ pFinal(); return; }
-      ptimers.push(setTimeout(function(){ i1.classList.add("show"); }, 600));
-      ptimers.push(setTimeout(function(){ i2.classList.add("show"); }, 1500));
-      ptimers.push(setTimeout(function(){ stamp.classList.add("show"); }, 2600));
-      ptimers.push(setTimeout(function(){ rec.classList.add("show"); }, 3400));
+    function spPlay(){
+      spReset();
+      if (prefersReduced){ spFinal(); return; }
+      var i = 0;
+      function type(){
+        if (i <= CAPTION.length){
+          spText.textContent = CAPTION.slice(0, i);
+          i += 2;
+          spTimers.push(setTimeout(type, 34));
+        } else {
+          spCaret.style.display = "none";
+          chips.forEach(function(c, idx){
+            spTimers.push(setTimeout(function(){ c.classList.add("show"); }, 300 + idx * 340));
+          });
+          spTimers.push(setTimeout(function(){ spStamp.classList.add("show"); }, 300 + chips.length * 340 + 200));
+        }
+      }
+      spTimers.push(setTimeout(type, 500));
     }
-    var pPlayed = false;
-    var pIO = new IntersectionObserver(function(entries){
+    var spPlayed = false;
+    var spIO = new IntersectionObserver(function(entries){
       entries.forEach(function(en){
-        if (en.isIntersecting && !pPlayed){ pPlayed = true; pPlay(); pIO.unobserve(pur); }
+        if (en.isIntersecting && !spPlayed){ spPlayed = true; spPlay(); spIO.unobserve(sp); }
       });
     }, { threshold: 0.35 });
-    pIO.observe(pur);
-    document.getElementById("purReplay").addEventListener("click", pPlay);
+    spIO.observe(sp);
+    document.getElementById("spReplay").addEventListener("click", spPlay);
   }
 
   /* ---- FAQ accordion ---- */

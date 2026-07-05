@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>FYNZ for Nail Studios — Keep the calendar full, week after week.</title>
-<meta name="description" content="FYNZ books the fill before your clients think about it — 3-week rebook nudges, deposits that end no-shows, and Instagram DMs that book themselves." />
+<meta name="description" content="FYNZ rebooks your nail clients on their 3-week cycle, collects deposits, answers the DMs, fills midday gaps, and asks for the review — while you do the nails. Booking, no-show protection, marketing, and an AI front desk in one platform." />
 <script>try{if(localStorage.getItem("fynz-theme")==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -934,258 +934,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (max-width:640px){
   .bgrid.g3,.bgrid.g2{grid-template-columns:1fr}
 }
-
-/* ============ BARBER HERO MOCKS ============ */
-.ph-mock{
-  position:relative;background:linear-gradient(160deg,var(--navy-800),var(--navy-750));
-  border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-lg);
-  padding:20px;width:100%;
-}
-.ph-head{display:flex;align-items:center;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)}
-.ph-head .face{width:38px;height:38px;border-radius:11px;background:var(--copper-tint);border:1px solid rgba(217,150,125,0.3);display:grid;place-items:center;flex-shrink:0;color:var(--copper);font-size:15px}
-.ph-head b{font-family:var(--font-display);font-weight:700;font-size:0.95rem;display:block}
-.ph-head small{font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.14em;color:var(--faint)}
-.ph-head .st{margin-left:auto;font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;color:var(--green);display:flex;align-items:center;gap:6px}
-.ph-head .st::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 7px var(--green)}
-.ph-line{padding:13px 2px;border-bottom:1px solid var(--line-soft);font-size:0.85rem;color:var(--muted);line-height:1.5}
-.ph-line b{font-family:var(--font-mono);font-size:7.5px;letter-spacing:0.14em;color:var(--copper);display:block;margin-bottom:4px;font-weight:500}
-.ph-line.you b{color:var(--faint)}
-.ph-booked{margin-top:14px;text-align:center}
-.q-mock{
-  position:absolute;right:-20px;bottom:-42px;width:230px;
-  background:var(--navy-900);border:1px solid var(--line);border-radius:14px;
-  box-shadow:var(--shadow-lg);padding:14px;z-index:2;
-  animation:bkfloat 6s ease-in-out infinite reverse;
-}
-.q-mock .qh{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:8px;letter-spacing:0.14em;color:var(--faint);margin-bottom:10px}
-.q-mock .qh span{color:var(--green)}
-.q-mock .qr-row{display:flex;justify-content:space-between;align-items:center;padding:7px 2px;border-top:1px solid var(--line-soft);font-size:0.72rem}
-.q-mock .qr-row b{font-family:var(--font-mono);font-size:8px;color:var(--copper);font-weight:500}
-.q-mock .qr-row.me{color:var(--ink)}
-.q-mock .qr-row.me b{color:var(--green)}
-
-/* ============ NEW VIZ: answered mid-fade ============ */
-.vz-answer .ph2{
-  position:absolute;top:46px;left:50%;transform:translateX(-50%);
-  width:42px;height:42px;border-radius:50%;background:var(--copper-tint);
-  border:1px solid rgba(217,150,125,0.5);display:grid;place-items:center;color:var(--copper);font-size:17px;
-}
-.vz-answer .ring{
-  position:absolute;top:67px;left:50%;width:42px;height:42px;border-radius:50%;
-  border:1px solid rgba(217,150,125,0.55);transform:translate(-50%,-50%);opacity:0;
-}
-.ben-group.in .vz-answer .ring{animation:vvRing 7s infinite}
-.ben-group.in .vz-answer .ring.r2{animation-delay:.5s}
-.vz-answer .st{position:absolute;top:104px;left:0;right:0;text-align:center}
-.ben-group.in .vz-answer .st .vchip{animation:vbToast 7s infinite}
-.vz-answer .meta{
-  position:absolute;bottom:14px;left:0;right:0;text-align:center;
-  font-family:var(--font-mono);font-size:8px;letter-spacing:0.14em;color:var(--faint);
-}
-
-/* ============ NEW VIZ: every barber's own book ============ */
-.vz-crew .row{position:absolute;top:36px;left:12px;right:12px;bottom:14px;display:flex;gap:8px}
-.vz-crew .bb{
-  flex:1;border:1px solid var(--line-soft);border-radius:10px;padding:10px 8px;text-align:center;
-  background:rgba(244,246,251,0.03);
-}
-.vz-crew .bb .av{
-  width:30px;height:30px;border-radius:50%;margin:0 auto 7px;
-  background:var(--copper-tint);border:1px solid rgba(217,150,125,0.4);
-  display:grid;place-items:center;font-family:var(--font-display);font-weight:800;font-size:0.62rem;color:var(--copper);
-}
-.vz-crew .bb b{font-family:var(--font-display);font-size:0.68rem;font-weight:700;display:block;margin-bottom:5px}
-.vz-crew .bb small{font-family:var(--font-mono);font-size:6.5px;letter-spacing:0.08em;color:var(--faint);display:block;line-height:1.7}
-.vz-crew .bb .lk{font-family:var(--font-mono);font-size:6.5px;color:var(--green);display:block;margin-top:5px}
-.ben-group.in .vz-crew .bb{animation:vwBlk 7s infinite}
-.ben-group.in .vz-crew .bb:nth-child(2){animation-delay:.3s}
-.ben-group.in .vz-crew .bb:nth-child(3){animation-delay:.6s}
-
-/* ============ NEW VIZ: walk-in QR queue ============ */
-.vz-queue .qr{
-  position:absolute;top:42px;left:16px;width:58px;height:58px;border-radius:9px;
-  background:
-    repeating-linear-gradient(0deg,rgba(244,246,251,0.5) 0 3px,transparent 3px 7px),
-    repeating-linear-gradient(90deg,rgba(244,246,251,0.5) 0 3px,transparent 3px 7px),
-    var(--navy-750);
-  border:1px solid var(--line-soft);
-}
-.ben-group.in .vz-queue .qr{animation:vqScan 7s infinite}
-@keyframes vqScan{0%,10%{box-shadow:none}18%,30%{box-shadow:0 0 16px rgba(217,150,125,0.6)}40%,100%{box-shadow:none}}
-.vz-queue .ql{position:absolute;top:36px;left:92px;right:14px;display:flex;flex-direction:column;gap:6px}
-.vz-queue .ql .r{
-  display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:8px;
-  letter-spacing:0.08em;color:var(--muted);border:1px solid var(--line-soft);border-radius:7px;padding:6px 9px;
-}
-.vz-queue .ql .r span{color:var(--faint)}
-.vz-queue .tick{
-  position:absolute;bottom:14px;left:16px;right:14px;text-align:center;
-}
-.ben-group.in .vz-queue .tick .vchip{animation:vqTick 7s infinite}
-@keyframes vqTick{0%,24%{opacity:0;transform:translateY(8px)}36%,92%{opacity:1;transform:none}100%{opacity:0}}
-
-/* ============ SHOW IT: barber SMS + live queue demos ============ */
-.bsms{
-  background:var(--navy-900);border:1px solid var(--line);border-radius:var(--r-lg);
-  box-shadow:var(--shadow-md);padding:18px;display:flex;flex-direction:column;
-}
-.bsms-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
-.bsms-head b{font-family:var(--font-mono);font-size:10px;letter-spacing:0.16em;color:var(--faint);font-weight:500}
-.bsms-head span{font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;color:var(--green);display:flex;align-items:center;gap:6px}
-.bsms-head span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 7px var(--green)}
-.bsms-body{display:flex;flex-direction:column;gap:9px;min-height:270px}
-.bm{max-width:84%;opacity:0;transform:translateY(8px);transition:opacity .35s,transform .35s}
-.bm.show{opacity:1;transform:none}
-.bm .b{
-  display:block;padding:9px 13px;font-size:0.82rem;line-height:1.5;border-radius:4px 12px 12px 12px;
-  background:rgba(244,246,251,0.05);border:1px solid var(--line-soft);color:var(--muted);
-}
-.bm small{font-family:var(--font-mono);font-size:7.5px;letter-spacing:0.12em;color:var(--faint);display:block;margin-top:4px;margin-left:4px}
-.bm.ai{align-self:flex-end}
-.bm.ai .b{background:var(--copper-tint);border-color:rgba(217,150,125,0.28);color:var(--ink);border-radius:12px 4px 12px 12px}
-.bm.ai small{text-align:right;margin-right:4px}
-.bm.sys{align-self:center;max-width:100%}
-.bm.sys .b{
-  background:rgba(127,216,166,0.08);border-color:rgba(127,216,166,0.3);color:var(--green);
-  font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.08em;border-radius:8px;text-align:center;
-}
-.bm.sys.miss .b{background:rgba(240,138,138,0.07);border-color:rgba(240,138,138,0.35);color:#F08A8A}
-.btyping{align-self:flex-end;display:none;padding:9px 15px;border-radius:12px 4px 12px 12px;background:var(--copper-tint);border:1px solid rgba(217,150,125,0.25)}
-.btyping.show{display:flex;gap:5px}
-.btyping i{width:6px;height:6px;border-radius:50%;background:var(--copper);animation:tdotb 1s infinite}
-.btyping i:nth-child(2){animation-delay:.15s}
-.btyping i:nth-child(3){animation-delay:.3s}
-@keyframes tdotb{0%,100%{opacity:.3;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}}
-.bsms-replay,.qd-replay{
-  display:block;width:100%;margin-top:12px;padding:10px;border-top:1px solid var(--line-soft);
-  font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.16em;color:var(--faint);transition:color .2s;
-}
-.bsms-replay:hover,.qd-replay:hover{color:var(--copper)}
-
-/* live queue demo */
-.qd{
-  background:var(--navy-900);border:1px solid var(--line);border-radius:var(--r-lg);
-  box-shadow:var(--shadow-md);padding:18px;display:flex;flex-direction:column;
-}
-.qd-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
-.qd-head b{font-family:var(--font-mono);font-size:10px;letter-spacing:0.16em;color:var(--faint);font-weight:500}
-.qd-head span{font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;color:var(--green);display:flex;align-items:center;gap:6px}
-.qd-head span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 7px var(--green)}
-.qd-scan{
-  display:flex;align-items:center;gap:12px;padding:11px 13px;border:1px dashed rgba(217,150,125,0.4);
-  border-radius:10px;margin-bottom:12px;opacity:.55;transition:opacity .35s,box-shadow .35s;
-}
-.qd-scan.on{opacity:1;box-shadow:0 0 16px rgba(217,150,125,0.2)}
-.qd-scan .qr{
-  width:38px;height:38px;border-radius:7px;flex-shrink:0;
-  background:
-    repeating-linear-gradient(0deg,rgba(244,246,251,0.5) 0 2.5px,transparent 2.5px 6px),
-    repeating-linear-gradient(90deg,rgba(244,246,251,0.5) 0 2.5px,transparent 2.5px 6px),
-    var(--navy-750);
-}
-.qd-scan p{font-size:0.78rem;color:var(--muted)}
-.qd-scan p b{color:var(--copper);font-family:var(--font-mono);font-size:8px;letter-spacing:0.1em;display:block;margin-bottom:3px;font-weight:500}
-.qd-rows{display:flex;flex-direction:column;gap:8px;min-height:180px}
-.qd-row{
-  display:flex;align-items:center;gap:12px;background:var(--inset);
-  border:1px solid var(--line-soft);border-radius:10px;padding:10px 13px;
-  transition:border-color .35s,background .35s,opacity .35s;
-}
-.qd-row .pos{font-family:var(--font-mono);font-size:9px;color:var(--copper);width:26px;flex-shrink:0}
-.qd-row .who{font-size:0.84rem;font-weight:600;font-family:var(--font-display)}
-.qd-row .eta{margin-left:auto;font-family:var(--font-mono);font-size:8px;letter-spacing:0.08em;color:var(--faint)}
-.qd-row.cutting{border-color:rgba(127,216,166,0.4)}
-.qd-row.cutting .eta{color:var(--green)}
-.qd-row.done{opacity:.35}
-.qd-row.done .who{text-decoration:line-through}
-.qd-row.me{border-color:rgba(217,150,125,0.5);background:rgba(217,150,125,0.05)}
-.qd-row.me .eta{color:var(--copper)}
-.qd-row.hidden{display:none}
-.qd-ticket{
-  margin-top:12px;text-align:center;opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s;
-}
-.qd-ticket.show{opacity:1;transform:none}
-
-@media (max-width:1020px){
-  .q-mock{right:0;bottom:-30px}
-}
-@media (max-width:640px){
-  .q-mock{position:static;width:100%;margin-top:14px;animation:none}
-}
-
-/* ============ NAIL HERO: booking grid mock ============ */
-.ng-mock{
-  position:relative;background:linear-gradient(160deg,var(--navy-800),var(--navy-750));
-  border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-lg);
-  padding:20px;width:100%;
-}
-.ng-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:1px solid var(--line-soft);margin-bottom:14px}
-.ng-head b{font-family:var(--font-display);font-weight:700;font-size:0.95rem}
-.ng-head small{font-family:var(--font-mono);font-size:8px;letter-spacing:0.14em;color:var(--green);display:flex;align-items:center;gap:6px}
-.ng-head small::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 7px var(--green)}
-.ng-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}
-.ng-grid .dh{font-family:var(--font-mono);font-size:7.5px;letter-spacing:0.1em;color:var(--faint);text-align:center;padding-bottom:4px}
-.ng-slot{
-  border:1px solid var(--line-soft);border-radius:8px;padding:9px 4px;text-align:center;
-  font-family:var(--font-mono);font-size:7px;letter-spacing:0.04em;color:var(--muted);
-  background:rgba(217,150,125,0.07);
-}
-.ng-slot.open{background:transparent;border-style:dashed;color:var(--faint)}
-.ng-slot.hot{
-  background:var(--copper-tint);border-color:rgba(217,150,125,0.55);color:var(--copper);
-  animation:ngPulse 2.6s ease-in-out infinite;
-}
-@keyframes ngPulse{0%,100%{box-shadow:none}50%{box-shadow:0 0 12px rgba(217,150,125,0.45)}}
-.ng-float{
-  position:absolute;right:-16px;bottom:-30px;
-  background:var(--navy-900);border:1px solid rgba(127,216,166,0.35);border-radius:12px;
-  padding:10px 14px;font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;color:var(--green);
-  box-shadow:var(--shadow-md);animation:bkfloat 5s ease-in-out infinite;
-}
-
-/* ============ NEW VIZ: DM → booking ============ */
-.vz-dm .q{
-  position:absolute;top:36px;left:14px;max-width:64%;
-  background:rgba(244,246,251,0.05);border:1px solid var(--line-soft);
-  border-radius:11px 11px 11px 3px;padding:8px 11px;font-size:0.76rem;color:var(--muted);
-}
-.vz-dm .q small{display:block;font-family:var(--font-mono);font-size:6.5px;letter-spacing:0.12em;color:var(--faint);margin-top:4px}
-.vz-dm .a{
-  position:absolute;top:88px;right:14px;max-width:70%;
-  background:var(--copper-tint);border:1px solid rgba(217,150,125,0.35);
-  border-radius:11px 11px 3px 11px;padding:8px 11px;font-size:0.76rem;color:var(--ink);line-height:1.45;
-}
-.ben-group.in .vz-dm .a{animation:cfA 6.5s infinite}
-.vz-dm .bk{position:absolute;bottom:14px;left:14px}
-.ben-group.in .vz-dm .bk .vchip{animation:cfA 6.5s infinite;animation-delay:.4s}
-
-/* ============ NEW VIZ: mid-day gap refill ============ */
-.vz-gap .sl{
-  position:absolute;left:14px;right:14px;display:flex;align-items:center;gap:10px;
-  border:1px solid var(--line-soft);border-radius:9px;padding:9px 12px;
-  font-size:0.78rem;background:var(--inset);
-}
-.vz-gap .sl .t{font-family:var(--font-mono);font-size:8px;color:var(--faint);width:52px;flex-shrink:0}
-.vz-gap .sl .w{font-family:var(--font-display);font-weight:600;font-size:0.78rem}
-.vz-gap .sl.s1{top:34px}
-.vz-gap .sl.s2{top:76px}
-.vz-gap .sl.s3{top:118px}
-.vz-gap .sl.s2 .stk{position:relative}
-.ben-group.in .vz-gap .sl.s2{animation:vgSlot 7s infinite}
-@keyframes vgSlot{
-  0%,12%{border-color:var(--line-soft);background:var(--inset)}
-  18%,38%{border-color:rgba(240,138,138,0.5);background:rgba(240,138,138,0.05)}
-  55%,92%{border-color:rgba(127,216,166,0.5);background:rgba(127,216,166,0.06)}
-  100%{border-color:var(--line-soft)}
-}
-.vz-gap .sl.s2 .w1,.vz-gap .sl.s2 .w2{position:absolute;left:74px;white-space:nowrap}
-.ben-group.in .vz-gap .w1{animation:vgW1 7s infinite}
-.ben-group.in .vz-gap .w2{animation:vgW2 7s infinite}
-@keyframes vgW1{0%,16%{opacity:1;text-decoration:none}22%,44%{opacity:.5;text-decoration:line-through}50%,100%{opacity:0}}
-@keyframes vgW2{0%,48%{opacity:0}58%,94%{opacity:1}100%{opacity:0}}
-.vz-gap .txt{position:absolute;bottom:12px;left:14px;right:14px;text-align:center}
-.ben-group.in .vz-gap .txt .vchip{animation:vgTxt 7s infinite}
-@keyframes vgTxt{0%,26%{opacity:0;transform:translateY(6px)}38%,50%{opacity:1;transform:none}60%,100%{opacity:0}}
 /* ============ APP + FINAL CTA ============ */
 .final{position:relative;overflow:hidden;text-align:center;padding:130px 0}
 .final::before{
@@ -1388,22 +1136,31 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <div>
       <span class="eyebrow">For nail studios</span>
       <h1>Keep the calendar full, <span class="cw">week after week</span>.</h1>
-      <p class="lede">FYNZ books the fill before they even think about it — and makes no-shows a thing of the past.</p>
+      <p class="lede">FYNZ books the fill before they even think about it, reminds them, promotes your sets, and asks for the review — while you do the nails.</p>
       <div class="hero-ctas">
         <a class="btn btn-copper" href="#start">Start free</a>
         <a class="btn btn-ghost" href="#showit">See it work ↓</a>
       </div>
     </div>
     <div class="hero-visual" aria-hidden="true">
-      <div class="ng-mock">
-        <div class="ng-head"><b>Polished Nail Studio</b><small>THIS WEEK — LIVE</small></div>
-        <div class="ng-grid">
-          <span class="dh">MON</span><span class="dh">TUE</span><span class="dh">WED</span><span class="dh">THU</span><span class="dh">FRI</span>
-          <span class="ng-slot">AVA · FILL</span><span class="ng-slot">MIA · SET</span><span class="ng-slot open">OPEN</span><span class="ng-slot">ZOE · FILL</span><span class="ng-slot">LIA · SET</span>
-          <span class="ng-slot">KIM · GEL</span><span class="ng-slot open">OPEN</span><span class="ng-slot">RAE · FILL</span><span class="ng-slot hot">JESS · FILL ✓</span><span class="ng-slot">NIA · SET</span>
-          <span class="ng-slot">EVE · FILL</span><span class="ng-slot">SIA · GEL</span><span class="ng-slot">AMY · SET</span><span class="ng-slot">TIA · FILL</span><span class="ng-slot">GIA · GEL</span>
+      <div class="bk-mock">
+        <div class="bk-head">
+          <span class="mark">P</span>
+          <div><b>Polished Nail Studio</b><small>BOOK YOUR VISIT — POWERED BY FYNZ</small></div>
         </div>
-        <span class="ng-float">NEXT MONTH ALREADY 70% BOOKED ✓</span>
+        <div class="bk-svc"><span class="nm">Gel fill<small>45 MIN</small></span><span class="pr">$45</span></div>
+        <div class="bk-svc"><span class="nm">Full set<small>1 HR 15 MIN</small></span><span class="pr">$75</span></div>
+        <div class="bk-svc"><span class="nm">Gel-X<small>1 HR 30 MIN</small></span><span class="pr">$90</span></div>
+        <div class="bk-staff"><span class="on">AV</span><span>MI</span><span>ZO</span><span>JS</span></div>
+        <div class="bk-times"><b>10:00</b><b class="on">11:30</b><b>1:15</b><b>3:00</b><b>4:45</b></div>
+        <span class="bk-cta">Book with Ava — Tue 11:30</span>
+        <span class="bk-float">BOOKED AT 11:58 PM · REMINDER SET ✓</span>
+      </div>
+      <div class="ig-mock">
+        <div class="ig-top"><i></i><b>polished.studio</b></div>
+        <div class="ig-img"></div>
+        <p>Fresh spring set for the weekend ✨ New gel shades just landed…</p>
+        <span class="ig-sch">SCHEDULED ✓ IG · FB · GOOGLE BUSINESS</span>
       </div>
     </div>
   </div>
@@ -1418,106 +1175,283 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     </div>
     <div class="pains reveal">
       <div class="pain"><p>Your clients are on a 2–3 week cycle — but only if someone reminds them.</p></div>
-      <div class="pain"><p>No-shows sting most in a fully booked day.</p></div>
+      <div class="pain"><p>A no-show stings most on a fully booked day.</p></div>
+      <div class="pain"><p>Regulars quietly drift to the studio down the street, and you notice months later.</p></div>
       <div class="pain"><p>Instagram DMs are your front desk, and they're a mess.</p></div>
-      <div class="pain"><p>Gaps in the middle of the day are lost money.</p></div>
+      <div class="pain"><p>Gaps in the middle of the day are lost money — and no way to fill them fast.</p></div>
+      <div class="pain"><p>You've got hundreds of client numbers in your phone and no way to reach them all at once.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ============ BENEFITS (animated feature viz) ============ -->
+<!-- ============ BENEFITS (5 outcome groups, animated feature viz) ============ -->
 <section class="sec">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Here's what changes</span>
-      <h2 class="h2">You do the sets. FYNZ keeps the <span class="cw">book full</span>.</h2>
+      <h2 class="h2">You do the nails. FYNZ runs <span class="cw">everything else</span>.</h2>
     </div>
 
     <div class="ben-group reveal">
+      <h3><span class="gi">01</span>Fill every slot.</h3>
       <div class="bgrid g3">
         <div class="bcard">
-          <div class="bviz vz-rebook" aria-hidden="true">
-            <span class="vlabel">AVA — FILL, EVERY 3 WEEKS</span>
-            <div class="nudge">Time for a fill, Ava? Thursday 2:30 or Friday 11:00 — pick your spot 💅</div>
-            <div class="line"></div>
-            <span class="dot" style="left:24px"><span>MAY 8</span></span>
-            <span class="dot" style="left:34%"><span>MAY 29</span></span>
-            <span class="dot" style="left:62%"><span>JUN 19</span></span>
-            <span class="dot due" style="right:24px"><span>DUE NOW</span></span>
+          <div class="bviz vz-book" aria-hidden="true">
+            <span class="vlabel">YOUR BOOKING PAGE — 2:04 AM</span>
+            <div class="slots"><b>10:00</b><b class="pick">2:00 AM ▸ TUE 11:30</b><b>4:45</b></div>
+            <div class="toast"><span class="vchip ok">BOOKED — TUE 11:30 · CONFIRMATION SENT ✓</span></div>
           </div>
-          <h4>The rebook happens before the polish chips.</h4>
-          <p>Right on their usual cycle, clients get a friendly "time for a fill?" with your live calendar.</p>
-          <span class="tag">powered by <b>Workflow AI</b> + <b>Recurring appointments · SCHEDULE</b></span>
-        </div>
-        <div class="bcard">
-          <div class="bviz vz-remind" aria-hidden="true">
-            <span class="vlabel">FULLY BOOKED SATURDAY — PROTECTED</span>
-            <div class="appt">Mia K. — Full set<small>SAT 1:00 PM · CARD ON FILE</small></div>
-            <div class="vrow bells"><span class="vchip cu b1">🔔 −24H SENT ✓</span><span class="vchip cu b2">🔔 −2H CONFIRMED ✓</span></div>
-            <span class="vchip ok dep">DEPOSIT HELD — $15</span>
-          </div>
-          <h4>Deposits end the no-show gamble.</h4>
-          <p>A small card-on-file deposit at booking means people show up — or you're covered.</p>
-          <span class="tag">powered by <b>Deposits &amp; payments · SHOP</b></span>
-        </div>
-        <div class="bcard">
-          <div class="bviz vz-dm" aria-hidden="true">
-            <span class="vlabel">INSTAGRAM DM — MID-SET</span>
-            <div class="q">do you have anything Thursday? 🙏<small>IG DM · 1:12 PM</small></div>
-            <div class="a">Thursday I've got 11:00 or 4:15 — a $15 deposit holds it. Which works? 💅</div>
-            <span class="bk"><span class="vchip ok">BOOKED — THU 4:15 · DEPOSIT PAID ✓</span></span>
-          </div>
-          <h4>DMs turn into bookings by themselves.</h4>
-          <p>Instagram and Facebook messages get answered and booked without you leaving the table.</p>
-          <span class="tag">powered by <b>Conversation AI</b></span>
-        </div>
-        <div class="bcard">
-          <div class="bviz vz-gap" aria-hidden="true">
-            <span class="vlabel">TODAY — MID-DAY GAP</span>
-            <div class="sl s1"><span class="t">11:00</span><span class="w">Ava R. — Fill</span></div>
-            <div class="sl s2"><span class="t">1:30</span><span class="stk w"><span class="w1">Kim T. — Gel</span><span class="w2" style="color:var(--green)">Jess M. — Gel ✓</span></span></div>
-            <div class="sl s3"><span class="t">3:45</span><span class="w">Zoe P. — Full set</span></div>
-            <div class="txt"><span class="vchip cu">WAITLIST TEXTED — "1:30 JUST OPENED" ✓</span></div>
-          </div>
-          <h4>Mid-day gaps refill from your waitlist.</h4>
-          <p>A cancellation triggers a text to clients waiting for that exact window.</p>
+          <h4>Get booked 24/7 — even while you're at the table.</h4>
+          <p>Clients pick a real open slot from your page, Instagram, or Google at 2 PM or 2 AM. Every booking taken is one you would have missed.</p>
           <span class="tag">powered by <b>Online booking · SCHEDULE</b></span>
         </div>
         <div class="bcard">
-          <div class="bviz vz-review" aria-hidden="true">
-            <span class="vlabel">REVIEW ASK — WHILE THE SET IS FRESH</span>
-            <div class="stars"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div>
-            <div class="reply">Thank you, Ava! That chrome set turned out gorgeous — see you in three weeks. 💅<small>REPLY DRAFTED &amp; POSTED BY REVIEWS AI</small></div>
+          <div class="bviz vz-voice" aria-hidden="true">
+            <span class="vlabel">INCOMING CALL — MID-SET</span>
+            <span class="ring"></span><span class="ring r2"></span>
+            <span class="ph">✆</span>
+            <div class="sms">Sorry we missed you! Book in 10 seconds: fynz.io/polished 💅<small>AUTO-TEXT · SENT IN 4 SECONDS</small></div>
           </div>
-          <h4>Your work markets itself.</h4>
-          <p>Happy clients get the review ask while the set is still fresh.</p>
+          <h4>Every call answered — every missed call texted back in seconds.</h4>
+          <p>The front desk takes the call, checks the calendar, and books the appointment while you keep working. Missed calls get an instant text back so the caller doesn't book the next studio.</p>
+          <span class="tag">powered by <b>Voice AI</b> + <b>Missed-call text-back · GROW</b></span>
+        </div>
+        <div class="bcard">
+          <div class="bviz vz-remind" aria-hidden="true">
+            <span class="vlabel">SATURDAY 2:00 PM — PEAK SLOT</span>
+            <div class="appt">Hannah M. — Full set<small>SAT 2:00 PM · CARD ON FILE</small></div>
+            <div class="vrow bells"><span class="vchip cu b1">🔔 −24H SENT ✓</span><span class="vchip cu b2">🔔 −2H CONFIRMED ✓</span></div>
+            <span class="vchip ok dep">DEPOSIT HELD — $20</span>
+          </div>
+          <h4>No-shows stop costing you your best days.</h4>
+          <p>Automatic reminders confirm every visit, and a small card-on-file deposit on peak slots means people show up — or you're covered.</p>
+          <span class="tag">powered by <b>Reminders &amp; confirmations · SCHEDULE</b> + <b>Deposits &amp; payments · SHOP</b></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ben-group reveal">
+      <h3><span class="gi">02</span>Keep them coming back.</h3>
+      <div class="bgrid g3">
+        <div class="bcard">
+          <div class="bviz vz-rebook" aria-hidden="true">
+            <span class="vlabel">AVA — GEL FILL, EVERY 3 WEEKS</span>
+            <div class="nudge">Hi Ava! It's been 3 weeks — ready for your fill? Book: fynz.io/polished</div>
+            <div class="line"></div>
+            <span class="dot" style="left:24px"><span>JAN 4</span></span>
+            <span class="dot" style="left:34%"><span>FEB 15</span></span>
+            <span class="dot" style="left:62%"><span>MAR 29</span></span>
+            <span class="dot due" style="right:24px"><span>DUE NOW</span></span>
+          </div>
+          <h4>Every client rebooks on schedule.</h4>
+          <p>When someone's due for a fill, FYNZ nudges them at their usual cadence, in your tone — before they think about drifting.</p>
+          <span class="tag">powered by <b>Recurring appointments · SCHEDULE</b> + <b>Workflow AI</b></span>
+        </div>
+        <div class="bcard">
+          <div class="bviz vz-bday" aria-hidden="true">
+            <span class="vlabel">CLIENT DATES — TRACKED FOR YOU</span>
+            <span class="sp" style="top:26px;right:30px"></span>
+            <span class="sp s2" style="top:44px;right:16px"></span>
+            <span class="sp s3" style="top:22px;right:52px"></span>
+            <div class="msg">🎂 Happy birthday, Ava! Enjoy 15% off any set this week — from all of us at Polished.<small>SENT AUTOMATICALLY · 9:00 AM ON HER DAY</small></div>
+            <span class="vchip cu aut">1-YEAR ANNIVERSARY OFFER — QUEUED</span>
+          </div>
+          <h4>Birthdays, anniversaries, and big moments — remembered.</h4>
+          <p>A birthday discount, a "one-year with us" thank you, a first-appointment anniversary offer — all sent automatically, timed to each client.</p>
+          <span class="tag">powered by <b>Email &amp; SMS campaigns · GROW</b> + <b>Workflow AI</b></span>
+        </div>
+        <div class="bcard">
+          <div class="bviz vz-review" aria-hidden="true">
+            <span class="vlabel">NEW GOOGLE REVIEW — 2 MIN AFTER VISIT</span>
+            <div class="stars"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div>
+            <div class="reply">Thank you, Ava! That set was so fun to do — see you in three weeks. 💅<small>REPLY DRAFTED &amp; POSTED BY REVIEWS AI</small></div>
+          </div>
+          <h4>Five-star reviews, without the awkward ask.</h4>
+          <p>After a great visit, the review request sends itself and routes happy clients straight to Google. Every fresh review is a new client Google sends your way.</p>
           <span class="tag">powered by <b>Reviews AI</b></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ben-group reveal">
+      <h3><span class="gi">03</span>Grow past word of mouth.</h3>
+      <div class="bgrid g2">
+        <div class="bcard">
+          <div class="bviz vz-social" aria-hidden="true">
+            <span class="vlabel">CONTENT AI — THIS MORNING'S SET</span>
+            <div class="post">
+              <div class="pimg"></div>
+              <div class="ln"></div>
+              <div class="ln l2"></div>
+            </div>
+            <div class="outs">
+              <span class="vchip cu">INSTAGRAM ✓</span>
+              <span class="vchip cu">FACEBOOK ✓</span>
+              <span class="vchip ok">GOOGLE BUSINESS ✓</span>
+            </div>
+          </div>
+          <h4>Social posts that actually go out.</h4>
+          <p>A new set, a styled shot, a weekly special — the caption is drafted in your voice and posted to Instagram, Facebook, and Google Business on schedule.</p>
+          <span class="tag">powered by <b>Content AI</b> + <b>Social planner · GROW</b></span>
+        </div>
+        <div class="bcard">
+          <div class="bviz vz-tue" aria-hidden="true">
+            <span class="vlabel">BOOKINGS BY DAY</span>
+            <span class="vchip cu offer">OFFER SENT 8:00 AM → LAPSED CLIENTS ONLY</span>
+            <div class="bars">
+              <div class="bar" style="height:62%"><i>MON</i></div>
+              <div class="bar tu"><i>TUE</i></div>
+              <div class="bar" style="height:54%"><i>WED</i></div>
+              <div class="bar" style="height:70%"><i>THU</i></div>
+              <div class="bar" style="height:96%"><i>FRI</i></div>
+            </div>
+          </div>
+          <h4>Quiet middays fill themselves.</h4>
+          <p>A slow-day offer goes to the exact clients who haven't visited in a while — no ad spend, no discount to your regulars who'd come anyway.</p>
+          <span class="tag">powered by <b>Email &amp; SMS campaigns · GROW</b></span>
+        </div>
+        <div class="bcard">
+          <div class="bviz vz-ref" aria-hidden="true">
+            <span class="vlabel">REFERRAL LINK — SHARED BY A HAPPY CLIENT</span>
+            <span class="av a1">AVA</span>
+            <div class="lnk"></div>
+            <span class="av a2">MIA</span>
+            <span class="cr c1" style="color:var(--copper)">+ $15 CREDIT ✓</span>
+            <span class="cr c2" style="color:var(--green)">+ $15 OFF · BOOKED ✓</span>
+          </div>
+          <h4>Referrals reward themselves.</h4>
+          <p>Happy clients get a shareable "$15 off for you and a friend" link; when the friend books, both get credit — no punch cards, no tracking by hand.</p>
+          <span class="tag">powered by <b>Referrals · GROW</b> + <b>Workflow AI</b></span>
+        </div>
+        <div class="bcard">
+          <div class="bviz vz-web" aria-hidden="true">
+            <span class="vlabel">WEBSITE &amp; FUNNEL AI — DRAFTING YOUR PAGE</span>
+            <div class="frame">
+              <div class="fdots"><i></i><i></i><i></i></div>
+              <div class="blk hero"></div>
+              <div class="blk txt"></div>
+              <div class="blk btn"></div>
+            </div>
+            <span class="vchip ok done">WIRED TO YOUR CALENDAR ✓</span>
+          </div>
+          <h4>A website that books clients — not just sits there.</h4>
+          <p>A studio-styled page with your services, prices, and gallery, wired to your calendar. Drafted for you in an afternoon.</p>
+          <span class="tag">powered by <b>Website &amp; Funnel AI</b></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ben-group reveal">
+      <h3><span class="gi">04</span>Sell more every visit.</h3>
+      <div class="bgrid g2">
+        <div class="bcard">
+          <div class="bviz vz-gift" aria-hidden="true">
+            <span class="vlabel">SOLD ONLINE — REDEEMED IN-CHAIR</span>
+            <div class="card"><b>POLISHED</b><small>GIFT CARD · NAIL MEMBERSHIP</small></div>
+            <div class="bal">BALANCE<br/><b>$85 → $60</b></div>
+            <span class="vchip ok red">REDEEMED IN-CHAIR — NO PAPER BALANCE ✓</span>
+          </div>
+          <h4>Packages, memberships, and gift cards on your page.</h4>
+          <p>Sell fill packages, monthly nail memberships, and gift cards online — clients redeem at the table without a paper balance to keep.</p>
+          <span class="tag">powered by <b>Memberships &amp; packages + Gift cards · SHOP</b></span>
+        </div>
+        <div class="bcard">
+          <div class="bviz vz-store" aria-hidden="true">
+            <span class="vlabel">YOUR RETAIL SHELF — ONLINE</span>
+            <div class="prod"></div>
+            <span class="fly"></span>
+            <div class="cart">🛒<u>1</u></div>
+            <span class="vchip ok paid">ORDER #218 — PAID ✓</span>
+            <span class="hrs">ORDERED 10:40 PM · SHOP CLOSED</span>
+          </div>
+          <h4>Retail products, sold when the studio is closed.</h4>
+          <p>Your polish, care kits, and at-home tools for sale online — regulars restock without waiting for their next appointment.</p>
+          <span class="tag">powered by <b>Online store · SHOP</b></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ben-group reveal">
+      <h3><span class="gi">05</span>One inbox, one list, one view.</h3>
+      <div class="bgrid g2">
+        <div class="bcard">
+          <div class="bviz vz-inbox" aria-hidden="true">
+            <span class="vlabel">EVERY CHANNEL → ONE PLACE</span>
+            <span class="src s1">INSTAGRAM</span>
+            <span class="src s2">FACEBOOK</span>
+            <span class="src s3">TEXTS</span>
+            <span class="src s4">WEBCHAT</span>
+            <div class="tray">One inbox <span class="vchip cu">4 NEW · ALL ANSWERED ✓</span></div>
+          </div>
+          <h4>Every message in one place.</h4>
+          <p>Instagram, Facebook, texts, and webchat all land in the same inbox — and get answered even when your hands are full.</p>
+          <span class="tag">powered by <b>One inbox · GROW</b> + <b>Conversation AI</b></span>
+        </div>
+        <div class="bcard">
+          <div class="bviz vz-ask" aria-hidden="true">
+            <span class="vlabel">ASK AI</span>
+            <div class="q">▸ <i>What's my top service this quarter?</i></div>
+            <div class="ans">
+              <b>FULL SETS — $5.8K THIS QUARTER</b>
+              <div class="abars"><i class="top" style="height:100%"></i><i style="height:64%"></i><i style="height:41%"></i></div>
+            </div>
+          </div>
+          <h4>Ask your studio anything.</h4>
+          <p>"What's my top service this quarter?" "Which tech is fully booked next week?" — answered in plain language, from your real numbers.</p>
+          <span class="tag">powered by <b>Ask AI</b> + <b>Reports &amp; insights · OPS (LIVE)</b></span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ SHOW IT (SMS micro-demo) ============ -->
+<!-- ============ SHOW IT (two-part demo) ============ -->
 <section class="sec demo-sec" id="showit">
-  <div class="wrap play-like" style="display:grid;grid-template-columns:1fr 460px;gap:60px;align-items:center">
-    <div class="demo-copy reveal">
+  <div class="wrap">
+    <div class="sec-head reveal">
       <span class="eyebrow">Watch it work</span>
-      <h2>A DM becomes a deposit-paid booking — <span class="cw">mid-set</span>.</h2>
-      <p>1:12 PM, you're two coats deep. The DM gets answered, the slot gets offered, and the deposit locks it in — all in one thread, all without you looking up.</p>
-      <span class="tag">powered by <b style="color:rgba(217,150,125,0.75);font-weight:500">Conversation AI</b> + <b style="color:rgba(217,150,125,0.75);font-weight:500">Deposits &amp; payments · SHOP</b></span>
+      <h2 class="h2">Two things FYNZ did <span class="cw">while you were at the table</span></h2>
     </div>
-    <div class="bsms reveal" id="bsmsDemo">
-      <div class="bsms-head"><b>POLISHED — INSTAGRAM DM</b><span>LIVE</span></div>
-      <div class="bsms-body" id="bsmsBody" aria-live="polite">
-        <div class="bm"><span class="b">do you have anything Thursday? 🙏</span><small>@AVANAILS_FAN · 1:12 PM</small></div>
-        <div class="bm ai"><span class="b">Hi! Thursday I've got 11:00 AM or 4:15 PM for a fill — a $15 deposit holds your spot. Which works? 💅</span><small>CONVERSATION AI · 1:12 PM</small></div>
-        <div class="bm"><span class="b">4:15! how do I pay the deposit?</span><small>@AVANAILS_FAN · 1:13 PM</small></div>
-        <div class="bm ai"><span class="b">Here you go — takes 10 seconds: fynz.pay/dep-415 🔒</span><small>CONVERSATION AI · 1:13 PM</small></div>
-        <div class="bm sys"><span class="b">✓ BOOKED — THU 4:15 PM · $15 DEPOSIT PAID · REMINDER SET</span></div>
-        <div class="btyping" id="bsmsTyping" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="demo2">
+      <div class="reveal">
+        <div class="demo-card-copy">
+          <b>A booked slot <span class="cw">refills itself</span>.</b>
+          <p>Your 3:00 cancels. The waitlist gets a text before you've seen it — booked again by 3:12.</p>
+        </div>
+        <div class="wl" id="wlDemo">
+          <div class="wl-head"><b>TODAY — AVA'S TABLE</b><span>LIVE</span></div>
+          <div class="wl-rows">
+            <div class="wl-slot"><span class="t">12:00 PM</span><span class="who">Bella R.</span><span class="svc">Gel fill</span><span class="wl-badge"></span></div>
+            <div class="wl-slot" id="wlTarget"><span class="t">3:00 PM</span><span class="who" id="wlWho">Hannah M.</span><span class="svc" id="wlSvc">Full set</span><span class="wl-badge" id="wlBadge"></span></div>
+            <div class="wl-slot"><span class="t">5:00 PM</span><span class="who">Dana K.</span><span class="svc">Gel-X</span><span class="wl-badge"></span></div>
+          </div>
+          <div class="wl-sms" id="wlSms">
+            <div class="b">Hi Jess! A spot just opened at Polished today at 3:00 PM for your full set. Want it? Reply YES to grab it. 💅<small>WAITLIST TEXT · SENT 3:01 PM</small></div>
+          </div>
+          <button class="wl-replay" id="wlReplay">↺ REPLAY THE AFTERNOON</button>
+        </div>
+        <span class="tag" style="display:block;margin-top:12px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;color:var(--faint)">powered by <b style="color:rgba(217,150,125,0.75);font-weight:500">Class schedules &amp; waitlists · SCHEDULE</b></span>
       </div>
-      <button class="bsms-replay" id="bsmsReplay">↺ REPLAY THE THREAD</button>
+      <div class="reveal d1">
+        <div class="demo-card-copy">
+          <b>A post <span class="cw">writes itself</span>.</b>
+          <p>You snapped this morning's set. Content AI drafts the caption and schedules it everywhere.</p>
+        </div>
+        <div class="sp" id="spDemo">
+          <div class="sp-head"><b>CONTENT AI — DRAFTING POST</b><span>WORKING</span></div>
+          <div class="sp-img"><i>THIS MORNING'S SET.JPG</i></div>
+          <div class="sp-cap"><span id="spText"></span><span class="caret" id="spCaret"></span></div>
+          <div class="sp-chips">
+            <span class="sp-chip" data-i="0">INSTAGRAM</span>
+            <span class="sp-chip" data-i="1">FACEBOOK</span>
+            <span class="sp-chip" data-i="2">GOOGLE BUSINESS</span>
+            <span class="sp-chip ok" data-i="3">SCHEDULED — SAT 9:00 AM ✓</span>
+          </div>
+          <span class="sp-stamp" id="spStamp">YOU APPROVED IT IN 10 SECONDS</span>
+          <button class="sp-replay" id="spReplay">↺ DRAFT IT AGAIN</button>
+        </div>
+        <span class="tag" style="display:block;margin-top:12px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;color:var(--faint)">powered by <b style="color:rgba(217,150,125,0.75);font-weight:500">Content AI</b> + <b style="color:rgba(217,150,125,0.75);font-weight:500">Social planner · GROW</b></span>
+      </div>
     </div>
   </div>
 </section>
@@ -1532,15 +1466,19 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <div class="day-grid reveal">
       <div class="day before">
         <span class="lbl">BEFORE FYNZ</span>
-        <div class="mo"><span class="tm">BETWEEN SETS</span><p>Chasing regulars for rebooks — texting one at a time, whoever you remember.</p></div>
-        <div class="mo"><span class="tm">EVERY EVENING</span><p>Digging through Instagram DMs, hoping the Thursday girl didn't book somewhere else.</p></div>
-        <div class="mo"><span class="tm">NEXT MONTH</span><p>A calendar full of question marks.</p></div>
+        <div class="mo"><span class="tm">7:00 AM</span><p>You wake to a dozen Instagram DMs, all asking about this week.</p></div>
+        <div class="mo"><span class="tm">10:00 AM</span><p>A call comes between clients — it goes to voicemail. She books elsewhere.</p></div>
+        <div class="mo"><span class="tm">12:00 PM</span><p>A midday gap sits empty. You post to Instagram between clients, hoping someone sees it.</p></div>
+        <div class="mo"><span class="tm">3:00 PM</span><p>A no-show on a full day. The table sits.</p></div>
+        <div class="mo"><span class="tm">6:00 PM</span><p>You start texting next week's regulars, one at a time, whoever you remember.</p></div>
       </div>
       <div class="day after">
-        <span class="lbl">WITH FYNZ</span>
-        <div class="mo"><span class="tm">BETWEEN SETS</span><p>Nothing to chase. <b>The 3-week nudges go out on their own</b> — right when each client is due.</p></div>
-        <div class="mo"><span class="tm">EVERY EVENING</span><p>DMs answered, deposits collected, reminders queued. <b>You're just checking the wins.</b></p></div>
-        <div class="mo"><span class="tm">NEXT MONTH</span><p><b>Already 70% booked</b> — before you've reminded a single person.</p></div>
+        <span class="lbl">SAME TUESDAY, WITH FYNZ</span>
+        <div class="mo"><span class="tm">7:00 AM</span><p>The DMs were answered overnight — <b>most are booked</b>, the rest on the waitlist.</p></div>
+        <div class="mo"><span class="tm">10:00 AM</span><p>The missed call got a text back in seconds; <b>she's already booked Thursday.</b></p></div>
+        <div class="mo"><span class="tm">12:00 PM</span><p>The 3-week nudges went out on their own. <b>The midday gap refilled itself.</b> Instagram already posted this morning's set — Content AI drafted it, you approved it in 10 seconds.</p></div>
+        <div class="mo"><span class="tm">3:00 PM</span><p>The no-show forfeits the deposit; the waitlist got pinged; <b>the table refilled by 3:12.</b></p></div>
+        <div class="mo"><span class="tm">6:00 PM</span><p><b>Nothing to chase.</b> Tomorrow's confirmed, deposits held, and every review-request text is already out from today's visits.</p></div>
       </div>
     </div>
   </div>
@@ -1553,14 +1491,17 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <span class="eyebrow">Proof</span>
       <h2 class="h2">What studios see <span class="cw">in the first 60 days</span></h2>
     </div>
-    <!-- PLACEHOLDER: real data needed (stats + testimonial below are provisional shapes) -->
-    <div class="proof reveal">
+    <!-- PLACEHOLDER: real data needed (all stats + testimonial below are provisional shapes) -->
+    <div class="proof-stats reveal">
       <div class="pstat"><span class="n">—%</span><span class="l">OF CLIENTS AUTO-REBOOKED</span></div>
       <div class="pstat"><span class="n">—%</span><span class="l">FEWER NO-SHOWS</span></div>
-      <div class="ptesti">
-        <p>Placeholder testimonial from a nail tech — one or two sentences about rebooks running themselves and no-shows disappearing.</p>
-        <span class="who">— NAME, STUDIO, CITY · PLACEHOLDER</span>
-      </div>
+      <div class="pstat"><span class="n">— hrs</span><span class="l">OF ADMIN BACK, EVERY WEEK</span></div>
+      <div class="pstat"><span class="n">—</span><span class="l">REVIEWS ADDED / MONTH</span></div>
+      <div class="pstat"><span class="n">—</span><span class="l">SOCIAL POSTS PUBLISHED, ZERO MANUAL WORK</span></div>
+    </div>
+    <div class="ptesti wide reveal">
+      <p>Placeholder testimonial from a nail tech — one or two sentences about rebooks running themselves and no-shows disappearing.</p>
+      <span class="who">— NAME, STUDIO, CITY · PLACEHOLDER</span>
     </div>
   </div>
 </section>
@@ -1579,15 +1520,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">Will it sound like a robot to my clients?<span class="x"></span></button>
-        <div class="faq-a"><p>It texts and replies in a natural voice, in your tone — and it hands the conversation to you the moment it should.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Can I require deposits only on certain services?<span class="x"></span></button>
-        <div class="faq-a"><p>Yes — per service and per amount.</p></div>
+        <div class="faq-a"><p>It speaks and texts in a natural voice, in your tone — and it hands the conversation to you the moment it should.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">Can I keep my phone number?<span class="x"></span></button>
         <div class="faq-a"><p>Yes. Your existing number keeps working — FYNZ just makes sure it always gets answered.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Can each tech have their own calendar, booking link, and commission?<span class="x"></span></button>
+        <div class="faq-a"><p>Yes — every tech gets their own services, hours, calendar, and reminders, with their own link to share and their own reporting.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">How long does setup take?<span class="x"></span></button>
@@ -1610,7 +1551,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <div class="wrap">
     <span class="eyebrow reveal">For nail studios</span>
     <h2 class="reveal">You do the sets. FYNZ keeps them <span style="color:var(--copper)">coming back</span>.</h2>
-    <p class="lede reveal">Auto-rebooks on the 3-week clock, deposits on every booking, DMs that book themselves — from day one.</p>
+    <p class="lede reveal">Auto-rebooks on the 3-week clock, deposits on every booking, DMs that book themselves — on autopilot from day one.</p>
     <div class="final-ctas reveal">
       <a class="btn btn-copper" href="../pricing.html">Start free</a>
       <a class="btn btn-ghost" href="../schedule.html">See how it works →</a>
@@ -1767,104 +1708,107 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   });
   syncThemeLabel();
 
-  /* ---- demo A: missed-call SMS save ---- */
-  var bs = document.getElementById("bsmsDemo");
-  if (bs){
-    var bmsgs = Array.prototype.slice.call(bs.querySelectorAll(".bm"));
-    var btyping = document.getElementById("bsmsTyping");
-    var btimers = [];
-    function bClear(){ btimers.forEach(clearTimeout); btimers = []; }
-    function bShowAll(){
-      bClear();
-      btyping.classList.remove("show");
-      bmsgs.forEach(function(m){ m.classList.add("show"); });
+  /* ---- demo A: waitlist refill ---- */
+  var demo = document.getElementById("wlDemo");
+  if (demo){
+    var slot = document.getElementById("wlTarget");
+    var who = document.getElementById("wlWho");
+    var svc = document.getElementById("wlSvc");
+    var badge = document.getElementById("wlBadge");
+    var sms = document.getElementById("wlSms");
+    var timers = [];
+    function clearTimers(){ timers.forEach(clearTimeout); timers = []; }
+    function setState(state){
+      slot.classList.remove("cancelled","open","filled");
+      if (state === "start"){
+        who.textContent = "Hannah M.";
+        svc.textContent = "Full set"; badge.textContent = "";
+        sms.classList.remove("show");
+      } else if (state === "cancelled"){
+        slot.classList.add("cancelled");
+        badge.textContent = "CANCELLED 2:58";
+      } else if (state === "open"){
+        slot.classList.add("open");
+        who.textContent = "Open slot…";
+        badge.textContent = "";
+        sms.classList.add("show");
+      } else if (state === "filled"){
+        slot.classList.add("filled");
+        who.textContent = "Jess T.";
+        svc.textContent = "Full set";
+        badge.textContent = "REBOOKED 3:12 \u2713";
+        sms.classList.add("show");
+      }
     }
-    function bPlay(){
-      bClear();
-      bmsgs.forEach(function(m){ m.classList.remove("show"); });
-      btyping.classList.remove("show");
-      if (prefersReduced){ bShowAll(); return; }
-      var t = 400;
-      bmsgs.forEach(function(m){
-        var isAI = m.classList.contains("ai") || (m.classList.contains("sys") && !m.classList.contains("miss"));
-        if (isAI){
-          btimers.push(setTimeout(function(){ btyping.classList.add("show"); }, t));
-          t += 1000;
-          btimers.push(setTimeout(function(){
-            btyping.classList.remove("show");
-            m.classList.add("show");
-          }, t));
-        } else {
-          btimers.push(setTimeout(function(){ m.classList.add("show"); }, t));
-        }
-        t += 1300;
-      });
+    function play(){
+      clearTimers();
+      setState("start");
+      if (prefersReduced){ setState("filled"); return; }
+      timers.push(setTimeout(function(){ setState("cancelled"); }, 700));
+      timers.push(setTimeout(function(){ setState("open"); }, 2100));
+      timers.push(setTimeout(function(){ setState("filled"); }, 4300));
     }
-    var bPlayed = false;
-    var bIO = new IntersectionObserver(function(entries){
+    var played = false;
+    var dIO = new IntersectionObserver(function(entries){
       entries.forEach(function(en){
-        if (en.isIntersecting && !bPlayed){ bPlayed = true; bPlay(); bIO.unobserve(bs); }
+        if (en.isIntersecting && !played){ played = true; play(); dIO.unobserve(demo); }
       });
     }, { threshold: 0.35 });
-    bIO.observe(bs);
-    document.getElementById("bsmsReplay").addEventListener("click", bPlay);
+    dIO.observe(demo);
+    document.getElementById("wlReplay").addEventListener("click", play);
   }
 
-  /* ---- demo B: live walk-in queue ---- */
-  var qd = document.getElementById("qdDemo");
-  if (qd){
-    var scan = document.getElementById("qdScan");
-    var r1 = document.getElementById("qdR1"), r2 = document.getElementById("qdR2"), r3 = document.getElementById("qdR3");
-    var e1 = document.getElementById("qdE1"), e2 = document.getElementById("qdE2"), e3 = document.getElementById("qdE3");
-    var p1 = r1.querySelector(".pos"), p2 = r2.querySelector(".pos"), p3 = r3.querySelector(".pos");
-    var ticket = document.getElementById("qdTicket");
-    var qtimers = [];
-    function qClear(){ qtimers.forEach(clearTimeout); qtimers = []; }
-    function qReset(){
-      qClear();
-      scan.classList.remove("on");
-      r1.classList.remove("done"); r1.classList.add("cutting");
-      r2.classList.remove("cutting");
-      r3.classList.add("hidden");
-      p1.textContent = "#1"; p2.textContent = "#2"; p3.textContent = "#3";
-      e1.textContent = "CUTTING"; e2.textContent = "~15 MIN"; e3.textContent = "~40 MIN";
-      ticket.classList.remove("show");
+  /* ---- demo B: Content AI drafts + schedules a post ---- */
+  var sp = document.getElementById("spDemo");
+  if (sp){
+    var spText = document.getElementById("spText");
+    var spCaret = document.getElementById("spCaret");
+    var spStamp = document.getElementById("spStamp");
+    var chips = sp.querySelectorAll(".sp-chip");
+    var CAPTION = "Fresh spring set for the weekend \u2728 New gel shades just landed \u2014 and this week's slots are almost gone. Tap the link in bio to grab yours.";
+    var spTimers = [];
+    function spClear(){ spTimers.forEach(clearTimeout); spTimers = []; }
+    function spReset(){
+      spClear();
+      spText.textContent = "";
+      spCaret.style.display = "";
+      spStamp.classList.remove("show");
+      chips.forEach(function(c){ c.classList.remove("show"); });
     }
-    function qFinal(){
-      qReset();
-      scan.classList.add("on");
-      r3.classList.remove("hidden");
-      ticket.classList.add("show");
-      r1.classList.remove("cutting"); r1.classList.add("done");
-      e1.textContent = "DONE ✓";
-      r2.classList.add("cutting");
-      p2.textContent = "#1"; e2.textContent = "CUTTING";
-      p3.textContent = "#2"; e3.textContent = "~20 MIN";
+    function spFinal(){
+      spReset();
+      spText.textContent = CAPTION;
+      spCaret.style.display = "none";
+      chips.forEach(function(c){ c.classList.add("show"); });
+      spStamp.classList.add("show");
     }
-    function qPlay(){
-      qReset();
-      if (prefersReduced){ qFinal(); return; }
-      qtimers.push(setTimeout(function(){ scan.classList.add("on"); }, 700));
-      qtimers.push(setTimeout(function(){
-        r3.classList.remove("hidden");
-        ticket.classList.add("show");
-      }, 1700));
-      qtimers.push(setTimeout(function(){
-        r1.classList.remove("cutting"); r1.classList.add("done");
-        e1.textContent = "DONE ✓";
-        r2.classList.add("cutting");
-        p2.textContent = "#1"; e2.textContent = "CUTTING";
-        p3.textContent = "#2"; e3.textContent = "~20 MIN";
-      }, 3900));
+    function spPlay(){
+      spReset();
+      if (prefersReduced){ spFinal(); return; }
+      var i = 0;
+      function type(){
+        if (i <= CAPTION.length){
+          spText.textContent = CAPTION.slice(0, i);
+          i += 2;
+          spTimers.push(setTimeout(type, 34));
+        } else {
+          spCaret.style.display = "none";
+          chips.forEach(function(c, idx){
+            spTimers.push(setTimeout(function(){ c.classList.add("show"); }, 300 + idx * 340));
+          });
+          spTimers.push(setTimeout(function(){ spStamp.classList.add("show"); }, 300 + chips.length * 340 + 200));
+        }
+      }
+      spTimers.push(setTimeout(type, 500));
     }
-    var qPlayed = false;
-    var qIO = new IntersectionObserver(function(entries){
+    var spPlayed = false;
+    var spIO = new IntersectionObserver(function(entries){
       entries.forEach(function(en){
-        if (en.isIntersecting && !qPlayed){ qPlayed = true; qPlay(); qIO.unobserve(qd); }
+        if (en.isIntersecting && !spPlayed){ spPlayed = true; spPlay(); spIO.unobserve(sp); }
       });
     }, { threshold: 0.35 });
-    qIO.observe(qd);
-    document.getElementById("qdReplay").addEventListener("click", qPlay);
+    spIO.observe(sp);
+    document.getElementById("spReplay").addEventListener("click", spPlay);
   }
 
   /* ---- FAQ accordion ---- */

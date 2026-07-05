@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>FYNZ for Barbershops — Never stop mid-cut to answer the phone.</title>
-<meta name="description" content="FYNZ answers your barbershop calls, runs the walk-in queue, posts your best fades, and asks for the review — you just keep cutting. Per-barber calendars, no-show deposits, and an AI front desk in one platform." />
+<meta name="description" content="FYNZ answers your barbershop calls, books the chair, handles no-shows, posts your best fades, and asks for the review — while you keep cutting. Booking, missed-call text-back, marketing, and an AI front desk in one platform." />
 <script>try{if(localStorage.getItem("fynz-theme")==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -934,184 +934,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (max-width:640px){
   .bgrid.g3,.bgrid.g2{grid-template-columns:1fr}
 }
-
-/* ============ BARBER HERO MOCKS ============ */
-.ph-mock{
-  position:relative;background:linear-gradient(160deg,var(--navy-800),var(--navy-750));
-  border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-lg);
-  padding:20px;width:100%;
-}
-.ph-head{display:flex;align-items:center;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)}
-.ph-head .face{width:38px;height:38px;border-radius:11px;background:var(--copper-tint);border:1px solid rgba(217,150,125,0.3);display:grid;place-items:center;flex-shrink:0;color:var(--copper);font-size:15px}
-.ph-head b{font-family:var(--font-display);font-weight:700;font-size:0.95rem;display:block}
-.ph-head small{font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.14em;color:var(--faint)}
-.ph-head .st{margin-left:auto;font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;color:var(--green);display:flex;align-items:center;gap:6px}
-.ph-head .st::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 7px var(--green)}
-.ph-line{padding:13px 2px;border-bottom:1px solid var(--line-soft);font-size:0.85rem;color:var(--muted);line-height:1.5}
-.ph-line b{font-family:var(--font-mono);font-size:7.5px;letter-spacing:0.14em;color:var(--copper);display:block;margin-bottom:4px;font-weight:500}
-.ph-line.you b{color:var(--faint)}
-.ph-booked{margin-top:14px;text-align:center}
-.q-mock{
-  position:absolute;right:-20px;bottom:-42px;width:230px;
-  background:var(--navy-900);border:1px solid var(--line);border-radius:14px;
-  box-shadow:var(--shadow-lg);padding:14px;z-index:2;
-  animation:bkfloat 6s ease-in-out infinite reverse;
-}
-.q-mock .qh{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:8px;letter-spacing:0.14em;color:var(--faint);margin-bottom:10px}
-.q-mock .qh span{color:var(--green)}
-.q-mock .qr-row{display:flex;justify-content:space-between;align-items:center;padding:7px 2px;border-top:1px solid var(--line-soft);font-size:0.72rem}
-.q-mock .qr-row b{font-family:var(--font-mono);font-size:8px;color:var(--copper);font-weight:500}
-.q-mock .qr-row.me{color:var(--ink)}
-.q-mock .qr-row.me b{color:var(--green)}
-
-/* ============ NEW VIZ: answered mid-fade ============ */
-.vz-answer .ph2{
-  position:absolute;top:46px;left:50%;transform:translateX(-50%);
-  width:42px;height:42px;border-radius:50%;background:var(--copper-tint);
-  border:1px solid rgba(217,150,125,0.5);display:grid;place-items:center;color:var(--copper);font-size:17px;
-}
-.vz-answer .ring{
-  position:absolute;top:67px;left:50%;width:42px;height:42px;border-radius:50%;
-  border:1px solid rgba(217,150,125,0.55);transform:translate(-50%,-50%);opacity:0;
-}
-.ben-group.in .vz-answer .ring{animation:vvRing 7s infinite}
-.ben-group.in .vz-answer .ring.r2{animation-delay:.5s}
-.vz-answer .st{position:absolute;top:104px;left:0;right:0;text-align:center}
-.ben-group.in .vz-answer .st .vchip{animation:vbToast 7s infinite}
-.vz-answer .meta{
-  position:absolute;bottom:14px;left:0;right:0;text-align:center;
-  font-family:var(--font-mono);font-size:8px;letter-spacing:0.14em;color:var(--faint);
-}
-
-/* ============ NEW VIZ: every barber's own book ============ */
-.vz-crew .row{position:absolute;top:36px;left:12px;right:12px;bottom:14px;display:flex;gap:8px}
-.vz-crew .bb{
-  flex:1;border:1px solid var(--line-soft);border-radius:10px;padding:10px 8px;text-align:center;
-  background:rgba(244,246,251,0.03);
-}
-.vz-crew .bb .av{
-  width:30px;height:30px;border-radius:50%;margin:0 auto 7px;
-  background:var(--copper-tint);border:1px solid rgba(217,150,125,0.4);
-  display:grid;place-items:center;font-family:var(--font-display);font-weight:800;font-size:0.62rem;color:var(--copper);
-}
-.vz-crew .bb b{font-family:var(--font-display);font-size:0.68rem;font-weight:700;display:block;margin-bottom:5px}
-.vz-crew .bb small{font-family:var(--font-mono);font-size:6.5px;letter-spacing:0.08em;color:var(--faint);display:block;line-height:1.7}
-.vz-crew .bb .lk{font-family:var(--font-mono);font-size:6.5px;color:var(--green);display:block;margin-top:5px}
-.ben-group.in .vz-crew .bb{animation:vwBlk 7s infinite}
-.ben-group.in .vz-crew .bb:nth-child(2){animation-delay:.3s}
-.ben-group.in .vz-crew .bb:nth-child(3){animation-delay:.6s}
-
-/* ============ NEW VIZ: walk-in QR queue ============ */
-.vz-queue .qr{
-  position:absolute;top:42px;left:16px;width:58px;height:58px;border-radius:9px;
-  background:
-    repeating-linear-gradient(0deg,rgba(244,246,251,0.5) 0 3px,transparent 3px 7px),
-    repeating-linear-gradient(90deg,rgba(244,246,251,0.5) 0 3px,transparent 3px 7px),
-    var(--navy-750);
-  border:1px solid var(--line-soft);
-}
-.ben-group.in .vz-queue .qr{animation:vqScan 7s infinite}
-@keyframes vqScan{0%,10%{box-shadow:none}18%,30%{box-shadow:0 0 16px rgba(217,150,125,0.6)}40%,100%{box-shadow:none}}
-.vz-queue .ql{position:absolute;top:36px;left:92px;right:14px;display:flex;flex-direction:column;gap:6px}
-.vz-queue .ql .r{
-  display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:8px;
-  letter-spacing:0.08em;color:var(--muted);border:1px solid var(--line-soft);border-radius:7px;padding:6px 9px;
-}
-.vz-queue .ql .r span{color:var(--faint)}
-.vz-queue .tick{
-  position:absolute;bottom:14px;left:16px;right:14px;text-align:center;
-}
-.ben-group.in .vz-queue .tick .vchip{animation:vqTick 7s infinite}
-@keyframes vqTick{0%,24%{opacity:0;transform:translateY(8px)}36%,92%{opacity:1;transform:none}100%{opacity:0}}
-
-/* ============ SHOW IT: barber SMS + live queue demos ============ */
-.bsms{
-  background:var(--navy-900);border:1px solid var(--line);border-radius:var(--r-lg);
-  box-shadow:var(--shadow-md);padding:18px;display:flex;flex-direction:column;
-}
-.bsms-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
-.bsms-head b{font-family:var(--font-mono);font-size:10px;letter-spacing:0.16em;color:var(--faint);font-weight:500}
-.bsms-head span{font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;color:var(--green);display:flex;align-items:center;gap:6px}
-.bsms-head span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 7px var(--green)}
-.bsms-body{display:flex;flex-direction:column;gap:9px;min-height:270px}
-.bm{max-width:84%;opacity:0;transform:translateY(8px);transition:opacity .35s,transform .35s}
-.bm.show{opacity:1;transform:none}
-.bm .b{
-  display:block;padding:9px 13px;font-size:0.82rem;line-height:1.5;border-radius:4px 12px 12px 12px;
-  background:rgba(244,246,251,0.05);border:1px solid var(--line-soft);color:var(--muted);
-}
-.bm small{font-family:var(--font-mono);font-size:7.5px;letter-spacing:0.12em;color:var(--faint);display:block;margin-top:4px;margin-left:4px}
-.bm.ai{align-self:flex-end}
-.bm.ai .b{background:var(--copper-tint);border-color:rgba(217,150,125,0.28);color:var(--ink);border-radius:12px 4px 12px 12px}
-.bm.ai small{text-align:right;margin-right:4px}
-.bm.sys{align-self:center;max-width:100%}
-.bm.sys .b{
-  background:rgba(127,216,166,0.08);border-color:rgba(127,216,166,0.3);color:var(--green);
-  font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.08em;border-radius:8px;text-align:center;
-}
-.bm.sys.miss .b{background:rgba(240,138,138,0.07);border-color:rgba(240,138,138,0.35);color:#F08A8A}
-.btyping{align-self:flex-end;display:none;padding:9px 15px;border-radius:12px 4px 12px 12px;background:var(--copper-tint);border:1px solid rgba(217,150,125,0.25)}
-.btyping.show{display:flex;gap:5px}
-.btyping i{width:6px;height:6px;border-radius:50%;background:var(--copper);animation:tdotb 1s infinite}
-.btyping i:nth-child(2){animation-delay:.15s}
-.btyping i:nth-child(3){animation-delay:.3s}
-@keyframes tdotb{0%,100%{opacity:.3;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}}
-.bsms-replay,.qd-replay{
-  display:block;width:100%;margin-top:12px;padding:10px;border-top:1px solid var(--line-soft);
-  font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.16em;color:var(--faint);transition:color .2s;
-}
-.bsms-replay:hover,.qd-replay:hover{color:var(--copper)}
-
-/* live queue demo */
-.qd{
-  background:var(--navy-900);border:1px solid var(--line);border-radius:var(--r-lg);
-  box-shadow:var(--shadow-md);padding:18px;display:flex;flex-direction:column;
-}
-.qd-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
-.qd-head b{font-family:var(--font-mono);font-size:10px;letter-spacing:0.16em;color:var(--faint);font-weight:500}
-.qd-head span{font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;color:var(--green);display:flex;align-items:center;gap:6px}
-.qd-head span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 7px var(--green)}
-.qd-scan{
-  display:flex;align-items:center;gap:12px;padding:11px 13px;border:1px dashed rgba(217,150,125,0.4);
-  border-radius:10px;margin-bottom:12px;opacity:.55;transition:opacity .35s,box-shadow .35s;
-}
-.qd-scan.on{opacity:1;box-shadow:0 0 16px rgba(217,150,125,0.2)}
-.qd-scan .qr{
-  width:38px;height:38px;border-radius:7px;flex-shrink:0;
-  background:
-    repeating-linear-gradient(0deg,rgba(244,246,251,0.5) 0 2.5px,transparent 2.5px 6px),
-    repeating-linear-gradient(90deg,rgba(244,246,251,0.5) 0 2.5px,transparent 2.5px 6px),
-    var(--navy-750);
-}
-.qd-scan p{font-size:0.78rem;color:var(--muted)}
-.qd-scan p b{color:var(--copper);font-family:var(--font-mono);font-size:8px;letter-spacing:0.1em;display:block;margin-bottom:3px;font-weight:500}
-.qd-rows{display:flex;flex-direction:column;gap:8px;min-height:180px}
-.qd-row{
-  display:flex;align-items:center;gap:12px;background:var(--inset);
-  border:1px solid var(--line-soft);border-radius:10px;padding:10px 13px;
-  transition:border-color .35s,background .35s,opacity .35s;
-}
-.qd-row .pos{font-family:var(--font-mono);font-size:9px;color:var(--copper);width:26px;flex-shrink:0}
-.qd-row .who{font-size:0.84rem;font-weight:600;font-family:var(--font-display)}
-.qd-row .eta{margin-left:auto;font-family:var(--font-mono);font-size:8px;letter-spacing:0.08em;color:var(--faint)}
-.qd-row.cutting{border-color:rgba(127,216,166,0.4)}
-.qd-row.cutting .eta{color:var(--green)}
-.qd-row.done{opacity:.35}
-.qd-row.done .who{text-decoration:line-through}
-.qd-row.me{border-color:rgba(217,150,125,0.5);background:rgba(217,150,125,0.05)}
-.qd-row.me .eta{color:var(--copper)}
-.qd-row.hidden{display:none}
-.qd-ticket{
-  margin-top:12px;text-align:center;opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s;
-}
-.qd-ticket.show{opacity:1;transform:none}
-
-@media (max-width:1020px){
-  .q-mock{right:0;bottom:-30px}
-}
-@media (max-width:640px){
-  .q-mock{position:static;width:100%;margin-top:14px;animation:none}
-}
 /* ============ APP + FINAL CTA ============ */
 .final{position:relative;overflow:hidden;text-align:center;padding:130px 0}
 .final::before{
@@ -1314,28 +1136,31 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <div>
       <span class="eyebrow">For barbershops</span>
       <h1>Never stop mid-cut to <span class="cw">answer the phone</span>.</h1>
-      <p class="lede">FYNZ answers the calls, runs the walk-in queue, posts your best fades, and asks for the review — you just keep cutting.</p>
+      <p class="lede">FYNZ answers your calls, books the chair, posts your best fades, and asks for the review — you just keep cutting.</p>
       <div class="hero-ctas">
         <a class="btn btn-copper" href="#start">Start free</a>
         <a class="btn btn-ghost" href="#showit">See it work ↓</a>
       </div>
     </div>
     <div class="hero-visual" aria-hidden="true">
-      <div class="ph-mock">
-        <div class="ph-head">
-          <span class="face">✆</span>
-          <div><b>Kings Cut Barbershop</b><small>INCOMING CALL — 11:42 AM · MID-FADE</small></div>
-          <span class="st">ANSWERED</span>
+      <div class="bk-mock">
+        <div class="bk-head">
+          <span class="mark">K</span>
+          <div><b>Kings Cut Barbershop</b><small>BOOK YOUR CHAIR — POWERED BY FYNZ</small></div>
         </div>
-        <div class="ph-line"><b>CALLER</b>"You got anything with Marco this afternoon?"</div>
-        <div class="ph-line you"><b>VOICE AI</b>"Marco's got 2:40 or 5:15 today — want me to lock one in?"</div>
-        <div class="ph-booked"><span class="vchip ok">BOOKED — MARCO 2:40 PM · CLIPPERS NEVER STOPPED ✓</span></div>
+        <div class="bk-svc"><span class="nm">Skin fade<small>30 MIN</small></span><span class="pr">$35</span></div>
+        <div class="bk-svc"><span class="nm">Cut &amp; beard<small>45 MIN</small></span><span class="pr">$50</span></div>
+        <div class="bk-svc"><span class="nm">Line-up<small>15 MIN</small></span><span class="pr">$20</span></div>
+        <div class="bk-staff"><span class="on">MR</span><span>DB</span><span>AX</span><span>JT</span></div>
+        <div class="bk-times"><b>10:00</b><b class="on">11:30</b><b>1:15</b><b>2:40</b><b>5:15</b></div>
+        <span class="bk-cta">Book with Marco — Sat 2:40</span>
+        <span class="bk-float">BOOKED AT 11:58 PM · REMINDER SET ✓</span>
       </div>
-      <div class="q-mock">
-        <div class="qh">WALK-IN QUEUE <span>LIVE</span></div>
-        <div class="qr-row"><span>Deon</span><b>CUTTING</b></div>
-        <div class="qr-row"><span>Alex</span><b>~15 MIN</b></div>
-        <div class="qr-row me"><span>You</span><b>#3 · ~40 MIN</b></div>
+      <div class="ig-mock">
+        <div class="ig-top"><i></i><b>kingscut.shop</b></div>
+        <div class="ig-img"></div>
+        <p>Fresh skin fade for the weekend 💈 A couple Saturday chairs left with Marco…</p>
+        <span class="ig-sch">SCHEDULED ✓ IG · FB · GOOGLE BUSINESS</span>
       </div>
     </div>
   </div>
@@ -1352,9 +1177,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <div class="pain"><p>The phone rings mid-fade. Answer it and lose the cut, ignore it and lose the booking.</p></div>
       <div class="pain"><p>Saturday no-shows leave your best chair empty for 45 minutes.</p></div>
       <div class="pain"><p>Walk-ins pile up while booked clients wait — half of them just leave.</p></div>
-      <div class="pain"><p>DMs pile up faster than you can reply.</p></div>
+      <div class="pain"><p>DMs pile up faster than you can reply — and your evenings disappear into them.</p></div>
       <div class="pain"><p>Your Instagram would be a goldmine — if you had time to post the fades you're cutting.</p></div>
-      <div class="pain"><p>Every barber in the shop has their own following, but the shop's calendar can't tell them apart.</p></div>
+      <div class="pain"><p>Every barber in the shop has their own following, but the calendar can't tell them apart.</p></div>
     </div>
   </div>
 </section>
@@ -1364,71 +1189,42 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Here's what changes</span>
-      <h2 class="h2">You keep cutting. FYNZ keeps <span class="cw">booking</span>.</h2>
+      <h2 class="h2">Run the chair. FYNZ runs <span class="cw">everything else</span>.</h2>
     </div>
 
     <div class="ben-group reveal">
       <h3><span class="gi">01</span>Fill every chair.</h3>
       <div class="bgrid g3">
         <div class="bcard">
-          <div class="bviz vz-answer" aria-hidden="true">
-            <span class="vlabel">INCOMING CALL — MID-FADE</span>
-            <span class="ring"></span><span class="ring r2"></span>
-            <span class="ph2">✆</span>
-            <div class="st"><span class="vchip ok">ANSWERED · CUT BOOKED ✓</span></div>
-            <div class="meta">YOUR CLIPPERS NEVER STOPPED</div>
+          <div class="bviz vz-book" aria-hidden="true">
+            <span class="vlabel">YOUR BOOKING PAGE — 2:04 AM</span>
+            <div class="slots"><b>10:00</b><b class="pick">2:00 AM ▸ SAT 2:40</b><b>4:45</b></div>
+            <div class="toast"><span class="vchip ok">BOOKED — SAT 2:40 · CONFIRMATION SENT ✓</span></div>
           </div>
-          <h4>Every ring gets answered — even mid-fade.</h4>
-          <p>A natural-sounding receptionist takes the call, checks the calendar, and books the cut while your clippers stay on. Every call that used to go to voicemail is now a booking.</p>
-          <span class="tag">powered by <b>Voice AI</b></span>
-        </div>
-        <div class="bcard">
-          <div class="bviz vz-voice" aria-hidden="true">
-            <span class="vlabel">MISSED CALL — TEXT-BACK IN SECONDS</span>
-            <span class="ring"></span><span class="ring r2"></span>
-            <span class="ph">✆</span>
-            <div class="sms">Sorry we missed you — grab a time here: fynz.io/kings 💈<small>AUTO-TEXT · SENT IN 4 SECONDS</small></div>
-          </div>
-          <h4>Missed a call anyway? They get a text in seconds.</h4>
-          <p>"Sorry we missed you — grab a time here" fires automatically with your booking link, so they don't dial the shop down the block.</p>
-          <span class="tag">powered by <b>Missed-call text-back · GROW</b></span>
-        </div>
-        <div class="bcard">
-          <div class="bviz vz-crew" aria-hidden="true">
-            <span class="vlabel">ONE SHOP — THREE BOOKS</span>
-            <div class="row">
-              <div class="bb"><span class="av">M</span><b>Marco</b><small>FADES · BEARDS<br/>TUE–SAT</small><span class="lk">/kings/marco ✓</span></div>
-              <div class="bb"><span class="av">D</span><b>Dre</b><small>CUTS · KIDS<br/>WED–SUN</small><span class="lk">/kings/dre ✓</span></div>
-              <div class="bb"><span class="av">S</span><b>Sam</b><small>DESIGNS · LOCS<br/>THU–SAT</small><span class="lk">/kings/sam ✓</span></div>
-            </div>
-          </div>
-          <h4>Every barber runs their own book.</h4>
-          <p>Each chair gets its own link, services, hours, and photo — clients pick their barber and a real open slot, and each barber owns their own following.</p>
-          <span class="tag">powered by <b>Staff calendars · SCHEDULE</b></span>
-        </div>
-        <div class="bcard">
-          <div class="bviz vz-queue" aria-hidden="true">
-            <span class="vlabel">QR AT THE DOOR — LIVE QUEUE</span>
-            <div class="qr"></div>
-            <div class="ql">
-              <div class="r">DEON <span>CUTTING</span></div>
-              <div class="r">ALEX <span>~15 MIN</span></div>
-            </div>
-            <div class="tick"><span class="vchip cu">YOU'RE #3 · ABOUT 40 MIN — WE'LL TEXT YOU ✓</span></div>
-          </div>
-          <h4>Walk-ins join a real queue — not a chaos line.</h4>
-          <p>A QR at the door lets walk-ins claim the next open chair with a live wait time. Fewer people walk in, look at the bench, and leave.</p>
+          <h4>Get booked 24/7 — even while you're mid-fade.</h4>
+          <p>Clients pick a real open chair from your page, Instagram, or Google at 2 PM or 2 AM. Every booking taken is one you would have missed.</p>
           <span class="tag">powered by <b>Online booking · SCHEDULE</b></span>
         </div>
         <div class="bcard">
-          <div class="bviz vz-remind" aria-hidden="true">
-            <span class="vlabel">SATURDAY 2:00 PM — PEAK SLOT</span>
-            <div class="appt">Deon W. — Fade + beard<small>SAT 2:00 PM · CARD ON FILE</small></div>
-            <div class="vrow bells"><span class="vchip cu b1">🔔 −24H SENT ✓</span><span class="vchip cu b2">🔔 −2H CONFIRMED ✓</span></div>
-            <span class="vchip ok dep">DEPOSIT HELD — $15</span>
+          <div class="bviz vz-voice" aria-hidden="true">
+            <span class="vlabel">INCOMING CALL — MID-FADE</span>
+            <span class="ring"></span><span class="ring r2"></span>
+            <span class="ph">✆</span>
+            <div class="sms">Sorry we missed you! Book in 10 seconds: fynz.io/kings 💈<small>AUTO-TEXT · SENT IN 4 SECONDS</small></div>
           </div>
-          <h4>No-shows pay or they show.</h4>
-          <p>Reminders confirm every cut, and a small deposit holds your peak Saturday slots — if they ghost, you're covered.</p>
+          <h4>Every call answered — every missed call texted back in seconds.</h4>
+          <p>The receptionist takes the call, checks the calendar, and books the chair while your clippers stay on. Missed calls get an instant text back so the caller doesn't dial the next shop.</p>
+          <span class="tag">powered by <b>Voice AI</b> + <b>Missed-call text-back · GROW</b></span>
+        </div>
+        <div class="bcard">
+          <div class="bviz vz-remind" aria-hidden="true">
+            <span class="vlabel">SATURDAY 2:00 PM — PEAK CHAIR</span>
+            <div class="appt">Chris P. — Fade &amp; beard<small>SAT 2:00 PM · CARD ON FILE</small></div>
+            <div class="vrow bells"><span class="vchip cu b1">🔔 −24H SENT ✓</span><span class="vchip cu b2">🔔 −2H CONFIRMED ✓</span></div>
+            <span class="vchip ok dep">DEPOSIT HELD — $20</span>
+          </div>
+          <h4>No-shows stop costing you Saturdays.</h4>
+          <p>Automatic reminders confirm every cut, and a small card-on-file deposit on peak chairs means people show up — or you're covered.</p>
           <span class="tag">powered by <b>Reminders &amp; confirmations · SCHEDULE</b> + <b>Deposits &amp; payments · SHOP</b></span>
         </div>
       </div>
@@ -1439,50 +1235,50 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <div class="bgrid g3">
         <div class="bcard">
           <div class="bviz vz-rebook" aria-hidden="true">
-            <span class="vlabel">DEON — FADE, EVERY 3 WEEKS</span>
-            <div class="nudge">Time for a lineup? Marco's got Thursday 5:15 — fynz.io/kings</div>
+            <span class="vlabel">DEON — SKIN FADE, EVERY 3 WEEKS</span>
+            <div class="nudge">Hey Deon! It's been 3 weeks — time for a fresh fade? Book: fynz.io/kings</div>
             <div class="line"></div>
-            <span class="dot" style="left:24px"><span>MAY 3</span></span>
-            <span class="dot" style="left:34%"><span>MAY 24</span></span>
-            <span class="dot" style="left:62%"><span>JUN 14</span></span>
+            <span class="dot" style="left:24px"><span>JAN 4</span></span>
+            <span class="dot" style="left:34%"><span>FEB 15</span></span>
+            <span class="dot" style="left:62%"><span>MAR 29</span></span>
             <span class="dot due" style="right:24px"><span>DUE NOW</span></span>
           </div>
-          <h4>The rebook happens on the 3-week clock.</h4>
-          <p>Regulars get a "time for a lineup?" nudge right when they're due, in your tone, with your calendar.</p>
+          <h4>Every client rebooks on schedule.</h4>
+          <p>When someone's due for a fresh cut, FYNZ nudges them at their usual cadence, in your tone — before they drift to the shop down the street.</p>
           <span class="tag">powered by <b>Recurring appointments · SCHEDULE</b> + <b>Workflow AI</b></span>
         </div>
         <div class="bcard">
-          <div class="bviz vz-review" aria-hidden="true">
-            <span class="vlabel">NEW GOOGLE REVIEW — 20 MIN AFTER THE CUT</span>
-            <div class="stars"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div>
-            <div class="reply">Appreciate you, Deon! That fade came out clean — see you in three weeks. 💈<small>REPLY DRAFTED &amp; POSTED BY REVIEWS AI</small></div>
-          </div>
-          <h4>Fresh fades generate fresh five-stars.</h4>
-          <p>Every finished cut triggers a review ask — and Google starts sending you the neighborhood.</p>
-          <span class="tag">powered by <b>Reviews AI</b></span>
-        </div>
-        <div class="bcard">
           <div class="bviz vz-bday" aria-hidden="true">
-            <span class="vlabel">QUIET REGULAR — DETECTED</span>
+            <span class="vlabel">CLIENT DATES — TRACKED FOR YOU</span>
             <span class="sp" style="top:26px;right:30px"></span>
             <span class="sp s2" style="top:44px;right:16px"></span>
             <span class="sp s3" style="top:22px;right:52px"></span>
-            <div class="msg">We miss you at Kings Cut! It's been six weeks — come get right. Book: fynz.io/kings 💈<small>SENT AUTOMATICALLY · NO VISIT IN 6 WEEKS</small></div>
-            <span class="vchip cu aut">3 QUIET REGULARS NUDGED THIS WEEK</span>
+            <div class="msg">🎂 Happy birthday, Deon! Grab a free line-up with your next cut this week — from all of us at Kings Cut.<small>SENT AUTOMATICALLY · 9:00 AM ON HER DAY</small></div>
+            <span class="vchip cu aut">1-YEAR ANNIVERSARY OFFER — QUEUED</span>
           </div>
-          <h4>Regulars who go quiet get a friendly nudge.</h4>
-          <p>No visit in six weeks? A "we miss you" text goes out — you save clients before you notice they're gone.</p>
-          <span class="tag">powered by <b>Workflow AI</b></span>
+          <h4>Birthdays, anniversaries, and big moments — remembered.</h4>
+          <p>A birthday line-up, a "one-year with us" thank you, a first-cut anniversary offer — all sent automatically, timed to each client.</p>
+          <span class="tag">powered by <b>Email &amp; SMS campaigns · GROW</b> + <b>Workflow AI</b></span>
+        </div>
+        <div class="bcard">
+          <div class="bviz vz-review" aria-hidden="true">
+            <span class="vlabel">NEW GOOGLE REVIEW — 2 MIN AFTER THE CUT</span>
+            <div class="stars"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div>
+            <div class="reply">Appreciate you, Deon! That fade came out clean — see you in three weeks. 💈<small>REPLY DRAFTED &amp; POSTED BY REVIEWS AI</small></div>
+          </div>
+          <h4>Five-star reviews, without the awkward ask.</h4>
+          <p>After a fresh cut, the review request sends itself and routes happy clients straight to Google. Every fresh review is a new client Google sends your way.</p>
+          <span class="tag">powered by <b>Reviews AI</b></span>
         </div>
       </div>
     </div>
 
     <div class="ben-group reveal">
       <h3><span class="gi">03</span>Grow past word of mouth.</h3>
-      <div class="bgrid g3">
+      <div class="bgrid g2">
         <div class="bcard">
           <div class="bviz vz-social" aria-hidden="true">
-            <span class="vlabel">TAGGED "POST-READY" — MID-DAY FADE</span>
+            <span class="vlabel">CONTENT AI — TODAY'S FADE</span>
             <div class="post">
               <div class="pimg"></div>
               <div class="ln"></div>
@@ -1494,21 +1290,37 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
               <span class="vchip ok">GOOGLE BUSINESS ✓</span>
             </div>
           </div>
-          <h4>Your best cuts do the marketing.</h4>
-          <p>Snap the after-shot, tag it "post-ready," and Content AI writes the caption and schedules it to Instagram, Facebook, and Google Business — in the shop's voice.</p>
+          <h4>Social posts that actually go out.</h4>
+          <p>A clean fade, a before/after, a weekly special — the caption is drafted in your voice and posted to Instagram, Facebook, and Google Business on schedule.</p>
           <span class="tag">powered by <b>Content AI</b> + <b>Social planner · GROW</b></span>
         </div>
         <div class="bcard">
+          <div class="bviz vz-tue" aria-hidden="true">
+            <span class="vlabel">BOOKINGS BY DAY</span>
+            <span class="vchip cu offer">OFFER SENT 8:00 AM → LAPSED CLIENTS ONLY</span>
+            <div class="bars">
+              <div class="bar" style="height:62%"><i>MON</i></div>
+              <div class="bar tu"><i>TUE</i></div>
+              <div class="bar" style="height:54%"><i>WED</i></div>
+              <div class="bar" style="height:70%"><i>THU</i></div>
+              <div class="bar" style="height:96%"><i>FRI</i></div>
+            </div>
+          </div>
+          <h4>Quiet weekdays fill themselves.</h4>
+          <p>A midweek offer goes to the exact clients who haven't been in a while — no ad spend, no discount to your regulars who'd come anyway.</p>
+          <span class="tag">powered by <b>Email &amp; SMS campaigns · GROW</b></span>
+        </div>
+        <div class="bcard">
           <div class="bviz vz-ref" aria-hidden="true">
-            <span class="vlabel">REFERRAL LINK — SHARED BY A REGULAR</span>
+            <span class="vlabel">REFERRAL LINK — SHARED BY A HAPPY CLIENT</span>
             <span class="av a1">DEON</span>
             <div class="lnk"></div>
-            <span class="av a2">JAY</span>
+            <span class="av a2">MIKE</span>
             <span class="cr c1" style="color:var(--copper)">+ $10 CREDIT ✓</span>
             <span class="cr c2" style="color:var(--green)">+ $10 OFF · BOOKED ✓</span>
           </div>
           <h4>Referrals reward themselves.</h4>
-          <p>"Bring your boy, both get $10 off" as a shareable link — when the friend books, both get credit automatically.</p>
+          <p>Happy clients get a shareable "$10 off for you and a friend" link; when the friend books, both get credit — no punch cards, no tracking by hand.</p>
           <span class="tag">powered by <b>Referrals · GROW</b> + <b>Workflow AI</b></span>
         </div>
         <div class="bcard">
@@ -1522,8 +1334,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
             </div>
             <span class="vchip ok done">WIRED TO YOUR CALENDAR ✓</span>
           </div>
-          <h4>A shop website that books — not just sits there.</h4>
-          <p>A shop-styled page with your barbers, prices, and cut gallery, wired straight to the calendar. Drafted for you in an afternoon.</p>
+          <h4>A website that books clients — not just sits there.</h4>
+          <p>A barbershop-styled page with your services, prices, and gallery, wired to your calendar. Drafted for you in an afternoon.</p>
           <span class="tag">powered by <b>Website &amp; Funnel AI</b></span>
         </div>
       </div>
@@ -1533,28 +1345,28 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <h3><span class="gi">04</span>Sell more every visit.</h3>
       <div class="bgrid g2">
         <div class="bcard">
+          <div class="bviz vz-gift" aria-hidden="true">
+            <span class="vlabel">SOLD ONLINE — REDEEMED IN-CHAIR</span>
+            <div class="card"><b>KINGS CUT</b><small>GIFT CARD · CUT MEMBERSHIP</small></div>
+            <div class="bal">BALANCE<br/><b>$85 → $60</b></div>
+            <span class="vchip ok red">REDEEMED IN-CHAIR — NO PAPER BALANCE ✓</span>
+          </div>
+          <h4>Packages, memberships, and gift cards on your page.</h4>
+          <p>Sell cut packages, monthly membership plans, and gift cards online — clients redeem in-chair without a paper balance to keep.</p>
+          <span class="tag">powered by <b>Memberships &amp; packages + Gift cards · SHOP</b></span>
+        </div>
+        <div class="bcard">
           <div class="bviz vz-store" aria-hidden="true">
-            <span class="vlabel">YOUR LINE — ONLINE</span>
+            <span class="vlabel">YOUR RETAIL SHELF — ONLINE</span>
             <div class="prod"></div>
             <span class="fly"></span>
             <div class="cart">🛒<u>1</u></div>
-            <span class="vchip ok paid">ORDER #142 — PAID ✓</span>
-            <span class="hrs">POMADE · ORDERED 10:12 PM · SHOP CLOSED</span>
+            <span class="vchip ok paid">ORDER #218 — PAID ✓</span>
+            <span class="hrs">ORDERED 10:40 PM · SHOP CLOSED</span>
           </div>
-          <h4>Sell your line at 10 PM too.</h4>
-          <p>Pomades, beard oil, tees, and hats live on your online store — regulars restock without waiting for their next cut.</p>
+          <h4>Grooming products, sold when the shop is closed.</h4>
+          <p>Your pomade, beard oil, and grooming products for sale online — regulars restock without waiting for their next cut.</p>
           <span class="tag">powered by <b>Online store · SHOP</b></span>
-        </div>
-        <div class="bcard">
-          <div class="bviz vz-gift" aria-hidden="true">
-            <span class="vlabel">SOLD ONLINE — REDEEMED IN-CHAIR</span>
-            <div class="card"><b>KINGS CUT</b><small>5-CUT PACKAGE · CUT + LINE-UP MEMBERSHIP</small></div>
-            <div class="bal">CUTS LEFT<br/><b>5 → 4</b></div>
-            <span class="vchip ok red">REDEEMED IN-CHAIR — NO PAPER CARD ✓</span>
-          </div>
-          <h4>Cut packages, memberships, and gift cards on your page.</h4>
-          <p>Sell 5-cut packages, a monthly "cut + line-up" membership, and gift cards online — clients redeem in-chair without a paper card.</p>
-          <span class="tag">powered by <b>Memberships &amp; packages + Gift cards · SHOP</b></span>
         </div>
       </div>
     </div>
@@ -1569,23 +1381,23 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
             <span class="src s2">FACEBOOK</span>
             <span class="src s3">TEXTS</span>
             <span class="src s4">WEBCHAT</span>
-            <div class="tray">One inbox <span class="vchip cu">6 NEW · ALL ANSWERED ✓</span></div>
+            <div class="tray">One inbox <span class="vchip cu">4 NEW · ALL ANSWERED ✓</span></div>
           </div>
-          <h4>Every DM, text, and web message in one place.</h4>
-          <p>Instagram, Facebook, SMS, and webchat all land in the same inbox — and get answered even when your clippers are on.</p>
+          <h4>Every message in one place.</h4>
+          <p>Instagram, Facebook, texts, and webchat all land in the same inbox — and get answered even when you're mid-fade.</p>
           <span class="tag">powered by <b>One inbox · GROW</b> + <b>Conversation AI</b></span>
         </div>
         <div class="bcard">
           <div class="bviz vz-ask" aria-hidden="true">
             <span class="vlabel">ASK AI</span>
-            <div class="q">▸ <i>Who's my top barber this month?</i></div>
+            <div class="q">▸ <i>What's my top service this month?</i></div>
             <div class="ans">
-              <b>MARCO — 84 CUTS · $3.1K</b>
-              <div class="abars"><i class="top" style="height:100%"></i><i style="height:72%"></i><i style="height:55%"></i></div>
+              <b>FADES — $6.2K THIS MONTH</b>
+              <div class="abars"><i class="top" style="height:100%"></i><i style="height:64%"></i><i style="height:41%"></i></div>
             </div>
           </div>
           <h4>Ask your shop anything.</h4>
-          <p>"Who's my top barber this month?" "Which chair is fully booked next Saturday?" — answered in plain language, from your real numbers.</p>
+          <p>"What's my top service this month?" "Which barber is fully booked this weekend?" — answered in plain language, from your real numbers.</p>
           <span class="tag">powered by <b>Ask AI</b> + <b>Reports &amp; insights · OPS (LIVE)</b></span>
         </div>
       </div>
@@ -1598,49 +1410,47 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Watch it work</span>
-      <h2 class="h2">Two things FYNZ did <span class="cw">while your clippers were on</span></h2>
+      <h2 class="h2">Two things FYNZ did <span class="cw">while you were cutting</span></h2>
     </div>
     <div class="demo2">
       <div class="reveal">
         <div class="demo-card-copy">
-          <b>A missed call becomes a booking <span class="cw">in 3 minutes</span>.</b>
-          <p>11:12 AM — you're mid-fade, the call drops. The text-back fires instantly; four messages later, it's on the books.</p>
+          <b>A Saturday chair <span class="cw">refills itself</span>.</b>
+          <p>Your 2:40 cancels. The waitlist gets a text before you've noticed — chair booked again by 2:52.</p>
         </div>
-        <div class="bsms" id="bsmsDemo">
-          <div class="bsms-head"><b>KINGS CUT — SMS</b><span>LIVE</span></div>
-          <div class="bsms-body" id="bsmsBody" aria-live="polite">
-            <div class="bm sys miss"><span class="b">✕ MISSED CALL — 11:12 AM · MID-FADE</span></div>
-            <div class="bm ai"><span class="b">Sorry we missed you at Kings Cut! Grab a time here: fynz.io/kings 💈</span><small>AUTO TEXT-BACK · 11:12 AM</small></div>
-            <div class="bm"><span class="b">You got anything with Marco today?</span><small>CALLER · 11:13 AM</small></div>
-            <div class="bm ai"><span class="b">Marco's got 2:40 or 5:15 this afternoon — want me to lock one in?</span><small>CONVERSATION AI · 11:13 AM</small></div>
-            <div class="bm"><span class="b">2:40 works 👍</span><small>CALLER · 11:14 AM</small></div>
-            <div class="bm sys"><span class="b">✓ BOOKED — MARCO 2:40 PM · CONFIRMED 11:15 AM</span></div>
-            <div class="btyping" id="bsmsTyping" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="wl" id="wlDemo">
+          <div class="wl-head"><b>SATURDAY — MARCO'S CHAIR</b><span>LIVE</span></div>
+          <div class="wl-rows">
+            <div class="wl-slot"><span class="t">11:00 AM</span><span class="who">Deon B.</span><span class="svc">Skin fade</span><span class="wl-badge"></span></div>
+            <div class="wl-slot" id="wlTarget"><span class="t">2:40 PM</span><span class="who" id="wlWho">Chris P.</span><span class="svc" id="wlSvc">Fade &amp; beard</span><span class="wl-badge" id="wlBadge"></span></div>
+            <div class="wl-slot"><span class="t">4:15 PM</span><span class="who">Sam R.</span><span class="svc">Cut &amp; line-up</span><span class="wl-badge"></span></div>
           </div>
-          <button class="bsms-replay" id="bsmsReplay">↺ REPLAY THE SAVE</button>
+          <div class="wl-sms" id="wlSms">
+            <div class="b">Hey Jamal! Marco just had a 2:40 open at Kings Cut today for your fade. Want it? Reply YES to grab it. 💈<small>WAITLIST TEXT · SENT 2:20 PM</small></div>
+          </div>
+          <button class="wl-replay" id="wlReplay">↺ REPLAY THE AFTERNOON</button>
         </div>
-        <span class="tag" style="display:block;margin-top:12px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;color:var(--faint)">powered by <b style="color:rgba(217,150,125,0.75);font-weight:500">Missed-call text-back · GROW</b> + <b style="color:rgba(217,150,125,0.75);font-weight:500">Conversation AI</b></span>
+        <span class="tag" style="display:block;margin-top:12px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;color:var(--faint)">powered by <b style="color:rgba(217,150,125,0.75);font-weight:500">Class schedules &amp; waitlists · SCHEDULE</b></span>
       </div>
       <div class="reveal d1">
         <div class="demo-card-copy">
-          <b>The walk-in line <span class="cw">runs itself</span>.</b>
-          <p>A walk-in scans the QR at the door, grabs a real place in line, and watches the wait tick down — nobody eyeballs the bench and leaves.</p>
+          <b>A post <span class="cw">writes itself</span>.</b>
+          <p>You snapped today's fade. Content AI drafts the caption and schedules it everywhere.</p>
         </div>
-        <div class="qd" id="qdDemo">
-          <div class="qd-head"><b>WALK-IN QUEUE — SATURDAY</b><span>LIVE</span></div>
-          <div class="qd-scan" id="qdScan">
-            <div class="qr"></div>
-            <p><b>QR AT THE DOOR</b>Walk-in scans to join the queue</p>
+        <div class="sp" id="spDemo">
+          <div class="sp-head"><b>CONTENT AI — DRAFTING POST</b><span>WORKING</span></div>
+          <div class="sp-img"><i>TODAY'S FADE.JPG</i></div>
+          <div class="sp-cap"><span id="spText"></span><span class="caret" id="spCaret"></span></div>
+          <div class="sp-chips">
+            <span class="sp-chip" data-i="0">INSTAGRAM</span>
+            <span class="sp-chip" data-i="1">FACEBOOK</span>
+            <span class="sp-chip" data-i="2">GOOGLE BUSINESS</span>
+            <span class="sp-chip ok" data-i="3">SCHEDULED — SAT 9:00 AM ✓</span>
           </div>
-          <div class="qd-rows">
-            <div class="qd-row cutting" id="qdR1"><span class="pos">#1</span><span class="who">Deon</span><span class="eta" id="qdE1">CUTTING</span></div>
-            <div class="qd-row" id="qdR2"><span class="pos">#2</span><span class="who">Alex</span><span class="eta" id="qdE2">~15 MIN</span></div>
-            <div class="qd-row me hidden" id="qdR3"><span class="pos">#3</span><span class="who">You (walk-in)</span><span class="eta" id="qdE3">~40 MIN</span></div>
-          </div>
-          <div class="qd-ticket" id="qdTicket"><span class="vchip cu">YOU'RE #3 · ABOUT 40 MIN — WE'LL TEXT WHEN YOU'RE UP ✓</span></div>
-          <button class="qd-replay" id="qdReplay">↺ REPLAY THE QUEUE</button>
+          <span class="sp-stamp" id="spStamp">YOU APPROVED IT IN 10 SECONDS</span>
+          <button class="sp-replay" id="spReplay">↺ DRAFT IT AGAIN</button>
         </div>
-        <span class="tag" style="display:block;margin-top:12px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;color:var(--faint)">powered by <b style="color:rgba(217,150,125,0.75);font-weight:500">Online booking · SCHEDULE</b></span>
+        <span class="tag" style="display:block;margin-top:12px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;color:var(--faint)">powered by <b style="color:rgba(217,150,125,0.75);font-weight:500">Content AI</b> + <b style="color:rgba(217,150,125,0.75);font-weight:500">Social planner · GROW</b></span>
       </div>
     </div>
   </div>
@@ -1660,17 +1470,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
         <div class="mo"><span class="tm">11:00 AM</span><p>Two walk-ins arrive at once. One waits 40 minutes. The other looks around and leaves.</p></div>
         <div class="mo"><span class="tm">1:00 PM</span><p>Five voicemails have piled up. You'll listen tonight, if you can.</p></div>
         <div class="mo"><span class="tm">3:00 PM</span><p>A booked client no-shows. The chair sits empty for 45 minutes.</p></div>
-        <div class="mo"><span class="tm">6:00 PM</span><p>You meant to post the mid-day fade. Instagram is dead — you forgot.</p></div>
-        <div class="mo"><span class="tm">8:00 PM</span><p>You're finally sitting. Replying to 12 DMs from the day, none of them worth much anymore.</p></div>
+        <div class="mo"><span class="tm">6:00 PM</span><p>You meant to post the mid-day fade. You forgot — Instagram is dead.</p></div>
       </div>
       <div class="day after">
         <span class="lbl">SAME SATURDAY, WITH FYNZ</span>
         <div class="mo"><span class="tm">9:00 AM</span><p>Voice AI takes the first three calls. <b>All three cuts are booked</b> before your first fade is done.</p></div>
         <div class="mo"><span class="tm">11:00 AM</span><p>Both walk-ins scan the QR — one grabs 11:20, one takes 12:15. <b>Nobody leaves.</b></p></div>
-        <div class="mo"><span class="tm">1:00 PM</span><p>No voicemails piled up — <b>no calls went to voicemail.</b></p></div>
+        <div class="mo"><span class="tm">1:00 PM</span><p>No voicemails piled up — <b>no calls went to voicemail.</b> The mid-day fade you tagged "post-ready" is scheduled to Instagram for 4 PM.</p></div>
         <div class="mo"><span class="tm">3:00 PM</span><p>The no-show forfeits their deposit; the waitlist gets pinged; <b>the chair is refilled by 3:20.</b></p></div>
-        <div class="mo"><span class="tm">6:00 PM</span><p>The mid-day fade you tagged "post-ready" was scheduled to Instagram at 4 PM. <b>Already 200 likes and three new followers.</b></p></div>
-        <div class="mo"><span class="tm">8:00 PM</span><p><b>You're at dinner.</b> The DMs got answered hours ago — three were booked, two are on tomorrow's calendar.</p></div>
+        <div class="mo"><span class="tm">6:00 PM</span><p><b>You're heading to dinner.</b> The DMs got answered hours ago — three were booked, and every review-request text is already out from today's cuts.</p></div>
       </div>
     </div>
   </div>
@@ -1719,6 +1527,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
         <div class="faq-a"><p>Yes. Your existing shop number keeps working — FYNZ just makes sure it always gets answered.</p></div>
       </div>
       <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Can each barber have their own calendar, booking link, and commission?<span class="x"></span></button>
+        <div class="faq-a"><p>Yes — every barber gets their own services, hours, calendar, and reminders, with their own link to share and their own reporting.</p></div>
+      </div>
+      <div class="faq-item">
         <button class="faq-q" aria-expanded="false">How long does setup take?<span class="x"></span></button>
         <div class="faq-a"><p>Most owners are live in under a week.</p><!-- PLACEHOLDER: real data needed (setup time claim) --></div>
       </div>
@@ -1739,7 +1551,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <div class="wrap">
     <span class="eyebrow reveal">For barbershops</span>
     <h2 class="reveal">Keep cutting. FYNZ keeps <span style="color:var(--copper)">booking</span>.</h2>
-    <p class="lede reveal">Answered calls, a walk-in queue that runs itself, and an Instagram that posts your best work — from day one.</p>
+    <p class="lede reveal">Answered calls, booked chairs, and an Instagram that posts your best work — on autopilot from day one.</p>
     <div class="final-ctas reveal">
       <a class="btn btn-copper" href="../pricing.html">Start free</a>
       <a class="btn btn-ghost" href="../schedule.html">See how it works →</a>
@@ -1896,104 +1708,107 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   });
   syncThemeLabel();
 
-  /* ---- demo A: missed-call SMS save ---- */
-  var bs = document.getElementById("bsmsDemo");
-  if (bs){
-    var bmsgs = Array.prototype.slice.call(bs.querySelectorAll(".bm"));
-    var btyping = document.getElementById("bsmsTyping");
-    var btimers = [];
-    function bClear(){ btimers.forEach(clearTimeout); btimers = []; }
-    function bShowAll(){
-      bClear();
-      btyping.classList.remove("show");
-      bmsgs.forEach(function(m){ m.classList.add("show"); });
+  /* ---- demo A: waitlist refill ---- */
+  var demo = document.getElementById("wlDemo");
+  if (demo){
+    var slot = document.getElementById("wlTarget");
+    var who = document.getElementById("wlWho");
+    var svc = document.getElementById("wlSvc");
+    var badge = document.getElementById("wlBadge");
+    var sms = document.getElementById("wlSms");
+    var timers = [];
+    function clearTimers(){ timers.forEach(clearTimeout); timers = []; }
+    function setState(state){
+      slot.classList.remove("cancelled","open","filled");
+      if (state === "start"){
+        who.textContent = "Chris P.";
+        svc.textContent = "Fade & beard"; badge.textContent = "";
+        sms.classList.remove("show");
+      } else if (state === "cancelled"){
+        slot.classList.add("cancelled");
+        badge.textContent = "CANCELLED 2:18";
+      } else if (state === "open"){
+        slot.classList.add("open");
+        who.textContent = "Open slot…";
+        badge.textContent = "";
+        sms.classList.add("show");
+      } else if (state === "filled"){
+        slot.classList.add("filled");
+        who.textContent = "Jamal T.";
+        svc.textContent = "Fade & beard";
+        badge.textContent = "REBOOKED 2:52 \u2713";
+        sms.classList.add("show");
+      }
     }
-    function bPlay(){
-      bClear();
-      bmsgs.forEach(function(m){ m.classList.remove("show"); });
-      btyping.classList.remove("show");
-      if (prefersReduced){ bShowAll(); return; }
-      var t = 400;
-      bmsgs.forEach(function(m){
-        var isAI = m.classList.contains("ai") || (m.classList.contains("sys") && !m.classList.contains("miss"));
-        if (isAI){
-          btimers.push(setTimeout(function(){ btyping.classList.add("show"); }, t));
-          t += 1000;
-          btimers.push(setTimeout(function(){
-            btyping.classList.remove("show");
-            m.classList.add("show");
-          }, t));
-        } else {
-          btimers.push(setTimeout(function(){ m.classList.add("show"); }, t));
-        }
-        t += 1300;
-      });
+    function play(){
+      clearTimers();
+      setState("start");
+      if (prefersReduced){ setState("filled"); return; }
+      timers.push(setTimeout(function(){ setState("cancelled"); }, 700));
+      timers.push(setTimeout(function(){ setState("open"); }, 2100));
+      timers.push(setTimeout(function(){ setState("filled"); }, 4300));
     }
-    var bPlayed = false;
-    var bIO = new IntersectionObserver(function(entries){
+    var played = false;
+    var dIO = new IntersectionObserver(function(entries){
       entries.forEach(function(en){
-        if (en.isIntersecting && !bPlayed){ bPlayed = true; bPlay(); bIO.unobserve(bs); }
+        if (en.isIntersecting && !played){ played = true; play(); dIO.unobserve(demo); }
       });
     }, { threshold: 0.35 });
-    bIO.observe(bs);
-    document.getElementById("bsmsReplay").addEventListener("click", bPlay);
+    dIO.observe(demo);
+    document.getElementById("wlReplay").addEventListener("click", play);
   }
 
-  /* ---- demo B: live walk-in queue ---- */
-  var qd = document.getElementById("qdDemo");
-  if (qd){
-    var scan = document.getElementById("qdScan");
-    var r1 = document.getElementById("qdR1"), r2 = document.getElementById("qdR2"), r3 = document.getElementById("qdR3");
-    var e1 = document.getElementById("qdE1"), e2 = document.getElementById("qdE2"), e3 = document.getElementById("qdE3");
-    var p1 = r1.querySelector(".pos"), p2 = r2.querySelector(".pos"), p3 = r3.querySelector(".pos");
-    var ticket = document.getElementById("qdTicket");
-    var qtimers = [];
-    function qClear(){ qtimers.forEach(clearTimeout); qtimers = []; }
-    function qReset(){
-      qClear();
-      scan.classList.remove("on");
-      r1.classList.remove("done"); r1.classList.add("cutting");
-      r2.classList.remove("cutting");
-      r3.classList.add("hidden");
-      p1.textContent = "#1"; p2.textContent = "#2"; p3.textContent = "#3";
-      e1.textContent = "CUTTING"; e2.textContent = "~15 MIN"; e3.textContent = "~40 MIN";
-      ticket.classList.remove("show");
+  /* ---- demo B: Content AI drafts + schedules a post ---- */
+  var sp = document.getElementById("spDemo");
+  if (sp){
+    var spText = document.getElementById("spText");
+    var spCaret = document.getElementById("spCaret");
+    var spStamp = document.getElementById("spStamp");
+    var chips = sp.querySelectorAll(".sp-chip");
+    var CAPTION = "Fresh skin fade to start the weekend \ud83d\udc88 A couple Saturday chairs still open with Marco \u2014 tap the link in bio to grab yours.";
+    var spTimers = [];
+    function spClear(){ spTimers.forEach(clearTimeout); spTimers = []; }
+    function spReset(){
+      spClear();
+      spText.textContent = "";
+      spCaret.style.display = "";
+      spStamp.classList.remove("show");
+      chips.forEach(function(c){ c.classList.remove("show"); });
     }
-    function qFinal(){
-      qReset();
-      scan.classList.add("on");
-      r3.classList.remove("hidden");
-      ticket.classList.add("show");
-      r1.classList.remove("cutting"); r1.classList.add("done");
-      e1.textContent = "DONE ✓";
-      r2.classList.add("cutting");
-      p2.textContent = "#1"; e2.textContent = "CUTTING";
-      p3.textContent = "#2"; e3.textContent = "~20 MIN";
+    function spFinal(){
+      spReset();
+      spText.textContent = CAPTION;
+      spCaret.style.display = "none";
+      chips.forEach(function(c){ c.classList.add("show"); });
+      spStamp.classList.add("show");
     }
-    function qPlay(){
-      qReset();
-      if (prefersReduced){ qFinal(); return; }
-      qtimers.push(setTimeout(function(){ scan.classList.add("on"); }, 700));
-      qtimers.push(setTimeout(function(){
-        r3.classList.remove("hidden");
-        ticket.classList.add("show");
-      }, 1700));
-      qtimers.push(setTimeout(function(){
-        r1.classList.remove("cutting"); r1.classList.add("done");
-        e1.textContent = "DONE ✓";
-        r2.classList.add("cutting");
-        p2.textContent = "#1"; e2.textContent = "CUTTING";
-        p3.textContent = "#2"; e3.textContent = "~20 MIN";
-      }, 3900));
+    function spPlay(){
+      spReset();
+      if (prefersReduced){ spFinal(); return; }
+      var i = 0;
+      function type(){
+        if (i <= CAPTION.length){
+          spText.textContent = CAPTION.slice(0, i);
+          i += 2;
+          spTimers.push(setTimeout(type, 34));
+        } else {
+          spCaret.style.display = "none";
+          chips.forEach(function(c, idx){
+            spTimers.push(setTimeout(function(){ c.classList.add("show"); }, 300 + idx * 340));
+          });
+          spTimers.push(setTimeout(function(){ spStamp.classList.add("show"); }, 300 + chips.length * 340 + 200));
+        }
+      }
+      spTimers.push(setTimeout(type, 500));
     }
-    var qPlayed = false;
-    var qIO = new IntersectionObserver(function(entries){
+    var spPlayed = false;
+    var spIO = new IntersectionObserver(function(entries){
       entries.forEach(function(en){
-        if (en.isIntersecting && !qPlayed){ qPlayed = true; qPlay(); qIO.unobserve(qd); }
+        if (en.isIntersecting && !spPlayed){ spPlayed = true; spPlay(); spIO.unobserve(sp); }
       });
     }, { threshold: 0.35 });
-    qIO.observe(qd);
-    document.getElementById("qdReplay").addEventListener("click", qPlay);
+    spIO.observe(sp);
+    document.getElementById("spReplay").addEventListener("click", spPlay);
   }
 
   /* ---- FAQ accordion ---- */
