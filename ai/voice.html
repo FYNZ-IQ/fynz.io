@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Voice AI — Your 24/7 AI receptionist | FYNZ</title>
 <meta name="description" content="Voice AI answers your business phone in a natural voice — greets callers, answers FAQs, qualifies, books into your calendar, and transfers complex calls to you. After-hours, weekends, and overflow covered." />
-<script>try{if(localStorage.getItem("fynz-theme")==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}</script>
+<script>try{if(localStorage.getItem("fynz-theme")!=="dark")document.documentElement.setAttribute("data-theme","light")}catch(e){document.documentElement.setAttribute("data-theme","light")}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -635,18 +635,47 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .mock-tilt{transform:none!important}
 }
 </style>
+<link rel="icon" href="../assets/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="../assets/fynz-icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#FBF4EF">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FYNZ">
+<meta property="og:title" content="Voice AI — Your 24/7 AI receptionist | FYNZ">
+<meta property="og:description" content="Voice AI answers your business phone in a natural voice — greets callers, answers FAQs, qualifies, books into your calendar, and transfers complex calls to you. After-hours, weekends, and overflow covered.">
+<meta property="og:image" content="https://fynz.io/assets/og-fynz.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://fynz.io/assets/og-fynz.png">
+
+<style id="fynz-light-restyle">
+/* Light-mode restyle: brand-tinted page wash + copper accents. Cards/boxes untouched. */
+[data-theme="light"] body{
+  background:
+    radial-gradient(1200px 700px at 10% -8%, rgba(217,150,125,.20), transparent 62%),
+    radial-gradient(1000px 640px at 106% 2%, rgba(14,31,62,.10), transparent 58%),
+    radial-gradient(1100px 720px at 50% 116%, rgba(217,150,125,.12), transparent 62%),
+    linear-gradient(178deg,#FBF4EF 0%,#F6F1EE 45%,#EFEEF5 100%);
+  background-attachment:fixed;
+}
+[data-theme="light"] ::selection{background:rgba(181,100,63,.22)}
+:root:not([data-theme="light"]) ::selection{background:rgba(217,150,125,.30)}
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--copper);outline-offset:3px}
+[data-theme="light"] .sec-head h2::after{
+  content:"";display:block;width:52px;height:3px;border-radius:2px;margin-top:16px;
+  background:linear-gradient(90deg,var(--copper),var(--copper-strong));
+}
+[data-theme="light"] [class*="card"]:hover,
+[data-theme="light"] [class*="tile"]:hover{border-color:rgba(181,100,63,.42)}
+[data-theme="light"] footer{border-top:2px solid rgba(181,100,63,.28)}
+</style>
 </head>
 <body>
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
   <div class="nav-inner">
     <a class="logo" href="../index.html" aria-label="FYNZ home">
-      <!-- TODO: swap real logo -->
-      <svg class="logo-mark" width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        <path d="M4 26 L16 4 L28 26" stroke="#D9967D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M9 18 H23" stroke="#D9967D" stroke-width="1.8" stroke-linecap="round"/>
-        <circle cx="16" cy="26" r="2" fill="#D9967D"/>
-      </svg>
+      
+      <svg class="logo-mark" width="42" height="24" viewBox="0 0 212 120" fill="none" aria-hidden="true"><defs><linearGradient id="fynzCu" x1="0" y1="0" x2="0.25" y2="1"><stop offset="0" stop-color="#EDB396"/><stop offset="0.45" stop-color="#D9967D"/><stop offset="0.75" stop-color="#B5643F"/><stop offset="1" stop-color="#9E5533"/></linearGradient></defs><g stroke="url(#fynzCu)" stroke-width="9" fill="none" stroke-linecap="square"><path d="M97 40 H14 V104 H63"/><path d="M38 104 V78 H66 V104"/><path d="M84 104 V62 H112 V104"/><path d="M124 104 V16 H152 V104"/><path d="M152 40 H196 V104 H170 V56"/></g></svg>
       <span class="logo-word">FYNZ</span>
     </a>
 
@@ -1025,11 +1054,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <div class="foot-grid">
       <div class="foot-brand">
         <a class="logo" href="../index.html" aria-label="FYNZ home">
-          <svg class="logo-mark" width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-            <path d="M4 26 L16 4 L28 26" stroke="#D9967D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M9 18 H23" stroke="#D9967D" stroke-width="1.8" stroke-linecap="round"/>
-            <circle cx="16" cy="26" r="2" fill="#D9967D"/>
-          </svg>
+          <svg class="logo-mark" width="39" height="22" viewBox="0 0 212 120" fill="none" aria-hidden="true"><defs><linearGradient id="fynzCu" x1="0" y1="0" x2="0.25" y2="1"><stop offset="0" stop-color="#EDB396"/><stop offset="0.45" stop-color="#D9967D"/><stop offset="0.75" stop-color="#B5643F"/><stop offset="1" stop-color="#9E5533"/></linearGradient></defs><g stroke="url(#fynzCu)" stroke-width="9" fill="none" stroke-linecap="square"><path d="M97 40 H14 V104 H63"/><path d="M38 104 V78 H66 V104"/><path d="M84 104 V62 H112 V104"/><path d="M124 104 V16 H152 V104"/><path d="M152 40 H196 V104 H170 V56"/></g></svg>
           <span class="logo-word">FYNZ</span>
         </a>
         <p>The all-in-one platform for small business — grow, schedule, sell, and run operations from one place.</p>
