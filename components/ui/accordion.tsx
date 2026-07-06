@@ -22,7 +22,7 @@ function AccordionItem({ className, ...props }: AccordionPrimitive.Item.Props) {
     <AccordionPrimitive.Item
       data-slot="accordion-item"
       className={cn(
-        "not-last:border-b border-slate-200 dark:border-navy-700/50 transition-colors duration-200 data-open:bg-[#C48D7D]/5 dark:data-open:bg-navy-800/50 data-[state=open]:bg-[#C48D7D]/5 dark:data-[state=open]:bg-navy-800/50",
+        "not-last:border-b border-slate-200 dark:border-none transition-colors duration-200 data-open:bg-[#C48D7D]/5 dark:data-open:bg-navy-800/50 data-[state=open]:bg-[#C48D7D]/5 dark:data-[state=open]:bg-navy-800/50",
         className
       )}
       {...props}
