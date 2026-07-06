@@ -125,7 +125,7 @@ export function Navbar() {
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="w-[250px] flex flex-col gap-0.5 p-[26px]">
-                    <ListItem href="/industries/barbershops" title="Salons &amp; barbershops" />
+                    <ListItem href="/industries/salons" title="Salons &amp; barbershops" />
                     <ListItem href="/industries/clinics" title="Clinics &amp; dental" />
                     <ListItem href="/industries/fitness" title="Fitness &amp; gyms" />
                     <ListItem href="/industries/restaurants" title="Restaurants" />
