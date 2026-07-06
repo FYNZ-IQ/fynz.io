@@ -1,12 +1,73 @@
 import type { IndustryData } from "./types";
+
+// Food & Hospitality
 import cafes from "./data/cafes";
+import bars from "./data/bars";
+import restaurants from "./data/restaurants";
+// Health & Wellness
+import clinics from "./data/clinics";
+import dental from "./data/dental";
+import medicalClinics from "./data/medical-clinics";
+import therapists from "./data/therapists";
+import therapy from "./data/therapy";
+// Fitness & Coaching
+import fitness from "./data/fitness";
+import gyms from "./data/gyms";
+import personalTrainers from "./data/personal-trainers";
+import yogaStudios from "./data/yoga-studios";
+import yogaPilates from "./data/yoga-pilates";
+import coaching from "./data/coaching";
+// Home & Trades
+import homeServices from "./data/home-services";
+import cleaning from "./data/cleaning";
+import contractors from "./data/contractors";
+import plumbing from "./data/plumbing";
+// Retail & Commerce
+import retail from "./data/retail";
+import boutiques from "./data/boutiques";
+import ecommerce from "./data/ecommerce";
+import automotive from "./data/automotive";
+// Professional Services
+import accounting from "./data/accounting";
+import legal from "./data/legal";
+import realEstate from "./data/real-estate";
+import saas from "./data/saas";
+import tutoring from "./data/tutoring";
 
 /**
  * All template-driven industry landing pages, in display order.
  * The bespoke /industries/barbershops route is intentionally not listed here —
  * it has its own hand-built page and takes precedence over the [slug] route.
  */
-export const industries: IndustryData[] = [cafes];
+export const industries: IndustryData[] = [
+  cafes,
+  bars,
+  restaurants,
+  clinics,
+  dental,
+  medicalClinics,
+  therapists,
+  therapy,
+  fitness,
+  gyms,
+  personalTrainers,
+  yogaStudios,
+  yogaPilates,
+  coaching,
+  homeServices,
+  cleaning,
+  contractors,
+  plumbing,
+  retail,
+  boutiques,
+  ecommerce,
+  automotive,
+  accounting,
+  legal,
+  realEstate,
+  saas,
+  tutoring,
+];
 
 export const industryMap: Record<string, IndustryData> = Object.fromEntries(
   industries.map((industry) => [industry.slug, industry])
