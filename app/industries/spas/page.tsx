@@ -459,15 +459,6 @@ const AFTER_ITEMS = [
   { time: "8:00 PM", desc: "The Mother's Day gift card was bought online at 7:45. Delivered by email, tracked to the buyer's record, ready to redeem." }
 ];
 
-// PLACEHOLDER: real data needed — all proof stats + testimonial are provisional shapes per source HTML.
-const PROOF_STATS = [
-  { n: "—%", l: "LIFT IN WEEKDAY BOOKINGS" },
-  { n: "—", l: "PACKAGES SOLD ONLINE / MONTH" },
-  { n: "—", l: "GIFT CARDS SOLD ONLINE / MONTH" },
-  { n: "—%", l: "LAPSED CLIENTS RECOVERED BY WIN-BACK" },
-  { n: "—", l: "REVIEWS ADDED / MONTH" }
-];
-
 const FAQs = [
   { q: "Do I need to be techy?", a: "No. Setup is guided step by step, and once it's running, it runs itself. If you can post to Instagram, you can run FYNZ." },
   { q: "Will it sound like a robot to my clients?", a: "It speaks and texts in a natural voice, in your tone — and it hands the conversation to you the moment it should." },
@@ -703,30 +694,6 @@ export default function SpasPage() {
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Proof */}
-      <section className="sec py-20 bg-secondary border-b border-line-soft">
-        <div className="wrap max-w-7xl mx-auto px-6">
-          <div className="mb-12">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Proof</span>
-            <h2 className="font-display font-extrabold text-3xl tracking-tight">
-              What spas see <span className="text-copper">in the first 90 days</span>
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 text-center mb-12">
-            {PROOF_STATS.map((stat, idx) => (
-              <div key={idx} className="bg-background border border-line-soft p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
-                <span className="font-display text-4xl font-extrabold text-copper block mb-1">{stat.n}</span>
-                <span className="font-mono text-[9px] tracking-wider text-faint uppercase">{stat.l}</span>
-              </div>
-            ))}
-          </div>
-          <div className="border border-line-soft p-8 rounded-lg bg-background max-w-4xl mx-auto text-center italic text-muted text-lg relative">
-            &ldquo;Placeholder testimonial from a spa owner — one or two sentences about Tuesdays filling, packages selling online, and the front desk finally breathing.&rdquo;
-            <span className="block font-mono text-[10px] tracking-widest text-copper uppercase font-bold not-italic mt-4">— NAME, SPA, CITY · PLACEHOLDER</span>
           </div>
         </div>
       </section>

@@ -135,11 +135,6 @@ const AFTER_ITEMS = [
   { time: "NEXT MONTH", desc: "Already 70% booked — before you've reminded a single person." }
 ];
 
-const PROOF_STATS = [
-  { n: "—%", l: "OF CLIENTS AUTO-REBOOKED" },
-  { n: "—%", l: "FEWER NO-SHOWS" }
-];
-
 const FAQs = [
   { q: "Do I need to be techy?", a: "No. Setup is guided step by step, and once it's running, it runs itself. If you can post a set to Instagram, you can run FYNZ." },
   { q: "Will it sound like a robot to my clients?", a: "It texts and replies in a natural voice, in your tone — and it hands the conversation to you the moment it should." },
@@ -358,30 +353,6 @@ export default function NailStudiosPage() {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Proof */}
-      <section className="sec py-20 bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-b border-line-soft">
-        <div className="wrap max-w-7xl mx-auto px-6">
-          <div className="mb-12">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Proof</span>
-            <h2 className="font-display font-extrabold text-3xl tracking-tight">
-              What studios see <span className="text-copper">in the first 60 days</span>
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {PROOF_STATS.map((s, idx) => (
-              <div key={idx} className="bg-navy-800 text-white border border-line-soft p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
-                <span className="font-display text-4xl font-extrabold text-copper block mb-2">{s.n}</span>
-                <span className="font-mono text-[9px] tracking-wider text-slate-300 uppercase leading-relaxed">{s.l}</span>
-              </div>
-            ))}
-            <div className="lg:col-span-2 border border-line-soft p-6 rounded-lg bg-navy-800 text-white flex flex-col justify-center italic text-slate-300 text-base leading-relaxed">
-              &ldquo;Placeholder testimonial from a nail tech — one or two sentences about rebooks running themselves and no-shows disappearing.&rdquo;
-              <span className="block font-mono text-[9px] tracking-widest text-copper uppercase font-bold not-italic mt-4">— NAME, STUDIO, CITY · PLACEHOLDER</span>
             </div>
           </div>
         </div>

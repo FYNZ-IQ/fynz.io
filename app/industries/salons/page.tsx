@@ -340,15 +340,6 @@ const AFTER_ITEMS = [
   { time: "9:00 PM", desc: "You're not on your phone. Every appointment tomorrow is confirmed, deposits held, and the review-request texts are already out from today's visits." }
 ];
 
-// Proof stats are provisional placeholders in the source HTML — real data still needed.
-const PROOF_STATS = [
-  { n: "—%", l: "FEWER NO-SHOWS IN 60 DAYS" },
-  { n: "— hrs", l: "OF ADMIN BACK, EVERY WEEK" },
-  { n: "—%", l: "LIFT IN WEEKDAY BOOKINGS" },
-  { n: "—", l: "REVIEWS ADDED / MONTH" },
-  { n: "—", l: "SOCIAL POSTS PUBLISHED, ZERO MANUAL WORK" }
-];
-
 const FAQs = [
   { q: "Do I need to be techy?", a: "No. Setup is guided step by step, and once it's running, it runs itself. If you can post to Instagram, you can run FYNZ." },
   { q: "Will it sound like a robot to my clients?", a: "It speaks and texts in a natural voice, in your tone — and it hands the conversation to you the moment it should." },
@@ -641,30 +632,6 @@ export default function SalonsPage() {
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Proof */}
-      <section className="sec py-20 bg-secondary border-b border-line-soft">
-        <div className="wrap max-w-7xl mx-auto px-6">
-          <div className="mb-12">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Proof</span>
-            <h2 className="font-display font-extrabold text-3xl tracking-tight">
-              What salons see <span className="text-copper">in the first 60 days</span>
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 text-center mb-12">
-            {PROOF_STATS.map((stat, idx) => (
-              <div key={idx} className="bg-background border border-line-soft p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
-                <span className="font-display text-4xl font-extrabold text-copper block mb-2">{stat.n}</span>
-                <span className="font-mono text-[9px] tracking-wider text-faint uppercase leading-relaxed">{stat.l}</span>
-              </div>
-            ))}
-          </div>
-          <div className="border border-line-soft p-8 rounded-lg bg-background max-w-4xl mx-auto text-center italic text-muted text-lg">
-            &ldquo;Placeholder testimonial from a salon owner — one or two sentences about no-shows dropping, quiet Tuesdays filling, and evenings coming back.&rdquo;
-            <span className="block font-mono text-[10px] tracking-widest text-copper uppercase font-bold not-italic mt-4">— NAME, SALON, CITY · PLACEHOLDER</span>
           </div>
         </div>
       </section>
