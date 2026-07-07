@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { ScrollReveal, StaggerGroup } from "@/components/animations";
+import { ScrollReveal, StaggerGroup, CountUp } from "@/components/animations";
 import { Chip, ArrowLink } from "@/components/shared";
 import { Button } from "@/components/ui";
 import { cn } from "@/lib/utils";
@@ -435,7 +435,7 @@ export default function ShopPage() {
           <StaggerGroup className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             {STATS.map((s) => (
               <div key={s.label}>
-                <b className="font-mono font-semibold text-4xl md:text-5xl tracking-tight text-ink block">{s.value}</b>
+                <CountUp value={s.value} className="font-mono font-semibold text-4xl md:text-5xl tracking-tight text-ink block" />
                 <span className="font-mono text-[10.5px] tracking-[0.2em] uppercase text-faint block mt-2">{s.label}</span>
               </div>
             ))}

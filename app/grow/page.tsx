@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ScrollReveal, StaggerGroup } from "@/components/animations";
+import { ScrollReveal, StaggerGroup, CountUp } from "@/components/animations";
 import { Button } from "@/components/ui";
 
 /* ---------- Lifecycle ladder ---------- */
@@ -415,9 +415,7 @@ export default function GrowPage() {
           <StaggerGroup className="grid grid-cols-2 gap-5 text-center lg:grid-cols-4">
             {STATS.map((s) => (
               <div key={s.label}>
-                <b className="block font-mono text-[clamp(1.9rem,3.6vw,2.7rem)] font-semibold tracking-[-0.02em] text-ink">
-                  {s.value}
-                </b>
+                <CountUp value={s.value} className="block font-mono text-[clamp(1.9rem,3.6vw,2.7rem)] font-semibold tracking-[-0.02em] text-ink" />
                 <span className="mt-2 block font-mono text-[10.5px] uppercase tracking-[0.2em] text-faint">
                   {s.label}
                 </span>

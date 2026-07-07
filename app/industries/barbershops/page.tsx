@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ScrollReveal, StaggerGroup, HoverFloat } from "@/components/animations";
+import { ScrollReveal, StaggerGroup, HoverFloat, CountUp } from "@/components/animations";
 import { BadgeCard, Chip } from "@/components/shared";
 import { SmsChatWidget, LiveQueueWidget } from "@/components/widgets";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent, Button, Card, CardContent } from "@/components/ui";
@@ -511,15 +511,15 @@ export default function BarbershopPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 text-center mb-12">
             <div className="bg-navy-800 text-white border border-line-soft p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
-              <span className="font-display text-4xl font-extrabold text-copper block mb-1">120+</span>
+              <CountUp value="120+" className="font-display text-4xl font-extrabold text-copper block mb-1" />
               <span className="font-mono text-[9px] tracking-wider text-slate-300 uppercase">CALLS ANSWERED/MO</span>
             </div>
             <div className="bg-navy-800 text-white border border-line-soft p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
-              <span className="font-display text-4xl font-extrabold text-copper block mb-1">85%</span>
+              <CountUp value="85%" className="font-display text-4xl font-extrabold text-copper block mb-1" />
               <span className="font-mono text-[9px] tracking-wider text-slate-300 uppercase">FEWER NO-SHOWS</span>
             </div>
             <div className="bg-navy-800 text-white border border-line-soft p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
-              <span className="font-display text-4xl font-extrabold text-copper block mb-1">3x</span>
+              <CountUp value="3x" className="font-display text-4xl font-extrabold text-copper block mb-1" />
               <span className="font-mono text-[9px] tracking-wider text-slate-300 uppercase">WALK-INS SAVED</span>
             </div>
             <div className="bg-navy-800 text-white border border-line-soft p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
@@ -527,7 +527,7 @@ export default function BarbershopPage() {
               <span className="font-mono text-[9px] tracking-wider text-slate-300 uppercase">IG SCHEDULING</span>
             </div>
             <div className="bg-navy-800 text-white border border-line-soft p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
-              <span className="font-display text-4xl font-extrabold text-copper block mb-1">50+</span>
+              <CountUp value="50+" className="font-display text-4xl font-extrabold text-copper block mb-1" />
               <span className="font-mono text-[9px] tracking-wider text-slate-300 uppercase">NEW 5-STARS</span>
             </div>
           </div>

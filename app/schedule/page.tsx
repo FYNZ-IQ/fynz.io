@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { ScrollReveal, StaggerGroup } from "@/components/animations";
+import { ScrollReveal, StaggerGroup, CountUp } from "@/components/animations";
 import { Chip, ArrowLink } from "@/components/shared";
 import { Button, Card } from "@/components/ui";
 import { cn } from "@/lib/utils";
@@ -625,9 +625,7 @@ export default function SchedulePage() {
           <StaggerGroup className="grid grid-cols-2 lg:grid-cols-4 gap-5 text-center">
             {STATS.map((s) => (
               <div key={s.label}>
-                <b className="font-mono font-semibold text-[clamp(1.9rem,3.6vw,2.7rem)] text-ink block tracking-tight">
-                  {s.value}
-                </b>
+                <CountUp value={s.value} className="font-mono font-semibold text-[clamp(1.9rem,3.6vw,2.7rem)] text-ink block tracking-tight" />
                 <span className="font-mono text-[10.5px] tracking-[0.2em] uppercase text-faint block mt-2">
                   {s.label}
                 </span>

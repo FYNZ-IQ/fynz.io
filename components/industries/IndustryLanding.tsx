@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ScrollReveal, StaggerGroup, HoverFloat } from "@/components/animations";
+import { ScrollReveal, StaggerGroup, HoverFloat, CountUp } from "@/components/animations";
 import { Chip } from "@/components/shared";
 import {
   Accordion,
@@ -229,7 +229,7 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
                 key={i}
                 className="text-center rounded-[var(--r-md)] border border-border bg-background p-8"
               >
-                <div className="font-display font-extrabold text-4xl text-copper">{stat.num}</div>
+                <CountUp value={stat.num} className="block font-display font-extrabold text-4xl text-copper" />
                 <div className="text-sm text-muted mt-1.5">{stat.label}</div>
               </div>
             ))}

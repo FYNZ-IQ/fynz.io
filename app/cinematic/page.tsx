@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ScrollReveal, StaggerGroup } from "@/components/animations";
+import { ScrollReveal, StaggerGroup, CountUp } from "@/components/animations";
 import { Chip, ArrowLink } from "@/components/shared";
 import { Button } from "@/components/ui";
 
@@ -245,7 +245,7 @@ export default function CinematicPage() {
             <div className="flex flex-wrap justify-center gap-11 mt-12 mb-2">
               {STATS.map((s) => (
                 <div key={s.l} className="flex flex-col gap-1">
-                  <span className="font-display font-extrabold text-3xl text-copper">{s.n}</span>
+                  <CountUp value={s.n} className="font-display font-extrabold text-3xl text-copper" />
                   <span className="font-mono text-[10.5px] tracking-[0.16em] uppercase text-white/55">
                     {s.l}
                   </span>
