@@ -205,21 +205,21 @@ export default function CinematicPage() {
             </ScrollReveal>
 
             {/* Features */}
-            <StaggerGroup className="flex flex-col">
+            <StaggerGroup className="flex flex-col rounded-[var(--r-lg)] border border-white/10 overflow-hidden">
               {pillar.features.map((feat) => (
                 <div
                   key={feat.title}
-                  className="flex gap-4 items-start py-5 border-t border-line-soft first:border-t-0"
+                  className="flex gap-4 items-start py-5 px-5 bg-navy-800 border-t border-white/10 first:border-t-0"
                 >
                   <span className="flex-none w-6 h-6 rounded-md bg-copper text-copper-ink grid place-items-center text-xs font-bold mt-0.5">
                     ✓
                   </span>
                   <div>
-                    <h4 className="font-display font-semibold text-ink text-base">
+                    <h4 className="font-display font-semibold text-white text-base">
                       {feat.title}
                       {feat.status && <StatusPill status={feat.status} />}
                     </h4>
-                    <p className="text-muted text-sm leading-relaxed mt-1">{feat.desc}</p>
+                    <p className="text-slate-300 text-sm leading-relaxed mt-1">{feat.desc}</p>
                   </div>
                 </div>
               ))}

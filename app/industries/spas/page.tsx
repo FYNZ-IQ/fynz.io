@@ -17,9 +17,9 @@ const PAINS = [
 
 // Small, tasteful light-theme preview visuals for each benefit card.
 const vizWrap =
-  "relative min-h-[150px] bg-wash rounded-xl border border-line-soft p-4 overflow-hidden flex flex-col justify-center gap-2 w-full";
+  "relative min-h-[150px] bg-white/[0.04] rounded-xl border border-white/10 p-4 overflow-hidden flex flex-col justify-center gap-2 w-full";
 const vizLabel =
-  "font-mono text-[8px] tracking-[0.14em] text-faint absolute top-2.5 left-3 uppercase";
+  "font-mono text-[8px] tracking-[0.14em] text-slate-400 absolute top-2.5 left-3 uppercase";
 
 const BENEFIT_GROUPS = [
   {
@@ -43,10 +43,10 @@ const BENEFIT_GROUPS = [
               ].map((b) => (
                 <div key={b.d} className="flex-1 flex flex-col items-center gap-1 justify-end h-full">
                   <span
-                    className={`w-full rounded-t ${b.on ? "bg-copper shadow-[0_0_14px_rgba(181,100,63,0.35)]" : "bg-muted/30"}`}
+                    className={`w-full rounded-t ${b.on ? "bg-copper shadow-[0_0_14px_rgba(181,100,63,0.35)]" : "bg-white/20"}`}
                     style={{ height: b.h }}
                   />
-                  <i className="not-italic font-mono text-[6.5px] text-faint tracking-wide">{b.d}</i>
+                  <i className="not-italic font-mono text-[6.5px] text-slate-400 tracking-wide">{b.d}</i>
                 </div>
               ))}
             </div>
@@ -63,18 +63,18 @@ const BENEFIT_GROUPS = [
         viz: (
           <div className={vizWrap}>
             <span className={vizLabel}>At booking — not at checkout</span>
-            <div className="bg-background border border-line-soft p-2 rounded text-[0.78rem] mt-4">
+            <div className="bg-navy-800 border border-white/10 p-2 rounded text-[0.78rem] mt-4">
               60-min massage
-              <span className="block font-mono text-[7px] text-faint mt-1">TUE 2:00 PM</span>
+              <span className="block font-mono text-[7px] text-slate-400 mt-1">TUE 2:00 PM</span>
             </div>
             <div className="flex gap-1.5 flex-wrap">
               <span className="bg-copper-tint text-copper border border-copper/30 px-2 py-0.5 rounded-full font-mono text-[8px]">+ HOT STONES $25 ✓</span>
               <span className="bg-copper-tint text-copper border border-copper/30 px-2 py-0.5 rounded-full font-mono text-[8px]">+ AROMATHERAPY $15 ✓</span>
             </div>
-            <div className="flex justify-between items-center text-[0.72rem] text-muted font-mono">
+            <div className="flex justify-between items-center text-[0.72rem] text-slate-300 font-mono">
               <span>TICKET TOTAL</span>
               <span>
-                <s className="text-faint">$110</s> <b className="text-copper not-italic">$150</b>
+                <s className="text-slate-400">$110</s> <b className="text-copper not-italic">$150</b>
               </span>
             </div>
           </div>
@@ -88,9 +88,9 @@ const BENEFIT_GROUPS = [
           <div className={vizWrap}>
             <span className={vizLabel}>Couples retreat — Thu 3:00 PM</span>
             <div className="flex gap-1.5 flex-wrap mt-4">
-              <span className="bg-background border border-line-soft px-2 py-0.5 rounded font-mono text-[8px] text-muted">THERAPIST · ANA</span>
-              <span className="bg-background border border-line-soft px-2 py-0.5 rounded font-mono text-[8px] text-muted">THERAPIST · KIM</span>
-              <span className="bg-background border border-line-soft px-2 py-0.5 rounded font-mono text-[8px] text-muted">SUITE · ROOM 2</span>
+              <span className="bg-navy-800 border border-white/10 px-2 py-0.5 rounded font-mono text-[8px] text-slate-300">THERAPIST · ANA</span>
+              <span className="bg-navy-800 border border-white/10 px-2 py-0.5 rounded font-mono text-[8px] text-slate-300">THERAPIST · KIM</span>
+              <span className="bg-navy-800 border border-white/10 px-2 py-0.5 rounded font-mono text-[8px] text-slate-300">SUITE · ROOM 2</span>
             </div>
             <span className="bg-green/10 text-green border border-green/30 px-2 py-0.5 rounded-full font-mono text-[7.5px] self-start">
               MATCHED — ANA + KIM · ROOM 2 · 3:00 PM ✓
@@ -106,9 +106,9 @@ const BENEFIT_GROUPS = [
           <div className={`${vizWrap} items-center`}>
             <span className={vizLabel}>Incoming call — mid-treatment</span>
             <span className="w-10 h-10 rounded-full bg-copper-tint border border-copper/40 grid place-items-center text-copper text-lg animate-pulse mt-4">✆</span>
-            <div className="bg-copper-tint border border-copper/30 rounded-xl rounded-br-sm p-2 text-[0.72rem] text-ink leading-snug">
+            <div className="bg-copper-tint border border-copper/30 rounded-xl rounded-br-sm p-2 text-[0.72rem] text-white leading-snug">
               &quot;Our couples retreat is $240 for 90 minutes — Thursday 3:00 is open. Shall I add a gift card for the occasion?&quot;
-              <span className="block font-mono text-[6.5px] text-faint mt-1">VOICE AI · THE ROOM STAYED QUIET</span>
+              <span className="block font-mono text-[6.5px] text-slate-400 mt-1">VOICE AI · THE ROOM STAYED QUIET</span>
             </div>
           </div>
         )
@@ -120,9 +120,9 @@ const BENEFIT_GROUPS = [
         viz: (
           <div className={vizWrap}>
             <span className={vizLabel}>Couples suite — peak slot</span>
-            <div className="bg-background border border-line-soft p-2 rounded text-[0.78rem] mt-4">
+            <div className="bg-navy-800 border border-white/10 p-2 rounded text-[0.78rem] mt-4">
               Couples retreat — 90 min
-              <span className="block font-mono text-[7px] text-faint mt-1">SAT 3:00 PM · 2 THERAPISTS · CARD ON FILE</span>
+              <span className="block font-mono text-[7px] text-slate-400 mt-1">SAT 3:00 PM · 2 THERAPISTS · CARD ON FILE</span>
             </div>
             <div className="flex gap-1.5 flex-wrap">
               <span className="bg-copper-tint text-copper border border-copper/30 px-2 py-0.5 rounded-full font-mono text-[8px]">🔔 −24H SENT ✓</span>
@@ -145,9 +145,9 @@ const BENEFIT_GROUPS = [
         viz: (
           <div className={vizWrap}>
             <span className={vizLabel}>Lapsed client — detected</span>
-            <div className="bg-copper-tint border border-copper/30 rounded-xl p-2 text-[0.74rem] text-ink leading-snug mt-4">
+            <div className="bg-copper-tint border border-copper/30 rounded-xl p-2 text-[0.74rem] text-white leading-snug mt-4">
               We&apos;ve missed you at Serene ✨ Your favorite therapist has openings this week — shall we save you a quiet hour?
-              <span className="block font-mono text-[6.5px] text-faint mt-1">SENT AUTOMATICALLY · IN YOUR VOICE</span>
+              <span className="block font-mono text-[6.5px] text-slate-400 mt-1">SENT AUTOMATICALLY · IN YOUR VOICE</span>
             </div>
             <span className="bg-copper-tint text-copper border border-copper/30 px-2 py-0.5 rounded-full font-mono text-[8px] self-start">
               5 LAPSED CLIENTS NUDGED THIS WEEK
@@ -162,14 +162,14 @@ const BENEFIT_GROUPS = [
         viz: (
           <div className={vizWrap}>
             <span className={vizLabel}>Maya — monthly maintenance</span>
-            <div className="bg-copper-tint border border-copper/30 rounded-xl rounded-bl-sm p-2 text-[0.72rem] text-ink leading-snug mt-4">
+            <div className="bg-copper-tint border border-copper/30 rounded-xl rounded-bl-sm p-2 text-[0.72rem] text-white leading-snug mt-4">
               Same time next month, Maya? Tuesday the 12th at 2:00 is yours if you want it.
             </div>
             <div className="flex items-center justify-between mt-1 px-1">
               {["APR", "MAY", "JUN", "DUE"].map((m, i) => (
                 <div key={m} className="flex flex-col items-center gap-1">
-                  <span className={`w-2.5 h-2.5 rounded-full border-2 ${i === 3 ? "bg-copper border-copper shadow-[0_0_10px_rgba(181,100,63,0.6)]" : "bg-background border-copper/50"}`} />
-                  <i className="not-italic font-mono text-[6px] text-faint">{m}</i>
+                  <span className={`w-2.5 h-2.5 rounded-full border-2 ${i === 3 ? "bg-copper border-copper shadow-[0_0_10px_rgba(181,100,63,0.6)]" : "bg-navy-800 border-copper/50"}`} />
+                  <i className="not-italic font-mono text-[6px] text-slate-400">{m}</i>
                 </div>
               ))}
             </div>
@@ -184,7 +184,7 @@ const BENEFIT_GROUPS = [
           <div className={vizWrap}>
             <span className={vizLabel}>New Google review — post-visit</span>
             <div className="text-[#E9BE6A] text-base tracking-[3px] mt-4">★★★★★</div>
-            <div className="bg-background border border-line-soft rounded p-2 text-[0.7rem] text-muted leading-snug">
+            <div className="bg-navy-800 border border-white/10 rounded p-2 text-[0.7rem] text-slate-300 leading-snug">
               Thank you, Maya — so glad the signature facial felt like a reset. The Zen room will be waiting. ✨
               <span className="block font-mono text-[6.5px] text-copper/70 mt-1">REPLY DRAFTED &amp; POSTED BY REVIEWS AI</span>
             </div>
@@ -205,7 +205,7 @@ const BENEFIT_GROUPS = [
           <div className={vizWrap}>
             <span className={vizLabel}>Content AI — the Zen room shot</span>
             <div className="flex gap-3 items-center mt-4">
-              <div className="w-16 h-16 rounded-lg shrink-0 bg-[radial-gradient(70%_90%_at_30%_25%,rgba(181,100,63,0.35),transparent_65%)] bg-secondary border border-line-soft" />
+              <div className="w-16 h-16 rounded-lg shrink-0 bg-[radial-gradient(70%_90%_at_30%_25%,rgba(181,100,63,0.35),transparent_65%)] bg-white/[0.06] border border-white/10" />
               <div className="flex-1 space-y-1.5">
                 <span className="block h-1.5 rounded bg-copper/25 w-[92%]" />
                 <span className="block h-1.5 rounded bg-copper/15 w-[66%]" />
@@ -245,11 +245,11 @@ const BENEFIT_GROUPS = [
         viz: (
           <div className={`${vizWrap} items-center`}>
             <span className={vizLabel}>Website &amp; Funnel AI</span>
-            <div className="w-24 border border-line-soft bg-background rounded-lg p-2 mt-4 space-y-1.5">
+            <div className="w-24 border border-white/10 bg-navy-800 rounded-lg p-2 mt-4 space-y-1.5">
               <div className="flex gap-1">
-                <i className="w-1 h-1 rounded-full bg-muted/40" />
-                <i className="w-1 h-1 rounded-full bg-muted/40" />
-                <i className="w-1 h-1 rounded-full bg-muted/40" />
+                <i className="w-1 h-1 rounded-full bg-white/25" />
+                <i className="w-1 h-1 rounded-full bg-white/25" />
+                <i className="w-1 h-1 rounded-full bg-white/25" />
               </div>
               <span className="block h-5 rounded bg-copper/25" />
               <span className="block h-1.5 w-4/5 rounded bg-copper/15" />
@@ -277,7 +277,7 @@ const BENEFIT_GROUPS = [
                 <b className="font-display text-[0.62rem] font-extrabold block">SERENE DAY SPA</b>
                 <small className="font-mono text-[6px] tracking-wide opacity-80">5-VISIT SERIES · GIFT CARD</small>
               </div>
-              <div className="font-mono text-[8px] text-muted text-right leading-relaxed">
+              <div className="font-mono text-[8px] text-slate-300 text-right leading-relaxed">
                 VISITS LEFT
                 <br />
                 <b className="text-copper">5 → 4</b>
@@ -297,15 +297,15 @@ const BENEFIT_GROUPS = [
           <div className={vizWrap}>
             <span className={vizLabel}>Your retail shelf — online</span>
             <div className="flex items-center justify-between mt-4">
-              <div className="w-14 h-14 rounded-lg bg-[radial-gradient(70%_90%_at_35%_30%,rgba(233,190,106,0.4),transparent_65%)] bg-secondary border border-line-soft" />
-              <div className="relative w-9 h-9 rounded-full border border-line-soft grid place-items-center text-muted">
+              <div className="w-14 h-14 rounded-lg bg-[radial-gradient(70%_90%_at_35%_30%,rgba(233,190,106,0.4),transparent_65%)] bg-white/[0.06] border border-white/10" />
+              <div className="relative w-9 h-9 rounded-full border border-white/10 grid place-items-center text-slate-300">
                 🛒
                 <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-copper text-white font-mono text-[8px] grid place-items-center">1</span>
               </div>
             </div>
             <div className="flex items-center justify-between">
               <span className="bg-green/10 text-green border border-green/30 px-2 py-0.5 rounded-full font-mono text-[8px]">ORDER #327 — PAID ✓</span>
-              <span className="font-mono text-[6.5px] text-faint tracking-wide">ORDERED 9:30 PM · SPA CLOSED</span>
+              <span className="font-mono text-[6.5px] text-slate-400 tracking-wide">ORDERED 9:30 PM · SPA CLOSED</span>
             </div>
           </div>
         )
@@ -325,10 +325,10 @@ const BENEFIT_GROUPS = [
             <span className={vizLabel}>Every channel → one place</span>
             <div className="flex gap-1.5 flex-wrap justify-center mt-4">
               {["INSTAGRAM", "FACEBOOK", "TEXTS", "WEBCHAT"].map((s) => (
-                <span key={s} className="bg-background border border-line-soft px-2 py-0.5 rounded-full font-mono text-[7px] text-muted">{s}</span>
+                <span key={s} className="bg-navy-800 border border-white/10 px-2 py-0.5 rounded-full font-mono text-[7px] text-slate-300">{s}</span>
               ))}
             </div>
-            <div className="flex items-center justify-between bg-copper-tint border border-copper/40 rounded-lg px-3 py-2 font-display font-bold text-[0.74rem] text-ink">
+            <div className="flex items-center justify-between bg-copper-tint border border-copper/40 rounded-lg px-3 py-2 font-display font-bold text-[0.74rem] text-white">
               One inbox
               <span className="bg-copper-tint text-copper border border-copper/30 px-2 py-0.5 rounded-full font-mono text-[7px]">5 NEW · ONE THREAD PER CLIENT ✓</span>
             </div>
@@ -342,9 +342,9 @@ const BENEFIT_GROUPS = [
         viz: (
           <div className={vizWrap}>
             <span className={vizLabel}>Ask AI</span>
-            <div className="text-[0.72rem] text-muted italic mt-4">▸ How many gift cards did we sell in December?</div>
-            <div className="bg-background border border-line-soft rounded p-2">
-              <b className="font-mono text-[9px] text-ink">DECEMBER — 112 GIFT CARDS · $14.2K</b>
+            <div className="text-[0.72rem] text-slate-300 italic mt-4">▸ How many gift cards did we sell in December?</div>
+            <div className="bg-navy-800 border border-white/10 rounded p-2">
+              <b className="font-mono text-[9px] text-white">DECEMBER — 112 GIFT CARDS · $14.2K</b>
               <div className="flex items-end gap-1 h-8 mt-1.5">
                 <i className="flex-1 rounded-t bg-copper/40" style={{ height: "38%" }} />
                 <i className="flex-1 rounded-t bg-copper/40" style={{ height: "55%" }} />
@@ -366,31 +366,31 @@ const DEMOS = [
     tag: "powered by Email & SMS campaigns · GROW",
     direction: "left" as const,
     body: (
-      <div className="bg-background border border-line rounded-[var(--r-lg)] p-5 shadow-md">
-        <div className="flex justify-between items-center pb-3 border-b border-line-soft mb-3">
-          <b className="font-mono text-[10px] tracking-[0.16em] text-faint">TUESDAY — THE QUIET DAY</b>
+      <div className="bg-navy-800 text-white border border-white/10 rounded-[var(--r-lg)] p-5 shadow-md">
+        <div className="flex justify-between items-center pb-3 border-b border-white/10 mb-3">
+          <b className="font-mono text-[10px] tracking-[0.16em] text-slate-400">TUESDAY — THE QUIET DAY</b>
           <span className="font-mono text-[9px] tracking-wide text-copper flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-copper animate-pulse" />
             LIVE
           </span>
         </div>
-        <div className="bg-copper-tint border border-copper/30 rounded-xl p-3 text-[0.82rem] text-ink leading-snug mb-4">
+        <div className="bg-copper-tint border border-copper/30 rounded-xl p-3 text-[0.82rem] text-white leading-snug mb-4">
           Midweek escape ✨ This Tuesday only: 20% off any 60-min treatment. Quiet rooms, your favorite therapist. Book: fynz.io/serene
-          <span className="block font-mono text-[7px] text-faint mt-1.5">SENT FRIDAY 5 PM · 400 LAPSED CLIENTS · NOT YOUR REGULARS</span>
+          <span className="block font-mono text-[7px] text-slate-400 mt-1.5">SENT FRIDAY 5 PM · 400 LAPSED CLIENTS · NOT YOUR REGULARS</span>
         </div>
         <div className="grid grid-cols-5 gap-1.5 mb-4">
           {["10:00", "11:00", "12:00", "1:00", "2:00", "3:00", "4:00", "5:00", "6:00", "7:00"].map((t, i) => (
             <span
               key={t}
-              className={`font-mono text-[8px] text-center rounded border py-1.5 ${i % 3 === 2 ? "bg-copper-tint border-copper/40 text-copper" : "border-line-soft text-muted"}`}
+              className={`font-mono text-[8px] text-center rounded border py-1.5 ${i % 3 === 2 ? "bg-copper-tint border-copper/40 text-copper" : "border-white/10 text-slate-300"}`}
             >
               {t}
             </span>
           ))}
         </div>
         <div className="flex items-center gap-3">
-          <small className="font-mono text-[8px] text-faint tracking-wide">TUESDAY</small>
-          <div className="flex-1 h-2 rounded-full bg-wash overflow-hidden">
+          <small className="font-mono text-[8px] text-slate-400 tracking-wide">TUESDAY</small>
+          <div className="flex-1 h-2 rounded-full bg-white/[0.04] overflow-hidden">
             <span className="block h-full w-[85%] bg-copper rounded-full" />
           </div>
           <span className="font-mono text-[10px] text-copper font-bold">85%</span>
@@ -405,22 +405,22 @@ const DEMOS = [
     tag: "powered by Memberships & packages + Gift cards · SHOP",
     direction: "right" as const,
     body: (
-      <div className="bg-background border border-line rounded-[var(--r-lg)] p-5 shadow-md">
-        <div className="flex justify-between items-center pb-3 border-b border-line-soft mb-3">
-          <b className="font-mono text-[10px] tracking-[0.16em] text-faint">ONLINE CHECKOUT — 8:00 PM</b>
+      <div className="bg-navy-800 text-white border border-white/10 rounded-[var(--r-lg)] p-5 shadow-md">
+        <div className="flex justify-between items-center pb-3 border-b border-white/10 mb-3">
+          <b className="font-mono text-[10px] tracking-[0.16em] text-slate-400">ONLINE CHECKOUT — 8:00 PM</b>
           <span className="font-mono text-[9px] tracking-wide text-copper">SPA CLOSED</span>
         </div>
-        <div className="flex justify-between items-center py-2.5 border-b border-line-soft text-[0.84rem]">
+        <div className="flex justify-between items-center py-2.5 border-b border-white/10 text-[0.84rem]">
           <span>
             Digital gift card
-            <small className="block font-mono text-[7px] text-faint tracking-wide mt-0.5">FOR: MOM · DELIVERED BY EMAIL</small>
+            <small className="block font-mono text-[7px] text-slate-400 tracking-wide mt-0.5">FOR: MOM · DELIVERED BY EMAIL</small>
           </span>
           <span className="font-mono text-[11px] text-copper">$200</span>
         </div>
-        <div className="flex justify-between items-center py-2.5 border-b border-line-soft text-[0.84rem]">
+        <div className="flex justify-between items-center py-2.5 border-b border-white/10 text-[0.84rem]">
           <span>
             5-massage series
-            <small className="block font-mono text-[7px] text-faint tracking-wide mt-0.5">60-MIN · NEVER EXPIRES</small>
+            <small className="block font-mono text-[7px] text-slate-400 tracking-wide mt-0.5">60-MIN · NEVER EXPIRES</small>
           </span>
           <span className="font-mono text-[11px] text-copper">$450</span>
         </div>
@@ -496,33 +496,33 @@ export default function SpasPage() {
           {/* Hero visual mockups */}
           <div className="relative flex flex-col sm:flex-row gap-6 max-w-[550px] w-full justify-self-center lg:justify-self-end">
             <HoverFloat className="flex-1" yOffset={-10} duration={3.5}>
-              <div className="bg-background text-foreground border border-line rounded-[var(--r-lg)] p-5 relative shadow-md">
-                <div className="flex items-center gap-3 pb-3 border-b border-line-soft mb-3">
+              <div className="bg-navy-800 text-white border border-white/10 rounded-[var(--r-lg)] p-5 relative shadow-md">
+                <div className="flex items-center gap-3 pb-3 border-b border-white/10 mb-3">
                   <span className="w-9 h-9 rounded-xl bg-copper-tint border border-copper/30 grid place-items-center text-copper font-display font-extrabold text-sm shrink-0">S</span>
                   <div>
                     <b className="font-display text-[0.9rem] font-bold block leading-tight">Serene Day Spa</b>
-                    <small className="font-mono text-[7px] tracking-[0.12em] text-faint block mt-0.5">BOOK YOUR VISIT — POWERED BY FYNZ</small>
+                    <small className="font-mono text-[7px] tracking-[0.12em] text-slate-400 block mt-0.5">BOOK YOUR VISIT — POWERED BY FYNZ</small>
                   </div>
                 </div>
                 <div className="space-y-0">
-                  <div className="flex justify-between items-center py-2.5 border-b border-line-soft text-[0.82rem]">
+                  <div className="flex justify-between items-center py-2.5 border-b border-white/10 text-[0.82rem]">
                     <span>
                       60-min massage
-                      <small className="block font-mono text-[7px] text-faint mt-0.5">ADD HOT STONES +$25</small>
+                      <small className="block font-mono text-[7px] text-slate-400 mt-0.5">ADD HOT STONES +$25</small>
                     </span>
                     <span className="font-mono text-[11px] text-copper">$110</span>
                   </div>
-                  <div className="flex justify-between items-center py-2.5 border-b border-line-soft text-[0.82rem]">
+                  <div className="flex justify-between items-center py-2.5 border-b border-white/10 text-[0.82rem]">
                     <span>
                       Signature facial
-                      <small className="block font-mono text-[7px] text-faint mt-0.5">75 MIN</small>
+                      <small className="block font-mono text-[7px] text-slate-400 mt-0.5">75 MIN</small>
                     </span>
                     <span className="font-mono text-[11px] text-copper">$135</span>
                   </div>
                   <div className="flex justify-between items-center py-2.5 text-[0.82rem]">
                     <span>
                       Couples retreat
-                      <small className="block font-mono text-[7px] text-faint mt-0.5">2 THERAPISTS · SUITE</small>
+                      <small className="block font-mono text-[7px] text-slate-400 mt-0.5">2 THERAPISTS · SUITE</small>
                     </span>
                     <span className="font-mono text-[11px] text-copper">$240</span>
                   </div>
@@ -531,7 +531,7 @@ export default function SpasPage() {
                   {["10:00", "2:00", "3:30", "5:00"].map((t) => (
                     <span
                       key={t}
-                      className={`font-mono text-[10px] rounded-lg border px-3 py-1.5 ${t === "2:00" ? "bg-copper-tint border-copper/50 text-copper" : "border-line-soft text-muted"}`}
+                      className={`font-mono text-[10px] rounded-lg border px-3 py-1.5 ${t === "2:00" ? "bg-copper-tint border-copper/50 text-copper" : "border-white/10 text-slate-300"}`}
                     >
                       {t}
                     </span>
@@ -547,15 +547,15 @@ export default function SpasPage() {
             </HoverFloat>
 
             <HoverFloat className="flex-1" yOffset={10} duration={4} delay={0.5}>
-              <div className="bg-background text-foreground border border-line rounded-[var(--r-lg)] p-4 relative shadow-md">
+              <div className="bg-navy-800 text-white border border-white/10 rounded-[var(--r-lg)] p-4 relative shadow-md">
                 <div className="flex items-center gap-2 mb-3">
                   <i className="w-5 h-5 rounded-full bg-copper-tint border border-copper/40 shrink-0" />
                   <b className="font-display text-[0.8rem] font-bold">serenedayspa</b>
                 </div>
-                <div className="h-24 rounded-lg mb-3 bg-[radial-gradient(70%_90%_at_30%_20%,rgba(181,100,63,0.35),transparent_60%),radial-gradient(60%_80%_at_80%_90%,rgba(233,190,106,0.22),transparent_60%)] bg-secondary" />
-                <p className="text-[0.72rem] text-muted leading-snug">The Zen room, ready for you ✨ Midweek escapes now booking…</p>
+                <div className="h-24 rounded-lg mb-3 bg-[radial-gradient(70%_90%_at_30%_20%,rgba(181,100,63,0.35),transparent_60%),radial-gradient(60%_80%_at_80%_90%,rgba(233,190,106,0.22),transparent_60%)] bg-white/[0.06]" />
+                <p className="text-[0.72rem] text-slate-300 leading-snug">The Zen room, ready for you ✨ Midweek escapes now booking…</p>
                 <span className="block mt-2 font-mono text-[7.5px] tracking-wide text-green">SCHEDULED ✓ IG · FB · GOOGLE BUSINESS</span>
-                <div className="mt-4 pt-3 border-t border-line-soft flex items-center justify-between">
+                <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
                   <div className="rounded-lg p-2 text-white bg-gradient-to-br from-copper to-[#9E5533]">
                     <b className="font-display text-[0.6rem] font-extrabold block leading-tight">SERENE DAY SPA</b>
                     <small className="font-mono text-[6px] tracking-wide opacity-80">DIGITAL GIFT CARD</small>
@@ -582,11 +582,11 @@ export default function SpasPage() {
             {PAINS.map((pain, idx) => (
               <Card
                 key={idx}
-                className="bg-background border border-line-soft shadow-sm rounded-2xl ring-0 p-6 flex flex-row items-start gap-4"
+                className="bg-navy-800 border border-white/10 shadow-sm rounded-2xl ring-0 p-6 flex flex-row items-start gap-4"
               >
                 <span className="font-display text-copper text-2xl leading-none mt-1 shrink-0 select-none">&ldquo;</span>
                 <CardContent className="p-0">
-                  <p className="text-muted text-sm leading-relaxed">{pain}</p>
+                  <p className="text-slate-300 text-sm leading-relaxed">{pain}</p>
                 </CardContent>
               </Card>
             ))}
@@ -617,13 +617,13 @@ export default function SpasPage() {
                     <BadgeCard
                       key={cardIdx}
                       title={card.title}
-                      className="bg-background text-foreground border-line-soft flex flex-col justify-between min-h-[380px]"
+                      className="bg-navy-800 text-white border-white/10 flex flex-col justify-between min-h-[380px]"
                     >
                       <div>
                         <div className="mb-4">{card.viz}</div>
-                        <p className="text-muted text-sm leading-relaxed mb-6">{card.desc}</p>
+                        <p className="text-slate-300 text-sm leading-relaxed mb-6">{card.desc}</p>
                       </div>
-                      <span className="block font-mono text-[8px] tracking-wider text-faint uppercase mt-auto">{card.tag}</span>
+                      <span className="block font-mono text-[8px] tracking-wider text-slate-400 uppercase mt-auto">{card.tag}</span>
                     </BadgeCard>
                   ))}
                 </StaggerGroup>
@@ -671,25 +671,25 @@ export default function SpasPage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="border border-line-soft rounded-[var(--r-lg)] p-8 bg-secondary">
-              <span className="font-mono text-[10px] tracking-widest text-faint block mb-8 uppercase font-bold">BEFORE FYNZ, TUESDAY</span>
+            <div className="border border-white/10 rounded-[var(--r-lg)] p-8 bg-navy-750">
+              <span className="font-mono text-[10px] tracking-widest text-slate-400 block mb-8 uppercase font-bold">BEFORE FYNZ, TUESDAY</span>
               <div className="space-y-6">
                 {BEFORE_ITEMS.map((item, idx) => (
                   <div key={idx} className="flex gap-4 items-start text-sm">
-                    <span className="font-mono text-faint shrink-0 w-20">{item.time}</span>
-                    <p className="text-muted leading-relaxed">{item.desc}</p>
+                    <span className="font-mono text-slate-400 shrink-0 w-20">{item.time}</span>
+                    <p className="text-slate-300 leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="border border-copper/30 rounded-[var(--r-lg)] p-8 bg-copper-tint/40">
+            <div className="border border-copper/30 rounded-[var(--r-lg)] p-8 bg-navy-800">
               <span className="font-mono text-[10px] tracking-widest text-copper block mb-8 uppercase font-bold">SAME TUESDAY, WITH FYNZ</span>
               <div className="space-y-6">
                 {AFTER_ITEMS.map((item, idx) => (
                   <div key={idx} className="flex gap-4 items-start text-sm">
                     <span className="font-mono text-copper shrink-0 w-20 font-bold">{item.time}</span>
-                    <p className="text-ink leading-relaxed">{item.desc}</p>
+                    <p className="text-white leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -708,13 +708,13 @@ export default function SpasPage() {
             </h2>
           </div>
 
-          <Accordion className="w-full">
+          <Accordion className="w-full bg-navy-800">
             {FAQs.map((faq, idx) => (
-              <AccordionItem key={idx} value={`item-${idx}`} className="border-b border-line-soft py-2">
-                <AccordionTrigger className="font-display font-semibold text-lg text-ink hover:text-copper hover:no-underline">
+              <AccordionItem key={idx} value={`item-${idx}`} className="border-b border-white/10 py-2">
+                <AccordionTrigger className="font-display font-semibold text-lg text-white hover:text-copper hover:no-underline">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted leading-relaxed text-sm pt-2 pb-4 max-w-2xl">
+                <AccordionContent className="text-slate-300 leading-relaxed text-sm pt-2 pb-4 max-w-2xl">
                   {idx === 5 ? (
                     <>
                       Plans are on the{" "}

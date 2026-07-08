@@ -9,7 +9,7 @@ function Accordion({ className, ...props }: AccordionPrimitive.Root.Props) {
     <AccordionPrimitive.Root
       data-slot="accordion"
       className={cn(
-        "flex w-full flex-col overflow-hidden rounded-2xl border border-slate-200 dark:border-none",
+        "flex w-full flex-col overflow-hidden rounded-2xl border border-white/10",
         className
       )}
       {...props}
@@ -22,7 +22,7 @@ function AccordionItem({ className, ...props }: AccordionPrimitive.Item.Props) {
     <AccordionPrimitive.Item
       data-slot="accordion-item"
       className={cn(
-        "not-last:border-b border-slate-200 dark:border-none transition-colors duration-200 data-open:bg-[#C48D7D]/5 dark:data-open:bg-navy-800/50 data-[state=open]:bg-[#C48D7D]/5 dark:data-[state=open]:bg-navy-800/50",
+        "not-last:border-b border-white/10 transition-colors duration-200 data-open:bg-white/[0.04] data-[state=open]:bg-white/[0.04]",
         className
       )}
       {...props}
@@ -40,7 +40,7 @@ function AccordionTrigger({
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "group/accordion-trigger relative flex flex-1 items-start justify-between gap-6 border border-transparent p-4 text-left text-sm font-medium transition-all outline-none text-slate-900 dark:text-white hover:text-[#C48D7D] data-open:text-[#C48D7D] data-[state=open]:text-[#C48D7D] hover:no-underline aria-disabled:pointer-events-none aria-disabled:opacity-50 **:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:size-4 **:data-[slot=accordion-trigger-icon]:text-muted-foreground",
+          "group/accordion-trigger relative flex flex-1 items-start justify-between gap-6 border border-transparent p-4 text-left text-sm font-medium transition-all outline-none text-white hover:text-[#C48D7D] data-open:text-[#C48D7D] data-[state=open]:text-[#C48D7D] hover:no-underline aria-disabled:pointer-events-none aria-disabled:opacity-50 **:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:size-4 **:data-[slot=accordion-trigger-icon]:text-muted-foreground",
           className
         )}
         {...props}
@@ -61,7 +61,7 @@ function AccordionContent({
   return (
     <AccordionPrimitive.Panel
       data-slot="accordion-content"
-      className="overflow-hidden px-4 text-sm data-open:animate-accordion-down data-closed:animate-accordion-up text-slate-600 dark:text-slate-400"
+      className="overflow-hidden px-4 text-sm data-open:animate-accordion-down data-closed:animate-accordion-up text-slate-300"
       {...props}
     >
       <div

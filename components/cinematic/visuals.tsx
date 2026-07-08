@@ -16,7 +16,7 @@ function Scene({ className, children }: { className?: string; children: React.Re
       aria-hidden="true"
       className={cn(
         "cine-scene relative h-[92px] mb-5 rounded-[10px] overflow-hidden",
-        "border border-slate-200 dark:border-line-soft bg-white dark:bg-navy-900/60",
+        "border border-white/10 bg-navy-900/60",
         "flex items-center justify-center",
         className
       )}
@@ -52,7 +52,7 @@ function ChatScene() {
   return (
     <Scene>
       <div className="flex flex-col gap-1.5 w-[75%]">
-        <span className="self-start max-w-[70%] rounded-xl rounded-bl-sm bg-slate-100 dark:bg-navy-800 px-3 py-1.5 text-[11px] text-muted">
+        <span className="self-start max-w-[70%] rounded-xl rounded-bl-sm bg-navy-800 px-3 py-1.5 text-[11px] text-slate-300">
           Do you take walk-ins?
         </span>
         <span className="cine-reply self-end max-w-[80%] rounded-xl rounded-br-sm bg-copper text-white px-3 py-1.5 text-[11px]">
@@ -78,7 +78,7 @@ function ReviewsScene() {
             <span key={i} className="cine-star" style={{ animationDelay: `${i * 0.18}s` }}>★</span>
           ))}
         </div>
-        <span className="font-mono text-[9.5px] text-muted tracking-wide">REPLY DRAFTED · READY TO SEND ✓</span>
+        <span className="font-mono text-[9.5px] text-slate-400 tracking-wide">REPLY DRAFTED · READY TO SEND ✓</span>
       </div>
     </Scene>
   );
@@ -93,7 +93,7 @@ function ContentScene() {
         {[92, 100, 64].map((wPct, i) => (
           <span
             key={i}
-            className="cine-line h-[7px] rounded bg-slate-200 dark:bg-navy-750 block origin-left"
+            className="cine-line h-[7px] rounded bg-navy-750 block origin-left"
             style={{ width: `${wPct}%`, animationDelay: `${i * 0.5}s` }}
           />
         ))}
@@ -111,7 +111,7 @@ function CalendarGlyph() {
         <span
           key={i}
           className={cn(
-            "w-[16px] h-[12px] rounded-[3px] border border-slate-200 dark:border-line-soft",
+            "w-[16px] h-[12px] rounded-[3px] border border-white/15",
             i === 5 && "cine-blink bg-copper border-copper"
           )}
         />
@@ -134,7 +134,7 @@ function EmbedGlyph() {
   return (
     <div className="font-mono text-[15px] text-copper flex items-center gap-1.5">
       <span className="cine-slide-l">&lt;/&gt;</span>
-      <span className="w-[54px] h-[10px] rounded bg-slate-200 dark:bg-navy-750 overflow-hidden relative">
+      <span className="w-[54px] h-[10px] rounded bg-navy-750 overflow-hidden relative">
         <span className="cine-fill absolute inset-y-0 left-0 bg-copper/60 w-full origin-left" />
       </span>
     </div>
@@ -150,7 +150,7 @@ function QrGlyph() {
           className={cn(
             "w-[6px] h-[6px] rounded-[1.5px]",
             [0, 1, 3, 4, 5, 9, 12, 15, 19, 20, 21, 23, 24, 7, 17].includes(i)
-              ? "bg-ink/70 dark:bg-white/70"
+              ? "bg-white/70"
               : "bg-transparent"
           )}
         />
@@ -177,7 +177,7 @@ function MapsGlyph() {
   return (
     <div className="relative flex flex-col items-center">
       <span className="cine-drop text-copper text-2xl leading-none">📍</span>
-      <span className="w-8 h-[5px] rounded-[50%] bg-ink/10 dark:bg-white/10 mt-0.5" />
+      <span className="w-8 h-[5px] rounded-[50%] bg-white/10 mt-0.5" />
     </div>
   );
 }

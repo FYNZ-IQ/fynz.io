@@ -23,8 +23,8 @@ const BENEFIT_ROWS = [
     links: [{ label: "Online store & products", href: "/features/store" }],
     reversed: false,
     viz: (
-      <div className="bg-gradient-to-br from-white to-secondary dark:from-navy-800 dark:to-navy-750 border border-line rounded-[var(--r-lg)] p-5 shadow-md relative overflow-hidden">
-        <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-faint mb-3.5 flex justify-between">
+      <div className="bg-gradient-to-br from-navy-800 to-navy-750 text-white border border-white/10 rounded-[var(--r-lg)] p-5 shadow-md relative overflow-hidden">
+        <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-3.5 flex justify-between">
           STORE · MAPLE &amp; MAIN <b className="text-copper font-medium">3 ORDERS TODAY</b>
         </div>
         <div className="grid grid-cols-3 gap-2.5">
@@ -33,11 +33,11 @@ const BENEFIT_ROWS = [
             { name: "Styling pomade", price: "$24" },
             { name: "Balayage pkg", price: "$180" }
           ].map((p) => (
-            <div key={p.name} className="bg-secondary border border-line-soft rounded-[var(--r-sm)] p-3 text-center">
+            <div key={p.name} className="bg-white/[0.06] border border-white/10 rounded-[var(--r-sm)] p-3 text-center">
               <span className="h-11 rounded-md mb-2.5 grid place-items-center bg-gradient-to-br from-copper-tint to-copper/5 border border-copper/20 text-copper text-sm">◇</span>
               <b className="font-display text-[0.72rem] font-semibold block leading-tight">{p.name}</b>
               <small className="font-mono text-[9.5px] text-copper">{p.price}</small>
-              <span className="block mt-2 font-mono text-[8.5px] tracking-[0.12em] py-1 border border-line-soft rounded-md text-faint">ADD</span>
+              <span className="block mt-2 font-mono text-[8.5px] tracking-[0.12em] py-1 border border-white/10 rounded-md text-slate-400">ADD</span>
             </div>
           ))}
         </div>
@@ -54,26 +54,26 @@ const BENEFIT_ROWS = [
     ],
     reversed: true,
     viz: (
-      <div className="bg-gradient-to-br from-white to-secondary dark:from-navy-800 dark:to-navy-750 border border-line rounded-[var(--r-lg)] p-5 shadow-md relative overflow-hidden">
-        <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-faint mb-3.5 flex justify-between">
+      <div className="bg-gradient-to-br from-navy-800 to-navy-750 text-white border border-white/10 rounded-[var(--r-lg)] p-5 shadow-md relative overflow-hidden">
+        <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-3.5 flex justify-between">
           TEXT-TO-PAY · INVOICE #1047 <b className="text-copper font-medium">PAID IN 4 MIN</b>
         </div>
         <div className="flex flex-row-reverse gap-2.5 mb-2.5 items-start">
           <span className="bg-green/10 text-green w-[30px] h-[30px] rounded-[9px] shrink-0 grid place-items-center font-mono text-[10px] font-semibold">MM</span>
-          <div className="bg-copper-tint border border-copper/25 rounded-[12px_4px_12px_12px] px-3 py-2 text-[0.82rem] text-ink">
+          <div className="bg-copper-tint border border-copper/25 rounded-[12px_4px_12px_12px] px-3 py-2 text-[0.82rem] text-white">
             Hi Rachel! Today&apos;s deep clean is done ✓ Here&apos;s your invoice: fynz.pay/1047
           </div>
         </div>
         <div className="flex gap-2.5 mb-2.5 items-start">
           <span className="bg-green/10 text-green w-[30px] h-[30px] rounded-[9px] shrink-0 grid place-items-center font-mono text-[10px] font-semibold">RC</span>
-          <div className="bg-secondary border border-line-soft rounded-[4px_12px_12px_12px] px-3 py-2 text-[0.82rem] text-muted">
+          <div className="bg-white/[0.06] border border-white/10 rounded-[4px_12px_12px_12px] px-3 py-2 text-[0.82rem] text-slate-300">
             Paid! Thanks for the great work 🙌
           </div>
         </div>
-        <div className="flex justify-between items-center bg-secondary border border-line-soft rounded-[var(--r-sm)] px-3.5 py-2.5">
+        <div className="flex justify-between items-center bg-white/[0.06] border border-white/10 rounded-[var(--r-sm)] px-3.5 py-2.5">
           <div>
             <b className="text-[0.83rem] font-semibold block">Invoice #1047 — deep clean pkg</b>
-            <small className="font-mono text-[9px] text-faint">CARD · 1 TAP · RECEIPT SENT</small>
+            <small className="font-mono text-[9px] text-slate-400">CARD · 1 TAP · RECEIPT SENT</small>
           </div>
           <span className="font-mono text-[0.82rem] text-green">+$185.00</span>
         </div>
@@ -87,8 +87,8 @@ const BENEFIT_ROWS = [
     links: [{ label: "Estimates, proposals & e-signatures", href: "/features/invoicing" }],
     reversed: false,
     viz: (
-      <div className="bg-gradient-to-br from-white to-secondary dark:from-navy-800 dark:to-navy-750 border border-line rounded-[var(--r-lg)] p-5 shadow-md relative overflow-hidden">
-        <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-faint mb-3.5 flex justify-between">
+      <div className="bg-gradient-to-br from-navy-800 to-navy-750 text-white border border-white/10 rounded-[var(--r-lg)] p-5 shadow-md relative overflow-hidden">
+        <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-3.5 flex justify-between">
           PROPOSAL · KITCHEN REPAINT <b className="text-copper font-medium">SIGNED</b>
         </div>
         <div className="flex flex-col">
@@ -99,10 +99,10 @@ const BENEFIT_ROWS = [
             { icon: "$", label: "Deposit invoice auto-sent → paid", when: "MON 12:07 PM · AUTOMATION" }
           ].map((n, i, arr) => (
             <React.Fragment key={n.label}>
-              <div className="flex items-center gap-2.5 bg-secondary border border-line-soft rounded-[var(--r-sm)] px-3.5 py-2.5">
+              <div className="flex items-center gap-2.5 bg-white/[0.06] border border-white/10 rounded-[var(--r-sm)] px-3.5 py-2.5">
                 <span className="w-[26px] h-[26px] rounded-[7px] bg-copper-tint text-copper grid place-items-center font-mono text-[10px] shrink-0">{n.icon}</span>
                 <b className="text-[0.8rem] font-semibold">{n.label}</b>
-                <small className="font-mono text-[9px] text-faint ml-auto">{n.when}</small>
+                <small className="font-mono text-[9px] text-slate-400 ml-auto">{n.when}</small>
               </div>
               {i < arr.length - 1 && <span className="w-px h-4 ml-[26px] bg-gradient-to-b from-copper/60 to-copper/15" />}
             </React.Fragment>
@@ -118,8 +118,8 @@ const BENEFIT_ROWS = [
     links: [{ label: "Memberships & courses", href: "/features/memberships" }],
     reversed: true,
     viz: (
-      <div className="bg-gradient-to-br from-white to-secondary dark:from-navy-800 dark:to-navy-750 border border-line rounded-[var(--r-lg)] p-5 shadow-md relative overflow-hidden">
-        <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-faint mb-3.5 flex justify-between">
+      <div className="bg-gradient-to-br from-navy-800 to-navy-750 text-white border border-white/10 rounded-[var(--r-lg)] p-5 shadow-md relative overflow-hidden">
+        <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-3.5 flex justify-between">
           RECURRING · THIS MONTH <b className="text-copper font-medium">$3,290 MRR</b>
         </div>
         {[
@@ -127,10 +127,10 @@ const BENEFIT_ROWS = [
           { name: "“Color at home” course × 11", note: "SELF-SERVE ENROLLMENT", amt: "+$935" },
           { name: "Failed card — retried & recovered", note: "DUNNING AUTOMATION", amt: "+$80" }
         ].map((o) => (
-          <div key={o.name} className="flex justify-between items-center bg-secondary border border-line-soft rounded-[var(--r-sm)] px-3.5 py-2.5 mb-2">
+          <div key={o.name} className="flex justify-between items-center bg-white/[0.06] border border-white/10 rounded-[var(--r-sm)] px-3.5 py-2.5 mb-2">
             <div>
               <b className="text-[0.83rem] font-semibold block">{o.name}</b>
-              <small className="font-mono text-[9px] text-faint">{o.note}</small>
+              <small className="font-mono text-[9px] text-slate-400">{o.note}</small>
             </div>
             <span className="font-mono text-[0.82rem] text-green">{o.amt}</span>
           </div>
@@ -206,12 +206,12 @@ export default function ShopPage() {
           {/* Revenue streams ledger */}
           <div>
             <div
-              className="bg-gradient-to-br from-white to-secondary border border-line rounded-[var(--r-lg)] p-6 pb-5 shadow-md relative overflow-hidden max-w-[480px] mx-auto lg:ml-auto"
+              className="bg-gradient-to-br from-navy-800 to-navy-750 text-white border border-white/10 rounded-[var(--r-lg)] p-6 pb-5 shadow-md relative overflow-hidden max-w-[480px] mx-auto lg:ml-auto"
               role="img"
               aria-label="Today's revenue: services, products, and memberships totaling $4,280"
             >
               <span className="absolute top-0 left-[12%] right-[40%] h-px bg-gradient-to-r from-transparent via-copper/70 to-transparent" />
-              <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-faint mb-5 flex justify-between">
+              <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-5 flex justify-between">
                 REVENUE · TODAY <b className="text-copper font-medium">LIVE</b>
               </div>
               {STREAMS.map((s) => (
@@ -219,20 +219,20 @@ export default function ShopPage() {
                   <div className="flex justify-between items-baseline mb-1.5">
                     <span>
                       <b className="font-display text-[0.86rem] font-semibold">{s.label}</b>
-                      <small className="font-mono text-[9px] text-faint tracking-[0.1em] ml-2">{s.note}</small>
+                      <small className="font-mono text-[9px] text-slate-400 tracking-[0.1em] ml-2">{s.note}</small>
                     </span>
-                    <span className="font-mono text-[0.86rem] text-muted">{s.amount}</span>
+                    <span className="font-mono text-[0.86rem] text-slate-300">{s.amount}</span>
                   </div>
-                  <div className="h-[7px] rounded-[5px] bg-secondary overflow-hidden">
+                  <div className="h-[7px] rounded-[5px] bg-white/[0.06] overflow-hidden">
                     <span className="block h-full rounded-[5px] bg-gradient-to-r from-copper/45 to-copper" style={{ width: `${s.width}%` }} />
                   </div>
                 </div>
               ))}
-              <div className="border-t border-line-soft mt-5 pt-4 flex justify-between items-baseline">
-                <span className="font-mono text-[10px] tracking-[0.18em] text-faint">TODAY&apos;S TOTAL</span>
-                <b className="font-mono text-[1.6rem] font-semibold text-ink"><em className="not-italic text-copper">$</em>4,280</b>
+              <div className="border-t border-white/10 mt-5 pt-4 flex justify-between items-baseline">
+                <span className="font-mono text-[10px] tracking-[0.18em] text-slate-400">TODAY&apos;S TOTAL</span>
+                <b className="font-mono text-[1.6rem] font-semibold text-white"><em className="not-italic text-copper">$</em>4,280</b>
               </div>
-              <p className="font-mono text-[9.5px] tracking-[0.16em] text-faint text-right mt-3">THREE STREAMS · ONE LEDGER · SYNCED TO OPS</p>
+              <p className="font-mono text-[9.5px] tracking-[0.16em] text-slate-400 text-right mt-3">THREE STREAMS · ONE LEDGER · SYNCED TO OPS</p>
             </div>
           </div>
         </div>
@@ -275,7 +275,7 @@ export default function ShopPage() {
       <section id="invoice" className="sec py-20 md:py-24 bg-white dark:bg-navy-900 border-b border-line-soft scroll-mt-20">
         <div className="wrap max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-[460px_1fr] gap-12 lg:gap-16 items-center">
           {/* Invoice widget */}
-          <div className="relative bg-background border border-line rounded-[var(--r-lg)] overflow-hidden shadow-md order-2 lg:order-1 max-w-[480px] w-full mx-auto">
+          <div className="relative bg-navy-800 text-white border border-white/10 rounded-[var(--r-lg)] overflow-hidden shadow-md order-2 lg:order-1 max-w-[480px] w-full mx-auto">
             {payState === "paid" && (
               <span
                 className="absolute top-[46%] left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-12 z-10 pointer-events-none font-mono font-semibold text-3xl tracking-[0.35em] text-green border-[3px] border-green rounded-[10px] pl-7 pr-6 py-2 opacity-90"
@@ -284,10 +284,10 @@ export default function ShopPage() {
                 PAID
               </span>
             )}
-            <div className="flex items-center gap-3 px-5 py-4 border-b border-line-soft">
+            <div className="flex items-center gap-3 px-5 py-4 border-b border-white/10">
               <div>
                 <b className="font-display text-[0.95rem] font-bold block">Invoice #1048</b>
-                <small className="font-mono text-[9px] text-faint tracking-[0.12em]">MAPLE &amp; MAIN SALON · POWERED BY FYNZ</small>
+                <small className="font-mono text-[9px] text-slate-400 tracking-[0.12em]">MAPLE &amp; MAIN SALON · POWERED BY FYNZ</small>
               </div>
               <span
                 className={cn(
@@ -301,8 +301,8 @@ export default function ShopPage() {
               </span>
             </div>
             <div className="px-5 pt-5 pb-5.5 relative">
-              <p className="font-mono text-[10px] tracking-[0.1em] text-faint mb-4 leading-loose">
-                BILLED TO <b className="text-muted font-medium">SARAH MITCHELL</b> · THU JUL 9 · NET 7
+              <p className="font-mono text-[10px] tracking-[0.1em] text-slate-400 mb-4 leading-loose">
+                BILLED TO <b className="text-slate-300 font-medium">SARAH MITCHELL</b> · THU JUL 9 · NET 7
               </p>
               {[
                 { name: "Balayage", note: "2.5 HRS · WITH MAYA", n: "$180.00" },
@@ -310,16 +310,16 @@ export default function ShopPage() {
                 { name: "Styling pomade", note: "PRODUCT", n: "$24.00" },
                 { name: "Tax", note: "HST 13%", n: "$32.37" }
               ].map((line) => (
-                <div key={line.name} className="flex justify-between gap-3 py-2.5 border-b border-line-soft text-[0.86rem]">
-                  <span className="text-muted">
+                <div key={line.name} className="flex justify-between gap-3 py-2.5 border-b border-white/10 text-[0.86rem]">
+                  <span className="text-slate-300">
                     {line.name}
-                    <small className="block font-mono text-[9px] text-faint mt-0.5">{line.note}</small>
+                    <small className="block font-mono text-[9px] text-slate-400 mt-0.5">{line.note}</small>
                   </span>
-                  <span className="font-mono text-ink shrink-0">{line.n}</span>
+                  <span className="font-mono text-white shrink-0">{line.n}</span>
                 </div>
               ))}
               <div className="flex justify-between items-baseline pt-4 pb-4.5">
-                <span className="font-mono text-[10px] tracking-[0.18em] text-faint">TOTAL DUE</span>
+                <span className="font-mono text-[10px] tracking-[0.18em] text-slate-400">TOTAL DUE</span>
                 <b className="font-mono text-[1.45rem] font-semibold">$281.37</b>
               </div>
 
@@ -334,7 +334,7 @@ export default function ShopPage() {
                           "flex-1 font-mono text-[9px] tracking-[0.1em] text-center py-2.5 px-1 border rounded-lg transition-all",
                           method === m.id
                             ? "bg-copper-tint border-copper/45 text-copper"
-                            : "border-line-soft text-muted hover:border-copper/40"
+                            : "border-white/10 text-slate-300 hover:border-copper/40"
                         )}
                       >
                         {m.label}
@@ -368,7 +368,7 @@ export default function ShopPage() {
                   </div>
                   <button
                     onClick={() => setPayState("due")}
-                    className="block mx-auto mt-3.5 font-mono text-[10px] tracking-[0.14em] text-faint hover:text-copper"
+                    className="block mx-auto mt-3.5 font-mono text-[10px] tracking-[0.14em] text-slate-400 hover:text-copper"
                   >
                     ↺ RESET DEMO
                   </button>
@@ -416,10 +416,10 @@ export default function ShopPage() {
               <Link
                 key={f.href}
                 href={f.href}
-                className="group bg-background border border-line-soft rounded-[var(--r-md)] p-6 flex flex-col gap-2 transition-all hover:border-copper/40 hover:-translate-y-1"
+                className="group bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] p-6 flex flex-col gap-2 transition-all hover:border-copper/40 hover:-translate-y-1"
               >
                 <b className="font-display font-semibold text-lg">{f.title}</b>
-                <p className="text-sm text-muted flex-1">{f.desc}</p>
+                <p className="text-sm text-slate-300 flex-1">{f.desc}</p>
                 <span className="font-mono text-[11px] tracking-[0.06em] text-copper opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0">
                   LEARN MORE →
                 </span>

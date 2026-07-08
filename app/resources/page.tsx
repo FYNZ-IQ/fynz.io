@@ -182,10 +182,10 @@ export default function ResourcesPage() {
           {/* Featured article card — PLACEHOLDER content */}
           <Link
             href="#article"
-            className="group block bg-card border border-line rounded-[var(--r-lg)] overflow-hidden shadow-[var(--shadow-md)] transition-all duration-250 hover:border-copper/40 hover:-translate-y-1"
+            className="group block bg-navy-800 border border-white/10 rounded-[var(--r-lg)] overflow-hidden shadow-[var(--shadow-md)] transition-all duration-250 hover:border-copper/40 hover:-translate-y-1"
           >
             <div
-              className="relative h-[190px] border-b border-line-soft bg-copper-tint"
+              className="relative h-[190px] border-b border-white/10 bg-copper-tint"
               style={{
                 backgroundImage:
                   "radial-gradient(70% 100% at 80% 0%, var(--copper-tint), transparent 60%), repeating-linear-gradient(-45deg, rgba(181,100,63,0.05) 0 2px, transparent 2px 14px)"
@@ -208,13 +208,13 @@ export default function ResourcesPage() {
             </div>
             <div className="p-6 md:px-[26px] md:py-[26px]">
               <span className="font-mono text-[9.5px] tracking-[0.18em] text-copper">PLAYBOOK</span>
-              <h2 className="font-display font-bold text-[1.35rem] leading-[1.25] my-2.5 group-hover:text-copper transition-colors">
+              <h2 className="font-display font-bold text-[1.35rem] leading-[1.25] my-2.5 text-white group-hover:text-copper transition-colors">
                 The missed-call money leak: why 62% of small-business calls go unanswered — and the 30-second fix
               </h2>
-              <p className="text-[0.92rem] text-muted">
+              <p className="text-[0.92rem] text-slate-300">
                 Every unanswered ring is a customer dialing your competitor. Here&apos;s the text-back automation that turns missed calls into booked appointments.
               </p>
-              <div className="flex gap-3.5 mt-4 font-mono text-[9.5px] tracking-[0.1em] text-faint">
+              <div className="flex gap-3.5 mt-4 font-mono text-[9.5px] tracking-[0.1em] text-slate-400">
                 <span>FYNZ TEAM</span>
                 <span>JUN 24, 2026</span>
                 <span>7 MIN READ</span>
@@ -232,18 +232,18 @@ export default function ResourcesPage() {
               <Link
                 key={cat.href}
                 href={cat.href}
-                className="group relative bg-card border border-line-soft rounded-[var(--r-md)] px-5 py-[22px] transition-all duration-200 hover:border-copper/40 hover:-translate-y-[3px]"
+                className="group relative bg-navy-800 border border-white/10 rounded-[var(--r-md)] px-5 py-[22px] transition-all duration-200 hover:border-copper/40 hover:-translate-y-[3px]"
               >
-                <span className="absolute top-5 right-[18px] font-mono text-[9px] tracking-[0.08em] text-faint">
+                <span className="absolute top-5 right-[18px] font-mono text-[9px] tracking-[0.08em] text-slate-400">
                   {cat.count}
                 </span>
                 <span className="w-[38px] h-[38px] rounded-[11px] bg-copper-tint grid place-items-center mb-[13px] [&_svg]:w-[18px] [&_svg]:h-[18px] [&_svg]:stroke-copper">
                   {cat.icon}
                 </span>
-                <b className="font-display font-semibold text-[0.95rem] block mb-1 group-hover:text-copper transition-colors">
+                <b className="font-display font-semibold text-[0.95rem] block mb-1 text-white group-hover:text-copper transition-colors">
                   {cat.title}
                 </b>
-                <p className="text-[0.79rem] text-faint leading-[1.5]">{cat.desc}</p>
+                <p className="text-[0.79rem] text-slate-400 leading-[1.5]">{cat.desc}</p>
               </Link>
             ))}
           </StaggerGroup>
@@ -283,10 +283,10 @@ export default function ResourcesPage() {
               <Link
                 key={art.href}
                 href={art.href}
-                className="group flex flex-col bg-card border border-line-soft rounded-[var(--r-md)] overflow-hidden transition-all duration-200 hover:border-copper/40 hover:-translate-y-[3px]"
+                className="group flex flex-col bg-navy-800 border border-white/10 rounded-[var(--r-md)] overflow-hidden transition-all duration-200 hover:border-copper/40 hover:-translate-y-[3px]"
               >
                 <div
-                  className="h-[110px] border-b border-line-soft bg-secondary"
+                  className="h-[110px] border-b border-white/10 bg-white/[0.06]"
                   style={{
                     backgroundImage: `radial-gradient(60% 110% at ${art.gx} 0%, var(--copper-tint), transparent 62%)`
                   }}
@@ -294,11 +294,11 @@ export default function ResourcesPage() {
                 />
                 <div className="flex flex-col flex-1 px-5 pt-[18px] pb-5">
                   <span className="font-mono text-[9px] tracking-[0.16em] text-copper">{art.label}</span>
-                  <h3 className="font-display font-semibold text-[1.02rem] leading-[1.3] my-2 group-hover:text-copper transition-colors">
+                  <h3 className="font-display font-semibold text-[1.02rem] leading-[1.3] my-2 text-white group-hover:text-copper transition-colors">
                     {art.title}
                   </h3>
-                  <p className="text-[0.83rem] text-muted flex-1">{art.desc}</p>
-                  <div className="flex gap-3.5 mt-3.5 font-mono text-[9.5px] tracking-[0.1em] text-faint">
+                  <p className="text-[0.83rem] text-slate-300 flex-1">{art.desc}</p>
+                  <div className="flex gap-3.5 mt-3.5 font-mono text-[9.5px] tracking-[0.1em] text-slate-400">
                     <span>{art.date}</span>
                     <span>{art.read}</span>
                   </div>
@@ -321,48 +321,48 @@ export default function ResourcesPage() {
 
           <ScrollReveal className="grid grid-cols-1 lg:grid-cols-2 gap-[18px]">
             {/* Help center */}
-            <div className="bg-background border border-line rounded-[var(--r-lg)] p-8">
+            <div className="bg-navy-800 border border-white/10 rounded-[var(--r-lg)] p-8">
               <span className="w-11 h-11 rounded-xl bg-copper-tint grid place-items-center mb-[18px] [&_svg]:w-5 [&_svg]:h-5 [&_svg]:stroke-copper">
                 <svg viewBox="0 0 24 24" fill="none" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10" />
                   <path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01" />
                 </svg>
               </span>
-              <h3 className="font-display font-bold text-[1.2rem] mb-2">Help center</h3>
-              <p className="text-[0.9rem] text-muted mb-5">
+              <h3 className="font-display font-bold text-[1.2rem] mb-2 text-white">Help center</h3>
+              <p className="text-[0.9rem] text-slate-300 mb-5">
                 Searchable answers for every button in the product — written for owners, not engineers.
               </p>
               {HELP_DOCS.map((doc) => (
                 <Link
                   key={doc.href}
                   href={doc.href}
-                  className="flex justify-between items-center gap-3 py-3 border-b border-line-soft last:border-b-0 text-[0.9rem] text-muted transition-all duration-150 hover:text-copper hover:pl-2"
+                  className="flex justify-between items-center gap-3 py-3 border-b border-white/10 last:border-b-0 text-[0.9rem] text-slate-300 transition-all duration-150 hover:text-copper hover:pl-2"
                 >
                   <span>{doc.title}</span>
-                  <span className="font-mono text-[9px] text-faint tracking-[0.1em] shrink-0">{doc.tag}</span>
+                  <span className="font-mono text-[9px] text-slate-400 tracking-[0.1em] shrink-0">{doc.tag}</span>
                 </Link>
               ))}
             </div>
 
             {/* Getting-started guides */}
-            <div id="guides" className="bg-background border border-line rounded-[var(--r-lg)] p-8 scroll-mt-24">
+            <div id="guides" className="bg-navy-800 border border-white/10 rounded-[var(--r-lg)] p-8 scroll-mt-24">
               <span className="w-11 h-11 rounded-xl bg-copper-tint grid place-items-center mb-[18px] [&_svg]:w-5 [&_svg]:h-5 [&_svg]:stroke-copper">
                 <svg viewBox="0 0 24 24" fill="none" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
                 </svg>
               </span>
-              <h3 className="font-display font-bold text-[1.2rem] mb-2">Getting-started guides</h3>
-              <p className="text-[0.9rem] text-muted mb-5">
+              <h3 className="font-display font-bold text-[1.2rem] mb-2 text-white">Getting-started guides</h3>
+              <p className="text-[0.9rem] text-slate-300 mb-5">
                 Longer walkthroughs for the moments that matter — day one, migration week, and your first automation.
               </p>
               {GUIDES.map((g) => (
                 <Link
                   key={g.href}
                   href={g.href}
-                  className="flex justify-between items-center gap-3 py-3 border-b border-line-soft last:border-b-0 text-[0.9rem] text-muted transition-all duration-150 hover:text-copper hover:pl-2"
+                  className="flex justify-between items-center gap-3 py-3 border-b border-white/10 last:border-b-0 text-[0.9rem] text-slate-300 transition-all duration-150 hover:text-copper hover:pl-2"
                 >
                   <span>{g.title}</span>
-                  <span className="font-mono text-[9px] text-faint tracking-[0.1em] shrink-0">{g.tag}</span>
+                  <span className="font-mono text-[9px] text-slate-400 tracking-[0.1em] shrink-0">{g.tag}</span>
                 </Link>
               ))}
             </div>
@@ -395,8 +395,8 @@ export default function ResourcesPage() {
               aria-label="Email address"
               autoComplete="email"
               className={cn(
-                "flex-1 min-w-0 bg-card border rounded-full px-[22px] py-3.5 text-ink text-[0.95rem] outline-none transition-all duration-200 placeholder:text-faint focus:border-copper/55 focus:shadow-[0_0_0_3px_var(--copper-tint)]",
-                err ? "border-destructive" : "border-line"
+                "flex-1 min-w-0 bg-navy-800 border rounded-full px-[22px] py-3.5 text-white text-[0.95rem] outline-none transition-all duration-200 placeholder:text-slate-400 focus:border-copper/55 focus:shadow-[0_0_0_3px_var(--copper-tint)]",
+                err ? "border-destructive" : "border-white/10"
               )}
             />
             <Button onClick={subscribe} className="btn-copper sm:w-auto w-full">

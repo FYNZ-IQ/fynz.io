@@ -109,7 +109,7 @@ const STATUS_LABEL: Record<Status, string> = {
 const STATUS_STYLE: Record<Status, string> = {
   live: "bg-green/10 text-green border border-green/25",
   built: "bg-copper-tint text-copper border border-copper/25",
-  plan: "bg-transparent text-faint border border-dashed border-line"
+  plan: "bg-transparent text-slate-400 border border-dashed border-white/10"
 };
 
 export default function IntegrationsPage() {
@@ -188,7 +188,7 @@ export default function IntegrationsPage() {
                   <div
                     key={item.name}
                     className={cn(
-                      "relative bg-card text-card-foreground border border-line-soft rounded-[var(--r-md)] p-5 flex flex-col gap-1.5 transition-all",
+                      "relative bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] p-5 flex flex-col gap-1.5 transition-all",
                       item.status === "plan"
                         ? "opacity-70"
                         : "hover:border-copper/35 hover:-translate-y-1"
@@ -209,8 +209,8 @@ export default function IntegrationsPage() {
                     >
                       {item.tile}
                     </span>
-                    <b className="font-display font-semibold text-[0.95rem]">{item.name}</b>
-                    <p className="text-[0.8rem] text-faint leading-relaxed">{item.desc}</p>
+                    <b className="font-display font-semibold text-[0.95rem] text-white">{item.name}</b>
+                    <p className="text-[0.8rem] text-slate-400 leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </StaggerGroup>
@@ -223,12 +223,12 @@ export default function IntegrationsPage() {
       <section className="py-20 md:py-24">
         <div className="wrap max-w-7xl mx-auto px-6">
           <ScrollReveal>
-            <div className="relative overflow-hidden text-center rounded-[var(--r-lg)] border border-line bg-gradient-to-br from-card to-secondary px-6 py-12 md:px-10 md:py-14">
+            <div className="relative overflow-hidden text-center rounded-[var(--r-lg)] border border-white/10 bg-gradient-to-br from-navy-800 to-navy-900 px-6 py-12 md:px-10 md:py-14">
               <span className="absolute top-0 left-[18%] right-[18%] h-px bg-gradient-to-r from-transparent via-copper to-transparent" />
-              <h2 className="font-display font-bold text-2xl md:text-3xl mb-3">
+              <h2 className="font-display font-bold text-2xl md:text-3xl mb-3 text-white">
                 Don&apos;t see <span className="text-copper">your tool</span>?
               </h2>
-              <p className="text-muted max-w-xl mx-auto mb-6">
+              <p className="text-slate-300 max-w-xl mx-auto mb-6">
                 Tell us what you need connected. Integration requests directly shape the roadmap — the PLANNED
                 items above are there because owners asked.
               </p>
@@ -239,7 +239,7 @@ export default function IntegrationsPage() {
               >
                 Request an integration
               </Button>
-              <p className="mt-6 font-mono text-[10px] tracking-[0.12em] text-faint uppercase">
+              <p className="mt-6 font-mono text-[10px] tracking-[0.12em] text-slate-400 uppercase">
                 In the meantime:{" "}
                 <Link href="#zapier" className="text-copper hover:underline underline-offset-4">
                   Zapier

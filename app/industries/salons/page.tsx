@@ -16,9 +16,9 @@ const PAINS = [
 ];
 
 const vizWrap =
-  "relative min-h-[150px] bg-wash rounded border border-line-soft p-4 overflow-hidden flex flex-col justify-center gap-2 w-full";
+  "relative min-h-[150px] bg-white/[0.04] rounded border border-white/10 p-4 overflow-hidden flex flex-col justify-center gap-2 w-full";
 const vLabel =
-  "font-mono text-[8px] tracking-[0.1em] text-faint absolute top-2 left-2";
+  "font-mono text-[8px] tracking-[0.1em] text-slate-400 absolute top-2 left-2";
 
 const BENEFIT_GROUPS = [
   {
@@ -34,9 +34,9 @@ const BENEFIT_GROUPS = [
           <div className={vizWrap}>
             <span className={vLabel}>YOUR BOOKING PAGE — 2:04 AM</span>
             <div className="flex gap-1.5 justify-center mt-4">
-              <span className="font-mono text-[9px] border border-line-soft rounded px-2 py-1.5 text-muted">10:00</span>
+              <span className="font-mono text-[9px] border border-white/10 rounded px-2 py-1.5 text-slate-300">10:00</span>
               <span className="font-mono text-[9px] bg-copper-tint border border-copper/50 rounded px-2 py-1.5 text-copper">TUE 11:30</span>
-              <span className="font-mono text-[9px] border border-line-soft rounded px-2 py-1.5 text-muted">4:45</span>
+              <span className="font-mono text-[9px] border border-white/10 rounded px-2 py-1.5 text-slate-300">4:45</span>
             </div>
             <div className="text-center mt-1">
               <span className="bg-green/10 text-green border border-green/30 px-2 py-0.5 rounded font-mono text-[7px] tracking-wide uppercase">BOOKED — TUE 11:30 · CONFIRMATION SENT ✓</span>
@@ -52,9 +52,9 @@ const BENEFIT_GROUPS = [
           <div className={vizWrap}>
             <span className={vLabel}>INCOMING CALL — MID-CUT</span>
             <span className="w-9 h-9 rounded-full bg-copper-tint border border-copper/40 grid place-items-center text-copper text-base mx-auto mt-3 animate-pulse">✆</span>
-            <div className="bg-copper-tint border border-copper/30 p-2 rounded text-[0.72rem] text-ink leading-snug">
+            <div className="bg-copper-tint border border-copper/30 p-2 rounded text-[0.72rem] text-white leading-snug">
               Sorry we missed you! Book in 10 seconds: fynz.io/luxe ✂️
-              <span className="block font-mono text-[6.5px] text-faint mt-1 tracking-wide">AUTO-TEXT · SENT IN 4 SECONDS</span>
+              <span className="block font-mono text-[6.5px] text-slate-400 mt-1 tracking-wide">AUTO-TEXT · SENT IN 4 SECONDS</span>
             </div>
           </div>
         )
@@ -66,9 +66,9 @@ const BENEFIT_GROUPS = [
         viz: (
           <div className={vizWrap}>
             <span className={vLabel}>SATURDAY 2:00 PM — PEAK SLOT</span>
-            <div className="bg-background border border-line-soft p-2 rounded text-[0.78rem] font-semibold text-ink mt-3">
+            <div className="bg-navy-800 border border-white/10 p-2 rounded text-[0.78rem] font-semibold text-white mt-3">
               Hannah M. — Balayage
-              <span className="block font-mono text-[6.5px] text-faint mt-1 tracking-wide">SAT 2:00 PM · CARD ON FILE</span>
+              <span className="block font-mono text-[6.5px] text-slate-400 mt-1 tracking-wide">SAT 2:00 PM · CARD ON FILE</span>
             </div>
             <div className="flex gap-1.5 justify-center">
               <span className="bg-copper-tint text-copper border border-copper/40 px-2 py-0.5 rounded-full font-mono text-[7px]">🔔 −24H ✓</span>
@@ -91,10 +91,10 @@ const BENEFIT_GROUPS = [
         viz: (
           <div className={vizWrap}>
             <span className={vLabel}>ROOT TOUCH-UP — EVERY 6 WEEKS</span>
-            <div className="bg-copper-tint border border-copper/30 p-2 rounded text-[0.72rem] text-ink leading-snug mt-3">
+            <div className="bg-copper-tint border border-copper/30 p-2 rounded text-[0.72rem] text-white leading-snug mt-3">
               "Hi Maya! It's been 6 weeks — time for your touch-up? Book: fynz.io/luxe"
             </div>
-            <div className="flex items-center justify-between text-[7px] font-mono text-faint mt-1">
+            <div className="flex items-center justify-between text-[7px] font-mono text-slate-400 mt-1">
               <span>JAN 4</span><span>FEB 15</span><span>MAR 29</span>
               <span className="text-copper font-bold">DUE NOW</span>
             </div>
@@ -108,9 +108,9 @@ const BENEFIT_GROUPS = [
         viz: (
           <div className={vizWrap}>
             <span className={vLabel}>CLIENT DATES — TRACKED FOR YOU</span>
-            <div className="bg-copper-tint border border-copper/30 p-2 rounded text-[0.72rem] text-ink leading-snug mt-3">
+            <div className="bg-copper-tint border border-copper/30 p-2 rounded text-[0.72rem] text-white leading-snug mt-3">
               🎂 Happy birthday, Maya! Enjoy 15% off any service this week — from all of us at Luxe & Co.
-              <span className="block font-mono text-[6.5px] text-faint mt-1 tracking-wide">SENT AUTOMATICALLY · 9:00 AM ON HER DAY</span>
+              <span className="block font-mono text-[6.5px] text-slate-400 mt-1 tracking-wide">SENT AUTOMATICALLY · 9:00 AM ON HER DAY</span>
             </div>
           </div>
         )
@@ -123,7 +123,7 @@ const BENEFIT_GROUPS = [
           <div className={vizWrap}>
             <span className={vLabel}>NEW GOOGLE REVIEW — 2 MIN AFTER VISIT</span>
             <div className="text-[15px] tracking-[3px] text-copper mt-3">★ ★ ★ ★ ★</div>
-            <div className="bg-background border border-line-soft p-2 rounded text-[0.7rem] text-muted leading-snug">
+            <div className="bg-navy-800 border border-white/10 p-2 rounded text-[0.7rem] text-slate-300 leading-snug">
               Thank you, Maya! That balayage was so fun to do — see you in six weeks. 🧡
               <span className="block font-mono text-[6.5px] text-copper/70 mt-1 tracking-wide">REPLY DRAFTED & POSTED BY REVIEWS AI</span>
             </div>
@@ -145,7 +145,7 @@ const BENEFIT_GROUPS = [
           <div className={vizWrap}>
             <span className={vLabel}>CONTENT AI — THIS MORNING'S SHOT</span>
             <div className="flex gap-3 items-center mt-3">
-              <div className="w-16 h-16 rounded-lg shrink-0 border border-line-soft bg-[radial-gradient(70%_90%_at_30%_25%,rgba(181,100,63,0.35),transparent_65%)] bg-secondary" />
+              <div className="w-16 h-16 rounded-lg shrink-0 border border-white/10 bg-[radial-gradient(70%_90%_at_30%_25%,rgba(181,100,63,0.35),transparent_65%)] bg-white/[0.06]" />
               <div className="flex flex-col gap-1.5 items-start">
                 <span className="bg-copper-tint text-copper border border-copper/40 px-2 py-0.5 rounded font-mono text-[7px]">INSTAGRAM ✓</span>
                 <span className="bg-copper-tint text-copper border border-copper/40 px-2 py-0.5 rounded font-mono text-[7px]">FACEBOOK ✓</span>
@@ -174,8 +174,8 @@ const BENEFIT_GROUPS = [
                 { d: "FRI", h: "96%", hot: false }
               ].map((b) => (
                 <div key={b.d} className="flex flex-col items-center gap-1 flex-1">
-                  <div className={`w-full rounded-t ${b.hot ? "bg-copper" : "bg-muted/30"}`} style={{ height: b.h }} />
-                  <span className="font-mono text-[6px] text-faint">{b.d}</span>
+                  <div className={`w-full rounded-t ${b.hot ? "bg-copper" : "bg-white/20"}`} style={{ height: b.h }} />
+                  <span className="font-mono text-[6px] text-slate-400">{b.d}</span>
                 </div>
               ))}
             </div>
@@ -208,11 +208,11 @@ const BENEFIT_GROUPS = [
         viz: (
           <div className={vizWrap}>
             <span className={vLabel}>WEBSITE & FUNNEL AI — DRAFTING YOUR PAGE</span>
-            <div className="bg-background border border-line-soft rounded p-2 mt-3 flex flex-col gap-1.5">
+            <div className="bg-navy-800 border border-white/10 rounded p-2 mt-3 flex flex-col gap-1.5">
               <div className="flex gap-1">
-                <i className="w-1 h-1 rounded-full bg-muted/40" />
-                <i className="w-1 h-1 rounded-full bg-muted/40" />
-                <i className="w-1 h-1 rounded-full bg-muted/40" />
+                <i className="w-1 h-1 rounded-full bg-white/25" />
+                <i className="w-1 h-1 rounded-full bg-white/25" />
+                <i className="w-1 h-1 rounded-full bg-white/25" />
               </div>
               <span className="h-5 rounded bg-copper/25" />
               <span className="h-1.5 w-4/5 rounded bg-copper/15" />
@@ -243,7 +243,7 @@ const BENEFIT_GROUPS = [
                 <b className="font-display text-[0.62rem] font-extrabold block">LUXE & CO.</b>
                 <small className="font-mono text-[6px] tracking-wide opacity-80">GIFT CARD · COLOR MEMBERSHIP</small>
               </div>
-              <div className="font-mono text-[7.5px] text-muted text-right leading-relaxed">
+              <div className="font-mono text-[7.5px] text-slate-300 text-right leading-relaxed">
                 BALANCE<br />
                 <b className="text-copper font-medium">$85 → $60</b>
               </div>
@@ -262,15 +262,15 @@ const BENEFIT_GROUPS = [
           <div className={vizWrap}>
             <span className={vLabel}>YOUR RETAIL SHELF — ONLINE</span>
             <div className="flex items-center justify-between gap-3 mt-3">
-              <div className="w-14 h-14 rounded-lg border border-line-soft bg-[radial-gradient(70%_90%_at_35%_30%,rgba(233,190,106,0.4),transparent_65%)] bg-secondary" />
-              <div className="relative w-9 h-9 rounded-full border border-line-soft grid place-items-center text-base text-muted">
+              <div className="w-14 h-14 rounded-lg border border-white/10 bg-[radial-gradient(70%_90%_at_35%_30%,rgba(233,190,106,0.4),transparent_65%)] bg-white/[0.06]" />
+              <div className="relative w-9 h-9 rounded-full border border-white/10 grid place-items-center text-base text-slate-300">
                 🛒
                 <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-copper text-white text-[8px] font-bold grid place-items-center font-mono">1</span>
               </div>
             </div>
             <div className="flex items-center justify-between">
               <span className="bg-green/10 text-green border border-green/30 px-2 py-0.5 rounded font-mono text-[6.5px]">ORDER #218 — PAID ✓</span>
-              <span className="font-mono text-[6px] text-faint">ORDERED 10:40 PM · CLOSED</span>
+              <span className="font-mono text-[6px] text-slate-400">ORDERED 10:40 PM · CLOSED</span>
             </div>
           </div>
         )
@@ -291,10 +291,10 @@ const BENEFIT_GROUPS = [
             <span className={vLabel}>EVERY CHANNEL → ONE PLACE</span>
             <div className="flex flex-wrap gap-1.5 justify-center mt-3">
               {["INSTAGRAM", "FACEBOOK", "TEXTS", "WEBCHAT"].map((s) => (
-                <span key={s} className="font-mono text-[7px] border border-line-soft rounded-full px-2 py-1 text-muted bg-background">{s}</span>
+                <span key={s} className="font-mono text-[7px] border border-white/10 rounded-full px-2 py-1 text-slate-300 bg-navy-800">{s}</span>
               ))}
             </div>
-            <div className="flex items-center justify-between bg-copper-tint border border-copper/40 rounded-lg px-3 py-2 font-display font-bold text-[0.72rem] text-ink">
+            <div className="flex items-center justify-between bg-copper-tint border border-copper/40 rounded-lg px-3 py-2 font-display font-bold text-[0.72rem] text-white">
               One inbox
               <span className="bg-copper-tint text-copper border border-copper/40 px-2 py-0.5 rounded-full font-mono text-[7px]">4 NEW · ALL ANSWERED ✓</span>
             </div>
@@ -308,13 +308,13 @@ const BENEFIT_GROUPS = [
         viz: (
           <div className={vizWrap}>
             <span className={vLabel}>ASK AI</span>
-            <div className="border border-line-soft rounded px-2 py-1.5 font-mono text-[8px] text-muted mt-3">▸ What's my top service this quarter?</div>
-            <div className="bg-background border border-line-soft rounded px-2 py-2">
+            <div className="border border-white/10 rounded px-2 py-1.5 font-mono text-[8px] text-slate-300 mt-3">▸ What's my top service this quarter?</div>
+            <div className="bg-navy-800 border border-white/10 rounded px-2 py-2">
               <b className="font-mono text-[8px] text-copper block mb-2">BALAYAGE — $8.4K THIS QUARTER</b>
               <div className="flex gap-1.5 items-end h-7">
                 <i className="flex-1 rounded-t bg-copper" style={{ height: "100%" }} />
-                <i className="flex-1 rounded-t bg-muted/30" style={{ height: "64%" }} />
-                <i className="flex-1 rounded-t bg-muted/30" style={{ height: "41%" }} />
+                <i className="flex-1 rounded-t bg-white/20" style={{ height: "64%" }} />
+                <i className="flex-1 rounded-t bg-white/20" style={{ height: "41%" }} />
               </div>
             </div>
           </div>
@@ -377,12 +377,12 @@ export default function SalonsPage() {
           {/* Hero Visual Mockups */}
           <div className="relative flex flex-col sm:flex-row gap-6 max-w-[550px] w-full justify-self-center lg:justify-self-end">
             <HoverFloat className="flex-1" yOffset={-10} duration={3.5}>
-              <div className="bg-white dark:bg-navy-900 border border-line rounded-[var(--r-lg)] p-5 relative shadow-md">
-                <div className="flex items-center gap-3 pb-3 border-b border-line-soft mb-3">
+              <div className="bg-navy-900 border border-white/10 rounded-[var(--r-lg)] p-5 relative shadow-md">
+                <div className="flex items-center gap-3 pb-3 border-b border-white/10 mb-3">
                   <span className="w-9 h-9 rounded-xl bg-copper-tint grid place-items-center font-display font-extrabold text-copper text-sm shrink-0">L</span>
                   <div>
-                    <b className="font-display text-[0.85rem] font-bold text-ink block leading-tight">Luxe &amp; Co. Salon</b>
-                    <small className="font-mono text-[7px] tracking-[0.12em] text-faint block mt-0.5">BOOK YOUR VISIT — POWERED BY FYNZ</small>
+                    <b className="font-display text-[0.85rem] font-bold text-white block leading-tight">Luxe &amp; Co. Salon</b>
+                    <small className="font-mono text-[7px] tracking-[0.12em] text-slate-400 block mt-0.5">BOOK YOUR VISIT — POWERED BY FYNZ</small>
                   </div>
                 </div>
                 <div className="space-y-0">
@@ -391,10 +391,10 @@ export default function SalonsPage() {
                     { nm: "Balayage", dur: "2 HR 30 MIN", pr: "$180" },
                     { nm: "Root touch-up", dur: "1 HR 15 MIN", pr: "$95" }
                   ].map((s) => (
-                    <div key={s.nm} className="flex justify-between items-center py-2 border-b border-line-soft/60">
-                      <span className="text-[0.82rem] text-ink">
+                    <div key={s.nm} className="flex justify-between items-center py-2 border-b border-white/10">
+                      <span className="text-[0.82rem] text-white">
                         {s.nm}
-                        <small className="block font-mono text-[7px] text-faint tracking-wide mt-0.5">{s.dur}</small>
+                        <small className="block font-mono text-[7px] text-slate-400 tracking-wide mt-0.5">{s.dur}</small>
                       </span>
                       <span className="font-mono text-[11px] text-copper">{s.pr}</span>
                     </div>
@@ -404,7 +404,7 @@ export default function SalonsPage() {
                   {["MJ", "AR", "KT", "DS"].map((i, idx) => (
                     <span
                       key={i}
-                      className={`w-8 h-8 rounded-full grid place-items-center font-display font-bold text-[0.62rem] ${idx === 0 ? "bg-copper text-white" : "bg-wash border border-line-soft text-muted"}`}
+                      className={`w-8 h-8 rounded-full grid place-items-center font-display font-bold text-[0.62rem] ${idx === 0 ? "bg-copper text-white" : "bg-white/[0.04] border border-white/10 text-slate-300"}`}
                     >
                       {i}
                     </span>
@@ -414,7 +414,7 @@ export default function SalonsPage() {
                   {["10:00", "11:30", "1:15", "3:00", "4:45"].map((t, idx) => (
                     <span
                       key={t}
-                      className={`font-mono text-[10px] rounded-lg px-2.5 py-1.5 border ${idx === 1 ? "bg-copper-tint border-copper/50 text-copper" : "border-line-soft text-muted"}`}
+                      className={`font-mono text-[10px] rounded-lg px-2.5 py-1.5 border ${idx === 1 ? "bg-copper-tint border-copper/50 text-copper" : "border-white/10 text-slate-300"}`}
                     >
                       {t}
                     </span>
@@ -423,20 +423,20 @@ export default function SalonsPage() {
                 <span className="block text-center bg-copper text-white font-display font-bold text-[0.85rem] rounded-full py-2.5">
                   Book with Maria — Tue 11:30
                 </span>
-                <span className="absolute -right-3 bottom-14 bg-white dark:bg-navy-900 border border-green/35 rounded-xl px-3 py-2 font-mono text-[8px] tracking-wide text-green shadow-md">
+                <span className="absolute -right-3 bottom-14 bg-navy-900 border border-green/35 rounded-xl px-3 py-2 font-mono text-[8px] tracking-wide text-green shadow-md">
                   BOOKED AT 11:58 PM · REMINDER SET ✓
                 </span>
               </div>
             </HoverFloat>
 
             <HoverFloat className="flex-1 sm:max-w-[220px] sm:self-end" yOffset={10} duration={4} delay={0.5}>
-              <div className="bg-white dark:bg-navy-900 border border-line rounded-2xl p-3 shadow-md">
+              <div className="bg-navy-900 border border-white/10 rounded-2xl p-3 shadow-md">
                 <div className="flex items-center gap-2 mb-2">
                   <i className="w-5 h-5 rounded-full bg-copper-tint border border-copper/40 shrink-0" />
-                  <b className="font-display text-[0.7rem] font-bold text-ink">luxeandco.salon</b>
+                  <b className="font-display text-[0.7rem] font-bold text-white">luxeandco.salon</b>
                 </div>
-                <div className="h-24 rounded-lg mb-2 bg-[radial-gradient(70%_90%_at_30%_20%,rgba(181,100,63,0.35),transparent_60%)] bg-secondary" />
-                <p className="text-[0.68rem] text-muted leading-snug">Fresh balayage for the weekend ✨ New color arrivals just landed…</p>
+                <div className="h-24 rounded-lg mb-2 bg-[radial-gradient(70%_90%_at_30%_20%,rgba(181,100,63,0.35),transparent_60%)] bg-white/[0.06]" />
+                <p className="text-[0.68rem] text-slate-300 leading-snug">Fresh balayage for the weekend ✨ New color arrivals just landed…</p>
                 <span className="block mt-2 font-mono text-[7.5px] tracking-wide text-green">SCHEDULED ✓ IG · FB · GOOGLE BUSINESS</span>
               </div>
             </HoverFloat>
@@ -455,10 +455,10 @@ export default function SalonsPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {PAINS.map((pain, idx) => (
-              <Card key={idx} className="bg-background border border-line-soft shadow-sm rounded-2xl ring-0 p-6 flex flex-row items-start gap-4">
+              <Card key={idx} className="bg-navy-800 border border-white/10 shadow-sm rounded-2xl ring-0 p-6 flex flex-row items-start gap-4">
                 <span className="font-display text-copper text-2xl leading-none mt-0.5 shrink-0 select-none opacity-30">&ldquo;</span>
                 <CardContent className="p-0">
-                  <p className="text-muted text-sm leading-relaxed">{pain}</p>
+                  <p className="text-slate-300 text-sm leading-relaxed">{pain}</p>
                 </CardContent>
               </Card>
             ))}
@@ -488,12 +488,12 @@ export default function SalonsPage() {
                   className={`grid grid-cols-1 gap-6 ${group.cols === 2 ? "md:grid-cols-2" : "md:grid-cols-2 lg:grid-cols-3"}`}
                 >
                   {group.cards.map((card, cardIdx) => (
-                    <BadgeCard key={cardIdx} title={card.title} className="bg-background border-line-soft flex flex-col justify-between min-h-[380px]">
+                    <BadgeCard key={cardIdx} title={card.title} className="bg-navy-800 text-white border-white/10 flex flex-col justify-between min-h-[380px]">
                       <div>
                         <div className="mb-4">{card.viz}</div>
-                        <p className="text-muted text-sm leading-relaxed mb-6">{card.desc}</p>
+                        <p className="text-slate-300 text-sm leading-relaxed mb-6">{card.desc}</p>
                       </div>
-                      <span className="block font-mono text-[8px] tracking-wider text-faint uppercase mt-auto">
+                      <span className="block font-mono text-[8px] tracking-wider text-slate-400 uppercase mt-auto">
                         {card.tag}
                       </span>
                     </BadgeCard>
@@ -524,35 +524,35 @@ export default function SalonsPage() {
                   Your 4:00 cancels. The waitlist gets a text before you've seen it — chair booked again by 4:12.
                 </p>
               </div>
-              <div className="bg-background border border-line rounded-[var(--r-lg)] p-5 shadow-md">
+              <div className="bg-navy-800 border border-white/10 rounded-[var(--r-lg)] p-5 shadow-md">
                 <div className="flex justify-between items-center mb-4">
-                  <b className="font-mono text-[10px] tracking-[0.16em] text-faint">SATURDAY — MARIA'S CHAIR</b>
+                  <b className="font-mono text-[10px] tracking-[0.16em] text-slate-400">SATURDAY — MARIA'S CHAIR</b>
                   <span className="font-mono text-[9px] tracking-wide text-green flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-green animate-pulse" /> LIVE
                   </span>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <div className="flex items-center gap-3 bg-wash border border-line-soft rounded-[10px] px-3.5 py-2.5">
-                    <span className="font-mono text-[10px] text-faint w-16 shrink-0">1:00 PM</span>
-                    <span className="text-[0.82rem] font-display font-semibold text-ink">Chloe R.</span>
-                    <span className="text-[0.72rem] text-faint ml-auto">Cut &amp; style</span>
+                  <div className="flex items-center gap-3 bg-white/[0.04] border border-white/10 rounded-[10px] px-3.5 py-2.5">
+                    <span className="font-mono text-[10px] text-slate-400 w-16 shrink-0">1:00 PM</span>
+                    <span className="text-[0.82rem] font-display font-semibold text-white">Chloe R.</span>
+                    <span className="text-[0.72rem] text-slate-400 ml-auto">Cut &amp; style</span>
                   </div>
                   <div className="flex items-center gap-3 bg-green/[0.06] border border-green/40 rounded-[10px] px-3.5 py-2.5">
-                    <span className="font-mono text-[10px] text-faint w-16 shrink-0">4:00 PM</span>
-                    <span className="text-[0.82rem] font-display font-semibold text-ink">Jess T.</span>
-                    <span className="text-[0.72rem] text-faint ml-auto">Balayage</span>
+                    <span className="font-mono text-[10px] text-slate-400 w-16 shrink-0">4:00 PM</span>
+                    <span className="text-[0.82rem] font-display font-semibold text-white">Jess T.</span>
+                    <span className="text-[0.72rem] text-slate-400 ml-auto">Balayage</span>
                     <span className="font-mono text-[8px] tracking-wide rounded-full px-2 py-0.5 bg-green/15 text-green shrink-0">REFILLED</span>
                   </div>
-                  <div className="flex items-center gap-3 bg-wash border border-line-soft rounded-[10px] px-3.5 py-2.5">
-                    <span className="font-mono text-[10px] text-faint w-16 shrink-0">5:30 PM</span>
-                    <span className="text-[0.82rem] font-display font-semibold text-ink">Dana K.</span>
-                    <span className="text-[0.72rem] text-faint ml-auto">Root touch-up</span>
+                  <div className="flex items-center gap-3 bg-white/[0.04] border border-white/10 rounded-[10px] px-3.5 py-2.5">
+                    <span className="font-mono text-[10px] text-slate-400 w-16 shrink-0">5:30 PM</span>
+                    <span className="text-[0.82rem] font-display font-semibold text-white">Dana K.</span>
+                    <span className="text-[0.72rem] text-slate-400 ml-auto">Root touch-up</span>
                   </div>
                 </div>
                 <div className="flex justify-end mt-4">
-                  <div className="max-w-[86%] bg-copper-tint border border-copper/30 rounded-[13px_4px_13px_13px] px-3.5 py-2.5 text-[0.82rem] text-ink leading-snug">
+                  <div className="max-w-[86%] bg-copper-tint border border-copper/30 rounded-[13px_4px_13px_13px] px-3.5 py-2.5 text-[0.82rem] text-white leading-snug">
                     Hi Jess! A spot just opened at Luxe &amp; Co. today at 4:00 PM for your balayage. Want it? Reply YES to grab it. ✂️
-                    <small className="block font-mono text-[8px] text-faint tracking-wide mt-1.5">WAITLIST TEXT · SENT 4:01 PM</small>
+                    <small className="block font-mono text-[8px] text-slate-400 tracking-wide mt-1.5">WAITLIST TEXT · SENT 4:01 PM</small>
                   </div>
                 </div>
               </div>
@@ -569,23 +569,23 @@ export default function SalonsPage() {
                   You snapped this morning's balayage. Content AI drafts the caption and schedules it everywhere.
                 </p>
               </div>
-              <div className="bg-background border border-line rounded-[var(--r-lg)] p-5 shadow-md">
+              <div className="bg-navy-800 border border-white/10 rounded-[var(--r-lg)] p-5 shadow-md">
                 <div className="flex justify-between items-center mb-4">
-                  <b className="font-mono text-[10px] tracking-[0.16em] text-faint">CONTENT AI — DRAFTING POST</b>
+                  <b className="font-mono text-[10px] tracking-[0.16em] text-slate-400">CONTENT AI — DRAFTING POST</b>
                   <span className="font-mono text-[9px] tracking-wide text-copper flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-copper animate-pulse" /> WORKING
                   </span>
                 </div>
-                <div className="h-28 rounded-[10px] mb-3 relative overflow-hidden border border-line-soft bg-[radial-gradient(70%_90%_at_25%_25%,rgba(181,100,63,0.35),transparent_62%)] bg-secondary">
-                  <i className="absolute left-3 bottom-2.5 font-mono text-[8px] tracking-wide text-faint not-italic">THIS MORNING'S BALAYAGE.JPG</i>
+                <div className="h-28 rounded-[10px] mb-3 relative overflow-hidden border border-white/10 bg-[radial-gradient(70%_90%_at_25%_25%,rgba(181,100,63,0.35),transparent_62%)] bg-white/[0.06]">
+                  <i className="absolute left-3 bottom-2.5 font-mono text-[8px] tracking-wide text-slate-400 not-italic">THIS MORNING'S BALAYAGE.JPG</i>
                 </div>
-                <div className="bg-wash border border-line-soft rounded-[10px] px-3.5 py-3 text-[0.84rem] text-muted leading-relaxed min-h-[72px]">
+                <div className="bg-white/[0.04] border border-white/10 rounded-[10px] px-3.5 py-3 text-[0.84rem] text-slate-300 leading-relaxed min-h-[72px]">
                   Weekend-ready balayage on Maya — sun-kissed dimension that grows out soft. Booking for next week is open at fynz.io/luxe ✨
                 </div>
                 <div className="flex gap-1.5 flex-wrap mt-3">
-                  <span className="font-mono text-[8.5px] tracking-wide border border-line-soft rounded-full px-2.5 py-1 text-muted">INSTAGRAM</span>
-                  <span className="font-mono text-[8.5px] tracking-wide border border-line-soft rounded-full px-2.5 py-1 text-muted">FACEBOOK</span>
-                  <span className="font-mono text-[8.5px] tracking-wide border border-line-soft rounded-full px-2.5 py-1 text-muted">GOOGLE BUSINESS</span>
+                  <span className="font-mono text-[8.5px] tracking-wide border border-white/10 rounded-full px-2.5 py-1 text-slate-300">INSTAGRAM</span>
+                  <span className="font-mono text-[8.5px] tracking-wide border border-white/10 rounded-full px-2.5 py-1 text-slate-300">FACEBOOK</span>
+                  <span className="font-mono text-[8.5px] tracking-wide border border-white/10 rounded-full px-2.5 py-1 text-slate-300">GOOGLE BUSINESS</span>
                   <span className="font-mono text-[8.5px] tracking-wide border border-green/40 rounded-full px-2.5 py-1 text-green">SCHEDULED — SAT 9:00 AM ✓</span>
                 </div>
                 <div className="text-center mt-3 font-mono text-[9px] tracking-[0.14em] text-copper">YOU APPROVED IT IN 10 SECONDS</div>
@@ -609,25 +609,25 @@ export default function SalonsPage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="border border-line-soft rounded-[var(--r-lg)] p-8 bg-secondary">
-              <span className="font-mono text-[10px] tracking-widest text-faint block mb-8 uppercase font-bold">BEFORE FYNZ</span>
+            <div className="border border-white/10 rounded-[var(--r-lg)] p-8 bg-navy-750">
+              <span className="font-mono text-[10px] tracking-widest text-slate-400 block mb-8 uppercase font-bold">BEFORE FYNZ</span>
               <div className="space-y-6">
                 {BEFORE_ITEMS.map((item, idx) => (
                   <div key={idx} className="flex gap-4 items-start text-sm">
-                    <span className="font-mono text-faint shrink-0 w-20">{item.time}</span>
-                    <p className="text-muted leading-relaxed">{item.desc}</p>
+                    <span className="font-mono text-slate-400 shrink-0 w-20">{item.time}</span>
+                    <p className="text-slate-300 leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="border border-copper/30 rounded-[var(--r-lg)] p-8 bg-copper-tint/[0.35]">
+            <div className="border border-copper/30 rounded-[var(--r-lg)] p-8 bg-navy-800">
               <span className="font-mono text-[10px] tracking-widest text-copper block mb-8 uppercase font-bold">SAME TUESDAY, WITH FYNZ</span>
               <div className="space-y-6">
                 {AFTER_ITEMS.map((item, idx) => (
                   <div key={idx} className="flex gap-4 items-start text-sm">
                     <span className="font-mono text-copper shrink-0 w-20 font-bold">{item.time}</span>
-                    <p className="text-ink leading-relaxed">{item.desc}</p>
+                    <p className="text-white leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -646,13 +646,13 @@ export default function SalonsPage() {
             </h2>
           </div>
 
-          <Accordion className="w-full">
+          <Accordion className="w-full bg-navy-800">
             {FAQs.map((faq, idx) => (
-              <AccordionItem key={idx} value={`item-${idx}`} className="border-b border-line-soft py-2">
-                <AccordionTrigger className="font-display font-semibold text-lg text-ink hover:text-copper hover:no-underline">
+              <AccordionItem key={idx} value={`item-${idx}`} className="border-b border-white/10 py-2">
+                <AccordionTrigger className="font-display font-semibold text-lg text-white hover:text-copper hover:no-underline">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted leading-relaxed text-sm pt-2 pb-4 max-w-2xl">
+                <AccordionContent className="text-slate-300 leading-relaxed text-sm pt-2 pb-4 max-w-2xl">
                   {faq.q === "What does it cost — am I locked into a contract?" ? (
                     <>
                       Plans are on the{" "}

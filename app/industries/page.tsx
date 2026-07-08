@@ -455,7 +455,7 @@ export default function IndustriesIndexPage() {
               placeholder='Find your business — try "barber", "dental", "plumber"…'
               aria-label="Search industries"
               autoComplete="off"
-              className="w-full bg-background border border-line rounded-full py-[15px] pl-[46px] pr-[22px] text-[0.95rem] text-ink outline-none transition-all placeholder:text-faint focus:border-copper/55 focus:shadow-[0_0_0_3px_var(--copper-tint)]"
+              className="w-full bg-navy-800 border border-white/10 rounded-full py-[15px] pl-[46px] pr-[22px] text-[0.95rem] text-white outline-none transition-all placeholder:text-slate-400 focus:border-copper/55 focus:shadow-[0_0_0_3px_var(--copper-tint)]"
             />
           </div>
           <p
@@ -489,7 +489,7 @@ export default function IndustriesIndexPage() {
                   <Link
                     key={card.slug}
                     href={`/industries/${card.slug}`}
-                    className="group relative flex flex-col gap-1.5 bg-background border border-line-soft rounded-[var(--r-md)] p-[22px_20px] transition-all duration-200 hover:border-copper/40 hover:-translate-y-1 hover:shadow-md"
+                    className="group relative flex flex-col gap-1.5 bg-navy-800 border border-white/10 rounded-[var(--r-md)] p-[22px_20px] transition-all duration-200 hover:border-copper/40 hover:-translate-y-1 hover:shadow-md"
                   >
                     <span className="absolute top-5 right-[18px] font-mono text-copper opacity-0 transition-opacity group-hover:opacity-100">
                       →
@@ -497,10 +497,10 @@ export default function IndustriesIndexPage() {
                     <span className="w-[38px] h-[38px] rounded-[11px] bg-copper-tint grid place-items-center mb-[11px]">
                       {card.icon}
                     </span>
-                    <b className="font-display font-semibold text-[0.96rem] text-ink">
+                    <b className="font-display font-semibold text-[0.96rem] text-white">
                       {card.name}
                     </b>
-                    <p className="text-[0.8rem] text-faint leading-[1.5]">
+                    <p className="text-[0.8rem] text-slate-400 leading-[1.5]">
                       {card.desc}
                     </p>
                   </Link>

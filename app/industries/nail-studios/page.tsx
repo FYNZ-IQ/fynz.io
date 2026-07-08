@@ -19,16 +19,16 @@ const BENEFITS = [
     desc: "Right on their usual cycle, clients get a friendly \"time for a fill?\" with your live calendar.",
     tag: "powered by Workflow AI + Recurring appointments · SCHEDULE",
     viz: (
-      <div className="relative min-h-[150px] bg-wash rounded-xl border border-line-soft p-4 overflow-hidden flex flex-col justify-center w-full">
-        <span className="font-mono text-[7.5px] tracking-[0.14em] text-faint absolute top-2.5 left-3">AVA — FILL, EVERY 3 WEEKS</span>
-        <div className="bg-copper-tint border border-copper/30 rounded-[9px_9px_9px_3px] px-3 py-2 text-[0.7rem] text-ink self-end max-w-[75%] mt-4 mb-5">
+      <div className="relative min-h-[150px] bg-white/[0.04] rounded-xl border border-white/10 p-4 overflow-hidden flex flex-col justify-center w-full">
+        <span className="font-mono text-[7.5px] tracking-[0.14em] text-slate-400 absolute top-2.5 left-3">AVA — FILL, EVERY 3 WEEKS</span>
+        <div className="bg-copper-tint border border-copper/30 rounded-[9px_9px_9px_3px] px-3 py-2 text-[0.7rem] text-white self-end max-w-[75%] mt-4 mb-5">
           Time for a fill, Ava? Thursday 2:30 or Friday 11:00 — pick your spot 💅
         </div>
         <div className="relative h-6">
-          <div className="absolute top-1/2 left-3 right-3 h-px bg-line" />
+          <div className="absolute top-1/2 left-3 right-3 h-px bg-white/10" />
           {["MAY 8", "MAY 29", "JUN 19"].map((d, i) => (
-            <div key={i} className="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-background border-2 border-copper/60" style={{ left: `${8 + i * 28}%` }}>
-              <span className="absolute top-3.5 left-1/2 -translate-x-1/2 font-mono text-[6.5px] tracking-wide text-faint whitespace-nowrap">{d}</span>
+            <div key={i} className="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-navy-800 border-2 border-copper/60" style={{ left: `${8 + i * 28}%` }}>
+              <span className="absolute top-3.5 left-1/2 -translate-x-1/2 font-mono text-[6.5px] tracking-wide text-slate-400 whitespace-nowrap">{d}</span>
             </div>
           ))}
           <div className="absolute top-1/2 -translate-y-1/2 right-3 w-2.5 h-2.5 rounded-full bg-copper shadow-[0_0_10px] shadow-copper/70">
@@ -43,11 +43,11 @@ const BENEFITS = [
     desc: "A small card-on-file deposit at booking means people show up — or you're covered.",
     tag: "powered by Deposits & payments · SHOP",
     viz: (
-      <div className="relative min-h-[150px] bg-wash rounded-xl border border-line-soft p-4 overflow-hidden flex flex-col justify-center gap-2 w-full">
-        <span className="font-mono text-[7.5px] tracking-[0.14em] text-faint absolute top-2.5 left-3">FULLY BOOKED SATURDAY — PROTECTED</span>
-        <div className="bg-background border border-line-soft rounded-lg px-3 py-2 text-[0.74rem] font-display font-semibold mt-3">
+      <div className="relative min-h-[150px] bg-white/[0.04] rounded-xl border border-white/10 p-4 overflow-hidden flex flex-col justify-center gap-2 w-full">
+        <span className="font-mono text-[7.5px] tracking-[0.14em] text-slate-400 absolute top-2.5 left-3">FULLY BOOKED SATURDAY — PROTECTED</span>
+        <div className="bg-navy-800 border border-white/10 rounded-lg px-3 py-2 text-[0.74rem] font-display font-semibold mt-3">
           Mia K. — Full set
-          <span className="block font-mono font-normal text-[7px] text-faint tracking-wide mt-0.5">SAT 1:00 PM · CARD ON FILE</span>
+          <span className="block font-mono font-normal text-[7px] text-slate-400 tracking-wide mt-0.5">SAT 1:00 PM · CARD ON FILE</span>
         </div>
         <div className="flex gap-1.5 flex-wrap">
           <span className="font-mono text-[8px] tracking-wide bg-copper-tint border border-copper/40 text-copper px-2.5 py-1 rounded-full">🔔 −24H SENT ✓</span>
@@ -62,13 +62,13 @@ const BENEFITS = [
     desc: "Instagram and Facebook messages get answered and booked without you leaving the table.",
     tag: "powered by Conversation AI",
     viz: (
-      <div className="relative min-h-[150px] bg-wash rounded-xl border border-line-soft p-4 overflow-hidden flex flex-col justify-center gap-2 w-full">
-        <span className="font-mono text-[7.5px] tracking-[0.14em] text-faint absolute top-2.5 left-3">INSTAGRAM DM — MID-SET</span>
-        <div className="bg-background border border-line-soft rounded-[4px_10px_10px_10px] px-3 py-2 text-[0.72rem] text-muted self-start max-w-[80%] mt-4">
+      <div className="relative min-h-[150px] bg-white/[0.04] rounded-xl border border-white/10 p-4 overflow-hidden flex flex-col justify-center gap-2 w-full">
+        <span className="font-mono text-[7.5px] tracking-[0.14em] text-slate-400 absolute top-2.5 left-3">INSTAGRAM DM — MID-SET</span>
+        <div className="bg-navy-800 border border-white/10 rounded-[4px_10px_10px_10px] px-3 py-2 text-[0.72rem] text-slate-300 self-start max-w-[80%] mt-4">
           do you have anything Thursday? 🙏
-          <span className="block font-mono text-[6.5px] text-faint tracking-wide mt-1">IG DM · 1:12 PM</span>
+          <span className="block font-mono text-[6.5px] text-slate-400 tracking-wide mt-1">IG DM · 1:12 PM</span>
         </div>
-        <div className="bg-copper-tint border border-copper/30 rounded-[10px_10px_3px_10px] px-3 py-2 text-[0.72rem] text-ink self-end max-w-[80%]">
+        <div className="bg-copper-tint border border-copper/30 rounded-[10px_10px_3px_10px] px-3 py-2 text-[0.72rem] text-white self-end max-w-[80%]">
           Thursday I&apos;ve got 11:00 or 4:15 — a $15 deposit holds it. Which works? 💅
         </div>
         <span className="font-mono text-[8px] tracking-wide bg-green/10 border border-green/40 text-green px-2.5 py-1 rounded-full self-center mt-1">BOOKED — THU 4:15 · DEPOSIT PAID ✓</span>
@@ -80,19 +80,19 @@ const BENEFITS = [
     desc: "A cancellation triggers a text to clients waiting for that exact window.",
     tag: "powered by Online booking · SCHEDULE",
     viz: (
-      <div className="relative min-h-[150px] bg-wash rounded-xl border border-line-soft p-4 overflow-hidden flex flex-col justify-center gap-1.5 w-full">
-        <span className="font-mono text-[7.5px] tracking-[0.14em] text-faint absolute top-2.5 left-3">TODAY — MID-DAY GAP</span>
+      <div className="relative min-h-[150px] bg-white/[0.04] rounded-xl border border-white/10 p-4 overflow-hidden flex flex-col justify-center gap-1.5 w-full">
+        <span className="font-mono text-[7.5px] tracking-[0.14em] text-slate-400 absolute top-2.5 left-3">TODAY — MID-DAY GAP</span>
         <div className="flex items-center gap-2 text-[0.72rem] mt-4">
-          <span className="font-mono text-faint w-10">11:00</span>
-          <span className="text-muted">Ava R. — Fill</span>
+          <span className="font-mono text-slate-400 w-10">11:00</span>
+          <span className="text-slate-300">Ava R. — Fill</span>
         </div>
         <div className="flex items-center gap-2 text-[0.72rem] bg-green/5 border border-green/20 rounded px-1.5 py-1">
-          <span className="font-mono text-faint w-10">1:30</span>
+          <span className="font-mono text-slate-400 w-10">1:30</span>
           <span className="text-green">Jess M. — Gel ✓</span>
         </div>
         <div className="flex items-center gap-2 text-[0.72rem]">
-          <span className="font-mono text-faint w-10">3:45</span>
-          <span className="text-muted">Zoe P. — Full set</span>
+          <span className="font-mono text-slate-400 w-10">3:45</span>
+          <span className="text-slate-300">Zoe P. — Full set</span>
         </div>
         <span className="font-mono text-[8px] tracking-wide bg-copper-tint border border-copper/40 text-copper px-2.5 py-1 rounded-full self-start mt-1">WAITLIST TEXTED — &quot;1:30 JUST OPENED&quot; ✓</span>
       </div>
@@ -103,10 +103,10 @@ const BENEFITS = [
     desc: "Happy clients get the review ask while the set is still fresh.",
     tag: "powered by Reviews AI",
     viz: (
-      <div className="relative min-h-[150px] bg-wash rounded-xl border border-line-soft p-4 overflow-hidden flex flex-col justify-center gap-2 w-full">
-        <span className="font-mono text-[7.5px] tracking-[0.14em] text-faint absolute top-2.5 left-3">REVIEW ASK — WHILE THE SET IS FRESH</span>
+      <div className="relative min-h-[150px] bg-white/[0.04] rounded-xl border border-white/10 p-4 overflow-hidden flex flex-col justify-center gap-2 w-full">
+        <span className="font-mono text-[7.5px] tracking-[0.14em] text-slate-400 absolute top-2.5 left-3">REVIEW ASK — WHILE THE SET IS FRESH</span>
         <div className="flex gap-1 text-[#E9BE6A] text-lg mt-4">★ ★ ★ ★ ★</div>
-        <div className="bg-background border border-line-soft rounded-lg px-3 py-2 text-[0.7rem] text-muted leading-relaxed">
+        <div className="bg-navy-800 border border-white/10 rounded-lg px-3 py-2 text-[0.7rem] text-slate-300 leading-relaxed">
           Thank you, Ava! That chrome set turned out gorgeous — see you in three weeks. 💅
           <span className="block font-mono text-[6.5px] text-copper tracking-wide mt-1">REPLY DRAFTED &amp; POSTED BY REVIEWS AI</span>
         </div>
@@ -179,8 +179,8 @@ export default function NailStudiosPage() {
           {/* Hero Visual — booking week grid */}
           <div className="relative w-full max-w-[460px] justify-self-center lg:justify-self-end">
             <HoverFloat yOffset={-8} duration={4}>
-              <div className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white border border-line rounded-[var(--r-lg)] p-5 relative shadow-md">
-                <div className="flex items-center justify-between pb-3 border-b border-line-soft mb-4">
+              <div className="bg-navy-900 text-white border border-white/10 rounded-[var(--r-lg)] p-5 relative shadow-md">
+                <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
                   <b className="font-display text-[0.95rem] font-bold">Polished Nail Studio</b>
                   <small className="font-mono text-[7.5px] tracking-[0.14em] text-green flex items-center gap-1.5 uppercase">
                     <span className="w-1.5 h-1.5 rounded-full bg-green animate-pulse" />
@@ -189,7 +189,7 @@ export default function NailStudiosPage() {
                 </div>
                 <div className="grid grid-cols-5 gap-1.5">
                   {WEEK_DAYS.map((d) => (
-                    <span key={d} className="font-mono text-[8px] tracking-[0.12em] text-faint text-center pb-1">{d}</span>
+                    <span key={d} className="font-mono text-[8px] tracking-[0.12em] text-slate-400 text-center pb-1">{d}</span>
                   ))}
                   {WEEK_SLOTS.flat().map((slot, i) => {
                     const isOpen = slot === "OPEN";
@@ -202,8 +202,8 @@ export default function NailStudiosPage() {
                           (isHot
                             ? "bg-copper-tint border-copper/50 text-copper font-bold"
                             : isOpen
-                              ? "bg-transparent border-dashed border-line-soft text-faint italic"
-                              : "bg-wash border-line-soft text-muted")
+                              ? "bg-transparent border-dashed border-white/10 text-slate-400 italic"
+                              : "bg-white/[0.04] border-white/10 text-slate-300")
                         }
                       >
                         {slot}
@@ -231,10 +231,10 @@ export default function NailStudiosPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {PAINS.map((pain, idx) => (
-              <Card key={idx} className="bg-gradient-to-br from-white to-[#FAF6F0] dark:bg-none dark:bg-navy-800 border border-[#C48D7D]/15 dark:border-line-soft shadow-sm dark:shadow-none rounded-2xl ring-0 p-6 flex flex-row items-start gap-4">
+              <Card key={idx} className="bg-navy-800 border border-white/10 shadow-none rounded-2xl ring-0 p-6 flex flex-row items-start gap-4">
                 <span className="font-display text-copper text-3xl leading-none opacity-30 select-none">&ldquo;</span>
                 <CardContent className="p-0">
-                  <p className="text-slate-600 dark:text-slate-400 text-sm md:text-base leading-relaxed">{pain}</p>
+                  <p className="text-slate-300 text-sm md:text-base leading-relaxed">{pain}</p>
                 </CardContent>
               </Card>
             ))}
@@ -254,10 +254,10 @@ export default function NailStudiosPage() {
 
           <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {BENEFITS.map((card, idx) => (
-              <BadgeCard key={idx} title={card.title} className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-line-soft flex flex-col justify-between min-h-[380px]">
+              <BadgeCard key={idx} title={card.title} className="bg-navy-900 text-white border-white/10 flex flex-col justify-between min-h-[380px]">
                 <div>
                   <div className="mb-4">{card.viz}</div>
-                  <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">{card.desc}</p>
+                  <p className="text-slate-300 text-sm leading-relaxed mb-6">{card.desc}</p>
                 </div>
                 <span className="block font-mono text-[8px] tracking-wider text-slate-400 uppercase mt-auto">
                   {card.tag}
@@ -285,9 +285,9 @@ export default function NailStudiosPage() {
           </ScrollReveal>
 
           <ScrollReveal direction="right">
-            <Card className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-line rounded-[var(--r-lg)] overflow-hidden shadow-md">
-              <div className="px-5 py-4 border-b border-line-soft flex justify-between items-center">
-                <b className="font-mono text-[10px] tracking-[0.16em] text-faint">POLISHED — INSTAGRAM DM</b>
+            <Card className="bg-navy-900 text-white border-white/10 rounded-[var(--r-lg)] overflow-hidden shadow-md">
+              <div className="px-5 py-4 border-b border-white/10 flex justify-between items-center">
+                <b className="font-mono text-[10px] tracking-[0.16em] text-slate-400">POLISHED — INSTAGRAM DM</b>
                 <span className="font-mono text-[8.5px] tracking-[0.14em] text-copper flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-copper shadow-[0_0_7px] shadow-copper/80" />
                   LIVE
@@ -300,9 +300,9 @@ export default function NailStudiosPage() {
                   }>
                     <span className={
                       "block px-3.5 py-2.5 text-[0.86rem] leading-relaxed " + (
-                        m.type === "ai" ? "bg-copper-tint border border-copper/30 text-slate-900 dark:text-white rounded-[14px_4px_14px_14px]" :
+                        m.type === "ai" ? "bg-copper-tint border border-copper/30 text-white rounded-[14px_4px_14px_14px]" :
                         m.type === "sys" ? "bg-green/10 border border-green/30 text-green font-mono text-[8px] tracking-[0.08em] rounded-lg text-center uppercase" :
-                        "bg-wash border border-line-soft text-slate-600 dark:text-slate-200 rounded-[4px_14px_14px_14px]"
+                        "bg-white/[0.04] border border-white/10 text-slate-200 rounded-[4px_14px_14px_14px]"
                       )
                     }>
                       {m.text}
@@ -331,25 +331,25 @@ export default function NailStudiosPage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="border border-line-soft rounded-[var(--r-lg)] p-8 bg-slate-50/50 dark:bg-navy-900/50 text-slate-900 dark:text-white">
-              <span className="font-mono text-[10px] tracking-widest text-faint block mb-8 uppercase font-bold bg-wash px-3 py-1.5 rounded-full inline-block">BEFORE FYNZ</span>
+            <div className="border border-white/10 rounded-[var(--r-lg)] p-8 bg-navy-900 text-white">
+              <span className="font-mono text-[10px] tracking-widest text-slate-400 block mb-8 uppercase font-bold bg-white/[0.04] px-3 py-1.5 rounded-full inline-block">BEFORE FYNZ</span>
               <div className="space-y-6">
                 {BEFORE_ITEMS.map((item, idx) => (
                   <div key={idx} className="flex gap-4 items-start text-sm">
                     <span className="font-mono text-[10px] text-slate-400 shrink-0 w-28 pt-1 tracking-wide">{item.time}</span>
-                    <p className="text-slate-600 dark:text-slate-300 leading-relaxed">{item.desc}</p>
+                    <p className="text-slate-300 leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="border border-copper/40 rounded-[var(--r-lg)] p-8 bg-copper-tint/5">
+            <div className="border border-copper/40 rounded-[var(--r-lg)] p-8 bg-navy-800">
               <span className="font-mono text-[10px] tracking-widest text-white block mb-8 uppercase font-bold bg-copper px-3 py-1.5 rounded-full inline-block">With FYNZ</span>
               <div className="space-y-6">
                 {AFTER_ITEMS.map((item, idx) => (
                   <div key={idx} className="flex gap-4 items-start text-sm">
                     <span className="font-mono text-[10px] text-copper shrink-0 w-28 pt-1 font-bold tracking-wide">{item.time}</span>
-                    <p className="text-ink leading-relaxed">{item.desc}</p>
+                    <p className="text-white leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -368,13 +368,13 @@ export default function NailStudiosPage() {
             </h2>
           </div>
 
-          <Accordion className="w-full">
+          <Accordion className="w-full bg-navy-800">
             {FAQs.map((faq, idx) => (
-              <AccordionItem key={idx} value={`item-${idx}`} className="border-b border-line-soft py-2">
-                <AccordionTrigger className="font-display font-semibold text-lg text-ink hover:text-copper hover:no-underline">
+              <AccordionItem key={idx} value={`item-${idx}`} className="border-b border-white/10 py-2">
+                <AccordionTrigger className="font-display font-semibold text-lg text-white hover:text-copper hover:no-underline">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted leading-relaxed text-sm pt-2 pb-4 max-w-2xl">
+                <AccordionContent className="text-slate-300 leading-relaxed text-sm pt-2 pb-4 max-w-2xl">
                   {faq.q === "What does it cost — am I locked into a contract?" ? (
                     <>Plans are on the <Link href="/pricing" className="text-copper hover:underline">pricing page</Link>, and there&apos;s a free plan to start. No long-term lock-in framing here until final terms are set.</>
                   ) : faq.a}

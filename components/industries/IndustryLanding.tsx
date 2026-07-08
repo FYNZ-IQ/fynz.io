@@ -126,13 +126,13 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
                   )}
                 </ul>
               </div>
-              <Card className="bg-wash border border-line-soft rounded-[var(--r-lg)] shadow-none">
+              <Card className="bg-navy-800 text-white border border-white/10 rounded-[var(--r-lg)] shadow-none">
                 <CardContent className="p-7">
-                  <span className="font-mono text-[9px] tracking-[0.18em] uppercase text-faint block mb-4">
+                  <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-400 block mb-4">
                     FYNZ Preview
                   </span>
-                  <div className="rounded-[var(--r-md)] border border-line bg-background p-5 min-h-[130px] flex items-center">
-                    <p className="text-[0.95rem] text-ink leading-relaxed">{benefit.preview}</p>
+                  <div className="rounded-[var(--r-md)] border border-white/10 bg-white/[0.04] p-5 min-h-[130px] flex items-center">
+                    <p className="text-[0.95rem] text-slate-100 leading-relaxed">{benefit.preview}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -150,7 +150,7 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
               {demo.title}
             </h2>
           </ScrollReveal>
-          <Card className="max-w-[680px] mx-auto bg-background border border-border rounded-[var(--r-lg)] shadow-md">
+          <Card className="max-w-[680px] mx-auto bg-navy-800 text-white border border-white/10 rounded-[var(--r-lg)] shadow-md">
             <CardContent className="p-8">
               <StaggerGroup className="flex flex-col">
                 {demo.steps.map((step, i) => (
@@ -158,7 +158,7 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
                     key={i}
                     className={cn(
                       "flex gap-5 items-start py-4",
-                      i !== demo.steps.length - 1 && "border-b border-border"
+                      i !== demo.steps.length - 1 && "border-b border-white/10"
                     )}
                   >
                     <span
@@ -168,8 +168,8 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
                       )}
                     />
                     <div>
-                      <p className="font-display font-semibold text-sm text-ink">{step.label}</p>
-                      <p className="text-sm text-muted leading-relaxed mt-0.5">{step.desc}</p>
+                      <p className="font-display font-semibold text-sm text-white">{step.label}</p>
+                      <p className="text-sm text-slate-300 leading-relaxed mt-0.5">{step.desc}</p>
                       {step.sublabel && (
                         <span className="inline-block mt-1.5 font-mono text-[10px] tracking-[0.12em] uppercase text-copper">
                           {step.sublabel}
@@ -195,19 +195,19 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
           </ScrollReveal>
           <div className="grid md:grid-cols-2 gap-6">
             <ScrollReveal>
-              <div className="h-full rounded-[var(--r-lg)] border border-destructive/25 bg-destructive/5 p-8">
+              <div className="h-full rounded-[var(--r-lg)] border border-destructive/40 bg-navy-800 p-8">
                 <span className="font-mono text-[11px] font-bold tracking-[0.1em] uppercase text-destructive block mb-3">
                   Before FYNZ
                 </span>
-                <p className="text-[0.95rem] text-muted leading-relaxed">{beforeAfter.before}</p>
+                <p className="text-[0.95rem] text-slate-300 leading-relaxed">{beforeAfter.before}</p>
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <div className="h-full rounded-[var(--r-lg)] border border-green/30 bg-green/5 p-8">
+              <div className="h-full rounded-[var(--r-lg)] border border-green/40 bg-navy-800 p-8">
                 <span className="font-mono text-[11px] font-bold tracking-[0.1em] uppercase text-green block mb-3">
                   With FYNZ
                 </span>
-                <p className="text-[0.95rem] text-muted leading-relaxed">{beforeAfter.after}</p>
+                <p className="text-[0.95rem] text-slate-300 leading-relaxed">{beforeAfter.after}</p>
               </div>
             </ScrollReveal>
           </div>
@@ -227,15 +227,15 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
             {proof.stats.map((stat, i) => (
               <div
                 key={i}
-                className="text-center rounded-[var(--r-md)] border border-border bg-background p-8"
+                className="text-center rounded-[var(--r-md)] border border-white/10 bg-navy-800 p-8"
               >
                 <CountUp value={stat.num} className="block font-display font-extrabold text-4xl text-copper" />
-                <div className="text-sm text-muted mt-1.5">{stat.label}</div>
+                <div className="text-sm text-slate-300 mt-1.5">{stat.label}</div>
               </div>
             ))}
           </StaggerGroup>
           <ScrollReveal>
-            <blockquote className="mt-6 rounded-[var(--r-lg)] border border-border bg-background p-8 text-center italic text-muted">
+            <blockquote className="mt-6 rounded-[var(--r-lg)] border border-white/10 bg-navy-800 p-8 text-center italic text-slate-300">
               {proof.testimonial}
             </blockquote>
           </ScrollReveal>
@@ -256,12 +256,12 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
               <AccordionItem
                 key={i}
                 value={`item-${i}`}
-                className="border border-border rounded-[var(--r-md)] px-5"
+                className="border border-white/10 bg-navy-800 rounded-[var(--r-md)] px-5"
               >
-                <AccordionTrigger className="font-display font-semibold text-[0.95rem] text-ink py-5">
+                <AccordionTrigger className="font-display font-semibold text-[0.95rem] text-white py-5">
                   {item.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-sm text-muted leading-relaxed pb-5">
+                <AccordionContent className="text-sm text-slate-300 leading-relaxed pb-5">
                   {item.a}
                 </AccordionContent>
               </AccordionItem>

@@ -261,7 +261,7 @@ export default function AIPage() {
               <Link
                 key={agent.name}
                 href={agent.href}
-                className="group relative bg-background border border-line rounded-[var(--r-lg)] p-[28px_24px] transition-all duration-250 hover:-translate-y-[5px] hover:border-copper/40"
+                className="group relative bg-navy-800 border border-white/10 rounded-[var(--r-lg)] p-[28px_24px] transition-all duration-250 hover:-translate-y-[5px] hover:border-copper/40"
               >
                 <span
                   className={
@@ -280,11 +280,11 @@ export default function AIPage() {
                 <div className="w-[52px] h-[52px] rounded-2xl mb-[18px] bg-gradient-to-br from-copper-tint to-copper/5 border border-copper/25 grid place-items-center text-copper [&_svg]:w-6 [&_svg]:h-6 [&_svg]:stroke-copper">
                   {agent.icon}
                 </div>
-                <h4 className="font-display font-bold text-[1.05rem] mb-1">{agent.name}</h4>
+                <h4 className="font-display font-bold text-[1.05rem] mb-1 text-white">{agent.name}</h4>
                 <span className="block font-mono text-[9.5px] tracking-[0.16em] uppercase text-copper mb-3">
                   {agent.role}
                 </span>
-                <p className="text-[0.85rem] text-muted">{agent.desc}</p>
+                <p className="text-[0.85rem] text-slate-300">{agent.desc}</p>
                 <span className="mt-3.5 inline-block font-mono text-[10px] tracking-[0.1em] text-copper opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0">
                   {agent.meet}
                 </span>
@@ -326,8 +326,8 @@ export default function AIPage() {
           </ScrollReveal>
 
           <ScrollReveal direction="right" className="w-full max-w-[460px] mx-auto lg:mx-0">
-            <div className="bg-secondary border border-line rounded-[var(--r-lg)] shadow-[var(--shadow-md)] overflow-hidden">
-              <div className="p-[16px_20px] border-b border-line-soft flex items-center gap-2.5">
+            <div className="bg-navy-800 border border-white/10 rounded-[var(--r-lg)] shadow-[var(--shadow-md)] overflow-hidden">
+              <div className="p-[16px_20px] border-b border-white/10 flex items-center gap-2.5">
                 <span className="w-9 h-9 rounded-[11px] bg-copper-tint border border-copper/25 grid place-items-center shrink-0 [&_svg]:w-[17px] [&_svg]:h-[17px] [&_svg]:stroke-copper">
                   <svg viewBox="0 0 24 24" fill="none" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                     <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2Z" />
@@ -335,12 +335,12 @@ export default function AIPage() {
                   </svg>
                 </span>
                 <div>
-                  <b className="font-display text-[0.9rem] font-bold block leading-tight">Conversation AI</b>
+                  <b className="font-display text-[0.9rem] font-bold block leading-tight text-white">Conversation AI</b>
                   <small className="font-mono text-[8.5px] text-green tracking-[0.14em] flex items-center gap-1.5 before:content-[''] before:w-1.5 before:h-1.5 before:rounded-full before:bg-green before:shadow-[0_0_7px_var(--green)]">
                     ON SHIFT
                   </small>
                 </div>
-                <span className="ml-auto font-mono text-[8.5px] tracking-[0.12em] text-faint border border-line-soft px-2.5 py-[3px] rounded-[5px]">
+                <span className="ml-auto font-mono text-[8.5px] tracking-[0.12em] text-slate-400 border border-white/10 px-2.5 py-[3px] rounded-[5px]">
                   SMS · 11:04 PM
                 </span>
               </div>
@@ -362,15 +362,15 @@ export default function AIPage() {
                         className={
                           "block px-3.5 py-2.5 text-[0.84rem] leading-[1.5] " +
                           (isAI
-                            ? "bg-copper-tint border border-copper/25 text-ink rounded-[13px_4px_13px_13px]"
-                            : "bg-wash border border-line-soft text-muted rounded-[4px_13px_13px_13px]")
+                            ? "bg-copper-tint border border-copper/25 text-white rounded-[13px_4px_13px_13px]"
+                            : "bg-white/[0.04] border border-white/10 text-slate-300 rounded-[4px_13px_13px_13px]")
                         }
                       >
                         {msg.text}
                       </span>
                       <small
                         className={
-                          "font-mono text-[8px] tracking-[0.1em] text-faint block mt-1.5 " +
+                          "font-mono text-[8px] tracking-[0.1em] text-slate-400 block mt-1.5 " +
                           (isAI ? "text-right mr-1" : "ml-1")
                         }
                       >
@@ -399,10 +399,10 @@ export default function AIPage() {
           </div>
           <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
             {STEPS.map((step) => (
-              <div key={step.num} className="bg-secondary border border-line-soft rounded-[var(--r-md)] p-[24px_22px]">
+              <div key={step.num} className="bg-navy-800 border border-white/10 rounded-[var(--r-md)] p-[24px_22px]">
                 <span className="block font-mono text-[11px] tracking-[0.16em] text-copper mb-3.5">{step.num}</span>
-                <b className="font-display font-bold text-base block mb-[7px]">{step.title}</b>
-                <p className="text-[0.83rem] text-muted">{step.desc}</p>
+                <b className="font-display font-bold text-base block mb-[7px] text-white">{step.title}</b>
+                <p className="text-[0.83rem] text-slate-300">{step.desc}</p>
               </div>
             ))}
           </StaggerGroup>
@@ -425,7 +425,7 @@ export default function AIPage() {
             {CHANNELS.map((chan) => (
               <span
                 key={chan.label}
-                className="inline-flex items-center gap-2.5 border border-line-soft rounded-full px-[18px] py-2.5 font-display font-semibold text-[0.85rem] text-muted transition-colors hover:border-copper/40 hover:text-ink"
+                className="inline-flex items-center gap-2.5 bg-navy-800 border border-white/10 rounded-full px-[18px] py-2.5 font-display font-semibold text-[0.85rem] text-slate-300 transition-colors hover:border-copper/40 hover:text-white"
               >
                 <svg viewBox="0 0 24 24" fill="none" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-[15px] h-[15px] stroke-copper">
                   {chan.icon}
@@ -451,10 +451,10 @@ export default function AIPage() {
               <Link
                 key={pillar.name}
                 href={pillar.href}
-                className="group bg-secondary border border-line-soft rounded-[var(--r-md)] p-[22px] transition-all hover:border-copper/40 hover:-translate-y-[3px]"
+                className="group bg-navy-800 border border-white/10 rounded-[var(--r-md)] p-[22px] transition-all hover:border-copper/40 hover:-translate-y-[3px]"
               >
-                <span className="font-display font-bold text-[0.95rem] tracking-[0.05em] block mb-1.5">{pillar.name}</span>
-                <p className="text-[0.84rem] text-muted">{pillar.desc}</p>
+                <span className="font-display font-bold text-[0.95rem] tracking-[0.05em] block mb-1.5 text-white">{pillar.name}</span>
+                <p className="text-[0.84rem] text-slate-300">{pillar.desc}</p>
                 <ArrowLink href={pillar.href} className="mt-3 text-[0.85rem]">
                   See {pillar.name}
                 </ArrowLink>
@@ -467,13 +467,13 @@ export default function AIPage() {
       {/* Honesty note */}
       <section className="sec-tight pb-24">
         <div className="wrap max-w-7xl mx-auto">
-          <ScrollReveal className="max-w-[760px] mx-auto border border-dashed border-copper/35 rounded-[var(--r-lg)] p-[32px_34px] text-center">
-            <h3 className="font-display font-bold text-[1.15rem] mb-2.5">The honest part</h3>
-            <p className="text-[0.94rem] text-muted mb-2">
+          <ScrollReveal className="max-w-[760px] mx-auto bg-navy-800 border border-dashed border-copper/35 rounded-[var(--r-lg)] p-[32px_34px] text-center">
+            <h3 className="font-display font-bold text-[1.15rem] mb-2.5 text-white">The honest part</h3>
+            <p className="text-[0.94rem] text-slate-300 mb-2">
               FYNZ AI handles roughly 70–80% of routine contacts on its own — the repetitive majority. The rest get routed to you, and anything complex or sensitive always can be. You can also run any agent in{" "}
-              <b className="text-ink">approve-first mode</b>: it drafts, you tap send.
+              <b className="text-white">approve-first mode</b>: it drafts, you tap send.
             </p>
-            <p className="mt-3.5 font-mono text-[9.5px] tracking-[0.12em] text-faint">
+            <p className="mt-3.5 font-mono text-[9.5px] tracking-[0.12em] text-slate-400">
               TELEPHONY &amp; AI USAGE BILLED SEPARATELY — RATES TBD
             </p>
           </ScrollReveal>

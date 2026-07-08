@@ -21,6 +21,8 @@ interface CanvasItem {
   painter: string;
   /** scrub = pinned section progress; transit = element's ride through the viewport */
   mode: "scrub" | "transit";
+  /** dark = always the dark palette (canvas sits on a navy box); auto = follow theme */
+  surface: "dark" | "auto";
   dpr: number;
 }
 
@@ -81,7 +83,7 @@ function frame(t: number) {
   if (engine.lenis) engine.lenis.raf(t);
   const vh = window.innerHeight;
   const dark = document.documentElement.classList.contains("dark");
-  const P = dark ? darkPalette : lightPalette;
+  const themeP = dark ? darkPalette : lightPalette;
 
   for (const it of engine.items) {
     let p = progressFor(it, vh);
@@ -92,6 +94,7 @@ function frame(t: number) {
     it.ctx.setTransform(it.dpr, 0, 0, it.dpr, 0, 0);
     it.ctx.clearRect(0, 0, w, h);
     const painter = PAINTERS[it.painter];
+    const P = it.surface === "dark" ? darkPalette : themeP;
     if (painter) painter(it.ctx, w, h, p, t, P, engine.fonts, engine.reduced);
   }
 
@@ -160,10 +163,12 @@ export function CinematicProvider({ children }: { children: React.ReactNode }) {
 export function CineCanvas({
   painter,
   mode = "transit",
+  surface = "auto",
   className,
 }: {
   painter: string;
   mode?: "scrub" | "transit";
+  surface?: "dark" | "auto";
   className?: string;
 }) {
   const ref = useRef<HTMLCanvasElement>(null);
@@ -172,13 +177,13 @@ export function CineCanvas({
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-    const it: CanvasItem = { canvas, ctx, painter, mode, dpr: 1 };
+    const it: CanvasItem = { canvas, ctx, painter, mode, surface, dpr: 1 };
     sizeCanvas(it);
     engine.items.add(it);
     return () => {
       engine.items.delete(it);
     };
-  }, [painter, mode]);
+  }, [painter, mode, surface]);
   return <canvas ref={ref} className={cn("absolute inset-0 w-full h-full", className)} aria-hidden="true" />;
 }
 

@@ -68,9 +68,9 @@ export function SmsChatWidget() {
   };
 
   return (
-    <Card ref={container} className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-line rounded-[var(--r-lg)] overflow-hidden shadow-md">
-      <div className="px-5 py-4 border-b border-line-soft flex justify-between items-center">
-        <b className="font-display text-[0.9rem] font-bold text-slate-900 dark:text-white">KINGS CUT — SMS</b>
+    <Card ref={container} className="bg-navy-900 text-white border-white/10 rounded-[var(--r-lg)] overflow-hidden shadow-md">
+      <div className="px-5 py-4 border-b border-white/10 flex justify-between items-center">
+        <b className="font-display text-[0.9rem] font-bold text-white">KINGS CUT — SMS</b>
         <span className="font-mono text-[8.5px] tracking-[0.14em] text-green flex items-center gap-[7px]">
           <span className="w-[7px] h-[7px] rounded-full bg-green shadow-[0_0_8px_var(--green)]"></span>
           LIVE
@@ -83,10 +83,10 @@ export function SmsChatWidget() {
              m.type.startsWith("sys") ? "self-center max-w-full my-2" : "self-start"
            )}>
              <span className={cn("block px-3.5 py-2.5 text-[0.88rem] leading-relaxed",
-               m.type === "ai" ? "bg-copper-tint border border-copper/30 text-slate-900 dark:text-white rounded-[14px_4px_14px_14px]" :
+               m.type === "ai" ? "bg-copper-tint border border-copper/30 text-white rounded-[14px_4px_14px_14px]" :
                m.type === "sys" ? "bg-green/10 border border-green/30 text-green font-mono text-[8px] tracking-[0.08em] rounded-lg text-center uppercase" :
-               m.type === "sys-miss" ? "bg-wash/50 border border-line-soft text-slate-300 font-mono text-[8px] tracking-[0.08em] rounded-lg text-center uppercase" :
-               "bg-wash border border-line-soft text-slate-200 rounded-[4px_14px_14px_14px]"
+               m.type === "sys-miss" ? "bg-white/[0.04]/50 border border-white/10 text-slate-300 font-mono text-[8px] tracking-[0.08em] rounded-lg text-center uppercase" :
+               "bg-white/[0.04] border border-white/10 text-slate-200 rounded-[4px_14px_14px_14px]"
              )}>
                {m.text}
              </span>
@@ -105,8 +105,8 @@ export function SmsChatWidget() {
            </div>
          )}
       </div>
-      <div className="border-t border-line-soft">
-        <button onClick={replay} className="w-full py-3 font-mono text-[9.5px] tracking-[0.16em] text-slate-400 hover:text-copper hover:bg-wash transition-colors">
+      <div className="border-t border-white/10">
+        <button onClick={replay} className="w-full py-3 font-mono text-[9.5px] tracking-[0.16em] text-slate-400 hover:text-copper hover:bg-white/[0.04] transition-colors">
           ↺ REPLAY THE SAVE
         </button>
       </div>

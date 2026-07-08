@@ -87,14 +87,14 @@ const BENEFIT_ROWS: BenefitRow[] = [
         ].map((r, idx) => (
           <div
             key={idx}
-            className="flex items-center gap-3 bg-wash border border-line-soft rounded-[var(--r-sm)] px-3 py-2.5"
+            className="flex items-center gap-3 bg-white/[0.04] border border-white/10 rounded-[var(--r-sm)] px-3 py-2.5"
           >
             <span className="w-8 h-8 rounded-full bg-copper-tint text-copper grid place-items-center font-display text-[0.72rem] font-bold shrink-0">
               {r.i}
             </span>
             <div className="min-w-0">
               <b className="text-[0.83rem] font-semibold block leading-tight">{r.name}</b>
-              <small className="font-mono text-[9px] text-faint tracking-wide">{r.sub}</small>
+              <small className="font-mono text-[9px] text-slate-400 tracking-wide">{r.sub}</small>
             </div>
             <span
               className={cn(
@@ -128,13 +128,13 @@ const BENEFIT_ROWS: BenefitRow[] = [
         ].map((o, idx) => (
           <div
             key={idx}
-            className="flex justify-between items-center bg-wash border border-line-soft rounded-[var(--r-sm)] px-3.5 py-2.5"
+            className="flex justify-between items-center bg-white/[0.04] border border-white/10 rounded-[var(--r-sm)] px-3.5 py-2.5"
           >
             <div>
               <b className="text-[0.83rem] font-semibold block">{o.t}</b>
-              <small className="font-mono text-[9px] text-faint">{o.s}</small>
+              <small className="font-mono text-[9px] text-slate-400">{o.s}</small>
             </div>
-            <span className={cn("font-mono text-[0.82rem]", o.pos ? "text-green" : "text-muted")}>
+            <span className={cn("font-mono text-[0.82rem]", o.pos ? "text-green" : "text-slate-300")}>
               {o.amt}
             </span>
           </div>
@@ -155,14 +155,14 @@ const BENEFIT_ROWS: BenefitRow[] = [
     ),
     visual: (
       <div className="mt-1.5">
-        <div className="flex justify-between font-mono text-[10px] text-faint tracking-wide mb-2">
+        <div className="flex justify-between font-mono text-[10px] text-slate-400 tracking-wide mb-2">
           <span>SET ASIDE SO FAR</span>
-          <b className="text-ink font-semibold">$4,180 / $6,700</b>
+          <b className="text-white font-semibold">$4,180 / $6,700</b>
         </div>
-        <div className="h-2.5 rounded-md bg-wash overflow-hidden">
+        <div className="h-2.5 rounded-md bg-white/[0.04] overflow-hidden">
           <i className="block h-full w-[62%] rounded-md bg-gradient-to-r from-copper/45 to-copper" />
         </div>
-        <small className="font-mono text-[9px] text-faint block mt-2 tracking-wide">
+        <small className="font-mono text-[9px] text-slate-400 block mt-2 tracking-wide">
           ESTIMATED FROM LIVE INCOME · UPDATED WITH EVERY PAYMENT
         </small>
       </div>
@@ -285,9 +285,9 @@ export default function OpsPage() {
           >
             {HERO_KPIS.map((k, idx) => (
               <HoverFloat key={idx} yOffset={idx % 2 === 0 ? -6 : 6} duration={4} delay={idx * 0.3}>
-                <div className="bg-white dark:bg-navy-800 border border-line-soft rounded-[var(--r-md)] px-[18px] py-4 flex items-center gap-4 transition-colors hover:border-copper/30 shadow-sm">
+                <div className="bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] px-[18px] py-4 flex items-center gap-4 transition-colors hover:border-copper/30 shadow-sm">
                   <div className="flex-1">
-                    <small className="font-mono text-[9px] tracking-[0.16em] uppercase text-faint block mb-1">
+                    <small className="font-mono text-[9px] tracking-[0.16em] uppercase text-slate-400 block mb-1">
                       {k.label}
                     </small>
                     <b className="font-mono text-xl font-semibold">
@@ -367,9 +367,9 @@ export default function OpsPage() {
                 </div>
 
                 <div className={cn(row.reversed && "lg:order-1")}>
-                  <div className="relative bg-gradient-to-br from-white to-secondary dark:from-navy-800 dark:to-navy-750 border border-line rounded-[var(--r-lg)] p-5.5 shadow-[var(--shadow-md)] overflow-hidden">
+                  <div className="relative bg-gradient-to-br from-navy-800 to-navy-750 text-white border border-white/10 rounded-[var(--r-lg)] p-5.5 shadow-[var(--shadow-md)] overflow-hidden">
                     <span className="absolute top-0 left-[12%] right-[45%] h-px bg-gradient-to-r from-transparent via-copper/70 to-transparent" />
-                    <div className="flex justify-between font-mono text-[10px] tracking-[0.18em] uppercase text-faint mb-3.5">
+                    <div className="flex justify-between font-mono text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-3.5">
                       {row.panelTitle}
                     </div>
                     {row.visual}
@@ -394,12 +394,12 @@ export default function OpsPage() {
             </p>
           </div>
 
-          <div className="bg-background border border-line rounded-[var(--r-lg)] shadow-[var(--shadow-md)] overflow-hidden max-w-5xl mx-auto">
+          <div className="bg-navy-800 text-white border border-white/10 rounded-[var(--r-lg)] shadow-[var(--shadow-md)] overflow-hidden max-w-5xl mx-auto">
             {/* top bar */}
-            <div className="flex items-center gap-3.5 flex-wrap px-6 py-4 border-b border-line-soft">
+            <div className="flex items-center gap-3.5 flex-wrap px-6 py-4 border-b border-white/10">
               <div>
                 <b className="font-display text-[0.95rem] font-bold block">Maple &amp; Main Salon</b>
-                <small className="font-mono text-[9px] text-faint tracking-[0.12em] block">OPS · OVERVIEW</small>
+                <small className="font-mono text-[9px] text-slate-400 tracking-[0.12em] block">OPS · OVERVIEW</small>
               </div>
               <div className="ml-auto flex gap-1.5" role="group" aria-label="Date range">
                 {RANGES.map((r) => (
@@ -411,7 +411,7 @@ export default function OpsPage() {
                       "font-mono text-[10px] tracking-[0.12em] px-3.5 py-1.5 rounded-full border transition-all",
                       range === r.key
                         ? "bg-copper text-white border-copper font-semibold"
-                        : "border-line-soft text-muted hover:border-copper/40"
+                        : "border-white/10 text-slate-300 hover:border-copper/40"
                     )}
                   >
                     {r.label}
@@ -429,8 +429,8 @@ export default function OpsPage() {
                     { s: "Bookings", b: d.book, sp: d.bookD },
                     { s: "Avg ticket", b: d.ticket, sp: d.ticketD }
                   ].map((k, i) => (
-                    <div key={i} className="bg-wash border border-line-soft rounded-[var(--r-sm)] px-3.5 py-3">
-                      <small className="font-mono text-[8.5px] tracking-[0.14em] uppercase text-faint block mb-1.5">
+                    <div key={i} className="bg-white/[0.04] border border-white/10 rounded-[var(--r-sm)] px-3.5 py-3">
+                      <small className="font-mono text-[8.5px] tracking-[0.14em] uppercase text-slate-400 block mb-1.5">
                         {k.s}
                       </small>
                       <b className="font-mono text-[1.12rem] font-semibold">{k.b}</b>
@@ -439,7 +439,7 @@ export default function OpsPage() {
                   ))}
                 </div>
                 <div
-                  className="flex items-end gap-2.5 h-[170px] border-b border-line-soft"
+                  className="flex items-end gap-2.5 h-[170px] border-b border-white/10"
                   role="img"
                   aria-label="Revenue chart for the selected range"
                 >
@@ -454,22 +454,22 @@ export default function OpsPage() {
                         )}
                         style={{ height: `${b.h}%` }}
                       />
-                      <span className="font-mono text-[8.5px] tracking-wide text-faint text-center">{b.l}</span>
+                      <span className="font-mono text-[8.5px] tracking-wide text-slate-400 text-center">{b.l}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <aside className="border-t lg:border-t-0 lg:border-l border-line-soft p-5">
-                <h5 className="font-mono text-[9px] tracking-[0.18em] uppercase text-faint mb-3.5">Top services</h5>
+              <aside className="border-t lg:border-t-0 lg:border-l border-white/10 p-5">
+                <h5 className="font-mono text-[9px] tracking-[0.18em] uppercase text-slate-400 mb-3.5">Top services</h5>
                 <div>
                   {d.top.map(([name, amt], i) => (
                     <div
                       key={i}
-                      className="flex justify-between gap-2.5 py-2.5 border-b border-line-soft last:border-0 text-[0.82rem]"
+                      className="flex justify-between gap-2.5 py-2.5 border-b border-white/10 last:border-0 text-[0.82rem]"
                     >
-                      <span className="text-muted">{name}</span>
-                      <b className="font-mono text-[0.78rem] font-medium text-ink shrink-0">{amt}</b>
+                      <span className="text-slate-300">{name}</span>
+                      <b className="font-mono text-[0.78rem] font-medium text-white shrink-0">{amt}</b>
                     </div>
                   ))}
                 </div>
@@ -477,7 +477,7 @@ export default function OpsPage() {
             </div>
 
             {/* note */}
-            <div className="flex justify-between flex-wrap gap-2 px-6 py-3.5 border-t border-line-soft font-mono text-[9.5px] tracking-[0.12em] text-faint">
+            <div className="flex justify-between flex-wrap gap-2 px-6 py-3.5 border-t border-white/10 font-mono text-[9.5px] tracking-[0.12em] text-slate-400">
               <span>
                 UPDATED <b className="text-copper font-medium">LIVE</b> · NO EXPORTS, NO SPREADSHEETS
               </span>
@@ -505,20 +505,20 @@ export default function OpsPage() {
               <div
                 key={idx}
                 className={cn(
-                  "flex items-center gap-4 bg-white dark:bg-navy-800 border border-line-soft rounded-[var(--r-md)] px-5.5 py-4",
+                  "flex items-center gap-4 bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] px-5.5 py-4",
                   rm.status !== "LIVE" && "opacity-80"
                 )}
               >
                 <div>
                   <b className="font-display text-[0.95rem] font-semibold block">{rm.title}</b>
-                  <small className="text-[0.8rem] text-faint">{rm.sub}</small>
+                  <small className="text-[0.8rem] text-slate-400">{rm.sub}</small>
                 </div>
                 <span
                   className={cn(
                     "ml-auto shrink-0 font-mono text-[9px] tracking-[0.14em] px-3.5 py-1.5 rounded-full border",
                     rm.status === "LIVE" && "bg-green/10 text-green border-green/30",
                     rm.status === "IN DEVELOPMENT" && "bg-copper-tint text-copper border-copper/30",
-                    rm.status === "PLANNED" && "bg-wash text-faint border-dashed border-line"
+                    rm.status === "PLANNED" && "bg-white/[0.04] text-slate-400 border-dashed border-white/10"
                   )}
                 >
                   {rm.status}
@@ -546,12 +546,12 @@ export default function OpsPage() {
                   <b className="font-display font-semibold text-[0.99rem] flex items-center gap-2.5 flex-wrap">
                     {f.title}
                     {f.soon && (
-                      <span className="font-mono text-[8.5px] tracking-[0.1em] bg-wash text-faint px-1.5 py-0.5 rounded">
+                      <span className="font-mono text-[8.5px] tracking-[0.1em] bg-white/[0.04] text-slate-400 px-1.5 py-0.5 rounded">
                         COMING SOON
                       </span>
                     )}
                   </b>
-                  <p className="text-[0.85rem] text-muted flex-1">{f.desc}</p>
+                  <p className="text-[0.85rem] text-slate-300 flex-1">{f.desc}</p>
                   {!f.soon && (
                     <span className="font-mono text-[11px] tracking-[0.06em] text-copper opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">
                       LEARN MORE →
@@ -563,14 +563,14 @@ export default function OpsPage() {
                 <Link
                   key={idx}
                   href={f.href}
-                  className="group bg-background border border-line-soft rounded-[var(--r-md)] p-5.5 flex flex-col gap-2 transition-all hover:border-copper/40 hover:-translate-y-0.5"
+                  className="group bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] p-5.5 flex flex-col gap-2 transition-all hover:border-copper/40 hover:-translate-y-0.5"
                 >
                   {inner}
                 </Link>
               ) : (
                 <div
                   key={idx}
-                  className="bg-background border border-line-soft rounded-[var(--r-md)] p-5.5 flex flex-col gap-2 opacity-75"
+                  className="bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] p-5.5 flex flex-col gap-2 opacity-75"
                 >
                   {inner}
                 </div>
