@@ -6,6 +6,7 @@ import { ScrollReveal, StaggerGroup, HoverFloat } from "@/components/animations"
 import { Chip } from "@/components/shared";
 import { Button } from "@/components/ui";
 import { cn } from "@/lib/utils";
+import { CinematicProvider, CineCanvas, Grain, Parallax, ProgressRail } from "@/components/cinematic";
 
 
 const PROOF_BADGES = [
@@ -368,13 +369,28 @@ const TESTIMONIALS = [
 
 export default function Home() {
   return (
+    <CinematicProvider>
     <div className="flex flex-col w-full">
-      {/* Hero */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 border-b border-line-soft overflow-hidden">
+      <ProgressRail
+        sections={[
+          { id: "hero", label: "Fynz", color: "#D9967D" },
+          { id: "features", label: "Platform", color: "#D9967D" },
+          { id: "pillars", label: "Pillars", color: "#7FB2E5" },
+          { id: "automation", label: "Automation", color: "#E9BE6A" },
+          { id: "ai", label: "AI", color: "#AEB9C9" },
+          { id: "industries", label: "Industries", color: "#7FB2E5" },
+          { id: "cta", label: "Start", color: "#D9967D" },
+        ]}
+      />
+      {/* Hero — pinned cinematic stage: the orbit graphic converges as you scroll */}
+      <section id="hero" data-cine-scrub className="relative lg:h-[210vh]">
+        <div className="relative lg:sticky lg:top-0 lg:h-screen overflow-hidden flex flex-col justify-center pt-32 pb-16 md:pt-40 md:pb-24 lg:pt-[88px] lg:pb-0">
+        <CineCanvas painter="hero" mode="scrub" />
+        <Grain />
         {/* Glow Effects */}
         <div className="absolute inset-0 bg-radial-[at_50%_0%] from-copper/10 via-transparent to-transparent pointer-events-none" />
         <div className="absolute top-[72px] left-1/2 -translate-x-1/2 w-full max-w-7xl h-full border-x border-line-soft/20 pointer-events-none" />
-        
+
         <div className="wrap max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
           <div className="flex flex-col items-start text-left">
             <Chip className="mb-4">All-in-one business platform</Chip>
@@ -397,6 +413,7 @@ export default function Home() {
 
           {/* Hero Dashboard Preview */}
           <div className="relative w-full max-w-[550px] justify-self-center lg:justify-self-end">
+            <Parallax speed={0.06}>
             <HoverFloat yOffset={-12} duration={4}>
               <div className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white border border-slate-200 dark:border-line rounded-[var(--r-lg)] p-5 relative shadow-xl overflow-hidden">
                 <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-line-soft mb-4">
@@ -458,11 +475,20 @@ export default function Home() {
                 </div>
               </div>
             </HoverFloat>
+            </Parallax>
           </div>
         </div>
 
-        {/* Proof Strip */}
-        <div className="wrap max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-line-soft/30">
+        {/* Scroll hint (pinned stage only) */}
+        <span className="hidden lg:block absolute bottom-6 left-1/2 -translate-x-1/2 pointer-events-none">
+          <span className="block font-mono text-[11px] tracking-[0.35em] text-faint animate-bounce">SCROLL</span>
+        </span>
+        </div>
+      </section>
+
+      {/* Proof Strip */}
+      <section className="border-b border-line-soft">
+        <div className="wrap max-w-7xl mx-auto px-6 py-8 border-t border-line-soft/30">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
             <div className="text-center lg:text-left">
               <b className="text-ink font-display text-lg block">2,000+ businesses</b>
@@ -484,7 +510,7 @@ export default function Home() {
       </section>
 
       {/* Rows: Feature Highlights */}
-      <section className="sec py-24 border-b border-line-soft">
+      <section id="features" className="sec py-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="max-w-2xl mb-16">
             <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">The full platform</span>
@@ -524,7 +550,7 @@ export default function Home() {
       </section>
 
       {/* Four Pillars Grid */}
-      <section className="sec py-24 bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-b border-line-soft">
+      <section id="pillars" className="sec py-24 bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Four pillars</span>
@@ -536,7 +562,7 @@ export default function Home() {
             </p>
           </div>
 
-          <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {PILLARS.map((p, idx) => (
               <Link
                 key={idx}
@@ -544,6 +570,10 @@ export default function Home() {
                 className="group border border-slate-200 dark:border-line-soft bg-white dark:bg-navy-800 text-slate-900 dark:text-white hover:border-copper/40 p-6 rounded-[var(--r-lg)] flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 min-h-[300px]"
               >
                 <div>
+                  {/* Scroll-driven product demo graphic */}
+                  <div className="relative h-[230px] mb-6 rounded-[10px] overflow-hidden border border-slate-100 dark:border-line-soft bg-slate-50/60 dark:bg-navy-900/40">
+                    <CineCanvas painter={p.id} />
+                  </div>
                   <div className="w-10 h-10 rounded border border-slate-200 dark:border-none bg-slate-50 dark:bg-navy-750 flex items-center justify-center text-copper mb-6 group-hover:bg-copper group-hover:text-white transition-colors duration-300">
                     {p.icon}
                   </div>
@@ -606,8 +636,9 @@ export default function Home() {
       </section>
 
       {/* Automation Flow Showcase */}
-      <section className="sec py-24 bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-b border-line-soft">
-        <div className="wrap max-w-7xl mx-auto px-6">
+      <section id="automation" className="sec py-24 bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-b border-line-soft relative overflow-hidden">
+        <Grain className="hidden dark:block" />
+        <div className="wrap max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Automation</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
@@ -639,7 +670,7 @@ export default function Home() {
       </section>
 
       {/* Meet AI Team */}
-      <section className="sec py-24 border-b border-line-soft">
+      <section id="ai" className="sec py-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">FYNZ AI</span>
@@ -705,7 +736,7 @@ export default function Home() {
       </section>
 
       {/* Who's It For (Industries) */}
-      <section className="sec py-24 border-b border-line-soft">
+      <section id="industries" className="sec py-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="max-w-2xl mb-16">
             <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Who's it for</span>
@@ -785,7 +816,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="final py-24 relative overflow-hidden text-center bg-radial-[at_bottom_center] from-copper/10 via-transparent to-transparent">
+      <section id="cta" className="final py-24 relative overflow-hidden text-center bg-radial-[at_bottom_center] from-copper/10 via-transparent to-transparent">
         <div className="wrap max-w-4xl mx-auto px-6 relative z-10">
           <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Start today</span>
           <h2 className="font-display font-extrabold text-4xl md:text-5xl tracking-tight mb-4">
@@ -805,5 +836,6 @@ export default function Home() {
         </div>
       </section>
     </div>
+    </CinematicProvider>
   );
 }
