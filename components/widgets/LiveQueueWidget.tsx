@@ -64,46 +64,46 @@ export function LiveQueueWidget() {
   };
 
   return (
-    <Card ref={container} className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-line rounded-[var(--r-lg)] overflow-hidden shadow-md flex flex-col">
-      <div className="px-5 py-4 border-b border-line-soft flex justify-between items-center">
-        <b className="font-display text-[0.9rem] font-bold text-slate-900 dark:text-white">WALK-IN QUEUE — SATURDAY</b>
+    <Card ref={container} className="bg-navy-900 text-white border-white/10 rounded-[var(--r-lg)] overflow-hidden shadow-md flex flex-col">
+      <div className="px-5 py-4 border-b border-white/10 flex justify-between items-center">
+        <b className="font-display text-[0.9rem] font-bold text-white">WALK-IN QUEUE — SATURDAY</b>
         <span className="font-mono text-[8.5px] tracking-[0.14em] text-green flex items-center gap-[7px]">
           <span className="w-[7px] h-[7px] rounded-full bg-green shadow-[0_0_8px_var(--green)]"></span>
           LIVE
         </span>
       </div>
       
-      <div className={cn("p-5 border-b border-line-soft flex gap-4 items-center transition-colors duration-500", scanned ? "bg-copper-tint border-copper/30" : "")}>
-         <div className="w-12 h-12 bg-white rounded flex items-center justify-center font-mono text-[10px] text-black shrink-0">QR</div>
+      <div className={cn("p-5 border-b border-white/10 flex gap-4 items-center transition-colors duration-500", scanned ? "bg-copper-tint border-copper/30" : "")}>
+         <div className="w-12 h-12 bg-navy-900 rounded flex items-center justify-center font-mono text-[10px] text-black shrink-0">QR</div>
          <div>
-           <b className="font-display text-[0.85rem] font-bold block text-slate-900 dark:text-white">QR AT THE DOOR</b>
+           <b className="font-display text-[0.85rem] font-bold block text-white">QR AT THE DOOR</b>
            <span className="text-[0.85rem] text-slate-300 block leading-tight mt-0.5">Walk-in scans to join the queue</span>
          </div>
       </div>
       
       <div className="flex flex-col">
         {queue.map((q) => (
-          <div key={q.id} className={cn("px-5 py-4 flex items-center gap-4 border-b border-line-soft transition-all duration-500",
-            q.status === "cutting" ? "bg-wash" :
+          <div key={q.id} className={cn("px-5 py-4 flex items-center gap-4 border-b border-white/10 transition-all duration-500",
+            q.status === "cutting" ? "bg-white/[0.04]" :
             q.status === "done" ? "opacity-50" : 
             q.status === "me" ? "bg-copper-tint/30" : ""
           )}>
             <span className={cn("font-mono text-[10px] tracking-widest", q.status === "cutting" ? "text-copper font-bold" : "text-slate-400")}>{q.pos}</span>
-            <span className={cn("font-display font-medium flex-1 text-[0.9rem]", q.status === "me" ? "text-slate-900 dark:text-white" : "text-slate-300")}>{q.who}</span>
-            <span className={cn("font-mono text-[9px] tracking-widest text-right", q.status === "cutting" ? "text-copper font-bold" : q.status === "done" ? "text-slate-300" : "text-slate-900 dark:text-white font-semibold")}>{q.eta}</span>
+            <span className={cn("font-display font-medium flex-1 text-[0.9rem]", q.status === "me" ? "text-white" : "text-slate-300")}>{q.who}</span>
+            <span className={cn("font-mono text-[9px] tracking-widest text-right", q.status === "cutting" ? "text-copper font-bold" : q.status === "done" ? "text-slate-300" : "text-white font-semibold")}>{q.eta}</span>
           </div>
         ))}
       </div>
       
       {showTicket && (
-        <div className="p-5 flex justify-center bg-background border-b border-line-soft animate-in fade-in slide-in-from-top-2 duration-500">
+        <div className="p-5 flex justify-center bg-navy-800 border-b border-white/10 animate-in fade-in slide-in-from-top-2 duration-500">
            <span className="bg-copper/10 border border-copper/30 text-copper font-mono text-[8px] tracking-[0.1em] px-3 py-2 rounded-full text-center">
              YOU'RE #3 · ABOUT 40 MIN — WE'LL TEXT WHEN YOU'RE UP ✓
            </span>
         </div>
       )}
       
-      <button onClick={replay} className="w-full py-3 mt-auto font-mono text-[9.5px] tracking-[0.16em] text-slate-400 hover:text-copper hover:bg-wash transition-colors">
+      <button onClick={replay} className="w-full py-3 mt-auto font-mono text-[9.5px] tracking-[0.16em] text-slate-400 hover:text-copper hover:bg-white/[0.04] transition-colors">
         ↺ REPLAY THE QUEUE
       </button>
     </Card>

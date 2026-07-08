@@ -6,6 +6,8 @@ import { ScrollReveal, StaggerGroup, HoverFloat } from "@/components/animations"
 import { Chip } from "@/components/shared";
 import { Button } from "@/components/ui";
 import { cn } from "@/lib/utils";
+import { CinematicProvider, CineCanvas, Grain, Parallax, ProgressRail } from "@/components/cinematic";
+import { AiAgentVisual, ChannelVisual, IndustryVisual, VisualStyles } from "@/components/cinematic/visuals";
 
 
 const PROOF_BADGES = [
@@ -24,32 +26,32 @@ const BROW_CARDS = [
     linkText: "Explore GROW",
     reverse: false,
     visual: (
-      <div className="panel bg-slate-50 dark:bg-navy-800 text-slate-900 dark:text-white border border-line-soft rounded-[var(--r-md)] p-5 relative w-full select-none" aria-hidden="true">
-        <div className="p-title font-mono text-[9px] tracking-wider text-slate-500 dark:text-slate-400 border-b border-line-soft/30 pb-2 mb-3">
+      <div className="panel bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] p-5 relative w-full select-none" aria-hidden="true">
+        <div className="p-title font-mono text-[9px] tracking-wider text-slate-400 border-b border-white/10 pb-2 mb-3">
           PIPELINE · NEW LEADS <b className="text-copper">TODAY: 14</b>
         </div>
         <div className="flex flex-col gap-2">
-          <div className="flex items-center gap-3 p-2 bg-white dark:bg-navy-750/70 border border-slate-200 dark:border-line-soft/20 rounded">
+          <div className="flex items-center gap-3 p-2 bg-navy-750/70 border border-white/10 rounded">
             <span className="w-6 h-6 rounded-full bg-copper/10 text-copper text-[10px] font-bold flex items-center justify-center shrink-0">JT</span>
             <div className="flex-1 min-w-0">
-              <div className="font-display font-semibold text-slate-900 dark:text-white text-xs truncate">Jordan T.</div>
-              <div className="font-mono text-[8px] text-slate-500 dark:text-slate-400 truncate">GOOGLE ADS · 4 MIN AGO</div>
+              <div className="font-display font-semibold text-white text-xs truncate">Jordan T.</div>
+              <div className="font-mono text-[8px] text-slate-400 truncate">GOOGLE ADS · 4 MIN AGO</div>
             </div>
             <span className="bg-copper/10 text-copper border border-copper/30 px-1.5 py-0.5 rounded text-[7px] font-mono">NEW</span>
           </div>
-          <div className="flex items-center gap-3 p-2 bg-white dark:bg-navy-750/70 border border-slate-200 dark:border-line-soft/20 rounded">
+          <div className="flex items-center gap-3 p-2 bg-navy-750/70 border border-white/10 rounded">
             <span className="w-6 h-6 rounded-full bg-copper/10 text-copper text-[10px] font-bold flex items-center justify-center shrink-0">MR</span>
             <div className="flex-1 min-w-0">
-              <div className="font-display font-semibold text-slate-900 dark:text-white text-xs truncate">Maya R.</div>
-              <div className="font-mono text-[8px] text-slate-500 dark:text-slate-400 truncate">INSTAGRAM DM · 11 MIN AGO</div>
+              <div className="font-display font-semibold text-white text-xs truncate">Maya R.</div>
+              <div className="font-mono text-[8px] text-slate-400 truncate">INSTAGRAM DM · 11 MIN AGO</div>
             </div>
             <span className="bg-green/10 text-green border border-green/30 px-1.5 py-0.5 rounded text-[7px] font-mono">REPLIED</span>
           </div>
-          <div className="flex items-center gap-3 p-2 bg-white dark:bg-navy-750/70 border border-slate-200 dark:border-line-soft/20 rounded">
+          <div className="flex items-center gap-3 p-2 bg-navy-750/70 border border-white/10 rounded">
             <span className="w-6 h-6 rounded-full bg-copper/10 text-copper text-[10px] font-bold flex items-center justify-center shrink-0">DK</span>
             <div className="flex-1 min-w-0">
-              <div className="font-display font-semibold text-slate-900 dark:text-white text-xs truncate">Devon K.</div>
-              <div className="font-mono text-[8px] text-slate-500 dark:text-slate-400 truncate">MISSED CALL · TEXT-BACK</div>
+              <div className="font-display font-semibold text-white text-xs truncate">Devon K.</div>
+              <div className="font-mono text-[8px] text-slate-400 truncate">MISSED CALL · TEXT-BACK</div>
             </div>
             <span className="bg-copper/10 text-copper border border-copper/30 px-1.5 py-0.5 rounded text-[7px] font-mono">NEW</span>
           </div>
@@ -65,26 +67,26 @@ const BROW_CARDS = [
     linkText: "Learn more",
     reverse: true,
     visual: (
-      <div className="panel bg-slate-50 dark:bg-navy-800 text-slate-900 dark:text-white border border-line-soft rounded-[var(--r-md)] p-5 relative w-full select-none" aria-hidden="true">
-        <div className="p-title font-mono text-[9px] tracking-wider text-slate-500 dark:text-slate-400 border-b border-line-soft/30 pb-2 mb-3">
+      <div className="panel bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] p-5 relative w-full select-none" aria-hidden="true">
+        <div className="p-title font-mono text-[9px] tracking-wider text-slate-400 border-b border-white/10 pb-2 mb-3">
           UNIFIED INBOX · SARAH MITCHELL <b className="text-copper">ALL CHANNELS</b>
         </div>
         <div className="space-y-2.5">
           <div className="flex gap-2">
-            <span className="font-mono text-[7px] text-slate-500 dark:text-slate-400 bg-slate-200/50 dark:bg-line-soft/40 px-1.5 py-0.5 rounded h-fit">IG</span>
-            <div className="bg-white dark:bg-navy-750/80 border border-slate-200 dark:border-line-soft/30 p-2 rounded text-[0.75rem] text-slate-800 dark:text-slate-100 max-w-[80%]">
+            <span className="font-mono text-[7px] text-slate-400 bg-white/[0.08] px-1.5 py-0.5 rounded h-fit">IG</span>
+            <div className="bg-navy-750/80 border border-white/10 p-2 rounded text-[0.75rem] text-slate-100 max-w-[80%]">
               Hi! Do you have anything open this weekend?
             </div>
           </div>
           <div className="flex gap-2 justify-end">
-            <div className="bg-copper/10 border border-copper/20 p-2 rounded text-[0.75rem] text-copper dark:text-white max-w-[80%] text-right">
+            <div className="bg-copper/10 border border-copper/20 p-2 rounded text-[0.75rem] text-white max-w-[80%] text-right">
               We do! Saturday 10am or 1:30pm — want me to hold one?
             </div>
             <span className="font-mono text-[7px] text-copper bg-copper-tint/50 px-1.5 py-0.5 rounded h-fit">ME</span>
           </div>
           <div className="flex gap-2">
-            <span className="font-mono text-[7px] text-slate-500 dark:text-slate-400 bg-slate-200/50 dark:bg-line-soft/40 px-1.5 py-0.5 rounded h-fit">SMS</span>
-            <div className="bg-white dark:bg-navy-750/80 border border-slate-200 dark:border-line-soft/30 p-2 rounded text-[0.75rem] text-slate-800 dark:text-slate-100 max-w-[80%]">
+            <span className="font-mono text-[7px] text-slate-400 bg-white/[0.08] px-1.5 py-0.5 rounded h-fit">SMS</span>
+            <div className="bg-navy-750/80 border border-white/10 p-2 rounded text-[0.75rem] text-slate-100 max-w-[80%]">
               1:30 works great, thank you!!
             </div>
           </div>
@@ -100,19 +102,19 @@ const BROW_CARDS = [
     linkText: "Explore SCHEDULE",
     reverse: false,
     visual: (
-      <div className="panel bg-slate-50 dark:bg-navy-800 text-slate-900 dark:text-white border border-line-soft rounded-[var(--r-md)] p-5 relative w-full select-none" aria-hidden="true">
-        <div className="p-title font-mono text-[9px] tracking-wider text-slate-500 dark:text-slate-400 border-b border-line-soft/30 pb-2 mb-3">
+      <div className="panel bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] p-5 relative w-full select-none" aria-hidden="true">
+        <div className="p-title font-mono text-[9px] tracking-wider text-slate-400 border-b border-white/10 pb-2 mb-3">
           JULY · WEEK 2 <b className="text-copper">3 STAFF SYNCED</b>
         </div>
-        <div className="grid grid-cols-7 gap-1 text-center font-mono text-[10px] text-slate-600 dark:text-slate-300">
+        <div className="grid grid-cols-7 gap-1 text-center font-mono text-[10px] text-slate-300">
           <div>M</div><div>T</div><div>W</div><div>T</div><div>F</div><div>S</div><div>S</div>
-          <div className="p-1 rounded bg-slate-200/50 dark:bg-line-soft/10 text-slate-500 dark:text-slate-400">6</div>
+          <div className="p-1 rounded bg-white/[0.08] text-slate-400">6</div>
           <div className="p-1 rounded bg-copper-tint/20 text-copper border border-copper/20">7</div>
           <div className="p-1 rounded bg-copper-tint/20 text-copper border border-copper/20">8</div>
           <div className="p-1 rounded bg-copper text-white font-bold">9</div>
           <div className="p-1 rounded bg-copper-tint/20 text-copper border border-copper/20">10</div>
           <div className="p-1 rounded bg-copper-tint/20 text-copper border border-copper/20">11</div>
-          <div className="p-1 rounded bg-slate-200/50 dark:bg-line-soft/10 text-slate-500 dark:text-slate-400">12</div>
+          <div className="p-1 rounded bg-white/[0.08] text-slate-400">12</div>
         </div>
       </div>
     )
@@ -125,22 +127,22 @@ const BROW_CARDS = [
     linkText: "Explore SHOP",
     reverse: true,
     visual: (
-      <div className="panel bg-slate-50 dark:bg-navy-800 text-slate-900 dark:text-white border border-line-soft rounded-[var(--r-md)] p-5 relative w-full select-none" aria-hidden="true">
-        <div className="p-title font-mono text-[9px] tracking-wider text-slate-500 dark:text-slate-400 border-b border-line-soft/30 pb-2 mb-3">
+      <div className="panel bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] p-5 relative w-full select-none" aria-hidden="true">
+        <div className="p-title font-mono text-[9px] tracking-wider text-slate-400 border-b border-white/10 pb-2 mb-3">
           PAYMENTS · THIS WEEK <b className="text-copper">$3,912.50</b>
         </div>
         <div className="space-y-2 text-[0.78rem]">
-          <div className="flex justify-between items-center p-2 bg-white dark:bg-navy-750/70 border border-slate-200 dark:border-line-soft/20 rounded">
+          <div className="flex justify-between items-center p-2 bg-navy-750/70 border border-white/10 rounded">
             <div>
-              <b className="font-semibold block text-slate-900 dark:text-white">Deposit — Balayage, Sat 1:30</b>
-              <small className="font-mono text-[8px] text-slate-500 dark:text-slate-400 uppercase">CARD · STRIPE</small>
+              <b className="font-semibold block text-white">Deposit — Balayage, Sat 1:30</b>
+              <small className="font-mono text-[8px] text-slate-400 uppercase">CARD · STRIPE</small>
             </div>
             <span className="text-green font-bold font-mono">+$50.00</span>
           </div>
-          <div className="flex justify-between items-center p-2 bg-white dark:bg-navy-750/70 border border-slate-200 dark:border-line-soft/20 rounded">
+          <div className="flex justify-between items-center p-2 bg-navy-750/70 border border-white/10 rounded">
             <div>
-              <b className="font-semibold block text-slate-900 dark:text-white">Gift card — $100</b>
-              <small className="font-mono text-[8px] text-slate-500 dark:text-slate-400 uppercase">ONLINE STORE</small>
+              <b className="font-semibold block text-white">Gift card — $100</b>
+              <small className="font-mono text-[8px] text-slate-400 uppercase">ONLINE STORE</small>
             </div>
             <span className="text-green font-bold font-mono">+$100.00</span>
           </div>
@@ -156,20 +158,20 @@ const BROW_CARDS = [
     linkText: "Learn more",
     reverse: false,
     visual: (
-      <div className="panel bg-slate-50 dark:bg-navy-800 text-slate-900 dark:text-white border border-line-soft rounded-[var(--r-md)] p-4 relative w-full select-none" aria-hidden="true">
-        <div className="p-title font-mono text-[9px] tracking-wider text-slate-500 dark:text-slate-400 border-b border-line-soft/30 pb-1.5 mb-2.5">
+      <div className="panel bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] p-4 relative w-full select-none" aria-hidden="true">
+        <div className="p-title font-mono text-[9px] tracking-wider text-slate-400 border-b border-white/10 pb-1.5 mb-2.5">
           WORKFLOW · "NEW LEAD RESCUE" <b className="text-copper">ACTIVE</b>
         </div>
         <div className="flex flex-col gap-1 items-center text-[0.72rem]">
-          <div className="px-2 py-1 bg-white dark:bg-navy-750 border border-slate-200 dark:border-line-soft rounded w-full text-center">
-            <span className="text-slate-900 dark:text-white">⚡ <b>Trigger: missed call</b></span>
+          <div className="px-2 py-1 bg-navy-750 border border-white/10 rounded w-full text-center">
+            <span className="text-white">⚡ <b>Trigger: missed call</b></span>
           </div>
           <div className="w-0.5 h-2 bg-copper/30"></div>
-          <div className="px-2 py-1 bg-white dark:bg-navy-750 border border-slate-200 dark:border-line-soft rounded w-full text-center">
-            <span className="text-slate-900 dark:text-white">💬 <b>Send text-back in 30 sec</b></span>
+          <div className="px-2 py-1 bg-navy-750 border border-white/10 rounded w-full text-center">
+            <span className="text-white">💬 <b>Send text-back in 30 sec</b></span>
           </div>
           <div className="w-0.5 h-2 bg-copper/30"></div>
-          <div className="px-2 py-1 bg-slate-100 dark:bg-background border border-slate-200 dark:border-line-soft rounded w-full text-center text-copper font-bold">
+          <div className="px-2 py-1 bg-navy-800 border border-white/10 rounded w-full text-center text-copper font-bold">
             📅 <b>Offer booking link</b>
           </div>
         </div>
@@ -184,15 +186,15 @@ const BROW_CARDS = [
     linkText: "Learn more",
     reverse: true,
     visual: (
-      <div className="panel bg-slate-50 dark:bg-navy-800 text-slate-900 dark:text-white border border-line-soft rounded-[var(--r-md)] p-5 relative w-full select-none" aria-hidden="true">
-        <div className="p-title font-mono text-[9px] tracking-wider text-slate-500 dark:text-slate-400 border-b border-line-soft/30 pb-2 mb-3">
+      <div className="panel bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] p-5 relative w-full select-none" aria-hidden="true">
+        <div className="p-title font-mono text-[9px] tracking-wider text-slate-400 border-b border-white/10 pb-2 mb-3">
           REVIEWS · LAST 30 DAYS <b className="text-copper">+41 NEW</b>
         </div>
         <div className="space-y-2">
-          <div className="bg-white dark:bg-navy-750/70 border border-slate-200 dark:border-line-soft/20 p-2.5 rounded text-[0.75rem]">
+          <div className="bg-navy-750/70 border border-white/10 p-2.5 rounded text-[0.75rem]">
             <div className="text-copper text-[10px] mb-0.5">★★★★★</div>
-            <b className="font-semibold block text-slate-900 dark:text-white">"Best cut I've had in years."</b>
-            <span className="font-mono text-[7.5px] text-slate-500 dark:text-slate-400 block mt-1">Google · Reviews AI drafted a reply</span>
+            <b className="font-semibold block text-white">"Best cut I've had in years."</b>
+            <span className="font-mono text-[7.5px] text-slate-400 block mt-1">Google · Reviews AI drafted a reply</span>
           </div>
         </div>
       </div>
@@ -206,8 +208,8 @@ const BROW_CARDS = [
     linkText: "Explore OPS",
     reverse: false,
     visual: (
-      <div className="panel bg-slate-50 dark:bg-navy-800 text-slate-900 dark:text-white border border-line-soft rounded-[var(--r-md)] p-5 relative w-full select-none" aria-hidden="true">
-        <div className="p-title font-mono text-[9px] tracking-wider text-slate-500 dark:text-slate-400 border-b border-line-soft/30 pb-2 mb-4">
+      <div className="panel bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] p-5 relative w-full select-none" aria-hidden="true">
+        <div className="p-title font-mono text-[9px] tracking-wider text-slate-400 border-b border-white/10 pb-2 mb-4">
           REVENUE BY MONTH <b className="text-copper">YTD $128,400</b>
         </div>
         <div className="flex items-end justify-between h-14 px-2">
@@ -368,13 +370,29 @@ const TESTIMONIALS = [
 
 export default function Home() {
   return (
+    <CinematicProvider>
     <div className="flex flex-col w-full">
-      {/* Hero */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 border-b border-line-soft overflow-hidden">
+      <VisualStyles />
+      <ProgressRail
+        sections={[
+          { id: "hero", label: "Fynz", color: "#D9967D" },
+          { id: "features", label: "Platform", color: "#D9967D" },
+          { id: "pillars", label: "Pillars", color: "#7FB2E5" },
+          { id: "automation", label: "Automation", color: "#E9BE6A" },
+          { id: "ai", label: "AI", color: "#AEB9C9" },
+          { id: "industries", label: "Industries", color: "#7FB2E5" },
+          { id: "cta", label: "Start", color: "#D9967D" },
+        ]}
+      />
+      {/* Hero — pinned cinematic stage: the orbit graphic converges as you scroll */}
+      <section id="hero" data-cine-scrub className="relative lg:h-[210vh]">
+        <div className="relative lg:sticky lg:top-0 lg:h-screen overflow-hidden flex flex-col justify-center pt-32 pb-16 md:pt-40 md:pb-24 lg:pt-[88px] lg:pb-0">
+        <CineCanvas painter="hero" mode="scrub" />
+        <Grain />
         {/* Glow Effects */}
         <div className="absolute inset-0 bg-radial-[at_50%_0%] from-copper/10 via-transparent to-transparent pointer-events-none" />
         <div className="absolute top-[72px] left-1/2 -translate-x-1/2 w-full max-w-7xl h-full border-x border-line-soft/20 pointer-events-none" />
-        
+
         <div className="wrap max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
           <div className="flex flex-col items-start text-left">
             <Chip className="mb-4">All-in-one business platform</Chip>
@@ -397,31 +415,32 @@ export default function Home() {
 
           {/* Hero Dashboard Preview */}
           <div className="relative w-full max-w-[550px] justify-self-center lg:justify-self-end">
+            <Parallax speed={0.06}>
             <HoverFloat yOffset={-12} duration={4}>
-              <div className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white border border-slate-200 dark:border-line rounded-[var(--r-lg)] p-5 relative shadow-xl overflow-hidden">
-                <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-line-soft mb-4">
+              <div className="bg-navy-900 text-white border border-white/10 rounded-[var(--r-lg)] p-5 relative shadow-xl overflow-hidden">
+                <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
                   <div className="flex gap-1.5">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
                     <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
                     <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
                   </div>
-                  <span className="font-mono text-[9px] tracking-[0.15em] text-slate-500 dark:text-slate-400">FYNZ · TODAY</span>
+                  <span className="font-mono text-[9px] tracking-[0.15em] text-slate-400">FYNZ · TODAY</span>
                 </div>
 
                 <div className="grid grid-cols-3 gap-3 mb-5 text-center">
-                  <div className="bg-slate-50 dark:bg-navy-750/70 border border-slate-200 dark:border-line-soft/20 p-2.5 rounded">
-                    <small className="block font-mono text-[8px] text-slate-500 dark:text-slate-400 uppercase">Revenue</small>
-                    <b className="font-display text-lg font-bold text-slate-900 dark:text-white">$4,280</b>
+                  <div className="bg-navy-750/70 border border-white/10 p-2.5 rounded">
+                    <small className="block font-mono text-[8px] text-slate-400 uppercase">Revenue</small>
+                    <b className="font-display text-lg font-bold text-white">$4,280</b>
                     <span className="block font-mono text-[8px] text-green font-semibold mt-0.5">+12%</span>
                   </div>
-                  <div className="bg-slate-50 dark:bg-navy-750/70 border border-slate-200 dark:border-line-soft/20 p-2.5 rounded">
-                    <small className="block font-mono text-[8px] text-slate-500 dark:text-slate-400 uppercase">Bookings</small>
-                    <b className="font-display text-lg font-bold text-slate-900 dark:text-white">23</b>
+                  <div className="bg-navy-750/70 border border-white/10 p-2.5 rounded">
+                    <small className="block font-mono text-[8px] text-slate-400 uppercase">Bookings</small>
+                    <b className="font-display text-lg font-bold text-white">23</b>
                     <span className="block font-mono text-[8px] text-green font-semibold mt-0.5">+6</span>
                   </div>
-                  <div className="bg-slate-50 dark:bg-navy-750/70 border border-slate-200 dark:border-line-soft/20 p-2.5 rounded">
-                    <small className="block font-mono text-[8px] text-slate-500 dark:text-slate-400 uppercase">New leads</small>
-                    <b className="font-display text-lg font-bold text-slate-900 dark:text-white">14</b>
+                  <div className="bg-navy-750/70 border border-white/10 p-2.5 rounded">
+                    <small className="block font-mono text-[8px] text-slate-400 uppercase">New leads</small>
+                    <b className="font-display text-lg font-bold text-white">14</b>
                     <span className="block font-mono text-[8px] text-green font-semibold mt-0.5">+9</span>
                   </div>
                 </div>
@@ -441,28 +460,37 @@ export default function Home() {
                 </div>
 
                 <div className="space-y-2 text-[0.78rem]">
-                  <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-navy-750/60 border border-slate-200 dark:border-line-soft/10 rounded">
+                  <div className="flex justify-between items-center p-2 bg-navy-750/60 border border-white/10 rounded">
                     <div className="flex items-center gap-2">
                       <span className="w-5 h-5 rounded-full bg-copper/10 text-copper font-bold text-[9px] flex items-center justify-center">SM</span>
-                      <span className="text-slate-700 dark:text-slate-200">Sarah M. booked — Color &amp; Cut</span>
+                      <span className="text-slate-200">Sarah M. booked — Color &amp; Cut</span>
                     </div>
-                    <span className="font-mono text-[8px] text-slate-500 dark:text-slate-400">2:30 PM</span>
+                    <span className="font-mono text-[8px] text-slate-400">2:30 PM</span>
                   </div>
-                  <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-navy-750/60 border border-slate-200 dark:border-line-soft/10 rounded">
+                  <div className="flex justify-between items-center p-2 bg-navy-750/60 border border-white/10 rounded">
                     <div className="flex items-center gap-2">
                       <span className="w-5 h-5 rounded-full bg-copper/10 text-copper font-bold text-[9px] flex items-center justify-center">AI</span>
-                      <span className="text-slate-700 dark:text-slate-200">Voice AI answered a missed call</span>
+                      <span className="text-slate-200">Voice AI answered a missed call</span>
                     </div>
-                    <span className="font-mono text-[8px] text-slate-500 dark:text-slate-400">2:12 PM</span>
+                    <span className="font-mono text-[8px] text-slate-400">2:12 PM</span>
                   </div>
                 </div>
               </div>
             </HoverFloat>
+            </Parallax>
           </div>
         </div>
 
-        {/* Proof Strip */}
-        <div className="wrap max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-line-soft/30">
+        {/* Scroll hint (pinned stage only) */}
+        <span className="hidden lg:block absolute bottom-6 left-1/2 -translate-x-1/2 pointer-events-none">
+          <span className="block font-mono text-[11px] tracking-[0.35em] text-faint animate-bounce">SCROLL</span>
+        </span>
+        </div>
+      </section>
+
+      {/* Proof Strip */}
+      <section className="border-b border-line-soft">
+        <div className="wrap max-w-7xl mx-auto px-6 py-8 border-t border-line-soft/30">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
             <div className="text-center lg:text-left">
               <b className="text-ink font-display text-lg block">2,000+ businesses</b>
@@ -470,11 +498,11 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
               {PROOF_BADGES.map((badge, idx) => (
-                <div key={idx} className="flex flex-col items-center border border-line-soft/30 px-4 py-2 rounded bg-slate-50/50 dark:bg-navy-900/50 text-slate-900 dark:text-white">
+                <div key={idx} className="flex flex-col items-center border border-white/10 px-4 py-2 rounded bg-navy-900/50 text-white">
                   <span className="text-copper text-xs mb-0.5">★★★★★</span>
                   <div className="text-center">
                     <b className="text-white text-xs block leading-none">{badge.rating}</b>
-                    <small className="font-mono text-[7px] text-slate-400 tracking-wider uppercase mt-1 block">{badge.name}</small>
+                    <small className="font-mono text-[10px] text-slate-400 tracking-wider uppercase mt-1 block">{badge.name}</small>
                   </div>
                 </div>
               ))}
@@ -484,10 +512,10 @@ export default function Home() {
       </section>
 
       {/* Rows: Feature Highlights */}
-      <section className="sec py-24 border-b border-line-soft">
+      <section id="features" className="sec py-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="max-w-2xl mb-16">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">The full platform</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">The full platform</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
               Booking is just the <span className="text-copper">beginning</span>.
             </h2>
@@ -524,10 +552,10 @@ export default function Home() {
       </section>
 
       {/* Four Pillars Grid */}
-      <section className="sec py-24 bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-b border-line-soft">
+      <section id="pillars" className="sec py-24 bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="text-center mb-16 max-w-3xl mx-auto">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Four pillars</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Four pillars</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
               Everything your business runs on, in <span className="text-copper">four pillars</span>
             </h2>
@@ -536,22 +564,26 @@ export default function Home() {
             </p>
           </div>
 
-          <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {PILLARS.map((p, idx) => (
               <Link
                 key={idx}
                 href={p.link}
-                className="group border border-slate-200 dark:border-line-soft bg-white dark:bg-navy-800 text-slate-900 dark:text-white hover:border-copper/40 p-6 rounded-[var(--r-lg)] flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 min-h-[300px]"
+                className="group border border-white/10 bg-navy-800 text-white hover:border-copper/40 p-6 rounded-[var(--r-lg)] flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 min-h-[300px]"
               >
                 <div>
-                  <div className="w-10 h-10 rounded border border-slate-200 dark:border-none bg-slate-50 dark:bg-navy-750 flex items-center justify-center text-copper mb-6 group-hover:bg-copper group-hover:text-white transition-colors duration-300">
+                  {/* Scroll-driven product demo graphic */}
+                  <div className="relative h-[300px] mb-6 rounded-[10px] overflow-hidden border border-white/10 bg-navy-900/40">
+                    <CineCanvas painter={p.id} surface="dark" />
+                  </div>
+                  <div className="w-10 h-10 rounded border border-none bg-navy-750 flex items-center justify-center text-copper mb-6 group-hover:bg-copper group-hover:text-white transition-colors duration-300">
                     {p.icon}
                   </div>
-                  <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white group-hover:text-copper transition-colors duration-300 mb-2">{p.title}</h3>
-                  <p className="font-mono text-[10px] text-slate-500 dark:text-slate-400 tracking-wide uppercase mb-3">{p.promise}</p>
-                  <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">{p.desc}</p>
+                  <h3 className="font-display font-bold text-lg text-white group-hover:text-copper transition-colors duration-300 mb-2">{p.title}</h3>
+                  <p className="font-mono text-xs text-slate-400 tracking-wide uppercase mb-3">{p.promise}</p>
+                  <p className="text-slate-400 text-sm leading-relaxed">{p.desc}</p>
                 </div>
-                <span className="inline-flex items-center gap-1 font-mono text-[10px] tracking-wider text-copper uppercase mt-6 group-hover:translate-x-1 transition-transform">
+                <span className="inline-flex items-center gap-1 font-mono text-xs tracking-wider text-copper uppercase mt-6 group-hover:translate-x-1 transition-transform">
                   Explore →
                 </span>
               </Link>
@@ -564,7 +596,7 @@ export default function Home() {
       <section className="sec py-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="text-center mb-16 max-w-3xl mx-auto">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Consolidate</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Consolidate</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
               Everything, <span className="text-copper">actually</span> in one place
             </h2>
@@ -606,10 +638,11 @@ export default function Home() {
       </section>
 
       {/* Automation Flow Showcase */}
-      <section className="sec py-24 bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-b border-line-soft">
-        <div className="wrap max-w-7xl mx-auto px-6">
+      <section id="automation" className="sec py-24 bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-b border-line-soft relative overflow-hidden">
+        <Grain className="hidden dark:block" />
+        <div className="wrap max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16 max-w-3xl mx-auto">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Automation</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Automation</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
               Set it once. It runs <span className="text-copper">forever</span>.
             </h2>
@@ -639,10 +672,10 @@ export default function Home() {
       </section>
 
       {/* Meet AI Team */}
-      <section className="sec py-24 border-b border-line-soft">
+      <section id="ai" className="sec py-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="text-center mb-16 max-w-3xl mx-auto">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">FYNZ AI</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">FYNZ AI</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
               Meet your <span className="text-copper">AI team</span>
             </h2>
@@ -656,17 +689,18 @@ export default function Home() {
               <Link
                 key={idx}
                 href={agent.link}
-                className="group border border-slate-200 shadow-sm dark:border-navy-900 dark:shadow-none bg-slate-50 dark:bg-navy-900 text-slate-900 dark:text-white hover:border-copper/40 p-6 rounded-[var(--r-lg)] flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 min-h-[250px]"
+                className="group border border-white/10 shadow-none bg-navy-900 text-white hover:border-copper/40 p-6 rounded-[var(--r-lg)] flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 min-h-[250px]"
               >
                 <div>
+                  <AiAgentVisual name={agent.name} />
                   <div className="flex justify-between items-center mb-4">
-                    <span className="font-mono text-[8px] text-green border border-green/30 px-2 py-0.5 rounded uppercase font-semibold">ON DUTY</span>
+                    <span className="font-mono text-[10px] text-green border border-green/30 px-2 py-0.5 rounded uppercase font-semibold">ON DUTY</span>
                   </div>
-                  <h4 className="font-display font-bold text-lg text-slate-900 dark:text-white group-hover:text-copper transition-colors duration-300 mb-1">{agent.name}</h4>
-                  <span className="font-mono text-[10px] text-slate-500 dark:text-slate-400 tracking-wider uppercase block mb-3">{agent.role}</span>
-                  <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">{agent.desc}</p>
+                  <h4 className="font-display font-bold text-lg text-white group-hover:text-copper transition-colors duration-300 mb-1">{agent.name}</h4>
+                  <span className="font-mono text-xs text-slate-400 tracking-wider uppercase block mb-3">{agent.role}</span>
+                  <p className="text-slate-400 text-sm leading-relaxed">{agent.desc}</p>
                 </div>
-                <span className="inline-flex items-center gap-1 font-mono text-[10px] tracking-wider text-copper uppercase mt-6 group-hover:translate-x-1 transition-transform">
+                <span className="inline-flex items-center gap-1 font-mono text-xs tracking-wider text-copper uppercase mt-6 group-hover:translate-x-1 transition-transform">
                   Explore Agent →
                 </span>
               </Link>
@@ -684,7 +718,7 @@ export default function Home() {
       <section className="sec py-24 bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="max-w-2xl mb-16">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Booking channels</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Booking channels</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
               Meet customers <span className="text-copper">wherever</span> they are
             </h2>
@@ -695,9 +729,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {CHANNELS.map((ch, idx) => (
-              <div key={idx} className="bg-white dark:bg-navy-800/60 text-slate-900 dark:text-white border border-slate-200 shadow-sm dark:border-white/5 dark:shadow-none p-5 rounded-lg">
-                <b className="font-display font-bold text-base text-slate-900 dark:text-white block mb-2">{ch.title}</b>
-                <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">{ch.desc}</p>
+              <div key={idx} className="bg-navy-800/60 text-white border border-white/10 shadow-none p-5 rounded-lg">
+                <ChannelVisual title={ch.title} />
+                <b className="font-display font-bold text-base text-white block mb-2">{ch.title}</b>
+                <p className="text-slate-400 text-sm leading-relaxed">{ch.desc}</p>
               </div>
             ))}
           </div>
@@ -705,10 +740,10 @@ export default function Home() {
       </section>
 
       {/* Who's It For (Industries) */}
-      <section className="sec py-24 border-b border-line-soft">
+      <section id="industries" className="sec py-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="max-w-2xl mb-16">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Who's it for</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Who's it for</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
               Built for <span className="text-copper">your</span> business
             </h2>
@@ -722,13 +757,14 @@ export default function Home() {
               <Link
                 key={idx}
                 href={ind.link}
-                className="group border border-slate-200 shadow-sm dark:border-white/5 dark:shadow-none bg-slate-50 dark:bg-navy-900 text-slate-900 dark:text-white hover:border-copper/40 p-5 rounded-lg flex flex-col justify-between transition-all duration-200 hover:-translate-y-0.5"
+                className="group border border-white/10 shadow-none bg-navy-900 text-white hover:border-copper/40 p-5 rounded-lg flex flex-col justify-between transition-all duration-200 hover:-translate-y-0.5"
               >
                 <div>
-                  <b className="font-display font-bold text-base text-slate-900 dark:text-white group-hover:text-copper transition-colors duration-300 block mb-1">{ind.title}</b>
-                  <p className="text-slate-600 dark:text-slate-400 text-xs">{ind.desc}</p>
+                  <IndustryVisual title={ind.title} />
+                  <b className="font-display font-bold text-base text-white group-hover:text-copper transition-colors duration-300 block mb-1">{ind.title}</b>
+                  <p className="text-slate-400 text-sm">{ind.desc}</p>
                 </div>
-                <span className="font-mono text-[10px] tracking-wider text-copper uppercase mt-4 block group-hover:translate-x-1 transition-transform">
+                <span className="font-mono text-xs tracking-wider text-copper uppercase mt-4 block group-hover:translate-x-1 transition-transform">
                   Explore →
                 </span>
               </Link>
@@ -756,7 +792,7 @@ export default function Home() {
       <section className="sec py-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Owners on FYNZ</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Owners on FYNZ</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight">
               Less juggling. More <span className="text-copper">business</span>.
             </h2>
@@ -785,9 +821,9 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="final py-24 relative overflow-hidden text-center bg-radial-[at_bottom_center] from-copper/10 via-transparent to-transparent">
+      <section id="cta" className="final py-24 relative overflow-hidden text-center bg-radial-[at_bottom_center] from-copper/10 via-transparent to-transparent">
         <div className="wrap max-w-4xl mx-auto px-6 relative z-10">
-          <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Start today</span>
+          <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Start today</span>
           <h2 className="font-display font-extrabold text-4xl md:text-5xl tracking-tight mb-4">
             Your business, <span className="text-copper">handled</span>.
           </h2>
@@ -805,5 +841,6 @@ export default function Home() {
         </div>
       </section>
     </div>
+    </CinematicProvider>
   );
 }

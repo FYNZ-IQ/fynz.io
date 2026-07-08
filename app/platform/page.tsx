@@ -178,7 +178,7 @@ export default function PlatformPage() {
       </section>
 
       {/* Sticky Tab Bar / Rail */}
-      <div ref={railRef} className="sticky top-[72px] z-40 bg-navy-900 border-y border-line-soft transition-all duration-200">
+      <div ref={railRef} className="sticky top-[72px] z-40 bg-navy-900 border-y border-white/10 transition-all duration-200">
         <div className="wrap max-w-7xl mx-auto px-6 grid grid-cols-4 select-none">
           {(Object.keys(PILLARS_DATA) as PillarId[]).map((key) => {
             const p = PILLARS_DATA[key];
@@ -188,7 +188,7 @@ export default function PlatformPage() {
                 key={key}
                 onClick={() => handlePillarClick(key)}
                 className={cn(
-                  "relative text-left py-4 px-4 border-l first:border-l-0 border-line-soft transition-all duration-200 outline-none hover:bg-navy-800/30",
+                  "relative text-left py-4 px-4 border-l first:border-l-0 border-white/10 transition-all duration-200 outline-none hover:bg-navy-800/30",
                   isSelected ? "bg-navy-800/60" : "bg-transparent"
                 )}
               >
@@ -255,14 +255,14 @@ export default function PlatformPage() {
                     return (
                       <div
                         key={idx}
-                        className="bg-gradient-to-br from-white to-[#FAF6F0] dark:bg-none dark:bg-navy-800 text-slate-900 dark:text-white border border-[#C48D7D]/15 dark:border-transparent shadow-[0_2px_10px_-4px_rgba(196,141,125,0.1)] dark:shadow-none p-5 rounded-[var(--r-md)] flex flex-col justify-between opacity-75 select-none"
+                        className="bg-navy-800 text-white border border-transparent p-5 rounded-[var(--r-md)] flex flex-col justify-between opacity-75 select-none"
                       >
                         <div>
-                          <b className="font-display font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2">
+                          <b className="font-display font-bold text-sm text-white flex items-center gap-2">
                             {feat.name}
-                            <span className="font-mono text-[7px] tracking-wider bg-slate-100 dark:bg-wash text-slate-500 dark:text-slate-400 px-1.5 py-0.5 rounded border border-slate-200 dark:border-line-soft/30">COMING SOON</span>
+                            <span className="font-mono text-[7px] tracking-wider bg-white/[0.04] text-slate-400 px-1.5 py-0.5 rounded border border-white/10">COMING SOON</span>
                           </b>
-                          <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mt-2">{feat.desc}</p>
+                          <p className="text-slate-300 text-xs leading-relaxed mt-2">{feat.desc}</p>
                         </div>
                       </div>
                     );
@@ -272,15 +272,15 @@ export default function PlatformPage() {
                     <Link
                       key={idx}
                       href={feat.link || "#"}
-                      className="group bg-gradient-to-br from-white to-[#FAF6F0] dark:bg-none dark:bg-navy-800 text-slate-900 dark:text-white border border-[#C48D7D]/15 dark:border-transparent hover:border-[#C48D7D]/30 dark:hover:border-copper/40 shadow-[0_2px_10px_-4px_rgba(196,141,125,0.1)] dark:shadow-none p-5 rounded-[var(--r-md)] flex flex-col justify-between transition-all duration-200 hover:-translate-y-0.5"
+                      className="group bg-navy-800 text-white border border-transparent hover:border-copper/40 p-5 rounded-[var(--r-md)] flex flex-col justify-between transition-all duration-200 hover:-translate-y-0.5"
                     >
                       <div>
-                        <b className="font-display font-bold text-sm text-slate-900 dark:text-white group-hover:text-copper transition-colors duration-200">
+                        <b className="font-display font-bold text-sm text-white group-hover:text-copper transition-colors duration-200">
                           {feat.name}
                         </b>
-                        <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mt-2">{feat.desc}</p>
+                        <p className="text-slate-300 text-xs leading-relaxed mt-2">{feat.desc}</p>
                       </div>
-                      <span className="font-mono text-[9px] tracking-wider text-copper dark:text-copper uppercase mt-4 block">
+                      <span className="font-mono text-[9px] tracking-wider text-copper uppercase mt-4 block">
                         LEARN MORE →
                       </span>
                     </Link>
@@ -289,7 +289,7 @@ export default function PlatformPage() {
               </StaggerGroup>
 
               {/* Thread Banner */}
-              <div className="border border-dashed border-copper/30 bg-copper-tint/5 rounded-[var(--r-md)] p-4 text-xs md:text-sm text-muted flex gap-3 items-start md:items-center">
+              <div className="border border-dashed border-copper/30 bg-navy-800 rounded-[var(--r-md)] p-4 text-xs md:text-sm text-slate-300 flex gap-3 items-start md:items-center">
                 <Chip className="bg-copper/10 border-copper/30 text-copper uppercase">CONNECTION</Chip>
                 <span>{p.thread}</span>
               </div>

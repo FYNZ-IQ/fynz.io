@@ -42,7 +42,7 @@ export default function RootLayout({
           fontMono.variable
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />

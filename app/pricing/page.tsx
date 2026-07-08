@@ -200,7 +200,7 @@ export default function PricingPage() {
               aria-checked={billing === "annual"}
               onClick={() => setBilling(billing === "monthly" ? "annual" : "monthly")}
               className={cn(
-                "relative w-14 h-7.5 rounded-full bg-navy-800 border border-line transition-all duration-250 outline-none after:content-[''] after:absolute after:top-[3px] after:left-[3px] after:w-5.5 after:h-5.5 after:rounded-full after:bg-copper after:transition-all after:duration-250 after:cubic-bezier(0.3,1.4,0.4,1) cursor-pointer",
+                "relative w-14 h-7.5 rounded-full bg-navy-800 border border-white/10 transition-all duration-250 outline-none after:content-[''] after:absolute after:top-[3px] after:left-[3px] after:w-5.5 after:h-5.5 after:rounded-full after:bg-copper after:transition-all after:duration-250 after:cubic-bezier(0.3,1.4,0.4,1) cursor-pointer",
                 billing === "annual" ? "bg-copper-tint/30 border-copper/40 after:translate-x-[26px]" : ""
               )}
               aria-label="Toggle annual billing"
@@ -232,8 +232,8 @@ export default function PricingPage() {
               <div
                 key={idx}
                 className={cn(
-                  "group relative bg-white text-slate-900 border border-slate-200 shadow-sm p-8 rounded-[var(--r-lg)] flex flex-col justify-between transition-all duration-300 hover:border-copper/40 hover:-translate-y-1 dark:bg-navy-900 dark:text-white dark:border-none dark:shadow-none",
-                  plan.popular && "border-copper/50 dark:border-copper/50 shadow-xl bg-gradient-to-b from-white to-slate-50/50 dark:from-navy-800 dark:to-navy-900"
+                  "group relative bg-navy-900 text-white border-none shadow-none p-8 rounded-[var(--r-lg)] flex flex-col justify-between transition-all duration-300 hover:border-copper/40 hover:-translate-y-1",
+                  plan.popular && "border-copper/50 bg-gradient-to-b from-navy-800 to-navy-900"
                 )}
               >
                 {/* Popular Badge */}
@@ -253,31 +253,31 @@ export default function PricingPage() {
                   )}>
                     {plan.freeFlag || "PLACEHOLDER"}
                   </span>
-                  <h3 className="font-display font-extrabold text-xl text-slate-900 dark:text-white mb-1.5">{plan.name}</h3>
-                  <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed min-h-[48px] mb-6">{plan.who}</p>
-                  
-                  <div className="flex items-baseline gap-1.5 border-b border-slate-200 dark:border-line-soft/30 pb-4 mb-4">
+                  <h3 className="font-display font-extrabold text-xl text-white mb-1.5">{plan.name}</h3>
+                  <p className="text-slate-300 text-xs leading-relaxed min-h-[48px] mb-6">{plan.who}</p>
+
+                  <div className="flex items-baseline gap-1.5 border-b border-white/10 pb-4 mb-4">
                     <span className="font-mono text-copper text-lg font-bold">$</span>
-                    <span className="font-mono text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                    <span className="font-mono text-3xl font-extrabold tracking-tight text-white">
                       {getPrice(plan)}
                     </span>
-                    <span className="font-mono text-[9px] text-slate-500 dark:text-slate-400 tracking-wider uppercase">/MO</span>
+                    <span className="font-mono text-[9px] text-slate-400 tracking-wider uppercase">/MO</span>
                   </div>
-                  <span className="font-mono text-[8.5px] tracking-wider text-slate-500 dark:text-slate-400 block min-h-[14px]">
+                  <span className="font-mono text-[8.5px] tracking-wider text-slate-400 block min-h-[14px]">
                     {getCap(plan)}
                   </span>
 
                   <Button
                     className={cn(
                       "w-full mt-6 mb-8 py-6 font-semibold",
-                      plan.popular ? "bg-copper hover:bg-copper/90 text-white" : "bg-white text-slate-900 hover:bg-slate-50 border border-slate-200 dark:bg-white dark:text-navy-900 dark:hover:bg-slate-100 dark:border-none"
+                      plan.popular ? "bg-copper hover:bg-copper/90 text-white" : "bg-white text-navy-900 hover:bg-slate-100 border-none"
                     )}
                     render={<Link href={plan.ctaLink} />}
                   >
                     {plan.cta}
                   </Button>
 
-                  <ul className="space-y-3.5 text-xs text-slate-600 dark:text-slate-400">
+                  <ul className="space-y-3.5 text-xs text-slate-300">
                     {plan.features.map((feat, fidx) => (
                       <li key={fidx} className="flex gap-2.5 items-start">
                         <span className="text-copper font-mono text-[10px] shrink-0 mt-0.5">✓</span>
@@ -308,7 +308,7 @@ export default function PricingPage() {
           <div className="overflow-x-auto scrollbar-thin">
             <div className="min-w-[820px]">
               {/* Table Head */}
-              <div className="grid grid-cols-[2.1fr_1fr_1fr_1fr_1fr] border-b border-line pb-4 sticky top-[72px] bg-navy-900 text-white z-10">
+              <div className="grid grid-cols-[2.1fr_1fr_1fr_1fr_1fr] border-b border-white/10 pb-4 sticky top-[72px] bg-navy-900 text-white z-10">
                 <span />
                 <span className="text-center font-display font-bold text-sm text-slate-200">
                   Free
@@ -337,13 +337,13 @@ export default function PricingPage() {
               {/* Table Body */}
               {COMPARISON_MATRIX.map((group, gidx) => (
                 <div key={gidx} className="mb-4">
-                  <div className="font-mono text-[9.5px] font-bold tracking-widest text-copper bg-navy-800/40 text-white px-3 py-2 border-b border-line-soft/40 uppercase mt-4">
+                  <div className="font-mono text-[9.5px] font-bold tracking-widest text-copper bg-navy-800/40 text-white px-3 py-2 border-b border-white/10 uppercase mt-4">
                     {group.group}
                   </div>
                   {group.rows.map((row, ridx) => (
                     <div
                       key={ridx}
-                      className="grid grid-cols-[2.1fr_1fr_1fr_1fr_1fr] border-b border-line-soft/40 py-3.5 hover:bg-wash/30 items-center text-xs"
+                      className="grid grid-cols-[2.1fr_1fr_1fr_1fr_1fr] border-b border-white/10 py-3.5 hover:bg-white/[0.04] items-center text-xs"
                     >
                       <span className="font-display font-medium text-slate-300 hover:text-copper transition-colors">
                         <Link href={row.link}>{row.name}</Link>
@@ -365,7 +365,7 @@ export default function PricingPage() {
                             ) : cell === false ? (
                               <span className="text-slate-500">—</span>
                             ) : cell === "soon" ? (
-                              <span className="font-mono text-[8px] tracking-wider text-slate-400 border border-dashed border-line-soft px-1.5 py-0.5 rounded uppercase">SOON</span>
+                              <span className="font-mono text-[8px] tracking-wider text-slate-400 border border-dashed border-white/10 px-1.5 py-0.5 rounded uppercase">SOON</span>
                             ) : (
                               cell
                             )}
@@ -391,13 +391,13 @@ export default function PricingPage() {
             </h2>
           </div>
 
-          <Accordion>
+          <Accordion className="bg-navy-800 border-white/10">
             {FAQS.map((faq, idx) => (
-              <AccordionItem key={idx} value={`faq-${idx}`}>
-                <AccordionTrigger className="font-display font-bold text-sm md:text-base text-ink py-5">
+              <AccordionItem key={idx} value={`faq-${idx}`} className="border-white/10">
+                <AccordionTrigger className="font-display font-bold text-sm md:text-base text-white py-5">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted text-xs md:text-sm leading-relaxed pb-6 pr-6">
+                <AccordionContent className="text-slate-300 text-xs md:text-sm leading-relaxed pb-6 pr-6">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>

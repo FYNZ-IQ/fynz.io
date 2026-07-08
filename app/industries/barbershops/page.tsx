@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ScrollReveal, StaggerGroup, HoverFloat } from "@/components/animations";
+import { ScrollReveal, StaggerGroup, HoverFloat, CountUp } from "@/components/animations";
 import { BadgeCard, Chip } from "@/components/shared";
 import { SmsChatWidget, LiveQueueWidget } from "@/components/widgets";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent, Button, Card, CardContent } from "@/components/ui";
@@ -27,8 +27,8 @@ const BENEFIT_GROUPS = [
         desc: "A natural-sounding receptionist takes the call, checks the calendar, and books the cut while your clippers stay on. Every call that used to go to voicemail is now a booking.",
         tag: "powered by Voice AI",
         viz: (
-          <div className="relative min-h-[140px] bg-wash rounded border border-line-soft p-4 overflow-hidden flex flex-col justify-center items-center w-full">
-            <span className="font-mono text-[8px] tracking-[0.1em] text-faint absolute top-2 left-2">INCOMING CALL — MID-FADE</span>
+          <div className="relative min-h-[140px] bg-white/[0.04] rounded border border-white/10 p-4 overflow-hidden flex flex-col justify-center items-center w-full">
+            <span className="font-mono text-[8px] tracking-[0.1em] text-slate-400 absolute top-2 left-2">INCOMING CALL — MID-FADE</span>
             <span className="w-10 h-10 rounded-full bg-copper-tint border border-copper/30 flex items-center justify-center text-copper text-lg animate-pulse">✆</span>
             <span className="bg-green/10 text-green border border-green/30 px-3 py-1 rounded-full font-mono text-[8px] tracking-wide uppercase mt-3">ANSWERED · CUT BOOKED ✓</span>
           </div>
@@ -39,11 +39,11 @@ const BENEFIT_GROUPS = [
         desc: "\"Sorry we missed you — grab a time here\" fires automatically with your booking link, so they don't dial the shop down the block.",
         tag: "powered by Missed-call text-back · GROW",
         viz: (
-          <div className="relative min-h-[140px] bg-wash rounded border border-line-soft p-4 overflow-hidden flex flex-col justify-center gap-2 w-full">
-            <span className="font-mono text-[8px] tracking-[0.1em] text-faint absolute top-2 left-2">MISSED CALL — TEXT-BACK</span>
-            <div className="bg-background border border-line-soft p-2.5 rounded text-[0.8rem] text-muted max-w-[90%] self-end">
+          <div className="relative min-h-[140px] bg-white/[0.04] rounded border border-white/10 p-4 overflow-hidden flex flex-col justify-center gap-2 w-full">
+            <span className="font-mono text-[8px] tracking-[0.1em] text-slate-400 absolute top-2 left-2">MISSED CALL — TEXT-BACK</span>
+            <div className="bg-navy-800 border border-white/10 p-2.5 rounded text-[0.8rem] text-slate-300 max-w-[90%] self-end">
               Sorry we missed you — grab a time here: fynz.io/kings 💈
-              <span className="block font-mono text-[7px] text-faint mt-1">AUTO-TEXT · SENT IN 4 SECONDS</span>
+              <span className="block font-mono text-[7px] text-slate-400 mt-1">AUTO-TEXT · SENT IN 4 SECONDS</span>
             </div>
           </div>
         )
@@ -53,18 +53,18 @@ const BENEFIT_GROUPS = [
         desc: "Each chair gets its own link, services, hours, and photo — clients pick their barber and a real open slot, and each barber owns their own following.",
         tag: "powered by Staff calendars · SCHEDULE",
         viz: (
-          <div className="relative min-h-[140px] bg-wash rounded border border-line-soft p-4 overflow-hidden flex flex-col justify-center gap-1.5 w-full">
-            <span className="font-mono text-[8px] tracking-[0.1em] text-faint absolute top-2 left-2">ONE SHOP — THREE BOOKS</span>
+          <div className="relative min-h-[140px] bg-white/[0.04] rounded border border-white/10 p-4 overflow-hidden flex flex-col justify-center gap-1.5 w-full">
+            <span className="font-mono text-[8px] tracking-[0.1em] text-slate-400 absolute top-2 left-2">ONE SHOP — THREE BOOKS</span>
             <div className="flex gap-1.5 justify-center mt-3 text-[0.75rem]">
-              <div className="bg-background border border-line-soft p-1.5 rounded flex items-center gap-1 text-[10px]">
+              <div className="bg-navy-800 border border-white/10 p-1.5 rounded flex items-center gap-1 text-[10px]">
                 <span className="w-5 h-5 rounded-full bg-copper/10 grid place-items-center text-copper text-[8px] font-bold">M</span>
                 <span>Marco</span>
               </div>
-              <div className="bg-background border border-line-soft p-1.5 rounded flex items-center gap-1 text-[10px]">
+              <div className="bg-navy-800 border border-white/10 p-1.5 rounded flex items-center gap-1 text-[10px]">
                 <span className="w-5 h-5 rounded-full bg-copper/10 grid place-items-center text-copper text-[8px] font-bold">D</span>
                 <span>Dre</span>
               </div>
-              <div className="bg-background border border-line-soft p-1.5 rounded flex items-center gap-1 text-[10px]">
+              <div className="bg-navy-800 border border-white/10 p-1.5 rounded flex items-center gap-1 text-[10px]">
                 <span className="w-5 h-5 rounded-full bg-copper/10 grid place-items-center text-copper text-[8px] font-bold">S</span>
                 <span>Sam</span>
               </div>
@@ -77,10 +77,10 @@ const BENEFIT_GROUPS = [
         desc: "A QR at the door lets walk-ins claim the next open chair with a live wait time. Fewer people walk in, look at the bench, and leave.",
         tag: "powered by Online booking · SCHEDULE",
         viz: (
-          <div className="relative min-h-[140px] bg-wash rounded border border-line-soft p-4 overflow-hidden flex flex-col justify-center gap-2 w-full">
-            <span className="font-mono text-[8px] tracking-[0.1em] text-faint absolute top-2 left-2">QR AT THE DOOR — LIVE QUEUE</span>
-            <div className="flex justify-between items-center bg-background border border-line-soft p-2 rounded text-[0.75rem] mt-3">
-              <span className="font-mono text-faint">ALEX</span>
+          <div className="relative min-h-[140px] bg-white/[0.04] rounded border border-white/10 p-4 overflow-hidden flex flex-col justify-center gap-2 w-full">
+            <span className="font-mono text-[8px] tracking-[0.1em] text-slate-400 absolute top-2 left-2">QR AT THE DOOR — LIVE QUEUE</span>
+            <div className="flex justify-between items-center bg-navy-800 border border-white/10 p-2 rounded text-[0.75rem] mt-3">
+              <span className="font-mono text-slate-400">ALEX</span>
               <span className="font-mono text-copper font-bold">~15 MIN</span>
             </div>
             <div className="text-center"><span className="bg-copper/10 text-copper border border-copper/30 px-2 py-0.5 rounded font-mono text-[7px] tracking-wide uppercase">YOU'RE #3 · ABOUT 40 MIN</span></div>
@@ -92,11 +92,11 @@ const BENEFIT_GROUPS = [
         desc: "Reminders confirm every cut, and a small deposit holds your peak Saturday slots — if they ghost, you're covered.",
         tag: "powered by Reminders & confirmations · SCHEDULE + SHOP",
         viz: (
-          <div className="relative min-h-[140px] bg-wash rounded border border-line-soft p-4 overflow-hidden flex flex-col justify-center gap-2 w-full">
-            <span className="font-mono text-[8px] tracking-[0.1em] text-faint absolute top-2 left-2">SATURDAY 2:00 PM</span>
-            <div className="bg-background border border-line-soft p-2 rounded text-[0.8rem] text-muted mt-2">
+          <div className="relative min-h-[140px] bg-white/[0.04] rounded border border-white/10 p-4 overflow-hidden flex flex-col justify-center gap-2 w-full">
+            <span className="font-mono text-[8px] tracking-[0.1em] text-slate-400 absolute top-2 left-2">SATURDAY 2:00 PM</span>
+            <div className="bg-navy-800 border border-white/10 p-2 rounded text-[0.8rem] text-slate-300 mt-2">
               Deon W. — Fade + beard
-              <span className="block font-mono text-[7px] text-faint mt-1">CARD ON FILE · DEPOSIT $15</span>
+              <span className="block font-mono text-[7px] text-slate-400 mt-1">CARD ON FILE · DEPOSIT $15</span>
             </div>
           </div>
         )
@@ -112,9 +112,9 @@ const BENEFIT_GROUPS = [
         desc: "Regulars get a \"time for a lineup?\" nudge right when they're due, in your tone, with your calendar.",
         tag: "powered by Recurring appointments · SCHEDULE + Workflow AI",
         viz: (
-          <div className="relative min-h-[140px] bg-wash rounded border border-line-soft p-4 overflow-hidden flex flex-col justify-center gap-2 w-full">
-            <span className="font-mono text-[8px] tracking-[0.1em] text-faint absolute top-2 left-2">3-WEEK CLOCK NUDGE</span>
-            <div className="bg-background border border-line-soft p-2 rounded text-[0.8rem] text-muted mt-2">
+          <div className="relative min-h-[140px] bg-white/[0.04] rounded border border-white/10 p-4 overflow-hidden flex flex-col justify-center gap-2 w-full">
+            <span className="font-mono text-[8px] tracking-[0.1em] text-slate-400 absolute top-2 left-2">3-WEEK CLOCK NUDGE</span>
+            <div className="bg-navy-800 border border-white/10 p-2 rounded text-[0.8rem] text-slate-300 mt-2">
               "Time for a lineup? Marco's got Thursday 5:15..."
             </div>
           </div>
@@ -125,10 +125,10 @@ const BENEFIT_GROUPS = [
         desc: "Every finished cut triggers a review ask — and Google starts sending you the neighborhood.",
         tag: "powered by Reviews AI",
         viz: (
-          <div className="relative min-h-[140px] bg-wash rounded border border-line-soft p-4 overflow-hidden flex flex-col justify-center gap-1.5 w-full">
-            <span className="font-mono text-[8px] tracking-[0.1em] text-faint absolute top-2 left-2">GOOGLE REVIEW ASK</span>
+          <div className="relative min-h-[140px] bg-white/[0.04] rounded border border-white/10 p-4 overflow-hidden flex flex-col justify-center gap-1.5 w-full">
+            <span className="font-mono text-[8px] tracking-[0.1em] text-slate-400 absolute top-2 left-2">GOOGLE REVIEW ASK</span>
             <div className="flex gap-0.5 mt-3 justify-center text-copper">★ ★ ★ ★ ★</div>
-            <div className="text-[10px] text-muted text-center font-mono">REPLY POSTED BY REVIEWS AI ✓</div>
+            <div className="text-[10px] text-slate-300 text-center font-mono">REPLY POSTED BY REVIEWS AI ✓</div>
           </div>
         )
       },
@@ -137,9 +137,9 @@ const BENEFIT_GROUPS = [
         desc: "No visit in six weeks? A \"we miss you\" text goes out — you save clients before you notice they're gone.",
         tag: "powered by Workflow AI",
         viz: (
-          <div className="relative min-h-[140px] bg-wash rounded border border-line-soft p-4 overflow-hidden flex flex-col justify-center gap-2 w-full">
-            <span className="font-mono text-[8px] tracking-[0.1em] text-faint absolute top-2 left-2">QUIET REGULAR NUDGE</span>
-            <div className="bg-background border border-line-soft p-2 rounded text-[0.8rem] text-muted mt-2">
+          <div className="relative min-h-[140px] bg-white/[0.04] rounded border border-white/10 p-4 overflow-hidden flex flex-col justify-center gap-2 w-full">
+            <span className="font-mono text-[8px] tracking-[0.1em] text-slate-400 absolute top-2 left-2">QUIET REGULAR NUDGE</span>
+            <div className="bg-navy-800 border border-white/10 p-2 rounded text-[0.8rem] text-slate-300 mt-2">
               "We miss you at Kings Cut! Book: fynz.io/kings"
             </div>
           </div>
@@ -156,8 +156,8 @@ const BENEFIT_GROUPS = [
         desc: "Snap the after-shot, tag it \"post-ready,\" and Content AI writes the caption and schedules it to Instagram, Facebook, and Google Business — in the shop's voice.",
         tag: "powered by Content AI + Social planner · GROW",
         viz: (
-          <div className="relative min-h-[140px] bg-wash rounded border border-line-soft p-4 overflow-hidden flex flex-col justify-center gap-2 w-full">
-            <span className="font-mono text-[8px] tracking-[0.1em] text-faint absolute top-2 left-2">TAGGED "POST-READY"</span>
+          <div className="relative min-h-[140px] bg-white/[0.04] rounded border border-white/10 p-4 overflow-hidden flex flex-col justify-center gap-2 w-full">
+            <span className="font-mono text-[8px] tracking-[0.1em] text-slate-400 absolute top-2 left-2">TAGGED "POST-READY"</span>
             <div className="flex justify-center gap-1.5 mt-2">
               <span className="bg-copper/10 text-copper border border-copper/30 px-2 py-0.5 rounded font-mono text-[8px]">INSTAGRAM</span>
               <span className="bg-green/10 text-green border border-green/30 px-2 py-0.5 rounded font-mono text-[8px]">GOOGLE BIZ</span>
@@ -170,8 +170,8 @@ const BENEFIT_GROUPS = [
         desc: "\"Bring your boy, both get $10 off\" as a shareable link — when the friend books, both get credit automatically.",
         tag: "powered by Referrals · GROW + Workflow AI",
         viz: (
-          <div className="relative min-h-[140px] bg-wash rounded border border-line-soft p-4 overflow-hidden flex flex-col justify-center gap-2 w-full">
-            <span className="font-mono text-[8px] tracking-[0.1em] text-faint absolute top-2 left-2">REFERRAL SYSTEM</span>
+          <div className="relative min-h-[140px] bg-white/[0.04] rounded border border-white/10 p-4 overflow-hidden flex flex-col justify-center gap-2 w-full">
+            <span className="font-mono text-[8px] tracking-[0.1em] text-slate-400 absolute top-2 left-2">REFERRAL SYSTEM</span>
             <div className="flex gap-2 justify-center mt-3 text-[10px]">
               <span className="text-copper">+ $10 CREDIT ✓</span>
               <span className="text-green">+ $10 OFF ✓</span>
@@ -184,11 +184,11 @@ const BENEFIT_GROUPS = [
         desc: "A shop-styled page with your barbers, prices, and cut gallery, wired straight to the calendar. Drafted for you in an afternoon.",
         tag: "powered by Website & Funnel AI",
         viz: (
-          <div className="relative min-h-[140px] bg-wash rounded border border-line-soft p-4 overflow-hidden flex flex-col justify-center items-center w-full">
-            <span className="font-mono text-[8px] tracking-[0.1em] text-faint absolute top-2 left-2">WEBSITE & FUNNEL AI</span>
-            <div className="w-16 h-10 border border-line-soft bg-background rounded mt-3 flex flex-col p-1 gap-1">
+          <div className="relative min-h-[140px] bg-white/[0.04] rounded border border-white/10 p-4 overflow-hidden flex flex-col justify-center items-center w-full">
+            <span className="font-mono text-[8px] tracking-[0.1em] text-slate-400 absolute top-2 left-2">WEBSITE & FUNNEL AI</span>
+            <div className="w-16 h-10 border border-white/10 bg-navy-800 rounded mt-3 flex flex-col p-1 gap-1">
               <span className="w-full h-1.5 bg-copper/20 rounded"></span>
-              <span className="w-2/3 h-1 bg-muted rounded"></span>
+              <span className="w-2/3 h-1 bg-white/60 rounded"></span>
             </div>
           </div>
         )
@@ -204,8 +204,8 @@ const BENEFIT_GROUPS = [
         desc: "Pomades, beard oil, tees, and hats live on your online store — regulars restock without waiting for their next cut.",
         tag: "powered by Online store · SHOP",
         viz: (
-          <div className="relative min-h-[140px] bg-wash rounded border border-line-soft p-4 overflow-hidden flex flex-col justify-center items-center w-full">
-            <span className="font-mono text-[8px] tracking-[0.1em] text-faint absolute top-2 left-2">ONLINE STORE</span>
+          <div className="relative min-h-[140px] bg-white/[0.04] rounded border border-white/10 p-4 overflow-hidden flex flex-col justify-center items-center w-full">
+            <span className="font-mono text-[8px] tracking-[0.1em] text-slate-400 absolute top-2 left-2">ONLINE STORE</span>
             <div className="flex items-center gap-2 mt-3">
               <span className="text-xl">🛒</span>
               <span className="bg-green/10 text-green border border-green/30 px-2 py-0.5 rounded font-mono text-[8px]">PAID ✓</span>
@@ -218,9 +218,9 @@ const BENEFIT_GROUPS = [
         desc: "Sell 5-cut packages, a monthly \"cut + line-up\" membership, and gift cards online — clients redeem in-chair without a paper card.",
         tag: "powered by Memberships & packages + Gift cards · SHOP",
         viz: (
-          <div className="relative min-h-[140px] bg-wash rounded border border-line-soft p-4 overflow-hidden flex flex-col justify-center gap-2 w-full">
-            <span className="font-mono text-[8px] tracking-[0.1em] text-faint absolute top-2 left-2">MEMBERSHIPS</span>
-            <div className="bg-background border border-line-soft p-2 rounded text-[0.8rem] text-muted text-center mt-2">
+          <div className="relative min-h-[140px] bg-white/[0.04] rounded border border-white/10 p-4 overflow-hidden flex flex-col justify-center gap-2 w-full">
+            <span className="font-mono text-[8px] tracking-[0.1em] text-slate-400 absolute top-2 left-2">MEMBERSHIPS</span>
+            <div className="bg-navy-800 border border-white/10 p-2 rounded text-[0.8rem] text-slate-300 text-center mt-2">
               <b>5-CUT PACKAGE</b>
             </div>
           </div>
@@ -237,8 +237,8 @@ const BENEFIT_GROUPS = [
         desc: "Instagram, Facebook, SMS, and webchat all land in the same inbox — and get answered even when your clippers are on.",
         tag: "powered by One inbox · GROW + Conversation AI",
         viz: (
-          <div className="relative min-h-[140px] bg-wash rounded border border-line-soft p-4 overflow-hidden flex flex-col justify-center items-center w-full">
-            <span className="font-mono text-[8px] tracking-[0.1em] text-faint absolute top-2 left-2">ONE INBOX</span>
+          <div className="relative min-h-[140px] bg-white/[0.04] rounded border border-white/10 p-4 overflow-hidden flex flex-col justify-center items-center w-full">
+            <span className="font-mono text-[8px] tracking-[0.1em] text-slate-400 absolute top-2 left-2">ONE INBOX</span>
             <span className="bg-copper/10 text-copper border border-copper/30 px-3 py-1 rounded-full font-mono text-[8px] tracking-wide uppercase mt-3">6 NEW · ALL ANSWERED ✓</span>
           </div>
         )
@@ -248,10 +248,10 @@ const BENEFIT_GROUPS = [
         desc: "\"Who's my top barber this month?\" \"Which chair is fully booked next Saturday?\" — answered in plain language, from your real numbers.",
         tag: "powered by Ask AI + Reports & insights · OPS (LIVE)",
         viz: (
-          <div className="relative min-h-[140px] bg-wash rounded border border-line-soft p-4 overflow-hidden flex flex-col justify-center gap-1.5 w-full">
-            <span className="font-mono text-[8px] tracking-[0.1em] text-faint absolute top-2 left-2">ASK AI</span>
-            <span className="text-[10px] text-muted italic mt-2">"Who's my top barber this month?"</span>
-            <span className="text-[10px] text-ink font-bold font-mono">MARCO — 84 CUTS</span>
+          <div className="relative min-h-[140px] bg-white/[0.04] rounded border border-white/10 p-4 overflow-hidden flex flex-col justify-center gap-1.5 w-full">
+            <span className="font-mono text-[8px] tracking-[0.1em] text-slate-400 absolute top-2 left-2">ASK AI</span>
+            <span className="text-[10px] text-slate-300 italic mt-2">"Who's my top barber this month?"</span>
+            <span className="text-[10px] text-white font-bold font-mono">MARCO — 84 CUTS</span>
           </div>
         )
       }
@@ -313,8 +313,8 @@ export default function BarbershopPage() {
           {/* Hero Visual Mockups */}
           <div className="relative flex flex-col sm:flex-row gap-6 max-w-[550px] w-full justify-self-center lg:justify-self-end">
             <HoverFloat className="flex-1" yOffset={-10} duration={3.5}>
-              <div className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white border border-line rounded-[var(--r-lg)] p-5 relative shadow-md">
-                <div className="flex items-center gap-3 pb-3 border-b border-line-soft mb-3">
+              <div className="bg-navy-900 text-white border border-white/10 rounded-[var(--r-lg)] p-5 relative shadow-md">
+                <div className="flex items-center gap-3 pb-3 border-b border-white/10 mb-3">
                   <span className="w-8 h-8 rounded bg-copper-tint border border-copper/30 grid place-items-center text-copper text-xs shrink-0">✆</span>
                   <div>
                     <b className="font-display text-[0.8rem] font-bold text-white block leading-tight">Kings Cut Barbershop</b>
@@ -333,8 +333,8 @@ export default function BarbershopPage() {
             </HoverFloat>
 
             <HoverFloat className="flex-1" yOffset={10} duration={4} delay={0.5}>
-              <div className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white border border-line rounded-[var(--r-lg)] p-5 relative shadow-md">
-                <div className="flex justify-between items-center pb-3 border-b border-line-soft mb-3">
+              <div className="bg-navy-900 text-white border border-white/10 rounded-[var(--r-lg)] p-5 relative shadow-md">
+                <div className="flex justify-between items-center pb-3 border-b border-white/10 mb-3">
                   <span className="font-display text-[0.8rem] font-bold text-white uppercase tracking-wide">Walk-in Queue</span>
                   <span className="font-mono text-[7.5px] tracking-[0.14em] text-green flex items-center gap-1 uppercase">
                     <span className="w-1 h-1 rounded-full bg-green animate-pulse"></span>
@@ -342,11 +342,11 @@ export default function BarbershopPage() {
                   </span>
                 </div>
                 <div className="flex flex-col gap-2.5">
-                  <div className="flex justify-between items-center text-[0.8rem] border-b border-line-soft/30 pb-1.5">
+                  <div className="flex justify-between items-center text-[0.8rem] border-b border-white/10 pb-1.5">
                     <span className="text-slate-300 font-medium">Deon</span>
                     <span className="font-mono text-[8px] text-copper font-bold uppercase tracking-wider">CUTTING</span>
                   </div>
-                  <div className="flex justify-between items-center text-[0.8rem] border-b border-line-soft/30 pb-1.5">
+                  <div className="flex justify-between items-center text-[0.8rem] border-b border-white/10 pb-1.5">
                     <span className="text-slate-300 font-medium">Alex</span>
                     <span className="font-mono text-[8px] text-slate-400 uppercase tracking-wider">~15 MIN</span>
                   </div>
@@ -372,10 +372,10 @@ export default function BarbershopPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {PAINS.map((pain, idx) => (
-              <Card key={idx} className="bg-gradient-to-br from-white to-[#FAF6F0] dark:bg-none dark:bg-navy-900 border border-[#C48D7D]/15 dark:border-transparent shadow-sm dark:shadow-none rounded-2xl ring-0 p-6 flex flex-row items-start gap-4">
-                <span className="font-mono text-copper dark:text-copper text-xs mt-0.5 shrink-0 select-none">✕</span>
+              <Card key={idx} className="bg-navy-900 border border-transparent shadow-none rounded-2xl ring-0 p-6 flex flex-row items-start gap-4">
+                <span className="font-mono text-copper text-xs mt-0.5 shrink-0 select-none">✕</span>
                 <CardContent className="p-0">
-                  <p className="text-slate-600 dark:text-slate-400 text-xs md:text-sm leading-relaxed">{pain}</p>
+                  <p className="text-slate-300 text-xs md:text-sm leading-relaxed">{pain}</p>
                 </CardContent>
               </Card>
             ))}
@@ -403,7 +403,7 @@ export default function BarbershopPage() {
                 
                 <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {group.cards.map((card, cardIdx) => (
-                    <BadgeCard key={cardIdx} title={card.title} className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-line-soft flex flex-col justify-between min-h-[360px]">
+                    <BadgeCard key={cardIdx} title={card.title} className="bg-navy-900 text-white border-white/10 flex flex-col justify-between min-h-[360px]">
                       <div>
                         <div className="mb-4">
                           {card.viz}
@@ -436,7 +436,7 @@ export default function BarbershopPage() {
             <ScrollReveal className="flex flex-col gap-6" direction="left">
               <div className="max-w-md">
                 <b className="font-display font-bold text-xl block mb-2">A missed call becomes a booking <span className="text-copper">in 3 minutes</span>.</b>
-                <p className="text-slate-300 text-sm leading-relaxed">
+                <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
                   11:12 AM — you're mid-fade, the call drops. The text-back fires instantly; four messages later, it's on the books.
                 </p>
               </div>
@@ -449,7 +449,7 @@ export default function BarbershopPage() {
             <ScrollReveal className="flex flex-col gap-6" direction="right">
               <div className="max-w-md">
                 <b className="font-display font-bold text-xl block mb-2">The walk-in line <span className="text-copper">runs itself</span>.</b>
-                <p className="text-slate-300 text-sm leading-relaxed">
+                <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
                   A walk-in scans the QR at the door, grabs a real place in line, and watches the wait tick down — nobody eyeballs the bench and leaves.
                 </p>
               </div>
@@ -473,7 +473,7 @@ export default function BarbershopPage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="border border-line-soft rounded-[var(--r-lg)] p-8 bg-slate-50/50 dark:bg-navy-900/50 text-slate-900 dark:text-white">
+            <div className="border border-white/10 rounded-[var(--r-lg)] p-8 bg-navy-900 text-white">
               <span className="font-mono text-[10px] tracking-widest text-copper block mb-8 uppercase font-bold">BEFORE FYNZ, SATURDAY</span>
               <div className="space-y-6">
                 {BEFORE_ITEMS.map((item, idx) => (
@@ -485,13 +485,13 @@ export default function BarbershopPage() {
               </div>
             </div>
 
-            <div className="border border-copper/30 rounded-[var(--r-lg)] p-8 bg-copper-tint/5">
+            <div className="border border-copper/30 rounded-[var(--r-lg)] p-8 bg-navy-900 text-white">
               <span className="font-mono text-[10px] tracking-widest text-green block mb-8 uppercase font-bold">SAME SATURDAY, WITH FYNZ</span>
               <div className="space-y-6">
                 {AFTER_ITEMS.map((item, idx) => (
                   <div key={idx} className="flex gap-4 items-start text-sm">
                     <span className="font-mono text-copper shrink-0 w-20 font-bold">{item.time}</span>
-                    <p className="text-ink leading-relaxed">{item.desc}</p>
+                    <p className="text-white leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -510,28 +510,28 @@ export default function BarbershopPage() {
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 text-center mb-12">
-            <div className="bg-navy-800 text-white border border-line-soft p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
-              <span className="font-display text-4xl font-extrabold text-copper block mb-1">120+</span>
+            <div className="bg-navy-800 text-white border border-white/10 p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
+              <CountUp value="120+" className="font-display text-4xl font-extrabold text-copper block mb-1" />
               <span className="font-mono text-[9px] tracking-wider text-slate-300 uppercase">CALLS ANSWERED/MO</span>
             </div>
-            <div className="bg-navy-800 text-white border border-line-soft p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
-              <span className="font-display text-4xl font-extrabold text-copper block mb-1">85%</span>
+            <div className="bg-navy-800 text-white border border-white/10 p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
+              <CountUp value="85%" className="font-display text-4xl font-extrabold text-copper block mb-1" />
               <span className="font-mono text-[9px] tracking-wider text-slate-300 uppercase">FEWER NO-SHOWS</span>
             </div>
-            <div className="bg-navy-800 text-white border border-line-soft p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
-              <span className="font-display text-4xl font-extrabold text-copper block mb-1">3x</span>
+            <div className="bg-navy-800 text-white border border-white/10 p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
+              <CountUp value="3x" className="font-display text-4xl font-extrabold text-copper block mb-1" />
               <span className="font-mono text-[9px] tracking-wider text-slate-300 uppercase">WALK-INS SAVED</span>
             </div>
-            <div className="bg-navy-800 text-white border border-line-soft p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
+            <div className="bg-navy-800 text-white border border-white/10 p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
               <span className="font-display text-4xl font-extrabold text-copper block mb-1">Auto</span>
               <span className="font-mono text-[9px] tracking-wider text-slate-300 uppercase">IG SCHEDULING</span>
             </div>
-            <div className="bg-navy-800 text-white border border-line-soft p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
-              <span className="font-display text-4xl font-extrabold text-copper block mb-1">50+</span>
+            <div className="bg-navy-800 text-white border border-white/10 p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
+              <CountUp value="50+" className="font-display text-4xl font-extrabold text-copper block mb-1" />
               <span className="font-mono text-[9px] tracking-wider text-slate-300 uppercase">NEW 5-STARS</span>
             </div>
           </div>
-          <div className="border border-line-soft p-8 rounded-lg bg-navy-800 text-white max-w-4xl mx-auto text-center italic text-slate-300 text-lg relative">
+          <div className="border border-white/10 p-8 rounded-lg bg-navy-800 text-white max-w-4xl mx-auto text-center italic text-slate-300 text-lg relative">
              "FYNZ saves us at least 10 calls a day mid-fade. Regulars book with their favorite barbers via individual calendars, and we wake up to walk-in queue requests booked overnight. Saturdays finally run themselves."
              <span className="block font-mono text-[10px] tracking-widest text-copper uppercase font-bold not-italic mt-4">— KINGS CUT OWNER, TORONTO</span>
           </div>
@@ -548,13 +548,13 @@ export default function BarbershopPage() {
             </h2>
           </div>
 
-          <Accordion className="w-full">
+          <Accordion className="w-full bg-navy-800 border-white/10">
             {FAQs.map((faq, idx) => (
-              <AccordionItem key={idx} value={`item-${idx}`} className="border-b border-line-soft py-2">
-                <AccordionTrigger className="font-display font-semibold text-lg text-ink hover:text-copper hover:no-underline">
+              <AccordionItem key={idx} value={`item-${idx}`} className="border-b border-white/10 py-2">
+                <AccordionTrigger className="font-display font-semibold text-lg text-white hover:text-copper hover:no-underline">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted leading-relaxed text-sm pt-2 pb-4 max-w-2xl">
+                <AccordionContent className="text-slate-300 leading-relaxed text-sm pt-2 pb-4 max-w-2xl">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>

@@ -13,7 +13,7 @@ export function BadgeCard({ className, title, subtitle, icon, status, children, 
   return (
     <Card
       className={cn(
-        "bg-background border-border rounded-[var(--r-lg)] p-[28px_24px] relative transition-all duration-250 hover:-translate-y-1 hover:border-copper/40 shadow-none",
+        "bg-navy-800 text-white border-white/10 rounded-[var(--r-lg)] p-[28px_24px] relative transition-all duration-250 hover:-translate-y-1 hover:border-copper/40 shadow-none",
         className
       )}
       {...props}
@@ -35,7 +35,7 @@ export function BadgeCard({ className, title, subtitle, icon, status, children, 
           {subtitle}
         </span>
       )}
-      {children && <div className="text-[0.85rem] text-muted">{children}</div>}
+      {children && <div className="text-[0.85rem] text-slate-300">{children}</div>}
     </Card>
   );
 }
