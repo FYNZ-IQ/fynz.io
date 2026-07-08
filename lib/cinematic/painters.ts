@@ -104,7 +104,7 @@ function label(ctx: Ctx, F: Fonts, P: Palette, x: number, y: number, text: strin
 
 /** Drawing region — painters fill most of the canvas. */
 function region(w: number, h: number) {
-  return { x: w * 0.05, y: h * 0.12, w: w * 0.9, h: h * 0.76 };
+  return { x: w * 0.05, y: h * 0.11, w: w * 0.9, h: h * 0.8 };
 }
 
 export type Painter = (ctx: Ctx, w: number, h: number, p: number, t: number, P: Palette, F: Fonts, reduced: boolean) => void;
@@ -153,34 +153,38 @@ export const growDraw: Painter = (ctx, w, h, p, t, P, F) => {
   rr(ctx, ibx, iby, ibw, ibh, 16);
   ctx.fillStyle = P.panel; ctx.fill();
   ctx.strokeStyle = P.hair; ctx.lineWidth = 1; ctx.stroke();
-  label(ctx, F, P, ibx + pad, iby + 22, "INBOX — ALL CHANNELS", P.dim, 10);
-  const channels = ["WhatsApp", "Facebook", "Missed call", "TikTok", "Web form"];
+  label(ctx, F, P, ibx + pad, iby + 22, "INBOX — ALL CHANNELS", P.dim, 11);
+  const channels = ["Text message", "Facebook", "Missed call", "Instagram"];
   const msgs: [string, string][] = [
-    ["Abel", "Do you have Saturday slots?"],
-    ["Sara", "Price for full detail?"],
-    ["+251•••", "Missed call · auto-replied ✓"],
-    ["Lina", "Saw your video — booking?"],
-    ["Noah", "Quote request sent"],
+    ["Ashley", "Do you have Saturday slots?"],
+    ["Jake", "Price for a full detail?"],
+    ["+1 (416) •••", "Missed call · auto-replied ✓"],
+    ["Emma", "Saw your reel — booking?"],
   ];
-  const rowH = (ibh - 44) / 5;
+  const rowH = (ibh - 48) / msgs.length;
   msgs.forEach((m, i) => {
     const k = ez(ph(p, 0.02 + i * 0.07, 0.14 + i * 0.07));
     if (k <= 0) return;
-    const y = iby + 36 + i * rowH;
+    const y = iby + 40 + i * rowH;
     ctx.save();
     ctx.globalAlpha = k;
     const sx = ibx + pad - (1 - k) * 40;
     ctx.beginPath();
-    ctx.arc(sx + 11, y + rowH * 0.42, 11, 0, TAU);
+    ctx.arc(sx + 11, y + rowH * 0.40, 11, 0, TAU);
     ctx.fillStyle = i === 2 ? "rgba(233,190,106,0.25)" : "rgba(217,150,125,0.22)";
     ctx.fill();
-    ctx.font = `600 11px ${F.body}`;
+    ctx.font = `600 12.5px ${F.body}`;
     ctx.fillStyle = P.text; ctx.textAlign = "left"; ctx.textBaseline = "middle";
-    ctx.fillText(m[0], sx + 30, y + rowH * 0.30);
-    ctx.font = `400 10.5px ${F.body}`;
+    ctx.fillText(m[0], sx + 30, y + rowH * 0.24);
+    ctx.font = `500 10px ${F.mono}`;
+    ctx.fillStyle = P.grow;
+    ctx.textAlign = "right";
+    ctx.fillText(channels[i], ibx + ibw - pad, y + rowH * 0.24);
+    ctx.font = `400 11.5px ${F.body}`;
     ctx.fillStyle = P.dim;
-    ctx.fillText(m[1].slice(0, Math.floor(m[1].length * Math.min(1, k * 1.4))), sx + 30, y + rowH * 0.62);
-    label(ctx, F, P, ibx + ibw - pad, y + rowH * 0.30, channels[i], P.grow, 8.5, "right");
+    ctx.textAlign = "left";
+    const msgText = m[1].slice(0, Math.floor(m[1].length * Math.min(1, k * 1.4)));
+    ctx.fillText(msgText, sx + 30, y + rowH * 0.66, ibw - pad * 2 - 30);
     ctx.restore();
   });
   const cols = ["NEW", "FOLLOW-UP", "WON"], ncol = 3;
@@ -192,13 +196,14 @@ export const growDraw: Painter = (ctx, w, h, p, t, P, F) => {
     rr(ctx, x, iby, pw, ibh, 14);
     ctx.fillStyle = P.panel; ctx.fill();
     ctx.strokeStyle = P.hair; ctx.stroke();
-    label(ctx, F, P, x + 10, iby + 20, cols[i], i === 2 ? P.grow : P.dim, 9.5);
+    label(ctx, F, P, x + 10, iby + 20, cols[i], i === 2 ? P.grow : P.dim, 10);
+    const slotH = (ibh - 44) / 3;
     for (let c = 0; c < counts[i]; c++) {
       const start = 0.30 + i * 0.18 + c * 0.07;
       const k = ph(p, start, start + 0.10);
       if (k <= 0) continue;
       const kk = ezb(k);
-      const cy0 = iby + 34 + c * 46, cardH = 36;
+      const cy0 = iby + 34 + c * slotH, cardH = Math.min(36, slotH - 10);
       ctx.save();
       ctx.globalAlpha = Math.min(1, k * 1.6);
       rr(ctx, x + 8, cy0 + (1 - kk) * -26, pw - 16, cardH, 9);
@@ -222,10 +227,12 @@ export const growDraw: Painter = (ctx, w, h, p, t, P, F) => {
     ctx.globalAlpha = 1;
   }
   const leads = Math.round(ez(clamp(p * 1.15, 0, 1)) * 27);
-  label(ctx, F, P, R.x, R.y - 14, "LEADS CAPTURED THIS WEEK", P.dim, 9.5);
-  ctx.font = `800 26px ${F.display}`;
+  ctx.font = `500 11px ${F.mono}`;
+  const lw2 = ctx.measureText("LEADS CAPTURED THIS WEEK").width;
+  label(ctx, F, P, R.x, R.y - 14, "LEADS CAPTURED THIS WEEK", P.dim, 11);
+  ctx.font = `800 24px ${F.display}`;
   ctx.fillStyle = P.grow; ctx.textAlign = "left"; ctx.textBaseline = "middle";
-  ctx.fillText(String(leads), R.x + 218, R.y - 14);
+  ctx.fillText(String(leads), R.x + lw2 + 16, R.y - 13);
 };
 
 /* ---------- SCHEDULE: calendar fills + reminder ripples + no-show rebooked ---------- */
@@ -233,14 +240,14 @@ export const schedDraw: Painter = (ctx, w, h, p, t, P, F) => {
   const R = region(w, h);
   const days = ["MON", "TUE", "WED", "THU", "FRI"], rows = 6;
   const gx = R.x, gy = R.y + 26, gw = R.w, gh = R.h - 46;
-  label(ctx, F, P, gx, R.y + 4, "THIS WEEK — BOOKINGS", P.dim, 10);
+  label(ctx, F, P, gx, R.y + 4, "THIS WEEK — BOOKINGS", P.dim, 11);
   const cw = gw / days.length;
   days.forEach((d, i) => label(ctx, F, P, gx + i * cw + cw / 2, gy + 10, d, P.dim, 9.5, "center"));
   ctx.strokeStyle = P.hair; ctx.lineWidth = 1;
   rr(ctx, gx, gy + 22, gw, gh - 22, 14);
   ctx.fillStyle = P.panel; ctx.fill(); ctx.stroke();
   const order = [[0, 1], [2, 0], [1, 2], [4, 1], [3, 3], [0, 3], [2, 2], [1, 4], [4, 4], [3, 0], [2, 4], [0, 0], [4, 2], [1, 0], [3, 2], [2, 1]];
-  const names = ["Abel", "Sara", "Lina", "Noah", "Maya", "Omar", "Ivy", "Leo"];
+  const names = ["Ashley", "Jake", "Emma", "Noah", "Maya", "Tyler", "Ivy", "Leo"];
   order.forEach((s, i) => {
     const k = ph(p, 0.06 + i * 0.034, 0.12 + i * 0.034);
     if (k <= 0) return;
@@ -255,9 +262,9 @@ export const schedDraw: Painter = (ctx, w, h, p, t, P, F) => {
     rr(ctx, x, y, bw, bh, 8);
     ctx.fillStyle = "rgba(127,178,229,0.18)"; ctx.fill();
     ctx.strokeStyle = "rgba(127,178,229,0.55)"; ctx.stroke();
-    ctx.font = `600 10px ${F.body}`;
+    ctx.font = `600 11px ${F.body}`;
     ctx.fillStyle = P.schedText; ctx.textAlign = "left"; ctx.textBaseline = "middle";
-    ctx.fillText(names[i % names.length], x + 8, y + bh / 2);
+    ctx.fillText(names[i % names.length], x + 8, y + bh / 2, bw - 14);
     ctx.restore();
   });
   const rk = ph(p, 0.40, 0.62);
@@ -301,10 +308,10 @@ export const schedDraw: Painter = (ctx, w, h, p, t, P, F) => {
 /* ---------- SHOP: store builds -> add to cart -> paid -> delivery ---------- */
 export const shopDraw: Painter = (ctx, w, h, p, t, P, F) => {
   const R = region(w, h);
-  label(ctx, F, P, R.x, R.y + 4, "YOUR STORE — LIVE", P.dim, 10);
+  label(ctx, F, P, R.x, R.y + 4, "YOUR STORE — LIVE", P.dim, 11);
   const cards = 3, gap = 14;
   const cw = (R.w - gap * (cards - 1)) / cards, chh = R.h * 0.46, cy = R.y + 26;
-  const prices = ["24.00", "58.00", "12.50"];
+  const prices = ["$24.00", "$58.00", "$12.50"];
   const cartX = R.x + R.w - 26, cartY = cy - 8;
   for (let i = 0; i < cards; i++) {
     const k = ez(ph(p, 0.04 + i * 0.07, 0.16 + i * 0.07));
@@ -317,10 +324,10 @@ export const shopDraw: Painter = (ctx, w, h, p, t, P, F) => {
     ctx.strokeStyle = P.hair; ctx.stroke();
     rr(ctx, x + 10, y + 10, cw - 20, chh * 0.52, 10);
     ctx.fillStyle = `rgba(233,190,106,${0.10 + 0.07 * i})`; ctx.fill();
-    ctx.font = `600 11px ${F.body}`;
+    ctx.font = `600 12.5px ${F.body}`;
     ctx.fillStyle = P.text; ctx.textAlign = "left"; ctx.textBaseline = "middle";
     ctx.fillText("Product " + (i + 1), x + 12, y + chh * 0.66);
-    ctx.font = `500 11px ${F.mono}`;
+    ctx.font = `500 12px ${F.mono}`;
     ctx.fillStyle = P.shop;
     ctx.fillText(prices[i], x + 12, y + chh * 0.82);
     ctx.restore();
@@ -349,8 +356,8 @@ export const shopDraw: Painter = (ctx, w, h, p, t, P, F) => {
     label(ctx, F, P, px + 14, py + 22, "CHECKOUT", P.dim, 10);
     ctx.font = `500 13px ${F.mono}`;
     ctx.fillStyle = P.text; ctx.textAlign = "left";
-    ctx.fillText("Total  58.00", px + 14, py + 48);
-    label(ctx, F, P, px + 14, py + 70, "MOBILE MONEY · CARD · BANK", P.dim, 9);
+    ctx.fillText("Total  $58.00", px + 14, py + 48);
+    label(ctx, F, P, px + 14, py + 70, "CARD · APPLE PAY · TAP TO PAY", P.dim, 10);
     ctx.globalAlpha = 1;
   }
   const pk = ph(p, 0.62, 0.78);
@@ -395,18 +402,18 @@ export const shopDraw: Painter = (ctx, w, h, p, t, P, F) => {
 /* ---------- OPS: ledger assembles, bars grow, inventory stacks ---------- */
 export const opsDraw: Painter = (ctx, w, h, p, t, P, F) => {
   const R = region(w, h);
-  label(ctx, F, P, R.x, R.y + 4, "OPS — PREVIEW", P.dim, 10);
+  label(ctx, F, P, R.x, R.y + 4, "OPS — PREVIEW", P.dim, 11);
   const lx = R.x, lw = R.w * 0.55, ly = R.y + 26, lh = R.h * 0.56;
   rr(ctx, lx, ly, lw, lh, 14);
   ctx.fillStyle = P.panel; ctx.fill();
   ctx.strokeStyle = P.hair; ctx.stroke();
   label(ctx, F, P, lx + 12, ly + 20, "LEDGER — AUTO-RECORDED", P.dim, 9);
   const rows: [string, string, string][] = [
-    ["Booking · Sara", "+ 35.00", P.sched],
-    ["Store order #214", "+ 58.00", P.shop],
-    ["Lead → invoice", "+ 120.00", P.grow],
-    ["Supplies", "– 22.40", P.ops],
-    ["Booking · Noah", "+ 35.00", P.sched],
+    ["Booking · Sarah", "+ $35.00", P.sched],
+    ["Store order #214", "+ $58.00", P.shop],
+    ["Lead → invoice", "+ $120.00", P.grow],
+    ["Supplies", "– $22.40", P.ops],
+    ["Booking · Noah", "+ $35.00", P.sched],
   ];
   rows.forEach((r, i) => {
     const k = ez(ph(p, 0.06 + i * 0.08, 0.18 + i * 0.08));
@@ -417,10 +424,10 @@ export const opsDraw: Painter = (ctx, w, h, p, t, P, F) => {
     const sx = lx + 12 - (1 - k) * 30;
     ctx.fillStyle = r[2];
     rr(ctx, sx, y - 4, 3, 18, 1.5); ctx.fill();
-    ctx.font = `400 11px ${F.body}`;
+    ctx.font = `400 12px ${F.body}`;
     ctx.fillStyle = P.text; ctx.textAlign = "left"; ctx.textBaseline = "middle";
     ctx.fillText(r[0], sx + 12, y + 5);
-    ctx.font = `500 11px ${F.mono}`;
+    ctx.font = `500 12px ${F.mono}`;
     ctx.fillStyle = r[1][0] === "+" ? P.grow : P.dim;
     ctx.textAlign = "right";
     ctx.fillText(r[1], lx + lw - 12, y + 5);

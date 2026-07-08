@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
@@ -38,11 +39,7 @@ export function Navbar() {
       <div className="wrap h-[72px] flex items-center gap-[34px]">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-[11px] shrink-0" aria-label="FYNZ home">
-          <svg className="w-[30px] h-[30px]" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-            <path d="M4 26 L16 4 L28 26" stroke="#D9967D" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M9 18 H23" stroke="#D9967D" strokeWidth="1.8" strokeLinecap="round"/>
-            <circle cx="16" cy="26" r="2" fill="#D9967D"/>
-          </svg>
+          <Image src="/logo-fynz.png" alt="" width={36} height={31} className="h-[30px] w-auto" priority />
           <span className="font-display font-extrabold text-[1.22rem] tracking-[0.06em]">FYNZ</span>
         </Link>
 

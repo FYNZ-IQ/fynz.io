@@ -1,5 +1,6 @@
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export function Footer() {
   return (
@@ -8,11 +9,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr_1fr] gap-[36px] mb-[56px]">
           <div className="flex flex-col">
             <Link href="/" className="flex items-center gap-[11px] shrink-0" aria-label="FYNZ home">
-              <svg className="w-[28px] h-[28px]" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-                <path d="M4 26 L16 4 L28 26" stroke="#D9967D" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M9 18 H23" stroke="#D9967D" strokeWidth="1.8" strokeLinecap="round"/>
-                <circle cx="16" cy="26" r="2" fill="#D9967D"/>
-              </svg>
+              <Image src="/logo-fynz.png" alt="" width={34} height={29} className="h-[28px] w-auto" />
               <span className="font-display font-extrabold text-[1.22rem] tracking-[0.06em]">FYNZ</span>
             </Link>
             <p className="text-[0.86rem] text-slate-300 my-4 mb-5 max-w-[260px]">

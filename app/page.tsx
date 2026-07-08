@@ -7,6 +7,7 @@ import { Chip } from "@/components/shared";
 import { Button } from "@/components/ui";
 import { cn } from "@/lib/utils";
 import { CinematicProvider, CineCanvas, Grain, Parallax, ProgressRail } from "@/components/cinematic";
+import { AiAgentVisual, ChannelVisual, IndustryVisual, VisualStyles } from "@/components/cinematic/visuals";
 
 
 const PROOF_BADGES = [
@@ -371,6 +372,7 @@ export default function Home() {
   return (
     <CinematicProvider>
     <div className="flex flex-col w-full">
+      <VisualStyles />
       <ProgressRail
         sections={[
           { id: "hero", label: "Fynz", color: "#D9967D" },
@@ -500,7 +502,7 @@ export default function Home() {
                   <span className="text-copper text-xs mb-0.5">★★★★★</span>
                   <div className="text-center">
                     <b className="text-white text-xs block leading-none">{badge.rating}</b>
-                    <small className="font-mono text-[7px] text-slate-400 tracking-wider uppercase mt-1 block">{badge.name}</small>
+                    <small className="font-mono text-[10px] text-slate-400 tracking-wider uppercase mt-1 block">{badge.name}</small>
                   </div>
                 </div>
               ))}
@@ -513,7 +515,7 @@ export default function Home() {
       <section id="features" className="sec py-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="max-w-2xl mb-16">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">The full platform</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">The full platform</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
               Booking is just the <span className="text-copper">beginning</span>.
             </h2>
@@ -553,7 +555,7 @@ export default function Home() {
       <section id="pillars" className="sec py-24 bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="text-center mb-16 max-w-3xl mx-auto">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Four pillars</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Four pillars</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
               Everything your business runs on, in <span className="text-copper">four pillars</span>
             </h2>
@@ -571,17 +573,17 @@ export default function Home() {
               >
                 <div>
                   {/* Scroll-driven product demo graphic */}
-                  <div className="relative h-[230px] mb-6 rounded-[10px] overflow-hidden border border-slate-100 dark:border-line-soft bg-slate-50/60 dark:bg-navy-900/40">
+                  <div className="relative h-[300px] mb-6 rounded-[10px] overflow-hidden border border-slate-100 dark:border-line-soft bg-slate-50/60 dark:bg-navy-900/40">
                     <CineCanvas painter={p.id} />
                   </div>
                   <div className="w-10 h-10 rounded border border-slate-200 dark:border-none bg-slate-50 dark:bg-navy-750 flex items-center justify-center text-copper mb-6 group-hover:bg-copper group-hover:text-white transition-colors duration-300">
                     {p.icon}
                   </div>
                   <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white group-hover:text-copper transition-colors duration-300 mb-2">{p.title}</h3>
-                  <p className="font-mono text-[10px] text-slate-500 dark:text-slate-400 tracking-wide uppercase mb-3">{p.promise}</p>
-                  <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">{p.desc}</p>
+                  <p className="font-mono text-xs text-slate-500 dark:text-slate-400 tracking-wide uppercase mb-3">{p.promise}</p>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{p.desc}</p>
                 </div>
-                <span className="inline-flex items-center gap-1 font-mono text-[10px] tracking-wider text-copper uppercase mt-6 group-hover:translate-x-1 transition-transform">
+                <span className="inline-flex items-center gap-1 font-mono text-xs tracking-wider text-copper uppercase mt-6 group-hover:translate-x-1 transition-transform">
                   Explore →
                 </span>
               </Link>
@@ -594,7 +596,7 @@ export default function Home() {
       <section className="sec py-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="text-center mb-16 max-w-3xl mx-auto">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Consolidate</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Consolidate</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
               Everything, <span className="text-copper">actually</span> in one place
             </h2>
@@ -640,7 +642,7 @@ export default function Home() {
         <Grain className="hidden dark:block" />
         <div className="wrap max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16 max-w-3xl mx-auto">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Automation</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Automation</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
               Set it once. It runs <span className="text-copper">forever</span>.
             </h2>
@@ -673,7 +675,7 @@ export default function Home() {
       <section id="ai" className="sec py-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="text-center mb-16 max-w-3xl mx-auto">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">FYNZ AI</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">FYNZ AI</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
               Meet your <span className="text-copper">AI team</span>
             </h2>
@@ -690,14 +692,15 @@ export default function Home() {
                 className="group border border-slate-200 shadow-sm dark:border-navy-900 dark:shadow-none bg-slate-50 dark:bg-navy-900 text-slate-900 dark:text-white hover:border-copper/40 p-6 rounded-[var(--r-lg)] flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 min-h-[250px]"
               >
                 <div>
+                  <AiAgentVisual name={agent.name} />
                   <div className="flex justify-between items-center mb-4">
-                    <span className="font-mono text-[8px] text-green border border-green/30 px-2 py-0.5 rounded uppercase font-semibold">ON DUTY</span>
+                    <span className="font-mono text-[10px] text-green border border-green/30 px-2 py-0.5 rounded uppercase font-semibold">ON DUTY</span>
                   </div>
                   <h4 className="font-display font-bold text-lg text-slate-900 dark:text-white group-hover:text-copper transition-colors duration-300 mb-1">{agent.name}</h4>
-                  <span className="font-mono text-[10px] text-slate-500 dark:text-slate-400 tracking-wider uppercase block mb-3">{agent.role}</span>
-                  <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">{agent.desc}</p>
+                  <span className="font-mono text-xs text-slate-500 dark:text-slate-400 tracking-wider uppercase block mb-3">{agent.role}</span>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{agent.desc}</p>
                 </div>
-                <span className="inline-flex items-center gap-1 font-mono text-[10px] tracking-wider text-copper uppercase mt-6 group-hover:translate-x-1 transition-transform">
+                <span className="inline-flex items-center gap-1 font-mono text-xs tracking-wider text-copper uppercase mt-6 group-hover:translate-x-1 transition-transform">
                   Explore Agent →
                 </span>
               </Link>
@@ -715,7 +718,7 @@ export default function Home() {
       <section className="sec py-24 bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="max-w-2xl mb-16">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Booking channels</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Booking channels</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
               Meet customers <span className="text-copper">wherever</span> they are
             </h2>
@@ -727,8 +730,9 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {CHANNELS.map((ch, idx) => (
               <div key={idx} className="bg-white dark:bg-navy-800/60 text-slate-900 dark:text-white border border-slate-200 shadow-sm dark:border-white/5 dark:shadow-none p-5 rounded-lg">
+                <ChannelVisual title={ch.title} />
                 <b className="font-display font-bold text-base text-slate-900 dark:text-white block mb-2">{ch.title}</b>
-                <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">{ch.desc}</p>
+                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{ch.desc}</p>
               </div>
             ))}
           </div>
@@ -739,7 +743,7 @@ export default function Home() {
       <section id="industries" className="sec py-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="max-w-2xl mb-16">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Who's it for</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Who's it for</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
               Built for <span className="text-copper">your</span> business
             </h2>
@@ -756,10 +760,11 @@ export default function Home() {
                 className="group border border-slate-200 shadow-sm dark:border-white/5 dark:shadow-none bg-slate-50 dark:bg-navy-900 text-slate-900 dark:text-white hover:border-copper/40 p-5 rounded-lg flex flex-col justify-between transition-all duration-200 hover:-translate-y-0.5"
               >
                 <div>
+                  <IndustryVisual title={ind.title} />
                   <b className="font-display font-bold text-base text-slate-900 dark:text-white group-hover:text-copper transition-colors duration-300 block mb-1">{ind.title}</b>
-                  <p className="text-slate-600 dark:text-slate-400 text-xs">{ind.desc}</p>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm">{ind.desc}</p>
                 </div>
-                <span className="font-mono text-[10px] tracking-wider text-copper uppercase mt-4 block group-hover:translate-x-1 transition-transform">
+                <span className="font-mono text-xs tracking-wider text-copper uppercase mt-4 block group-hover:translate-x-1 transition-transform">
                   Explore →
                 </span>
               </Link>
@@ -787,7 +792,7 @@ export default function Home() {
       <section className="sec py-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Owners on FYNZ</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Owners on FYNZ</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight">
               Less juggling. More <span className="text-copper">business</span>.
             </h2>
@@ -818,7 +823,7 @@ export default function Home() {
       {/* Final CTA */}
       <section id="cta" className="final py-24 relative overflow-hidden text-center bg-radial-[at_bottom_center] from-copper/10 via-transparent to-transparent">
         <div className="wrap max-w-4xl mx-auto px-6 relative z-10">
-          <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Start today</span>
+          <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Start today</span>
           <h2 className="font-display font-extrabold text-4xl md:text-5xl tracking-tight mb-4">
             Your business, <span className="text-copper">handled</span>.
           </h2>
