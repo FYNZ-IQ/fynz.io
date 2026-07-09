@@ -9,10 +9,27 @@ import { cn } from "@/lib/utils";
 
 type BillingCycle = "monthly" | "annual";
 
-const PLANS = [
+type Plan = {
+  name: string;
+  who: string;
+  mPrice: number;
+  aPrice: number;
+  from?: boolean;
+  cap?: string;
+  mCap?: string;
+  aCap?: string;
+  note?: string;
+  cta: string;
+  ctaLink: string;
+  popular: boolean;
+  freeFlag?: string;
+  features: string[];
+};
+
+const PLANS: Plan[] = [
   {
     name: "Free",
-    who: "For getting your first bookings and leads in one place.",
+    who: "Get found and get booked — your first step off pen-and-paper.",
     mPrice: 0,
     aPrice: 0,
     cap: "FREE. FOREVER. NO CARD.",
@@ -22,119 +39,136 @@ const PLANS = [
     freeFlag: "FREE FOREVER · NOT A TRIAL",
     features: [
       "24/7 booking page + QR code",
-      "CRM with 500 contacts",
-      "SMS & email inbox",
-      "3 active automations",
-      "Payments & invoicing"
+      "CRM with 250 contacts",
+      "Unified inbox (email)",
+      "1 active automation",
+      "Business dashboard — see what's waiting, like clients overdue for rebook"
     ]
   },
   {
-    name: "Start",
-    who: "For solo owners replacing their first few subscriptions.",
-    mPrice: 29,
-    aPrice: 23,
-    mCap: "BILLED MONTHLY · CANCEL ANYTIME",
+    name: "Launch",
+    who: "The full system, set up for you in 48 hours.",
+    mPrice: 97,
+    aPrice: 81,
+    mCap: "14-DAY TRIAL · CANCEL ANYTIME",
     aCap: "PER MONTH · BILLED ANNUALLY",
-    cta: "Choose Start",
+    note: "One-time onboarding fee $299 — waived on annual",
+    cta: "Start 14-day trial",
     ctaLink: "#start",
     popular: false,
     features: [
       "Everything in Free",
-      "2,500 contacts · 5 staff",
-      "All inbox channels + IG & FB",
-      "Email & SMS marketing",
-      "Online store + e-signatures",
-      "Reviews & Content AI"
+      "48-hour concierge setup — our team imports your contacts and turns everything on",
+      "Dedicated business phone number + 2-way SMS",
+      "Missed-call text-back — never lose a job to a missed call",
+      "Unlimited contacts & automations",
+      "Email marketing, funnels & landing pages",
+      "Review requests on autopilot",
+      "Payments, invoicing & online store"
     ]
   },
   {
-    name: "Grow",
-    who: "For teams ready to automate the whole customer journey.",
-    mPrice: 79,
-    aPrice: 63,
-    mCap: "BILLED MONTHLY · CANCEL ANYTIME",
+    name: "Growth",
+    who: "Software plus a team that runs your marketing every month.",
+    mPrice: 297,
+    aPrice: 248,
+    mCap: "14-DAY TRIAL · CANCEL ANYTIME",
     aCap: "PER MONTH · BILLED ANNUALLY",
-    cta: "Choose Grow",
+    note: "One-time onboarding fee $499 — waived on annual",
+    cta: "Start 14-day trial",
     ctaLink: "#start",
     popular: true,
     features: [
-      "Everything in Start",
-      "10,000 contacts · 15 staff",
-      "Unlimited automations & funnels",
-      "Conversation AI included",
-      "Memberships, courses & communities",
-      "Up to 3 locations"
+      "Everything in Launch",
+      "Conversation AI — instant replies on SMS, chat & DMs",
+      "1 done-for-you campaign every month (rebooking, reactivation) — built and sent by our team",
+      "Review responses managed for you",
+      "Content AI + social planner",
+      "Quarterly strategy & optimization call",
+      "Priority support"
     ]
   },
   {
-    name: "Scale",
-    who: "For multi-location operators running everything on FYNZ.",
-    mPrice: 149,
-    aPrice: 119,
-    mCap: "BILLED MONTHLY · CANCEL ANYTIME",
+    name: "Managed",
+    who: "Your virtual front office. We run it, you run the business.",
+    mPrice: 697,
+    aPrice: 581,
+    from: true,
+    mCap: "BILLED MONTHLY",
     aCap: "PER MONTH · BILLED ANNUALLY",
-    cta: "Talk to us",
+    cta: "Book a demo",
     ctaLink: "#demo",
     popular: false,
     features: [
-      "Everything in Grow",
-      "Unlimited contacts, staff & locations",
-      "Full AI team — Voice AI included",
-      "Multi-location rollups",
-      "Priority support & onboarding"
+      "Everything in Growth",
+      "Voice AI receptionist with human backup during business hours",
+      "Inbox coverage — messages answered for you",
+      "Unlimited done-for-you campaigns",
+      "Compliance fully handled — texting registration, consent and opt-outs, zero legal exposure",
+      "Monthly recovered-revenue report"
     ]
   }
 ];
 
-const COMPARISON_MATRIX = [
+type Cell = string | boolean;
+
+type MatrixRow = {
+  name: string;
+  free: Cell;
+  launch: Cell;
+  growth: Cell;
+  managed: Cell;
+  link?: string;
+};
+
+const COMPARISON_MATRIX: { group: string; rows: MatrixRow[] }[] = [
   {
     group: "GROW",
     rows: [
-      { name: "CRM contacts", free: "500", start: "2,500", grow: "10,000", scale: "Unlimited", link: "/features/crm" },
-      { name: "Unified inbox", free: "SMS + EMAIL", start: "+ IG & FB", grow: "ALL CHANNELS", scale: "ALL CHANNELS", link: "/features/inbox" },
-      { name: "Email & SMS marketing", free: false, start: true, grow: true, scale: true, link: "/features/marketing" },
-      { name: "Automations & workflows", free: "3 ACTIVE", start: "10 ACTIVE", grow: "UNLIMITED", scale: "UNLIMITED", link: "/features/automations" },
-      { name: "Funnels & landing pages", free: "1 PAGE", start: "5 PAGES", grow: "UNLIMITED", scale: "UNLIMITED", link: "/features/funnels" },
-      { name: "Reputation & reviews", free: false, start: true, grow: true, scale: true, link: "/features/reputation" },
-      { name: "Social planner", free: false, start: true, grow: true, scale: true, link: "/features/social-planner" }
-    ]
-  },
-  {
-    group: "SCHEDULE",
-    rows: [
-      { name: "24/7 booking page", free: true, start: true, grow: true, scale: true, link: "/features/booking-core" },
-      { name: "Staff members", free: "1", start: "5", grow: "15", scale: "UNLIMITED", link: "/features/team" },
-      { name: "Reminders", free: "EMAIL", start: "SMS + EMAIL", grow: "SMS + EMAIL", scale: "SMS + EMAIL", link: "/features/reminders" },
-      { name: "Booking channels", free: "PAGE + QR", start: "ALL", grow: "ALL", scale: "ALL", link: "/features/booking-channels" },
-      { name: "Multi-location", free: false, start: false, grow: "UP TO 3", scale: "UNLIMITED", link: "/features/multi-location" }
+      { name: "CRM contacts", free: "250", launch: "UNLIMITED", growth: "UNLIMITED", managed: "UNLIMITED", link: "/features/crm" },
+      { name: "Unified inbox", free: "EMAIL", launch: "ALL CHANNELS", growth: "ALL CHANNELS", managed: "ALL CHANNELS", link: "/features/inbox" },
+      { name: "Automations", free: "1 ACTIVE", launch: "UNLIMITED", growth: "UNLIMITED", managed: "UNLIMITED", link: "/features/automations" },
+      { name: "Email & SMS marketing", free: false, launch: true, growth: true, managed: true, link: "/features/marketing" },
+      { name: "Missed-call text-back", free: false, launch: true, growth: true, managed: true, link: "/features/conversation" },
+      { name: "Review requests", free: false, launch: true, growth: true, managed: true, link: "/features/reviews" },
+      { name: "Review responses managed for you", free: false, launch: false, growth: true, managed: true, link: "/features/reputation" },
+      { name: "Social planner + Content AI", free: false, launch: false, growth: true, managed: true, link: "/ai/content" }
     ]
   },
   {
     group: "SHOP",
     rows: [
-      { name: "Payments & invoicing", free: true, start: true, grow: true, scale: true, link: "/features/payments" },
-      { name: "Estimates & e-signatures", free: false, start: true, grow: true, scale: true, link: "/features/invoicing" },
-      { name: "Online store", free: false, start: true, grow: true, scale: true, link: "/features/store" },
-      { name: "Memberships & courses", free: false, start: false, grow: true, scale: true, link: "/features/memberships" },
-      { name: "Communities", free: false, start: false, grow: true, scale: true, link: "/features/communities" }
-    ]
-  },
-  {
-    group: "OPS",
-    rows: [
-      { name: "Reporting & dashboards", free: "BASIC", start: true, grow: "ADVANCED", scale: "ADVANCED", link: "/features/reporting" },
-      { name: "Team roles & permissions", free: false, start: true, grow: true, scale: true, link: "/features/roles" },
-      { name: "Accounting & tax", free: "soon", start: "soon", grow: "soon", scale: "soon", link: "/features/accounting" },
-      { name: "Multi-location rollups", free: false, start: false, grow: false, scale: "soon", link: "/features/multi-location" }
+      { name: "Payments & invoicing", free: false, launch: true, growth: true, managed: true, link: "/features/payments" },
+      { name: "Online store", free: false, launch: true, growth: true, managed: true, link: "/features/payments" },
+      { name: "Funnels & landing pages", free: false, launch: true, growth: true, managed: true, link: "/features/funnels" }
     ]
   },
   {
     group: "FYNZ AI",
     rows: [
-      { name: "Conversation AI", free: false, start: "ADD-ON", grow: true, scale: true, link: "/ai/conversation" },
-      { name: "Voice AI", free: false, start: false, grow: "ADD-ON", scale: true, link: "/ai/voice" },
-      { name: "Reviews AI", free: false, start: true, grow: true, scale: true, link: "/ai/reviews" },
-      { name: "Content AI", free: false, start: true, grow: true, scale: true, link: "/ai/content" }
+      { name: "Conversation AI", free: false, launch: false, growth: true, managed: true, link: "/ai/conversation" },
+      { name: "Voice AI", free: false, launch: false, growth: false, managed: true, link: "/ai/voice" }
+    ]
+  },
+  {
+    group: "DONE FOR YOU",
+    rows: [
+      { name: "Concierge setup (48h)", free: false, launch: true, growth: true, managed: "WHITE-GLOVE" },
+      { name: "Done-for-you campaigns", free: false, launch: false, growth: "1/MO", managed: "UNLIMITED", link: "/features/marketing" },
+      { name: "Compliance handled", free: false, launch: false, growth: false, managed: true },
+      { name: "Monthly revenue report", free: false, launch: false, growth: false, managed: true, link: "/features/reporting" }
+    ]
+  },
+  {
+    group: "OPS",
+    rows: [
+      { name: "Accounting & tax", free: "soon", launch: "soon", growth: "soon", managed: "soon", link: "/features/accounting" }
+    ]
+  },
+  {
+    group: "ADD-ONS",
+    rows: [
+      { name: "Fynz Social add-on", free: false, launch: "+$249/MO", growth: "+$249/MO", managed: "+$249/MO", link: "#fynz-social" }
     ]
   }
 ];
@@ -142,11 +176,19 @@ const COMPARISON_MATRIX = [
 const FAQS = [
   {
     q: "Is the Free plan really free forever?",
-    a: "Yes — it's a plan, not a trial. No card required, no 14-day countdown. It covers a real single-person business: bookings, a small CRM, an inbox, and payments. You only upgrade when you want more capacity or more automation."
+    a: "Yes. No card required, no expiry, no countdown — it's a starter plan, not a trial. You get a real working setup: a 24/7 booking page, a 250-contact CRM, an email inbox, and one automation, for as long as you want them."
   },
   {
-    q: "Do you charge per staff member?",
-    a: "No per-seat surprises. Each plan includes a set number of staff members (Free covers you; Scale is unlimited), and everyone on your team gets their own login with role-based permissions at no extra cost per seat."
+    q: "Do I need a card for the 14-day trial?",
+    a: "Yes. Launch and Growth start with 14 days free, and billing begins when the trial ends — cancel anytime before then and you pay nothing. Either way, our team sets everything up for you within 48 hours, so you spend the trial using the system, not building it."
+  },
+  {
+    q: "What does concierge setup include?",
+    a: "Within 48 hours of signing up, our team imports your contacts, puts your booking page live, turns on missed-call text-back, and switches on review requests. You start with a working system, not an empty one."
+  },
+  {
+    q: "Is there an onboarding fee?",
+    a: "Launch has a one-time $299 onboarding fee and Growth a one-time $499 fee — that's what funds the concierge setup. Both are waived when you choose annual billing."
   },
   {
     q: "I'm in Canada — what do I pay?",
@@ -155,17 +197,21 @@ const FAQS = [
   {
     q: "Can I cancel or change plans anytime?",
     a: "Yes. Upgrade, downgrade, or cancel from your account settings anytime — monthly plans stop at the end of the billing cycle, and annual plans keep running until the term ends. Your data stays exportable either way."
+  },
+  {
+    q: "What is Fynz Social?",
+    a: "A done-for-you social media add-on for any paid plan, at $249 per month. You take the pictures and videos, and our team creates and publishes 12–16 branded posts a month across your social profiles — with a monthly content calendar sent to you for approval."
   }
 ];
 
 export default function PricingPage() {
   const [billing, setBilling] = useState<BillingCycle>("monthly");
 
-  const getPrice = (plan: typeof PLANS[0]) => {
+  const getPrice = (plan: Plan) => {
     return billing === "monthly" ? plan.mPrice : plan.aPrice;
   };
 
-  const getCap = (plan: typeof PLANS[0]) => {
+  const getCap = (plan: Plan) => {
     if (plan.mPrice === 0) return plan.cap;
     return billing === "monthly" ? plan.mCap : plan.aCap;
   };
@@ -213,13 +259,12 @@ export default function PricingPage() {
               )}
             >
               Annual
-              <span className="font-mono text-[9px] tracking-wider bg-green/10 text-green border border-green/30 px-2 py-0.5 rounded-full uppercase shrink-0">SAVE ~20%</span>
+              <span className="font-mono text-[9px] tracking-wider bg-green/10 text-green border border-green/30 px-2 py-0.5 rounded-full uppercase shrink-0">2 MONTHS FREE</span>
             </span>
           </div>
 
           <div className="flex flex-col gap-1.5 items-center justify-center mt-6 font-mono text-[9.5px] tracking-wider text-faint">
             <span>PRICES IN USD · CAD BILLING AVAILABLE FOR CANADA</span>
-            <span className="text-copper/90">PRICING PROVISIONAL — FINAL PLANS &amp; GATING TBD</span>
           </div>
         </div>
       </section>
@@ -227,6 +272,9 @@ export default function PricingPage() {
       {/* Plan Cards Grid */}
       <section className="py-16 md:py-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
+          <p className="text-center text-muted text-sm md:text-base font-display font-semibold mb-10">
+            Start your 14-day trial — our team sets everything up for you within 48 hours.
+          </p>
           <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
             {PLANS.map((plan, idx) => (
               <div
@@ -251,12 +299,15 @@ export default function PricingPage() {
                     "font-mono text-[8.5px] tracking-wider px-2.5 py-1 rounded-md block w-fit mb-4 select-none",
                     plan.freeFlag ? "text-green bg-green/10 border border-green/30" : "invisible border border-transparent"
                   )}>
-                    {plan.freeFlag || "PLACEHOLDER"}
+                    {plan.freeFlag || " "}
                   </span>
                   <h3 className="font-display font-extrabold text-xl text-white mb-1.5">{plan.name}</h3>
                   <p className="text-slate-300 text-xs leading-relaxed min-h-[48px] mb-6">{plan.who}</p>
 
                   <div className="flex items-baseline gap-1.5 border-b border-white/10 pb-4 mb-4">
+                    {plan.from && (
+                      <span className="font-mono text-[9px] text-slate-400 tracking-wider uppercase">FROM</span>
+                    )}
                     <span className="font-mono text-copper text-lg font-bold">$</span>
                     <span className="font-mono text-3xl font-extrabold tracking-tight text-white">
                       {getPrice(plan)}
@@ -266,6 +317,11 @@ export default function PricingPage() {
                   <span className="font-mono text-[8.5px] tracking-wider text-slate-400 block min-h-[14px]">
                     {getCap(plan)}
                   </span>
+                  {plan.note && (
+                    <span className="font-mono text-[8.5px] tracking-wider text-slate-400 block mt-1.5">
+                      {plan.note}
+                    </span>
+                  )}
 
                   <Button
                     className={cn(
@@ -289,6 +345,44 @@ export default function PricingPage() {
               </div>
             ))}
           </StaggerGroup>
+
+          {/* Human-team banner */}
+          <ScrollReveal>
+            <div className="mt-10 bg-navy-900 text-white rounded-[var(--r-lg)] px-8 py-6 text-center">
+              <p className="font-display font-semibold text-sm md:text-base">
+                Real humans set you up and run your campaigns — included in every paid plan.
+              </p>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Fynz Social Add-on */}
+      <section id="fynz-social" className="py-16 md:py-24 border-b border-line-soft">
+        <div className="wrap max-w-7xl mx-auto px-6">
+          <ScrollReveal>
+            <div className="bg-navy-900 text-white rounded-[var(--r-lg)] p-8 md:p-12 flex flex-col md:flex-row gap-8 md:items-center md:justify-between">
+              <div className="max-w-2xl">
+                <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Add-on · Available on any paid plan</span>
+                <h2 className="font-display font-extrabold text-2xl md:text-3xl tracking-tight mb-3">
+                  Fynz Social — <span className="text-copper">$249/mo</span>
+                </h2>
+                <p className="text-slate-200 text-sm md:text-base font-semibold leading-relaxed mb-3">
+                  You take the pictures and videos. We do the rest.
+                </p>
+                <p className="text-slate-300 text-xs md:text-sm leading-relaxed">
+                  Our team creates and publishes 12–16 branded posts per month across Instagram, Facebook, Google Business Profile, TikTok, LinkedIn, X and Pinterest — including seasonal posts and graphics matched to your brand, with a monthly content calendar sent for approval.
+                </p>
+              </div>
+              <Button
+                size="lg"
+                className="bg-copper hover:bg-copper/90 text-white font-semibold shrink-0"
+                render={<Link href="#start" />}
+              >
+                Add to any plan
+              </Button>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -301,7 +395,7 @@ export default function PricingPage() {
               Every feature, by <span className="text-copper">pillar</span>
             </h2>
             <p className="text-slate-300">
-              Every row links to its feature page. Accounting and tax arrive for all paid plans when they ship.
+              Rows link to their feature pages. Accounting and tax arrive for all paid plans when they ship.
             </p>
           </div>
 
@@ -315,21 +409,21 @@ export default function PricingPage() {
                   <small className="block font-mono text-[9px] text-slate-400 font-normal mt-1">$0</small>
                 </span>
                 <span className="text-center font-display font-bold text-sm text-slate-200">
-                  Start
+                  Launch
                   <small className="block font-mono text-[9px] text-slate-400 font-normal mt-1">
-                    ${billing === "monthly" ? "29" : "23"}/MO
+                    ${billing === "monthly" ? "97" : "81"}/MO
                   </small>
                 </span>
                 <span className="text-center font-display font-bold text-sm text-copper">
-                  Grow
+                  Growth
                   <small className="block font-mono text-[9px] text-copper/60 font-semibold mt-1">
-                    ${billing === "monthly" ? "79" : "63"}/MO
+                    ${billing === "monthly" ? "297" : "248"}/MO
                   </small>
                 </span>
                 <span className="text-center font-display font-bold text-sm text-slate-200">
-                  Scale
+                  Managed
                   <small className="block font-mono text-[9px] text-slate-400 font-normal mt-1">
-                    ${billing === "monthly" ? "149" : "119"}/MO
+                    FROM ${billing === "monthly" ? "697" : "581"}/MO
                   </small>
                 </span>
               </div>
@@ -346,18 +440,18 @@ export default function PricingPage() {
                       className="grid grid-cols-[2.1fr_1fr_1fr_1fr_1fr] border-b border-white/10 py-3.5 hover:bg-white/[0.04] items-center text-xs"
                     >
                       <span className="font-display font-medium text-slate-300 hover:text-copper transition-colors">
-                        <Link href={row.link}>{row.name}</Link>
+                        {row.link ? <Link href={row.link}>{row.name}</Link> : row.name}
                       </span>
 
                       {/* Cell renderers */}
-                      {[row.free, row.start, row.grow, row.scale].map((cell, cidx) => {
-                        const isGrow = cidx === 2;
+                      {[row.free, row.launch, row.growth, row.managed].map((cell, cidx) => {
+                        const isGrowth = cidx === 2;
                         return (
                           <span
                             key={cidx}
                             className={cn(
                               "text-center font-mono text-[11px]",
-                              isGrow ? "text-copper font-semibold" : "text-slate-300"
+                              isGrowth ? "text-copper font-semibold" : "text-slate-300"
                             )}
                           >
                             {cell === true ? (
@@ -414,7 +508,7 @@ export default function PricingPage() {
             One bill. <span className="text-copper font-extrabold">Zero duct tape</span>.
           </h2>
           <p className="text-muted text-lg mb-8 max-w-xl mx-auto leading-relaxed">
-            Start on Free, bring your bookings and leads over, and upgrade the day you need more. No card, no contract, no eleventh subscription.
+            Start on Free, bring your bookings and leads over, and upgrade the day you want the team behind you. No card on Free, no contract, no eleventh subscription.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold">
