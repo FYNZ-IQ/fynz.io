@@ -403,14 +403,14 @@ export default function Home() {
               Get customers, book them, sell to them, and run the whole operation — without juggling ten different tools. FYNZ puts your CRM, calendar, store, and back office on a single screen.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-4">
-              <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold">
-                Start free
+              <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/pricing" />}>
+                Start 14-day trial
               </Button>
               <Button size="lg" variant="outline" render={<Link href="#demo" />}>
                 Book a demo
               </Button>
             </div>
-            <span className="font-mono text-[9px] tracking-widest text-faint uppercase">NO CREDIT CARD · SET UP IN MINUTES</span>
+            <span className="font-mono text-[9px] tracking-widest text-faint uppercase">FREE PLAN — NO CARD · TRIALS SET UP FOR YOU IN 48H</span>
           </div>
 
           {/* Hero Dashboard Preview */}
@@ -630,7 +630,7 @@ export default function Home() {
                 Every tool above — connected out of the box, sharing one customer record.
               </p>
               <Link href="/pricing" className="font-mono text-xs tracking-widest text-copper font-bold uppercase hover:underline">
-                FROM $29/MO · SEE PRICING →
+                FROM $97/MO · SET UP FOR YOU · SEE PRICING →
               </Link>
             </div>
           </div>
@@ -827,12 +827,15 @@ export default function Home() {
           <h2 className="font-display font-extrabold text-4xl md:text-5xl tracking-tight mb-4">
             Your business, <span className="text-copper">handled</span>.
           </h2>
-          <p className="text-muted text-lg mb-8 max-w-xl mx-auto">
-            Set up in minutes. Bring your whole operation — leads, bookings, sales, and the back office — into one place.
+          <p className="text-muted text-lg mb-4 max-w-xl mx-auto">
+            Start your 14-day trial — our team sets everything up for you within 48 hours.
+          </p>
+          <p className="font-mono text-[11px] tracking-wide text-copper uppercase mb-8">
+            Real humans set you up and run your campaigns — included in every paid plan
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold">
-              Start free
+            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/pricing" />}>
+              Start 14-day trial
             </Button>
             <Button size="lg" variant="outline" render={<Link href="#demo" />}>
               Book a demo
