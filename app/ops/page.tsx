@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { ScrollReveal, StaggerGroup, HoverFloat, CountUp } from "@/components/animations";
+import { ScrollReveal, StaggerGroup, HoverFloat } from "@/components/animations";
 import { Chip } from "@/components/shared";
 import { Button } from "@/components/ui";
 import { cn } from "@/lib/utils";
@@ -232,14 +232,6 @@ const FEATURES: { title: string; desc: string; href?: string; soon?: boolean }[]
   { title: "Accounting & bookkeeping", desc: "Income and expenses reconciled where the money already lives.", soon: true },
   { title: "Tax", desc: "Know what you owe before tax season does.", soon: true },
   { title: "Multi-location rollups", desc: "Compare and combine numbers across every location.", soon: true }
-];
-
-/* ---------- Outcome stats ---------- */
-const STATS = [
-  { value: "6.5h", label: "Admin time saved weekly" },
-  { value: "0", label: "Manual entries required" },
-  { value: "100%", label: "Of payments auto-recorded" },
-  { value: "1", label: "Screen for the whole business" }
 ];
 
 export default function OpsPage() {
@@ -576,25 +568,6 @@ export default function OpsPage() {
                 </div>
               );
             })}
-          </StaggerGroup>
-        </div>
-      </section>
-
-      {/* ---------- OUTCOME STATS ---------- */}
-      <section className="sec-tight py-20 bg-secondary border-b border-line-soft">
-        <div className="wrap max-w-7xl mx-auto px-6">
-          <StaggerGroup className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-5 text-center">
-            {STATS.map((s, idx) => (
-              <div key={idx}>
-                <CountUp
-                  value={s.value}
-                  className="font-mono font-semibold text-4xl md:text-5xl tracking-tight text-copper block"
-                />
-                <span className="font-mono text-[10.5px] tracking-[0.2em] uppercase text-faint block mt-2">
-                  {s.label}
-                </span>
-              </div>
-            ))}
           </StaggerGroup>
         </div>
       </section>

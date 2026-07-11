@@ -10,13 +10,6 @@ import { CinematicProvider, CineCanvas, Grain, Parallax, ProgressRail } from "@/
 import { AiAgentVisual, ChannelVisual, IndustryVisual, VisualStyles } from "@/components/cinematic/visuals";
 
 
-const PROOF_BADGES = [
-  { name: "CAPTERRA", rating: "4.9 / 5" },
-  { name: "G2", rating: "4.8 / 5" },
-  { name: "TRUSTPILOT", rating: "4.9 / 5" },
-  { name: "GETAPP", rating: "4.8 / 5" }
-];
-
 const BROW_CARDS = [
   {
     chip: "GROW",
@@ -277,14 +270,11 @@ const PILLARS = [
 ];
 
 const REPLACES_STACK = [
-  { name: "CRM", cost: "$99/mo" },
-  { name: "Booking app", cost: "$45/mo" },
-  { name: "Email marketing", cost: "$60/mo" },
-  { name: "SMS platform", cost: "$39/mo" },
-  { name: "Invoicing software", cost: "$30/mo" },
+  { name: "Booking app", cost: "$29/mo" },
+  { name: "AI receptionist", cost: "$79/mo" },
   { name: "Review manager", cost: "$79/mo" },
-  { name: "Social scheduler", cost: "$25/mo" },
-  { name: "Funnel builder", cost: "$97/mo" }
+  { name: "Email marketing", cost: "$39/mo" },
+  { name: "SMS platform", cost: "$39/mo" }
 ];
 
 const AUTOMATION_STEPS = [
@@ -338,34 +328,6 @@ const INDUSTRIES = [
   { title: "Restaurants", desc: "Reservations, events, private dining", link: "/industries/restaurants" },
   { title: "Retail & boutiques", desc: "Store, styling appointments, loyalty", link: "/industries/retail" },
   { title: "Home services", desc: "Estimates, dispatch, invoicing", link: "/industries/home-services" }
-];
-
-const STATS = [
-  { num: "2,000+", label: "Businesses served" },
-  { num: "1.4M+", label: "Appointments booked" },
-  { num: "8.2M+", label: "Messages automated" },
-  { num: "$46M+", label: "Processed for owners" }
-];
-
-const TESTIMONIALS = [
-  {
-    stars: "★★★★★",
-    quote: "\"I cancelled four subscriptions the month we switched. The missed-call text-back alone books us two or three extra clients a week.\"",
-    author: "Danielle L.",
-    biz: "MAPLE & MAIN SALON · TORONTO, ON"
-  },
-  {
-    stars: "★★★★★",
-    quote: "\"Voice AI answers when we're mid-service. Customers think we hired a receptionist. We didn't — and our no-show rate is basically zero.\"",
-    author: "Marcus P.",
-    biz: "IRONWORKS FITNESS · AUSTIN, TX"
-  },
-  {
-    stars: "★★★★★",
-    quote: "\"Estimates, invoices, review requests — it all just happens now. I run a six-person crew from my phone.\"",
-    author: "Rachel C.",
-    biz: "NORTHPOINT HOME SERVICES · DENVER, CO"
-  }
 ];
 
 export default function Home() {
@@ -491,21 +453,13 @@ export default function Home() {
       {/* Proof Strip */}
       <section className="border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6 py-8 border-t border-line-soft/30">
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
-            <div className="text-center lg:text-left">
-              <b className="text-ink font-display text-lg block">2,000+ businesses</b>
-              <span className="text-muted text-sm">run on FYNZ across the US &amp; Canada</span>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-              {PROOF_BADGES.map((badge, idx) => (
-                <div key={idx} className="flex flex-col items-center border border-white/10 px-4 py-2 rounded bg-navy-900/50 text-white">
-                  <span className="text-copper text-xs mb-0.5">★★★★★</span>
-                  <div className="text-center">
-                    <b className="text-white text-xs block leading-none">{badge.rating}</b>
-                    <small className="font-mono text-[10px] text-slate-400 tracking-wider uppercase mt-1 block">{badge.name}</small>
-                  </div>
-                </div>
-              ))}
+          <div className="flex justify-center">
+            <div className="flex items-start gap-4 border border-white/10 rounded-[var(--r-md)] bg-navy-900/50 text-white px-6 py-5 max-w-3xl">
+              <span className="text-copper text-xl leading-none" aria-hidden="true">⚡</span>
+              <div>
+                <b className="text-white font-display text-lg block">Set up for you in 48 hours</b>
+                <span className="text-slate-400 text-sm">A real team configures your account, ports your number, and has your first call or booking handled within two days of signup.</span>
+              </div>
             </div>
           </div>
         </div>
@@ -607,7 +561,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-white dark:bg-navy-900 text-slate-900 dark:text-white border border-slate-200 dark:border-navy-800 p-8 md:p-12 rounded-[var(--r-lg)]">
             {/* Left side: Replaced Stack list */}
-            <div className="grid grid-cols-2 gap-4">
+            <div>
+              <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-slate-500 dark:text-slate-400 block mb-4">Typical cost of running these as separate tools</span>
+              <div className="grid grid-cols-2 gap-4">
               {REPLACES_STACK.map((item, idx) => (
                 <div key={idx} className="flex justify-between items-center border border-slate-200 dark:border-line-soft/40 p-3 rounded bg-slate-100 dark:bg-navy-750/70">
                   <div className="flex items-center gap-2">
@@ -617,6 +573,8 @@ export default function Home() {
                   <span className="font-mono text-[9.5px] text-slate-500 dark:text-slate-400">{item.cost}</span>
                 </div>
               ))}
+              </div>
+              <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-slate-500 dark:text-slate-400 block mt-4">Adds up to ~$265/mo</span>
             </div>
 
             {/* Right side: Replaced Summary */}
@@ -627,10 +585,10 @@ export default function Home() {
               </svg>
               <h3 className="font-display font-extrabold text-2xl tracking-tight mb-3 text-slate-900 dark:text-white">One platform. One login. One bill.</h3>
               <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
-                Every tool above — connected out of the box, sharing one customer record.
+                Every tool in the stack shares one customer record — nothing to sync, nothing to duct-tape.
               </p>
-              <Link href="/pricing" className="font-mono text-xs tracking-widest text-copper font-bold uppercase hover:underline">
-                FROM $97/MO · SET UP FOR YOU · SEE PRICING →
+              <Link href="/pricing" className="font-mono text-xs tracking-wide text-copper font-bold hover:underline">
+                Plans from $97/mo — every tool below, connected out of the box.
               </Link>
             </div>
           </div>
@@ -773,50 +731,6 @@ export default function Home() {
           <Link href="/industries" className="font-mono text-xs tracking-wider text-copper font-bold uppercase hover:underline">
             See every industry →
           </Link>
-        </div>
-      </section>
-
-      {/* Stats Band */}
-      <section className="py-12 bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-b border-line-soft text-center select-none">
-        <div className="wrap max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {STATS.map((stat, idx) => (
-            <div key={idx} className="flex flex-col items-center">
-              <span className="font-display text-3xl md:text-4xl font-extrabold text-copper block mb-1">{stat.num}</span>
-              <span className="font-mono text-[9px] tracking-widest dark:text-slate-300 text-slate-600  uppercase">{stat.label}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="sec py-24 border-b border-line-soft">
-        <div className="wrap max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Owners on FYNZ</span>
-            <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight">
-              Less juggling. More <span className="text-copper">business</span>.
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {TESTIMONIALS.map((t, idx) => (
-              <div key={idx} className="bg-white dark:bg-navy-800 text-slate-900 dark:text-white border border-slate-200 shadow-sm dark:border-white/5 dark:shadow-none p-6 rounded-[var(--r-md)] flex flex-col justify-between">
-                <div>
-                  <span className="text-copper text-xs block mb-4">{t.stars}</span>
-                  <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6 italic">{t.quote}</p>
-                </div>
-                <div className="flex items-center gap-3 border-t border-slate-100 dark:border-white/5 pt-4 mt-auto">
-                  <span className="w-8 h-8 rounded-full bg-copper/10 text-copper font-bold text-xs flex items-center justify-center shrink-0">
-                    {t.author.substring(0, 2)}
-                  </span>
-                  <div>
-                    <b className="font-display font-bold text-xs block text-slate-900 dark:text-white">{t.author}</b>
-                    <small className="font-mono text-[8px] text-slate-500 dark:text-slate-400 block uppercase mt-0.5">{t.biz}</small>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
