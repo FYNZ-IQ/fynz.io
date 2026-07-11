@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { ScrollReveal, StaggerGroup, CountUp } from "@/components/animations";
+import { ScrollReveal, StaggerGroup } from "@/components/animations";
 import { Chip, ArrowLink } from "@/components/shared";
 import { Button } from "@/components/ui";
 import { cn } from "@/lib/utils";
@@ -146,14 +146,6 @@ const FEATURES = [
   { title: "Payments & invoicing", href: "/features/payments", desc: "Cards, text-to-pay, estimates, proposals, and e-signatures — running on Stripe, PayPal, and Square." },
   { title: "Memberships & courses", href: "/features/memberships", desc: "Recurring plans and paid course content, delivered, billed, and dunned automatically." },
   { title: "Communities", href: "/features/communities", desc: "A private member space tied to your plans and courses — included, not another subscription." }
-];
-
-/* ---- Outcome stats ---- */
-const STATS = [
-  { value: "$46M+", label: "Processed for owners" },
-  { value: "4 min", label: "Median time to paid" },
-  { value: "78%", label: "Of invoices paid same day" },
-  { value: "2.7×", label: "Revenue streams per business" }
 ];
 
 const INVOICE_METHODS = [
@@ -424,20 +416,6 @@ export default function ShopPage() {
                   LEARN MORE →
                 </span>
               </Link>
-            ))}
-          </StaggerGroup>
-        </div>
-      </section>
-
-      {/* ============ OUTCOME STATS ============ */}
-      <section className="sec-tight py-16 md:py-20 bg-white dark:bg-navy-900 border-y border-line-soft">
-        <div className="wrap max-w-7xl mx-auto px-6">
-          <StaggerGroup className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-            {STATS.map((s) => (
-              <div key={s.label}>
-                <CountUp value={s.value} className="font-mono font-semibold text-4xl md:text-5xl tracking-tight text-ink block" />
-                <span className="font-mono text-[10.5px] tracking-[0.2em] uppercase text-faint block mt-2">{s.label}</span>
-              </div>
             ))}
           </StaggerGroup>
         </div>
