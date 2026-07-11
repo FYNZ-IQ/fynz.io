@@ -165,6 +165,12 @@ export function Navbar() {
                           <MenuLink href="/industries/retail">Retail stores</MenuLink>
                           <MenuLink href="/industries/ecommerce">E-commerce</MenuLink>
                         </div>
+                        <div>
+                          <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">Professional</h5>
+                          <MenuLink href="/industries/accounting">Accounting firms</MenuLink>
+                          <MenuLink href="/industries/legal">Law firms</MenuLink>
+                          <MenuLink href="/industries/coaching">Coaches</MenuLink>
+                        </div>
                       </div>
                       <div className="flex flex-col gap-5">
                         <div>
@@ -176,10 +182,13 @@ export function Navbar() {
                           <MenuLink href="/industries/automotive">Auto shops</MenuLink>
                         </div>
                         <div>
-                          <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">Professional</h5>
-                          <MenuLink href="/industries/accounting">Accounting firms</MenuLink>
-                          <MenuLink href="/industries/legal">Law firms</MenuLink>
-                          <MenuLink href="/industries/coaching">Coaches</MenuLink>
+                          <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">Emergency restoration</h5>
+                          <MenuLink href="/industries/emergency-services.html#water">Water damage</MenuLink>
+                          <MenuLink href="/industries/emergency-services.html#mold">Mold remediation</MenuLink>
+                          <MenuLink href="/industries/emergency-services.html#fire">Fire &amp; smoke</MenuLink>
+                          <MenuLink href="/industries/emergency-services.html#storm">Storm &amp; tree</MenuLink>
+                          <MenuLink href="/industries/emergency-services.html#roofing">Storm roofing</MenuLink>
+                          <MenuLink href="/industries/emergency-services.html#biohazard">Biohazard cleanup</MenuLink>
                         </div>
                       </div>
                     </div>
@@ -259,8 +268,18 @@ export function Navbar() {
 }
 
 function MenuLink({ href, children }: { href: string; children: React.ReactNode }) {
+  const className = "block text-[0.87rem] text-muted py-1.5 transition-colors hover:text-copper";
+  // Static .html pages (served from /public) need a plain anchor — Next's
+  // client-side router can't navigate to them.
+  if (href.includes(".html")) {
+    return (
+      <a href={href} className={className}>
+        {children}
+      </a>
+    );
+  }
   return (
-    <Link href={href} className="block text-[0.87rem] text-muted py-1.5 transition-colors hover:text-copper">
+    <Link href={href} className={className}>
       {children}
     </Link>
   );

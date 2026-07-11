@@ -7,25 +7,34 @@
 <meta name="description" content="FYNZ answers every after-hours restoration call in two rings, qualifies the loss, captures the insurance claim details, and books your truck — before the caller dials the next company." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
 :root{
-  --ink:#0A1730;
-  --ink-2:#0E1F3E;
-  --paper:#F2EFEA;
+  --ink:#0A1730;            /* deep navy — boxes, cards & demo mocks */
+  --ink-2:#0E1F3E;          /* navy — boxes, cards & demo mocks */
+  --bg:#F5F7FB;             /* page background (site light theme) */
+  --bg-2:#ECF1F9;           /* alternate light band */
+  --pg-ink:#0E1F3E;         /* text on light background */
+  --pg-muted:rgba(14,31,62,.68);
+  --pg-faint:rgba(14,31,62,.5);
+  --pg-line:rgba(14,31,62,.14);
+  --pg-line-soft:rgba(14,31,62,.08);
+  --paper:#F2EFEA;          /* text inside navy boxes */
   --dim:rgba(242,239,234,.62);
-  --copper:#D9967D;
+  --hair:rgba(242,239,234,.10);
+  --copper:#B5643F;         /* copper on light background (site token) */
+  --copper-strong:#9E5533;
+  --copper-card:#D9967D;    /* copper inside navy boxes */
   --copper-hi:#F2B394;
   --copper-deep:#B0705A;
-  --hair:rgba(242,239,234,.10);
   --vaccent:#7DB8D9; /* set per vertical by JS */
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
 body{
-  background:var(--ink);
-  color:var(--paper);
+  background:var(--bg);
+  color:var(--pg-ink);
   font-family:"Instrument Sans",system-ui,sans-serif;
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
@@ -35,26 +44,40 @@ h1,h2,h3{font-family:"Sora",sans-serif;letter-spacing:-.02em}
 img,svg{max-width:100%}
 a{color:inherit}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:rgba(181,100,63,.25)}
 
-/* ---------- nav (placeholder chrome) ---------- */
+/* ---------- nav (static replica of the main-site navbar) ---------- */
 .nav{
-  position:fixed;inset:0 0 auto 0;z-index:60;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:18px 32px;
-  background:linear-gradient(180deg,rgba(10,23,48,.92),rgba(10,23,48,0));
+  position:fixed;top:0;left:0;right:0;z-index:60;
+  border-bottom:1px solid transparent;
+  transition:background .3s,border-color .3s;
 }
-.nav .logo{font-family:"Sora";font-weight:800;font-size:17px;letter-spacing:.02em;text-decoration:none}
-.nav .logo i{font-style:normal;color:var(--copper)}
-.nav-links{display:flex;gap:26px;font-size:13.5px;color:var(--dim)}
-.nav-links a{color:inherit;text-decoration:none;transition:color .2s}
-.nav-links a:hover{color:var(--paper)}
-.nav .cta{
-  font-family:"Sora";font-weight:700;font-size:13px;
-  color:var(--ink);background:var(--copper);
-  padding:9px 18px;border-radius:999px;text-decoration:none;
-  transition:transform .2s, background .2s;
+.nav.scrolled{
+  background:rgba(245,247,251,.85);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border-bottom-color:var(--pg-line-soft);
 }
-.nav .cta:hover{background:var(--copper-hi);transform:translateY(-1px)}
+.nav-inner{max-width:1180px;margin:0 auto;padding:0 28px;height:72px;display:flex;align-items:center;gap:34px}
+.nav-logo{display:flex;align-items:center;gap:11px;flex:none;text-decoration:none}
+.nav-logo img{height:30px;width:auto;display:block}
+.nav-logo .wordmark{font-family:"Sora";font-weight:800;font-size:1.22rem;letter-spacing:.06em;color:var(--pg-ink)}
+.nav-links{display:flex;align-items:center;gap:6px;flex:1}
+.nav-links a{
+  font-family:"Sora";font-weight:500;font-size:.92rem;color:#475569;
+  padding:9px 13px;text-decoration:none;transition:color .2s;
+}
+.nav-links a:hover{color:var(--copper)}
+.nav-right{display:flex;align-items:center;gap:10px;margin-left:auto}
+.nav-login{font-family:"Sora";font-weight:500;font-size:.92rem;color:var(--pg-muted);padding:10px 14px;text-decoration:none;transition:color .2s}
+.nav-login:hover{color:var(--pg-ink)}
+.nav-cta{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:"Sora";font-weight:600;font-size:.92rem;
+  color:#fff;background:var(--copper);height:45px;padding:0 22px;border-radius:999px;text-decoration:none;
+  box-shadow:0 8px 24px rgba(181,100,63,.30);
+  transition:transform .18s,background .18s;
+}
+.nav-cta:hover{background:var(--copper-strong);transform:translateY(-2px)}
 
 /* ---------- shared layout ---------- */
 .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
@@ -62,17 +85,17 @@ section{padding:92px 0}
 .eyebrow{
   display:inline-flex;align-items:center;gap:8px;
   font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.22em;text-transform:uppercase;
-  padding:6px 12px;border:1px solid var(--hair);border-radius:999px;color:var(--dim);
+  padding:6px 12px;border:1px solid var(--pg-line);border-radius:999px;color:var(--pg-muted);
   margin-bottom:18px;
 }
 .eyebrow b{width:6px;height:6px;border-radius:50%;display:inline-block;background:var(--vaccent);transition:background .3s}
 .sec-head{max-width:640px;margin-bottom:44px}
 .sec-head h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800;line-height:1.12;margin-bottom:12px}
-.sec-head .lead{color:var(--dim);line-height:1.6;font-size:1.02rem}
+.sec-head .lead{color:var(--pg-muted);line-height:1.6;font-size:1.02rem}
 .sec-rule{width:44px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--copper),var(--vaccent));margin-bottom:20px;transition:background .3s}
 .tag{
   font-family:"IBM Plex Mono";font-size:10px;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--copper);padding:4px 10px;border:1px solid rgba(217,150,125,.35);border-radius:999px;
+  color:var(--copper);padding:4px 10px;border:1px solid rgba(181,100,63,.35);border-radius:999px;
   display:inline-block;
 }
 .btn{
@@ -80,19 +103,19 @@ section{padding:92px 0}
   padding:14px 28px;border-radius:999px;text-decoration:none;text-align:center;
   transition:transform .2s,background .2s,border-color .2s,color .2s;
 }
-.btn.primary{background:var(--copper);color:var(--ink)}
-.btn.primary:hover{background:var(--copper-hi);transform:translateY(-2px)}
-.btn.ghost{border:1px solid rgba(242,239,234,.28);color:var(--paper)}
-.btn.ghost:hover{border-color:var(--copper);color:var(--copper-hi)}
+.btn.primary{background:var(--copper);color:#fff;box-shadow:0 8px 24px rgba(181,100,63,.30)}
+.btn.primary:hover{background:var(--copper-strong);transform:translateY(-2px)}
+.btn.ghost{border:1px solid var(--pg-line);color:var(--pg-ink)}
+.btn.ghost:hover{border-color:rgba(181,100,63,.55);background:rgba(181,100,63,.08)}
 .replay{
   font-family:"IBM Plex Mono";font-size:10px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--copper);border:1px solid rgba(217,150,125,.5);border-radius:999px;
+  color:var(--copper);border:1px solid rgba(181,100,63,.5);border-radius:999px;
   padding:6px 14px;transition:background .2s,color .2s;
 }
-.replay:hover{background:rgba(217,150,125,.14);color:var(--copper-hi)}
+.replay:hover{background:rgba(181,100,63,.10);color:var(--copper-strong)}
 @media (prefers-reduced-motion:reduce){ .replay{display:none} }
 .demo-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
-.demo-bar .lab{font-family:"IBM Plex Mono";font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+.demo-bar .lab{font-family:"IBM Plex Mono";font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--pg-muted)}
 
 /* reveal system: default = fully visible; hiding is additive only when JS + motion OK */
 html.js.anim [data-io] .rv{opacity:0;transform:translateY(14px);transition:opacity .65s ease,transform .65s ease}
@@ -110,17 +133,17 @@ html.anim [data-vertical-bound].vswap{opacity:0;transform:translateY(12px)}
 
 /* ---------- hero ---------- */
 #hero{padding:150px 0 70px;position:relative;background:
-  radial-gradient(60% 45% at 75% 18%, rgba(217,150,125,.10), transparent 70%),
-  radial-gradient(45% 40% at 15% 80%, rgba(125,184,217,.05), transparent 70%),
-  var(--ink);
+  radial-gradient(60% 45% at 75% 18%, color-mix(in srgb, var(--vaccent) 16%, transparent), transparent 70%),
+  radial-gradient(45% 40% at 15% 80%, rgba(181,100,63,.07), transparent 70%),
+  var(--bg);
 }
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
 .hero-copy h1{font-size:clamp(1.9rem,4.2vw,3.1rem);font-weight:800;line-height:1.1;margin:18px 0 18px;min-height:3.2em}
-.hero-copy h1 .money{color:var(--copper-hi)}
-.hero-copy .sub{color:var(--dim);line-height:1.65;font-size:1.05rem;max-width:34em;margin-bottom:28px}
+.hero-copy h1 .money{color:var(--copper)}
+.hero-copy .sub{color:var(--pg-muted);line-height:1.65;font-size:1.05rem;max-width:34em;margin-bottom:28px}
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
 
-/* vertical switcher pills */
+/* vertical switcher pills — each pill carries its own vertical accent */
 .vpills{
   display:flex;gap:8px;margin:6px 0 4px;max-width:100%;
   overflow-x:auto;scroll-snap-type:x proximity;
@@ -131,15 +154,24 @@ html.anim [data-vertical-bound].vswap{opacity:0;transform:translateY(12px)}
 .vpill{
   flex:none;scroll-snap-align:start;text-decoration:none;
   font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--dim);border:1px solid var(--hair);border-radius:999px;padding:8px 14px;
+  --pv:var(--vaccent);
+  color:var(--pg-muted);
+  color:color-mix(in srgb, var(--pv) 55%, var(--pg-ink));
+  border:1px solid var(--pv);border-radius:999px;padding:8px 14px;
   transition:all .2s;white-space:nowrap;
 }
-.vpill:hover{color:var(--paper);border-color:rgba(242,239,234,.3)}
-.vpill.active{background:var(--copper);border-color:var(--copper);color:var(--ink);font-weight:500}
+.vpill[data-vert="water"]{--pv:#7DB8D9}
+.vpill[data-vert="mold"]{--pv:#9DB89A}
+.vpill[data-vert="fire"]{--pv:#E8926B}
+.vpill[data-vert="storm"]{--pv:#9BA8C4}
+.vpill[data-vert="roofing"]{--pv:#C4977D}
+.vpill[data-vert="biohazard"]{--pv:#A88FB8}
+.vpill:hover{color:var(--pg-ink);background:color-mix(in srgb, var(--pv) 18%, transparent)}
+.vpill.active{background:var(--pv);border-color:var(--pv);color:#0A1730;font-weight:600}
 
-/* hero graphic */
+/* hero graphic — night-scene mock stays navy, framed as a card */
 .hero-viz{position:relative}
-.hero-svg{width:100%;height:auto;display:block}
+.hero-svg{width:100%;height:auto;display:block;background:var(--ink);border:1px solid var(--pg-line);border-radius:20px;box-shadow:0 24px 56px rgba(14,31,62,.14)}
 .hero-svg .phone-body{fill:var(--ink-2);stroke:rgba(242,239,234,.35);stroke-width:2}
 .hero-svg .pulse{fill:none;stroke:var(--vaccent);stroke-width:2;opacity:0;transform-box:fill-box;transform-origin:center}
 .hero-svg .wave rect{fill:var(--vaccent);transform-box:fill-box;transform-origin:center;transition:fill .3s}
@@ -170,25 +202,25 @@ html.anim .hero-svg.play .jobcard{animation:cardIn 8s ease infinite;transform-bo
 /* sample-night stats */
 .night-stats{display:flex;gap:28px;margin-top:26px;flex-wrap:wrap}
 .night-stats .ns{display:flex;flex-direction:column;gap:3px}
-.night-stats .n{font-family:"Sora";font-weight:800;font-size:1.35rem;color:var(--copper-hi)}
-.night-stats .l{font-family:"IBM Plex Mono";font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
-.night-stats .cap{flex-basis:100%;font-family:"IBM Plex Mono";font-size:9.5px;letter-spacing:.18em;color:rgba(242,239,234,.38);text-transform:uppercase;margin-top:-6px}
+.night-stats .n{font-family:"Sora";font-weight:800;font-size:1.35rem;color:var(--copper)}
+.night-stats .l{font-family:"IBM Plex Mono";font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--pg-muted)}
+.night-stats .cap{flex-basis:100%;font-family:"IBM Plex Mono";font-size:9.5px;letter-spacing:.18em;color:var(--pg-faint);text-transform:uppercase;margin-top:-6px}
 
 /* ---------- calculator ---------- */
-#calculator{background:linear-gradient(180deg,var(--ink) 0%,var(--ink-2) 100%)}
+#calculator{background:linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%)}
 .calc{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
 .calc-controls{display:flex;flex-direction:column;gap:26px}
-.ctrl label{display:flex;justify-content:space-between;align-items:baseline;font-size:.92rem;color:var(--paper);margin-bottom:10px}
-.ctrl label .val{font-family:"IBM Plex Mono";font-size:.95rem;color:var(--copper-hi)}
+.ctrl label{display:flex;justify-content:space-between;align-items:baseline;font-size:.92rem;color:var(--pg-ink);margin-bottom:10px}
+.ctrl label .val{font-family:"IBM Plex Mono";font-size:.95rem;color:var(--copper)}
 .ctrl input[type=range]{width:100%;accent-color:var(--copper);height:26px;cursor:pointer}
 .ctrl input[type=number]{
-  width:130px;background:rgba(242,239,234,.05);border:1px solid var(--hair);border-radius:10px;
-  color:var(--copper-hi);font-family:"IBM Plex Mono";font-size:1rem;padding:9px 12px;
+  width:130px;background:#fff;border:1px solid var(--pg-line);border-radius:10px;
+  color:var(--copper-strong);font-family:"IBM Plex Mono";font-size:1rem;padding:9px 12px;
 }
 .ctrl input[type=number]:focus{outline:1px solid var(--copper)}
 .calc-read{
   border:1px solid var(--hair);border-radius:20px;padding:34px 30px;
-  background:rgba(242,239,234,.025);
+  background:var(--ink-2);color:var(--paper);box-shadow:0 20px 46px rgba(14,31,62,.10);
 }
 .calc-read .big{font-size:1.25rem;line-height:1.5}
 .calc-read .big .num{font-family:"IBM Plex Mono";font-weight:500;font-size:2.2rem;color:var(--copper-hi);display:block;margin:8px 0 6px}
@@ -196,19 +228,19 @@ html.anim .hero-svg.play .jobcard{animation:cardIn 8s ease infinite;transform-bo
 .anchors{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px}
 .anchor{
   border:1px solid var(--hair);border-radius:16px;padding:20px 18px;
-  background:rgba(242,239,234,.02);
+  background:var(--ink-2);color:var(--paper);
 }
-.anchor.hot{border-color:rgba(217,150,125,.5);background:rgba(217,150,125,.06)}
+.anchor.hot{border-color:rgba(217,150,125,.55);background:linear-gradient(rgba(217,150,125,.07),rgba(217,150,125,.07)),var(--ink-2)}
 .anchor .who{font-size:.9rem;color:var(--dim);margin-bottom:6px}
 .anchor .amt{font-family:"IBM Plex Mono";font-size:1.25rem;color:var(--paper)}
 .anchor.hot .amt{color:var(--copper-hi)}
-.math-line{margin-top:26px;font-family:"Sora";font-weight:700;font-size:1.05rem;color:var(--paper)}
+.math-line{margin-top:26px;font-family:"Sora";font-weight:700;font-size:1.05rem;color:var(--pg-ink)}
 
 /* ---------- phone demo ---------- */
 .demo-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:52px;align-items:center}
 .phone{
-  width:min(320px,100%);margin:0 auto;border:2px solid rgba(242,239,234,.22);border-radius:38px;
-  background:#08122A;padding:14px 12px 18px;box-shadow:0 30px 80px rgba(0,0,0,.5);
+  width:min(320px,100%);margin:0 auto;border:2px solid rgba(14,31,62,.35);border-radius:38px;
+  background:#08122A;padding:14px 12px 18px;box-shadow:0 24px 60px rgba(14,31,62,.22);
 }
 .phone .notch{width:96px;height:8px;border-radius:99px;background:rgba(242,239,234,.15);margin:0 auto 12px}
 .screen{height:430px;overflow-y:auto;display:flex;flex-direction:column;gap:9px;padding:6px 4px;scrollbar-width:none}
@@ -223,27 +255,29 @@ html.anim .bubble.pending{opacity:0;transform:translateY(10px)}
 .bubble.owner{align-self:stretch;max-width:100%;border:1px solid var(--vaccent);border-radius:12px;background:rgba(242,239,234,.04);font-size:.8rem}
 .bubble.owner .who{display:block;font-family:"IBM Plex Mono";font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper-hi);margin-bottom:4px}
 .demo-copy h2{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;line-height:1.15;margin-bottom:14px}
-.demo-copy p{color:var(--dim);line-height:1.65;margin-bottom:16px}
+.demo-copy p{color:var(--pg-muted);line-height:1.65;margin-bottom:16px}
 .trust-911{
-  display:flex;gap:12px;align-items:flex-start;border:1px solid var(--hair);border-left:3px solid var(--copper);
+  display:flex;gap:12px;align-items:flex-start;border:1px solid var(--hair);border-left:3px solid var(--copper-card);
   border-radius:12px;padding:14px 16px;margin:22px 0;font-size:.9rem;color:var(--paper);line-height:1.5;
+  background:var(--ink-2);
 }
 .trust-911 svg{flex:none;margin-top:2px}
 .tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
 
 /* ---------- claim packet ---------- */
-#packet{background:linear-gradient(180deg,var(--ink-2) 0%,var(--ink) 100%)}
+#packet{background:linear-gradient(180deg,var(--bg-2) 0%,var(--bg) 100%)}
 .packet-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:start}
 .mini-tr{display:flex;flex-direction:column;gap:10px}
 .mtl{
   border:1px solid var(--hair);border-radius:12px;padding:11px 14px;font-size:.85rem;line-height:1.45;color:var(--dim);
+  background:var(--ink-2);
   transition:border-color .3s,color .3s,background .3s;
 }
 .mtl .who{font-family:"IBM Plex Mono";font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:3px;color:rgba(242,239,234,.4)}
-.mtl.hot{border-color:var(--vaccent);color:var(--paper);background:rgba(242,239,234,.03)}
+.mtl.hot{border-color:var(--vaccent);color:var(--paper);background:#13254A}
 .packet-card{
-  border:1px solid rgba(217,150,125,.35);border-radius:20px;padding:26px 24px;position:relative;
-  background:rgba(242,239,234,.025);box-shadow:0 24px 70px rgba(0,0,0,.35);
+  border:1px solid rgba(217,150,125,.4);border-radius:20px;padding:26px 24px;position:relative;
+  background:var(--ink);color:var(--paper);box-shadow:0 24px 70px rgba(14,31,62,.18);
 }
 .packet-card .pc-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
 .packet-card .pc-title{font-family:"Sora";font-weight:700;font-size:1.02rem}
@@ -258,7 +292,7 @@ html.anim .fr.fly{opacity:0;transform:translateX(-26px)}
 .fr .fv{text-align:right;color:var(--paper);line-height:1.4}
 .stamp{
   margin-top:20px;display:inline-block;transform:rotate(-3deg);
-  border:2px solid var(--copper);border-radius:8px;color:var(--copper-hi);
+  border:2px solid var(--copper-card);border-radius:8px;color:var(--copper-hi);
   font-family:"IBM Plex Mono";font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
   padding:8px 14px;
 }
@@ -267,7 +301,8 @@ html.anim .stamp.fly{opacity:0;transform:rotate(-3deg) scale(1.6)}
 
 /* ---------- saved-job board ---------- */
 .board{
-  border:1px solid var(--hair);border-radius:20px;padding:24px;background:rgba(242,239,234,.02);
+  border:1px solid var(--hair);border-radius:20px;padding:24px;background:var(--ink-2);color:var(--paper);
+  box-shadow:0 20px 46px rgba(14,31,62,.10);
 }
 .board-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:16px;flex-wrap:wrap}
 .board-head .bh-t{font-family:"Sora";font-weight:700;font-size:1.05rem}
@@ -288,10 +323,10 @@ html.anim .cell.job.dim{opacity:.15;transform:scale(.94)}
 .board-note{margin-top:18px;color:var(--dim);font-size:.92rem;line-height:1.6;max-width:44em}
 
 /* ---------- night timeline ---------- */
-#night{background:linear-gradient(180deg,var(--ink) 0%,var(--ink-2) 100%)}
+#night{background:linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%)}
 .tl-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.tl-col{border:1px solid var(--hair);border-radius:20px;padding:26px 24px;background:rgba(242,239,234,.02)}
-.tl-col.after{border-color:rgba(217,150,125,.4);background:rgba(217,150,125,.045)}
+.tl-col{border:1px solid var(--hair);border-radius:20px;padding:26px 24px;background:var(--ink-2);color:var(--paper)}
+.tl-col.after{border-color:rgba(217,150,125,.45);background:linear-gradient(rgba(217,150,125,.06),rgba(217,150,125,.06)),var(--ink-2)}
 .tl-col h3{font-size:1.05rem;font-weight:700;margin-bottom:4px}
 .tl-col .tl-sub{font-family:"IBM Plex Mono";font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:20px;display:block}
 .tl-list{list-style:none;position:relative;padding-left:22px}
@@ -311,62 +346,62 @@ html.anim .tn.dim{opacity:.12;transform:translateY(8px)}
 /* ---------- benefits ---------- */
 .bene-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .bene{
-  border:1px solid var(--hair);border-radius:16px;padding:22px 20px;background:rgba(242,239,234,.02);
+  border:1px solid var(--hair);border-radius:16px;padding:22px 20px;background:var(--ink-2);color:var(--paper);
   display:flex;flex-direction:column;gap:10px;
 }
 .bene h3{font-size:1rem;font-weight:700;line-height:1.3}
 .bene p{font-size:.86rem;color:var(--dim);line-height:1.55;flex:1}
 .bene .ic{width:26px;height:26px}
 .bene .ic path,.bene .ic circle,.bene .ic rect,.bene .ic line,.bene .ic polyline{
-  fill:none;stroke:var(--copper);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;
+  fill:none;stroke:var(--copper-card);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;
 }
 html.js.anim #benefits .ic [pathLength]{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1s ease .25s}
 html.js.anim #benefits.in .ic [pathLength]{stroke-dashoffset:0}
-.bene .tag{align-self:flex-start}
+.bene .tag{align-self:flex-start;color:var(--copper-card);border-color:rgba(217,150,125,.35)}
 
 /* ---------- concierge ---------- */
-#concierge{background:linear-gradient(180deg,var(--ink-2) 0%,var(--ink) 100%)}
+#concierge{background:linear-gradient(180deg,var(--bg-2) 0%,var(--bg) 100%)}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative;counter-reset:step}
 .steps::before{
-  content:"";position:absolute;top:27px;left:12%;right:12%;height:1px;background:rgba(217,150,125,.4);
+  content:"";position:absolute;top:27px;left:12%;right:12%;height:1px;background:rgba(181,100,63,.4);
   transform-origin:left center;
 }
 html.anim .steps::before{transition:transform 1.2s ease .2s}
 html.anim .steps.dim::before{transform:scaleX(0)}
 .step{position:relative;padding-top:0;text-align:center}
 .step .snum{
-  width:54px;height:54px;border-radius:50%;border:1px solid var(--copper);display:grid;place-items:center;
+  width:54px;height:54px;border-radius:50%;border:1px solid var(--copper-card);display:grid;place-items:center;
   font-family:"IBM Plex Mono";font-size:1rem;color:var(--copper-hi);margin:0 auto 18px;background:var(--ink);
   position:relative;z-index:1;
 }
 .step h3{font-size:1rem;font-weight:700;margin-bottom:8px}
-.step p{font-size:.88rem;color:var(--dim);line-height:1.6;max-width:26em;margin:0 auto}
+.step p{font-size:.88rem;color:var(--pg-muted);line-height:1.6;max-width:26em;margin:0 auto}
 html.anim .step{transition:opacity .5s ease,transform .5s ease}
 html.anim .step.dim{opacity:.12;transform:translateY(12px)}
-.step .swhen{font-family:"IBM Plex Mono";font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:8px}
+.step .swhen{font-family:"IBM Plex Mono";font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--pg-faint);display:block;margin-bottom:8px}
 
 /* ---------- pricing ---------- */
-.bill-toggle{display:flex;justify-content:center;gap:0;margin:0 auto 46px;border:1px solid var(--hair);border-radius:999px;width:max-content;padding:4px}
+.bill-toggle{display:flex;justify-content:center;gap:0;margin:0 auto 46px;border:1px solid var(--pg-line);border-radius:999px;width:max-content;padding:4px;background:#fff}
 .bill-toggle button{
-  font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);
+  font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--pg-muted);
   padding:8px 18px;border-radius:999px;transition:all .2s;
 }
-.bill-toggle button[aria-pressed="true"]{background:var(--copper);color:var(--ink)}
+.bill-toggle button[aria-pressed="true"]{background:var(--copper);color:#fff}
 .plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
 .plan{
-  border:1px solid var(--hair);border-radius:20px;padding:30px 26px;background:rgba(242,239,234,.025);
+  border:1px solid var(--hair);border-radius:20px;padding:30px 26px;background:var(--ink-2);color:var(--paper);
   display:flex;flex-direction:column;position:relative;
 }
 .plan.featured{
-  border-color:rgba(217,150,125,.55);background:rgba(217,150,125,.06);
-  transform:translateY(-14px);box-shadow:0 24px 60px rgba(0,0,0,.35);
+  border-color:rgba(217,150,125,.55);background:linear-gradient(rgba(217,150,125,.07),rgba(217,150,125,.07)),var(--ink-2);
+  transform:translateY(-14px);box-shadow:0 24px 60px rgba(14,31,62,.22);
 }
-.plan.managed{border-color:rgba(217,150,125,.4);box-shadow:0 0 0 1px rgba(217,150,125,.15),0 0 44px rgba(217,150,125,.16)}
+.plan.managed{border-color:rgba(217,150,125,.4);box-shadow:0 0 0 1px rgba(217,150,125,.15),0 0 44px rgba(217,150,125,.18)}
 .plan .badge{
   position:absolute;top:-12px;left:26px;font-family:"IBM Plex Mono";font-size:10px;letter-spacing:.18em;text-transform:uppercase;
-  background:var(--copper);color:var(--ink);padding:4px 11px;border-radius:999px;font-weight:500;
+  background:var(--copper);color:#fff;padding:4px 11px;border-radius:999px;font-weight:500;
 }
-.plan.managed .badge{background:var(--ink);color:var(--copper-hi);border:1px solid var(--copper)}
+.plan.managed .badge{background:var(--ink);color:var(--copper-hi);border:1px solid var(--copper-card)}
 .plan h3{font-size:1.2rem;font-weight:700;margin-bottom:2px}
 .plan .promise{font-size:.88rem;color:var(--dim);margin-bottom:18px}
 .plan .price{font-family:"IBM Plex Mono";font-size:2rem;color:var(--paper);margin-bottom:2px}
@@ -374,25 +409,25 @@ html.anim .step.dim{opacity:.12;transform:translateY(12px)}
 .plan .bill-note{font-family:"IBM Plex Mono";font-size:9.5px;letter-spacing:.08em;color:var(--dim);margin-bottom:20px;min-height:1.2em}
 .plan ul{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:.88rem;color:rgba(242,239,234,.85);flex:1;margin-bottom:8px}
 .plan li{display:flex;gap:10px;align-items:flex-start;line-height:1.45}
-.plan li::before{content:"✓";color:var(--copper);font-weight:700;flex:none}
+.plan li::before{content:"✓";color:var(--copper-card);font-weight:700;flex:none}
 .plan .pick{
   margin-top:22px;text-align:center;text-decoration:none;font-family:"Sora";font-weight:700;font-size:.92rem;
   padding:13px 0;border-radius:12px;border:1px solid var(--hair);color:var(--paper);transition:all .2s;
 }
-.plan .pick:hover{border-color:var(--copper);color:var(--copper-hi)}
-.plan.featured .pick{background:var(--copper);color:var(--ink);border-color:transparent}
+.plan .pick:hover{border-color:var(--copper-card);color:var(--copper-hi)}
+.plan.featured .pick{background:var(--copper-card);color:var(--ink);border-color:transparent}
 .plan.featured .pick:hover{background:var(--copper-hi)}
-.setup-line{text-align:center;margin-top:30px;color:var(--dim);font-size:.92rem}
-.setup-line b{color:var(--paper);font-weight:600}
-.dispatch-line{text-align:center;margin-top:12px;font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.04em;color:rgba(242,239,234,.45)}
+.setup-line{text-align:center;margin-top:30px;color:var(--pg-muted);font-size:.92rem}
+.setup-line b{color:var(--pg-ink);font-weight:600}
+.dispatch-line{text-align:center;margin-top:12px;font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.04em;color:var(--pg-faint)}
 
 /* ---------- compliance ---------- */
-#compliance{padding:44px 0;background:var(--ink-2);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+#compliance{padding:44px 0;background:var(--bg-2);border-top:1px solid var(--pg-line-soft);border-bottom:1px solid var(--pg-line-soft)}
 .comp-row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
 .comp{
   display:inline-flex;align-items:center;gap:9px;
-  font-family:"IBM Plex Mono";font-size:10.5px;letter-spacing:.08em;color:var(--dim);
-  border:1px solid var(--hair);border-radius:999px;padding:9px 16px;
+  font-family:"IBM Plex Mono";font-size:10.5px;letter-spacing:.08em;color:var(--pg-muted);
+  border:1px solid var(--pg-line);border-radius:999px;padding:9px 16px;
 }
 .comp svg{flex:none}
 .comp svg path,.comp svg circle,.comp svg polyline{fill:none;stroke:var(--copper);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
@@ -400,22 +435,36 @@ html.anim .step.dim{opacity:.12;transform:translateY(12px)}
 /* ---------- final cta ---------- */
 #final{
   padding:120px 0;text-align:center;
-  background:radial-gradient(70% 60% at 50% 100%, rgba(217,150,125,.14), transparent 65%), var(--ink);
+  background:radial-gradient(70% 60% at 50% 100%, rgba(181,100,63,.12), transparent 65%), var(--bg);
 }
 #final h2{font-size:clamp(1.9rem,4.6vw,3.3rem);font-weight:800;line-height:1.1;max-width:15em;margin:0 auto 18px}
-#final p{color:var(--dim);max-width:34em;margin:0 auto 32px;line-height:1.6}
+#final p{color:var(--pg-muted);max-width:34em;margin:0 auto 32px;line-height:1.6}
 #final .hero-ctas{justify-content:center}
 
-/* ---------- footer ---------- */
-.foot{
-  padding:26px 32px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
-  font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.1em;color:rgba(242,239,234,.35);background:var(--ink-2);
-}
-.foot a{color:inherit;text-decoration:none}
-.foot a:hover{color:var(--dim)}
+/* ---------- footer (static replica of the main-site footer — stays navy) ---------- */
+.site-foot{background:var(--ink-2);color:#fff;border-top:1px solid var(--pg-line-soft);padding:72px 0 36px}
+.site-foot .fwrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr 1fr;gap:36px;margin-bottom:56px}
+.foot-brand .nav-logo img{height:28px}
+.foot-brand .nav-logo .wordmark{color:#fff}
+.foot-brand p{font-size:.86rem;color:#CBD5E1;margin:16px 0 20px;max-width:260px;line-height:1.6}
+.foot-contact{font-family:"IBM Plex Mono";font-size:11px;color:#94A3B8;line-height:2}
+.foot-contact a{text-decoration:none;transition:color .2s}
+.foot-contact a:hover{color:var(--copper)}
+.foot-col h5{font-family:"IBM Plex Mono";font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--copper);margin-bottom:16px}
+.foot-col a{display:block;font-size:.86rem;color:#CBD5E1;padding:6px 0;text-decoration:none;transition:color .2s}
+.foot-col a:hover{color:#fff}
+.foot-bottom{border-top:1px solid var(--pg-line-soft);padding-top:26px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.foot-bottom .copy{font-family:"IBM Plex Mono";font-size:10.5px;color:#94A3B8;letter-spacing:.06em}
+.foot-social{display:flex;gap:10px}
+.foot-social a{width:34px;height:34px;border:1px solid var(--pg-line-soft);border-radius:6px;display:grid;place-items:center;transition:border-color .2s,background .2s}
+.foot-social a:hover{border-color:rgba(181,100,63,.5);background:rgba(181,100,63,.10)}
+.foot-social svg{width:15px;height:15px;fill:#94A3B8;transition:fill .2s}
+.foot-social a:hover svg{fill:var(--copper)}
 
 /* ---------- responsive ---------- */
 @media (max-width:960px){
+  .nav-links{display:none}
   .hero-grid{grid-template-columns:1fr;gap:36px}
   .hero-copy h1{min-height:0}
   .calc,.demo-grid,.packet-grid{grid-template-columns:1fr;gap:36px}
@@ -425,9 +474,10 @@ html.anim .step.dim{opacity:.12;transform:translateY(12px)}
   .plan.featured{transform:none}
   .steps{grid-template-columns:1fr;gap:34px}
   .steps::before{display:none}
+  .foot-grid{grid-template-columns:1fr 1fr}
 }
 @media (max-width:560px){
-  .nav-links{display:none}
+  .nav-login{display:none}
   section{padding:64px 0}
   #hero{padding:120px 0 56px}
   .anchors{grid-template-columns:1fr}
@@ -435,18 +485,34 @@ html.anim .step.dim{opacity:.12;transform:translateY(12px)}
   .screen{height:390px}
   .vpills{scroll-snap-type:x mandatory}
   .night-stats{gap:20px}
+  .foot-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
-<!-- PLACEHOLDER: swap for canonical nav/footer from index.html -->
-<nav class="nav">
-  <a class="logo" href="../index.html">FYNZ<i>·</i>IQ</a>
-  <div class="nav-links">
-    <a href="../index.html#grow">Grow</a><a href="../index.html#sched">Schedule</a><a href="../index.html#shop">Shop</a><a href="../index.html#ops">Ops</a><a href="../features.html">Features</a><a href="../index.html#pricing">Pricing</a>
+<!-- Site chrome: static replica of the main-site navbar -->
+<nav class="nav" id="siteNav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/" aria-label="FYNZ home">
+      <img src="/logo-fynz.png" alt="" width="36" height="31" />
+      <span class="wordmark">FYNZ</span>
+    </a>
+    <div class="nav-links">
+      <a href="/grow">Grow</a>
+      <a href="/schedule">Schedule</a>
+      <a href="/shop">Shop</a>
+      <a href="/ops">Ops</a>
+      <a href="/ai">AI</a>
+      <a href="/industries">Who's it for</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/resources">Resources</a>
+    </div>
+    <div class="nav-right">
+      <a class="nav-login" href="/login">Log in</a>
+      <a class="nav-cta" href="/pricing">Start free</a>
+    </div>
   </div>
-  <a class="cta" href="../index.html#pricing">Start free</a>
 </nav>
 
 <!-- ===================== 1 · HERO ===================== -->
@@ -469,7 +535,7 @@ html.anim .step.dim{opacity:.12;transform:translateY(12px)}
         <p class="sub" data-v="heroSub">FYNZ answers every call 24/7, qualifies the loss, captures the insurance claim details, and books your truck — before the caller dials the next company.</p>
         <div class="hero-ctas">
           <!-- PLACEHOLDER: point "Book a walkthrough" at the real booking link -->
-          <a class="btn primary" href="../index.html#pricing">Book a walkthrough</a>
+          <a class="btn primary" href="/pricing">Book a walkthrough</a>
           <a class="btn ghost" href="#calculator">See what missed calls cost you</a>
         </div>
       </div>
@@ -862,7 +928,7 @@ html.anim .step.dim{opacity:.12;transform:translateY(12px)}
           <li>One dashboard: your missed calls, in dollars</li>
           <li>No card, no setup call needed</li>
         </ul>
-        <a class="pick" href="../index.html#pricing">Show me my number</a>
+        <a class="pick" href="/pricing">Show me my number</a>
       </div>
 
       <div class="plan featured rv d2">
@@ -879,7 +945,7 @@ html.anim .step.dim{opacity:.12;transform:translateY(12px)}
           <li>Dispatch board for tonight's jobs</li>
           <li>Real emergencies escalate straight to your cell</li>
         </ul>
-        <a class="pick" href="../index.html#pricing">Start 14-day trial</a>
+        <a class="pick" href="/pricing">Start 14-day trial</a>
       </div>
 
       <div class="plan managed rv d3">
@@ -897,7 +963,7 @@ html.anim .step.dim{opacity:.12;transform:translateY(12px)}
           <li>Saved-job report walked through with you</li>
         </ul>
         <!-- PLACEHOLDER: point "Book a walkthrough" at the real booking link -->
-        <a class="pick" href="../index.html#pricing">Book a walkthrough</a>
+        <a class="pick" href="/pricing">Book a walkthrough</a>
       </div>
     </div>
 
@@ -935,17 +1001,74 @@ html.anim .step.dim{opacity:.12;transform:translateY(12px)}
     <p class="rv d1">Two rings from now, that caller is either on your board or on your competitor's.</p>
     <div class="hero-ctas rv d2">
       <!-- PLACEHOLDER: point "Book a walkthrough" at the real booking link -->
-      <a class="btn primary" href="../index.html#pricing">Book a walkthrough</a>
-      <a class="btn ghost" href="../index.html#pricing">Start free — see your missed calls</a>
+      <a class="btn primary" href="/pricing">Book a walkthrough</a>
+      <a class="btn ghost" href="/pricing">Start free — see your missed calls</a>
     </div>
   </div>
 </section>
 
-<!-- PLACEHOLDER: swap for canonical nav/footer from index.html -->
-<footer class="foot">
-  <span><a href="../index.html">FYNZ·IQ</a></span>
-  <span>EMERGENCY SERVICES</span>
-  <span>© 2026</span>
+<!-- Site chrome: static replica of the main-site footer -->
+<footer class="site-foot">
+  <div class="fwrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="nav-logo" href="/" aria-label="FYNZ home">
+          <img src="/logo-fynz.png" alt="" width="34" height="29" />
+          <span class="wordmark">FYNZ</span>
+        </a>
+        <p>The all-in-one platform for small business — grow, schedule, sell, and run operations from one place.</p>
+        <div class="foot-contact">
+          <a href="mailto:hello@fynz.com">hello@fynz.com</a><br />
+          <a href="tel:+18005550199">1-800-555-0199</a><br />
+          <span>US &amp; Canada</span>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Product</h5>
+        <a href="/platform">Platform overview</a>
+        <a href="/grow">GROW</a>
+        <a href="/schedule">SCHEDULE</a>
+        <a href="/shop">SHOP</a>
+        <a href="/ops">OPS</a>
+        <a href="/ai">FYNZ AI</a>
+        <a href="/integrations">Integrations</a>
+      </div>
+      <div class="foot-col">
+        <h5>Who's it for</h5>
+        <a href="/industries/salons">Salons &amp; barbershops</a>
+        <a href="/industries/clinics">Clinics &amp; dental</a>
+        <a href="/industries/fitness">Fitness &amp; gyms</a>
+        <a href="/industries/home-services">Home services</a>
+        <a href="/industries/real-estate">Real estate</a>
+        <a href="/industries">All industries</a>
+      </div>
+      <div class="foot-col">
+        <h5>Resources</h5>
+        <a href="/resources">Blog</a>
+        <a href="/resources#docs">Help center</a>
+        <a href="/resources#guides">Guides</a>
+        <a href="/pricing">Pricing</a>
+        <a href="#status">System status</a>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <a href="#about">About</a>
+        <a href="#careers">Careers</a>
+        <a href="#contact">Contact</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#terms">Terms</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="copy">© 2026 FYNZ, INC. ALL RIGHTS RESERVED.</span>
+      <div class="foot-social">
+        <a href="#x" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.3 22h-6.3l-4.9-6.4L6.5 22H3.4l7.3-8.3L1.6 2H8l4.4 5.9L18.9 2Zm-1.1 18h1.7L7.1 3.7H5.3L17.8 20Z"/></svg></a>
+        <a href="#instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2Zm0 3.6a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4Zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.4-10.4a1.4 1.4 0 1 0 0-2.9 1.4 1.4 0 0 0 0 2.9Z"/></svg></a>
+        <a href="#linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1a3.7 3.7 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2ZM7.1 20.5H3.5V9h3.6v11.5Z"/></svg></a>
+        <a href="#youtube" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.5a3 3 0 0 0-2.1-2.2C19.5 3.8 12 3.8 12 3.8s-7.5 0-9.4.5A3 3 0 0 0 .5 6.5 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.5 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.5ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg></a>
+      </div>
+    </div>
+  </div>
 </footer>
 
 <script>
@@ -1248,6 +1371,14 @@ var root = document.documentElement;
 var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 root.classList.add("js");
 if (!reduced) root.classList.add("anim");
+
+/* site nav: gains a solid blurred background after scrolling, matching the main-site navbar */
+var navEl = document.getElementById("siteNav");
+function navScroll() {
+  navEl.classList.toggle("scrolled", window.scrollY > 24);
+}
+window.addEventListener("scroll", navScroll, { passive: true });
+navScroll();
 
 var current = "water";
 
