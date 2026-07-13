@@ -301,7 +301,7 @@ export default function BarbershopPage() {
               FYNZ answers the calls, runs the walk-in queue, posts your best fades, and asks for the review — you just keep cutting.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/onboarding?plan=free" />}>
+              <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/onboarding?plan=free&industry=barbershops" />}>
                 Start free
               </Button>
               <Button size="lg" variant="outline" render={<Link href="#showit" />}>
@@ -574,7 +574,7 @@ export default function BarbershopPage() {
             Answered calls, a walk-in queue that runs itself, and an Instagram that posts your best work — from day one.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/onboarding?plan=free" />}>
+            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/onboarding?plan=free&industry=barbershops" />}>
               Start free
             </Button>
             <Button size="lg" variant="outline" render={<Link href="/schedule" />}>

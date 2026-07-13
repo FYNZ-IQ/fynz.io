@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Chip } from "@/components/shared";
 import { Button } from "@/components/ui";
-import { getCheckoutLink } from "@/lib/checkout";
+import { getCheckoutLink, INDUSTRIES } from "@/lib/checkout";
 import { cn } from "@/lib/utils";
 
 // Base URL of the onboarding bridge service (services/onboarding-bridge),
@@ -103,10 +103,16 @@ function OnboardingWizard() {
   const billing = params.get("billing") === "annual" ? "annual" : "monthly";
   const emailParam = params.get("email") || "";
 
-  // Paid plans go through GHL checkout first (when a link is configured for
-  // the plan). GHL's payment link redirects back here with &paid=1.
-  const checkoutUrl = getCheckoutLink(plan, billing);
+  // Plans (and their snapshots + payment pages) are per industry. Industry
+  // landing pages deep-link it via ?industry=; everyone else picks in-wizard.
+  const industryParam = (params.get("industry") || "").toLowerCase();
+  const [industry, setIndustry] = useState(industryParam);
   const paid = params.get("paid") === "1";
+  const needsIndustry = !industry && !paid;
+
+  // Paid plans go through GHL checkout first (when a link is configured for
+  // the industry+plan). GHL's payment link redirects back here with &paid=1.
+  const checkoutUrl = getCheckoutLink(industry, plan, billing);
   const [checkoutSkipped, setCheckoutSkipped] = useState(false);
   const needsCheckout = Boolean(checkoutUrl) && !paid && !checkoutSkipped;
 
@@ -131,7 +137,7 @@ function OnboardingWizard() {
       const res = await fetch(`${BRIDGE_URL}/onboard/web`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, plan, billing }),
+        body: JSON.stringify({ ...form, plan, billing, industry }),
       });
       if (res.status === 429) {
         throw new Error("Too many attempts from your network — please try again in a few minutes.");
@@ -168,11 +174,40 @@ function OnboardingWizard() {
     );
   }
 
+  if (needsIndustry) {
+    return (
+      <div className="bg-navy-900 text-white rounded-[var(--r-lg)] p-8 md:p-12 text-center">
+        <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">
+          First things first
+        </span>
+        <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
+          What kind of <span className="text-copper">business</span> are you?
+        </h2>
+        <p className="text-slate-300 text-sm md:text-base max-w-xl mx-auto leading-relaxed mb-10">
+          Your industry decides which ready-made system you get — booking pages,
+          automations, and campaigns built for businesses like yours.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto">
+          {INDUSTRIES.map(({ key, label }) => (
+            <button
+              key={key}
+              type="button"
+              onClick={() => setIndustry(key)}
+              className="bg-navy-800/60 border border-white/10 rounded-xl px-6 py-5 font-display font-semibold text-sm text-slate-200 transition-all cursor-pointer hover:border-copper/60 hover:text-white hover:-translate-y-0.5"
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   if (needsCheckout) {
     return (
       <div className="bg-navy-900 text-white rounded-[var(--r-lg)] p-8 md:p-12 text-center">
         <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">
-          Step 1 of 2 · Secure checkout
+          Secure checkout
         </span>
         <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
           First, activate your <span className="text-copper">{PLAN_LABELS[plan]}</span> plan

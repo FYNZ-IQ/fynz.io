@@ -21,11 +21,15 @@ fallback.
 
 Paid plans should collect payment *before* onboarding — the bridge can only
 sync answers into a sub-account that GHL SaaS mode has provisioned, which
-happens at purchase. Fill `lib/checkout.ts` with your GHL payment-link URLs
-per plan and billing cycle; the wizard then shows a "continue to secure
-checkout" gate first, and GHL redirects buyers back to
-`/onboarding?plan=…&billing=…&paid=1` (optionally `&email=…` to prefill).
-Plans with no link configured skip the gate and go straight to the wizard.
+happens at purchase. GHL plans are prepared **per industry** (each carries
+that industry's snapshot), so `lib/checkout.ts` keys payment-link URLs by
+industry × plan × billing, with a `default` row as fallback. The wizard asks
+"what kind of business are you?" first (skipped when the visitor arrives from
+an industry page with `?industry=…`), then shows the matching "continue to
+secure checkout" gate. GHL redirects buyers back to
+`/onboarding?industry=…&plan=…&billing=…&paid=1` (optionally `&email=…` to
+prefill). Combinations with no link configured skip the gate and go straight
+to the wizard. The picker's options live in `INDUSTRIES` in the same file.
 
 ## Getting Started
 

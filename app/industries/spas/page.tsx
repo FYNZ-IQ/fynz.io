@@ -484,7 +484,7 @@ export default function SpasPage() {
               FYNZ fills your slow days, sells your series and gift cards, and turns one-time visitors into members — while you keep the room quiet.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/onboarding?plan=free" />}>
+              <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/onboarding?plan=free&industry=spas" />}>
                 Start free
               </Button>
               <Button size="lg" variant="outline" render={<Link href="#showit" />}>

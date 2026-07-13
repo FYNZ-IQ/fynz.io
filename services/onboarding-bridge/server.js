@@ -90,7 +90,9 @@ function rateLimited(ip) {
 
 // Only these payload keys are forwarded to the sync (never contact_id — a
 // public caller must not be able to tag arbitrary agency contacts).
-const WEB_ALLOWED_KEYS = ['email', 'company_name', ...Object.keys(FIELD_MAP)];
+// industry/plan/billing aren't written anywhere; they ride along so failure
+// alerts and logs say which per-industry system the buyer was expecting.
+const WEB_ALLOWED_KEYS = ['email', 'company_name', 'industry', 'plan', 'billing', ...Object.keys(FIELD_MAP)];
 const MAX_FIELD_LENGTH = 2000;
 
 app.options('/onboard/web', (req, res) => {
