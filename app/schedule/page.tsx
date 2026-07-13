@@ -357,7 +357,7 @@ export default function SchedulePage() {
             kill no-shows. You just show up and do the work.
           </p>
           <div className="flex flex-col sm:flex-row gap-3.5 justify-center">
-            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold">
+            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/onboarding?plan=free" />}>
               Start free
             </Button>
             <Button size="lg" variant="outline" render={<Link href="#preview" />}>
@@ -647,7 +647,7 @@ export default function SchedulePage() {
             is just the beginning.
           </p>
           <div className="flex flex-col sm:flex-row gap-3.5 justify-center">
-            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold">
+            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/onboarding?plan=free" />}>
               Start free
             </Button>
             <Button size="lg" variant="outline" render={<Link href="/shop" />}>

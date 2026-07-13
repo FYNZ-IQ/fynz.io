@@ -265,7 +265,7 @@ export default function OpsPage() {
               OPS is where the other three pillars report for duty: every booking, sale, and payment lands here on its own — no data entry, no shoebox of receipts, no "I'll sort it at tax time."
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold">
+              <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/onboarding?plan=free" />}>
                 Start free
               </Button>
               <Button size="lg" variant="outline" render={<Link href="#dashboard" />}>
@@ -610,7 +610,7 @@ export default function OpsPage() {
             Four pillars, one platform — from the first lead in GROW to the last line in the books.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold">
+            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/onboarding?plan=free" />}>
               Start free
             </Button>
             <Button size="lg" variant="outline" render={<Link href="/platform" />}>

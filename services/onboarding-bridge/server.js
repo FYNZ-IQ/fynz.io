@@ -1,4 +1,5 @@
 import express from 'express';
+import { FIELD_MAP } from './config.js';
 import { runSync } from './sync.js';
 
 const REQUIRED_ENV = ['GHL_AGENCY_TOKEN', 'GHL_COMPANY_ID', 'WEBHOOK_SECRET'];
@@ -9,6 +10,16 @@ if (missingEnv.length > 0) {
 }
 if (!process.env.ALERT_WEBHOOK_URL) {
   console.warn('ALERT_WEBHOOK_URL not set — failure alerts will only appear in logs.');
+}
+
+// Origins allowed to call the public browser endpoint (the marketing site).
+// Comma-separated, e.g. "https://fynz.io,https://www.fynz.io".
+const PUBLIC_SITE_ORIGINS = (process.env.PUBLIC_SITE_ORIGINS || '')
+  .split(',')
+  .map((s) => s.trim().replace(/\/$/, ''))
+  .filter(Boolean);
+if (PUBLIC_SITE_ORIGINS.length === 0) {
+  console.warn('PUBLIC_SITE_ORIGINS not set — POST /onboard/web (website wizard) is disabled.');
 }
 
 const app = express();
@@ -39,6 +50,97 @@ app.post('/onboard', (req, res) => {
           ts: new Date().toISOString(),
           level: 'error',
           msg: 'Unhandled sync error',
+          error: err.message,
+        }),
+      ),
+    );
+  });
+});
+
+// --- Public endpoint for the website's onboarding wizard -------------------
+// The marketing site is a static export, so the browser posts here directly;
+// there is no server to hold the webhook secret. Protection instead:
+// origin allowlist (CORS), per-IP rate limit, honeypot, field allowlist.
+
+const applyCors = (req, res) => {
+  const origin = req.get('origin');
+  if (!origin || !PUBLIC_SITE_ORIGINS.includes(origin.replace(/\/$/, ''))) return false;
+  res.set('Access-Control-Allow-Origin', origin);
+  res.set('Vary', 'Origin');
+  return true;
+};
+
+// 5 submissions per IP per 10 minutes; window map pruned on each hit.
+const RATE_LIMIT = 5;
+const RATE_WINDOW_MS = 10 * 60 * 1000;
+const rateHits = new Map();
+function rateLimited(ip) {
+  const now = Date.now();
+  for (const [k, hits] of rateHits) {
+    const live = hits.filter((t) => now - t < RATE_WINDOW_MS);
+    if (live.length === 0) rateHits.delete(k);
+    else rateHits.set(k, live);
+  }
+  const hits = rateHits.get(ip) || [];
+  if (hits.length >= RATE_LIMIT) return true;
+  hits.push(now);
+  rateHits.set(ip, hits);
+  return false;
+}
+
+// Only these payload keys are forwarded to the sync (never contact_id — a
+// public caller must not be able to tag arbitrary agency contacts).
+const WEB_ALLOWED_KEYS = ['email', 'company_name', ...Object.keys(FIELD_MAP)];
+const MAX_FIELD_LENGTH = 2000;
+
+app.options('/onboard/web', (req, res) => {
+  if (!applyCors(req, res)) return res.status(403).end();
+  res.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.set('Access-Control-Allow-Headers', 'Content-Type');
+  res.set('Access-Control-Max-Age', '86400');
+  res.status(204).end();
+});
+
+app.post('/onboard/web', (req, res) => {
+  if (PUBLIC_SITE_ORIGINS.length === 0) {
+    return res.status(503).json({ error: 'public endpoint not configured' });
+  }
+  if (!applyCors(req, res)) {
+    return res.status(403).json({ error: 'forbidden origin' });
+  }
+
+  const body = req.body || {};
+
+  // Honeypot: real users never fill this hidden field. Pretend success.
+  if (body.website) {
+    return res.status(200).json({ accepted: true });
+  }
+
+  const ip = (req.get('x-forwarded-for') || '').split(',')[0].trim() || req.ip;
+  if (rateLimited(ip)) {
+    return res.status(429).json({ error: 'too many requests' });
+  }
+
+  if (!body.email || !String(body.email).includes('@')) {
+    return res.status(400).json({ error: 'missing or invalid email' });
+  }
+
+  const payload = {};
+  for (const key of WEB_ALLOWED_KEYS) {
+    if (body[key] === undefined || body[key] === null) continue;
+    payload[key] = String(body[key]).slice(0, MAX_FIELD_LENGTH);
+  }
+  payload.source = 'website-wizard';
+
+  res.status(200).json({ accepted: true });
+
+  setImmediate(() => {
+    runSync(payload).catch((err) =>
+      console.error(
+        JSON.stringify({
+          ts: new Date().toISOString(),
+          level: 'error',
+          msg: 'Unhandled sync error (web)',
           error: err.message,
         }),
       ),

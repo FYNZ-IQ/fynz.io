@@ -517,7 +517,7 @@ export default function IndustriesIndexPage() {
               FYNZ still fits — the four pillars work for any customer-facing
               SMB.{" "}
               <Link
-                href="#start"
+                href="/onboarding?plan=free"
                 className="text-copper hover:underline underline-offset-[3px]"
               >
                 Start free
@@ -554,7 +554,7 @@ export default function IndustriesIndexPage() {
               <Button
                 size="lg"
                 className="bg-copper hover:bg-copper/90 text-white font-semibold"
-              >
+               render={<Link href="/onboarding?plan=free" />}>
                 Start free
               </Button>
               <Button size="lg" variant="outline" render={<Link href="/platform" />}>

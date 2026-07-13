@@ -15,7 +15,7 @@ Wizard submitted → GHL Custom Webhook → this service
 
 | File | Purpose |
 |---|---|
-| `server.js` | Express app. `POST /onboard` (validates, ACKs, runs sync async), `GET /health` |
+| `server.js` | Express app. `POST /onboard` (GHL webhook, secret-protected), `POST /onboard/web` (website wizard, CORS + rate limit), `GET /health` |
 | `sync.js` | Orchestration: lookup with retry, writes, tagging, failure alerts |
 | `ghl.js` | GHL API 2.0 client (LeadConnector). Location token minting handled here |
 | `config.js` | **The per-vertical file.** Field mappings, tags, retry tuning |
@@ -37,6 +37,31 @@ The agency Private Integration Token needs: locations (read/write), locations/cu
 ## Deploy
 
 Any always-on Node host works: a VPS with pm2 (`pm2 start server.js --name bridge`), Railway, Render, Fly.io. Put it behind HTTPS (required — GHL webhooks + your secret travel over this). If you prefer Cloudflare Workers, the logic ports directly but `setImmediate` must become `ctx.waitUntil()` and Express becomes the Workers fetch handler — ask Claude Code to do the port.
+
+## Website wiring (`/onboard/web`)
+
+The fynz.io marketing site hosts the onboarding wizard at `/onboarding` (all
+subscribe CTAs route there). The site is a static export, so the browser posts
+straight to this service — `POST /onboard/web` — with the same payload shape
+as the GHL webhook but **no secret** (a secret shipped in a static JS bundle
+would be public anyway). That route is protected instead by:
+
+- **Origin allowlist** — set `PUBLIC_SITE_ORIGINS` (comma-separated) to the
+  site's origins; requests from other origins get 403, and the endpoint is
+  disabled entirely when unset.
+- **Rate limit** — 5 submissions per IP per 10 minutes (in-memory).
+- **Honeypot** — a hidden `website` field; bots that fill it get a fake 200.
+- **Field allowlist** — only `email`, `company_name`, and `FIELD_MAP` keys are
+  forwarded. `contact_id` is deliberately dropped so public callers can't tag
+  arbitrary agency contacts; success runs log a warning instead of tagging.
+
+On the site side, set `NEXT_PUBLIC_ONBOARDING_BRIDGE_URL` at build time to
+this service's base URL (e.g. `https://bridge.fynz.io`).
+
+Note: the sync looks up the buyer's **sub-account by email**, so a wizard
+submission only lands once GHL has provisioned that sub-account (checkout →
+SaaS provisioning). Lookup retries cover ~3 minutes; later submissions than
+that will alert as failures for manual recovery.
 
 ## GHL wiring (after deploy)
 

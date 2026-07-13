@@ -1,5 +1,22 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Onboarding wizard
+
+All subscribe CTAs route to `/onboarding`, a wizard that collects the new
+customer's brand and business details and posts them to the onboarding bridge
+(`services/onboarding-bridge`), which writes them into the buyer's GHL
+sub-account. Because this site is a static export, the browser calls the
+bridge directly — set the bridge's base URL at build time:
+
+```bash
+NEXT_PUBLIC_ONBOARDING_BRIDGE_URL=https://your-bridge-host pnpm build
+```
+
+The bridge must list this site's origin in its `PUBLIC_SITE_ORIGINS` env var
+(see `services/onboarding-bridge/README.md`). If the variable is unset, the
+wizard renders but submissions show a "not wired up" error with a mailto
+fallback.
+
 ## Getting Started
 
 First, run the development server:

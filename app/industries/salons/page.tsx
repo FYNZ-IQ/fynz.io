@@ -365,7 +365,7 @@ export default function SalonsPage() {
               FYNZ books your clients, reminds them, rebooks them, promotes your work, and asks for the review — while you do the hair.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold">
+              <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/onboarding?plan=free" />}>
                 Start free
               </Button>
               <Button size="lg" variant="outline" render={<Link href="#showit" />}>

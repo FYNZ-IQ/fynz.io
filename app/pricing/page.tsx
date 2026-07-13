@@ -34,7 +34,7 @@ const PLANS: Plan[] = [
     aPrice: 0,
     cap: "FREE. FOREVER. NO CARD.",
     cta: "Start free",
-    ctaLink: "#start",
+    ctaLink: "/onboarding?plan=free",
     popular: false,
     freeFlag: "FREE FOREVER · NOT A TRIAL",
     features: [
@@ -54,7 +54,7 @@ const PLANS: Plan[] = [
     aCap: "PER MONTH · BILLED ANNUALLY",
     note: "One-time onboarding fee $299 — waived on annual",
     cta: "Start 14-day trial",
-    ctaLink: "#start",
+    ctaLink: "/onboarding?plan=launch",
     popular: false,
     features: [
       "Everything in Free",
@@ -76,7 +76,7 @@ const PLANS: Plan[] = [
     aCap: "PER MONTH · BILLED ANNUALLY",
     note: "One-time onboarding fee $499 — waived on annual",
     cta: "Start 14-day trial",
-    ctaLink: "#start",
+    ctaLink: "/onboarding?plan=growth",
     popular: true,
     features: [
       "Everything in Launch",
@@ -216,6 +216,14 @@ export default function PricingPage() {
     return billing === "monthly" ? plan.mCap : plan.aCap;
   };
 
+  const getCtaLink = (plan: Plan) => {
+    // Onboarding links carry the billing toggle; demo links pass through.
+    if (plan.ctaLink.startsWith("/onboarding") && plan.mPrice > 0) {
+      return `${plan.ctaLink}&billing=${billing}`;
+    }
+    return plan.ctaLink;
+  };
+
   return (
     <div className="flex flex-col w-full">
       {/* Hero */}
@@ -328,7 +336,7 @@ export default function PricingPage() {
                       "w-full mt-6 mb-8 py-6 font-semibold",
                       plan.popular ? "bg-copper hover:bg-copper/90 text-white" : "bg-white text-navy-900 hover:bg-slate-100 border-none"
                     )}
-                    render={<Link href={plan.ctaLink} />}
+                    render={<Link href={getCtaLink(plan)} />}
                   >
                     {plan.cta}
                   </Button>
@@ -377,7 +385,7 @@ export default function PricingPage() {
               <Button
                 size="lg"
                 className="bg-copper hover:bg-copper/90 text-white font-semibold shrink-0"
-                render={<Link href="#start" />}
+                render={<Link href="/onboarding" />}
               >
                 Add to any plan
               </Button>
@@ -511,7 +519,7 @@ export default function PricingPage() {
             Start on Free, bring your bookings and leads over, and upgrade the day you want the team behind you. No card on Free, no contract, no eleventh subscription.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold">
+            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/onboarding?plan=free" />}>
               Start free
             </Button>
             <Button size="lg" variant="outline" render={<Link href="#demo" />}>

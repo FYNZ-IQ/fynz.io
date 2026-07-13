@@ -239,7 +239,7 @@ export default function AIPage() {
             Agents that answer the phone, reply to every message, ask for reviews, write your content, and build your pages — around the clock. Hire them once; they never call in sick.
           </p>
           <div className="flex gap-3.5 flex-wrap justify-center">
-            <Button className="btn-copper" render={<Link href="#start" />}>
+            <Button className="btn-copper" render={<Link href="/onboarding?plan=free" />}>
               Start free
             </Button>
             <Button className="btn-ghost" render={<Link href="#roster" />}>
@@ -491,7 +491,7 @@ export default function AIPage() {
             Onboard your AI team in an afternoon — and stop losing the leads that arrive after closing time.
           </p>
           <div className="flex gap-3.5 justify-center flex-wrap">
-            <Button className="btn-copper" render={<Link href="#start" />}>
+            <Button className="btn-copper" render={<Link href="/onboarding?plan=free" />}>
               Start free
             </Button>
             <Button className="btn-ghost" render={<Link href="/ai/voice" />}>
