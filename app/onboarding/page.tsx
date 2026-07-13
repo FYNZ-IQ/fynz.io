@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Chip } from "@/components/shared";
 import { Button } from "@/components/ui";
+import { getCheckoutLink } from "@/lib/checkout";
 import { cn } from "@/lib/utils";
 
 // Base URL of the onboarding bridge service (services/onboarding-bridge),
@@ -100,9 +101,17 @@ function OnboardingWizard() {
   const planParam = (params.get("plan") || "").toLowerCase();
   const plan = PLAN_LABELS[planParam] ? planParam : "";
   const billing = params.get("billing") === "annual" ? "annual" : "monthly";
+  const emailParam = params.get("email") || "";
+
+  // Paid plans go through GHL checkout first (when a link is configured for
+  // the plan). GHL's payment link redirects back here with &paid=1.
+  const checkoutUrl = getCheckoutLink(plan, billing);
+  const paid = params.get("paid") === "1";
+  const [checkoutSkipped, setCheckoutSkipped] = useState(false);
+  const needsCheckout = Boolean(checkoutUrl) && !paid && !checkoutSkipped;
 
   const [step, setStep] = useState(0);
-  const [form, setForm] = useState<FormState>(EMPTY_FORM);
+  const [form, setForm] = useState<FormState>(() => ({ ...EMPTY_FORM, email: emailParam }));
   const [status, setStatus] = useState<"idle" | "submitting" | "done" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -155,6 +164,35 @@ function OnboardingWizard() {
         <Button size="lg" className="btn-copper" render={<Link href="/" />}>
           Back to home
         </Button>
+      </div>
+    );
+  }
+
+  if (needsCheckout) {
+    return (
+      <div className="bg-navy-900 text-white rounded-[var(--r-lg)] p-8 md:p-12 text-center">
+        <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">
+          Step 1 of 2 · Secure checkout
+        </span>
+        <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
+          First, activate your <span className="text-copper">{PLAN_LABELS[plan]}</span> plan
+        </h2>
+        <p className="text-slate-300 text-sm md:text-base max-w-xl mx-auto leading-relaxed mb-8">
+          You&apos;ll check out on our secure payment page ({billing === "annual" ? "annual" : "monthly"} billing),
+          then land right back here to tell us about your business while we build your system.
+        </p>
+        <Button size="lg" className="btn-copper font-semibold px-8" render={<a href={checkoutUrl} />}>
+          Continue to secure checkout
+        </Button>
+        <p className="mt-6">
+          <button
+            type="button"
+            onClick={() => setCheckoutSkipped(true)}
+            className="font-mono text-[10px] tracking-wider uppercase text-slate-500 hover:text-copper underline underline-offset-2 cursor-pointer"
+          >
+            Already subscribed? Skip to setup
+          </button>
+        </p>
       </div>
     );
   }

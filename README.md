@@ -17,6 +17,16 @@ The bridge must list this site's origin in its `PUBLIC_SITE_ORIGINS` env var
 wizard renders but submissions show a "not wired up" error with a mailto
 fallback.
 
+### Checkout step (GHL SaaS payment links)
+
+Paid plans should collect payment *before* onboarding — the bridge can only
+sync answers into a sub-account that GHL SaaS mode has provisioned, which
+happens at purchase. Fill `lib/checkout.ts` with your GHL payment-link URLs
+per plan and billing cycle; the wizard then shows a "continue to secure
+checkout" gate first, and GHL redirects buyers back to
+`/onboarding?plan=…&billing=…&paid=1` (optionally `&email=…` to prefill).
+Plans with no link configured skip the gate and go straight to the wizard.
+
 ## Getting Started
 
 First, run the development server:
