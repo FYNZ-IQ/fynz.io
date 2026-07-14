@@ -727,15 +727,18 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {CHANNELS.map((ch, idx) => (
-              <div key={idx} className="bg-navy-800/60 text-white border border-white/10 shadow-none p-5 rounded-lg">
+              <div
+                key={idx}
+                className="bg-navy-900 text-white border border-white/10 shadow-none p-5 rounded-lg transition-all duration-200 hover:border-copper/40 hover:-translate-y-0.5"
+              >
                 <ChannelVisual title={ch.title} />
                 <b className="font-display font-bold text-base text-white block mb-2">{ch.title}</b>
-                <p className="text-slate-400 text-sm leading-relaxed">{ch.desc}</p>
+                <p className="text-slate-300 text-sm leading-relaxed">{ch.desc}</p>
               </div>
             ))}
-          </div>
+          </StaggerGroup>
         </div>
       </section>
 
