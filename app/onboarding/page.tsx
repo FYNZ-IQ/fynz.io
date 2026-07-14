@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Chip } from "@/components/shared";
 import { Button } from "@/components/ui";
-import { getCheckoutLink, INDUSTRIES } from "@/lib/checkout";
+import { getCheckoutLink, INDUSTRY_GROUPS } from "@/lib/checkout";
 import { cn } from "@/lib/utils";
 
 // Base URL of the onboarding bridge service (services/onboarding-bridge),
@@ -198,16 +198,25 @@ function OnboardingWizard() {
           Your industry decides which ready-made system you get — booking pages,
           automations, and campaigns built for businesses like yours.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto">
-          {INDUSTRIES.map(({ key, label }) => (
-            <button
-              key={key}
-              type="button"
-              onClick={() => setIndustry(key)}
-              className="bg-navy-800/60 border border-white/10 rounded-xl px-6 py-5 font-display font-semibold text-sm text-slate-200 transition-all cursor-pointer hover:border-copper/60 hover:text-white hover:-translate-y-0.5"
-            >
-              {label}
-            </button>
+        <div className="text-left space-y-8">
+          {INDUSTRY_GROUPS.map((group) => (
+            <div key={group.title}>
+              <div className="font-mono text-[9.5px] tracking-[0.15em] text-copper uppercase border-b border-white/10 pb-2 mb-4">
+                {group.title}
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                {group.items.map(({ key, label }) => (
+                  <button
+                    key={key}
+                    type="button"
+                    onClick={() => setIndustry(key)}
+                    className="bg-navy-800/60 border border-white/10 rounded-xl px-4 py-4 font-display font-semibold text-[13px] text-slate-200 text-center transition-all cursor-pointer hover:border-copper/60 hover:text-white hover:-translate-y-0.5"
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>
