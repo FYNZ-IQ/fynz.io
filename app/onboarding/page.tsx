@@ -4,7 +4,13 @@ import React, { Suspense, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Chip } from "@/components/shared";
-import { Button } from "@/components/ui";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+  Button,
+} from "@/components/ui";
 import { getCheckoutLink, INDUSTRY_GROUPS } from "@/lib/checkout";
 import { cn } from "@/lib/utils";
 
@@ -198,27 +204,34 @@ function OnboardingWizard() {
           Your industry decides which ready-made system you get — booking pages,
           automations, and campaigns built for businesses like yours.
         </p>
-        <div className="text-left space-y-8">
+        <Accordion className="text-left bg-navy-800/40" defaultValue={[INDUSTRY_GROUPS[0].title]}>
           {INDUSTRY_GROUPS.map((group) => (
-            <div key={group.title}>
-              <div className="font-mono text-[9.5px] tracking-[0.15em] text-copper uppercase border-b border-white/10 pb-2 mb-4">
-                {group.title}
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                {group.items.map(({ key, label }) => (
-                  <button
-                    key={key}
-                    type="button"
-                    onClick={() => setIndustry(key)}
-                    className="bg-navy-800/60 border border-white/10 rounded-xl px-4 py-4 font-display font-semibold text-[13px] text-slate-200 text-center transition-all cursor-pointer hover:border-copper/60 hover:text-white hover:-translate-y-0.5"
-                  >
-                    {label}
-                  </button>
-                ))}
-              </div>
-            </div>
+            <AccordionItem key={group.title} value={group.title}>
+              <AccordionTrigger className="font-display font-bold text-sm py-4">
+                <span className="flex items-baseline gap-3">
+                  {group.title}
+                  <span className="font-mono text-[9px] tracking-wider text-slate-500 uppercase">
+                    {group.items.length}
+                  </span>
+                </span>
+              </AccordionTrigger>
+              <AccordionContent>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                  {group.items.map(({ key, label }) => (
+                    <button
+                      key={key}
+                      type="button"
+                      onClick={() => setIndustry(key)}
+                      className="bg-navy-800/60 border border-white/10 rounded-xl px-4 py-4 font-display font-semibold text-[13px] text-slate-200 text-center transition-all cursor-pointer hover:border-copper/60 hover:text-white hover:-translate-y-0.5"
+                    >
+                      {label}
+                    </button>
+                  ))}
+                </div>
+              </AccordionContent>
+            </AccordionItem>
           ))}
-        </div>
+        </Accordion>
       </div>
     );
   }
