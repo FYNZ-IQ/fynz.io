@@ -47,7 +47,7 @@ const PLANS: Plan[] = [
   },
   {
     name: "Launch",
-    who: "The full system, set up for you in 48 hours.",
+    who: "The full system, ready the moment you sign up — set it up yourself or let us do it.",
     mPrice: 97,
     aPrice: 81,
     mCap: "14-DAY TRIAL · CANCEL ANYTIME",
@@ -180,7 +180,7 @@ const FAQS = [
   },
   {
     q: "Do I need a card for the 14-day trial?",
-    a: "Yes. Launch and Growth start with 14 days free, and billing begins when the trial ends — cancel anytime before then and you pay nothing. Either way, our team sets everything up for you within 48 hours, so you spend the trial using the system, not building it."
+    a: "Yes. Launch and Growth start with 14 days free, and billing begins when the trial ends — cancel anytime before then and you pay nothing. Your system is live the moment you sign up, so you can dive in right away — and if you'd rather not lift a finger, our team will set everything up for you within 48 hours."
   },
   {
     q: "What does concierge setup include?",
@@ -281,7 +281,7 @@ export default function PricingPage() {
       <section className="py-16 md:py-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <p className="text-center text-muted text-sm md:text-base font-display font-semibold mb-10">
-            Start your 14-day trial — our team sets everything up for you within 48 hours.
+            Start your 14-day trial — your system is live instantly, and our team can set everything up for you within 48 hours.
           </p>
           <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
             {PLANS.map((plan, idx) => (

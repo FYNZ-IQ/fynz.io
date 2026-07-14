@@ -160,16 +160,27 @@ function OnboardingWizard() {
           You&apos;re in
         </span>
         <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
-          Setting up <span className="text-copper">{form.company_name || "your business"}</span>
+          <span className="text-copper">{form.company_name || "Your business"}</span> is ready to go
         </h2>
         <p className="text-slate-300 text-sm md:text-base max-w-xl mx-auto leading-relaxed mb-8">
-          Your answers are on their way to our setup team. Your branded system is being
-          configured now — watch <span className="text-white font-semibold">{form.email}</span> for
-          your &ldquo;you&apos;re ready — log in&rdquo; email.
+          Your system is live and your answers are branding it as we speak. Log in and
+          start setting it up your way — your login details are in your inbox at{" "}
+          <span className="text-white font-semibold">{form.email}</span>. Prefer a hand?
+          Our team can deploy everything for you — just reply to your welcome email.
         </p>
-        <Button size="lg" className="btn-copper" render={<Link href="/" />}>
-          Back to home
-        </Button>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button size="lg" className="btn-copper" render={<Link href="/login" />}>
+            Log in to your system
+          </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            className="border-white/15 bg-transparent text-slate-300 hover:bg-white/5 hover:text-white"
+            render={<Link href="/" />}
+          >
+            Back to home
+          </Button>
+        </div>
       </div>
     );
   }
@@ -213,8 +224,8 @@ function OnboardingWizard() {
           First, activate your <span className="text-copper">{PLAN_LABELS[plan]}</span> plan
         </h2>
         <p className="text-slate-300 text-sm md:text-base max-w-xl mx-auto leading-relaxed mb-8">
-          You&apos;ll check out on our secure payment page ({billing === "annual" ? "annual" : "monthly"} billing),
-          then land right back here to tell us about your business while we build your system.
+          You&apos;ll check out on our secure payment page ({billing === "annual" ? "annual" : "monthly"} billing)
+          and your system is created instantly — then land right back here to put your brand on it.
         </p>
         <Button size="lg" className="btn-copper font-semibold px-8" render={<a href={checkoutUrl} />}>
           Continue to secure checkout
@@ -369,7 +380,8 @@ export default function OnboardingPage() {
           </h1>
           <p className="text-muted text-lg max-w-xl mx-auto leading-relaxed">
             Three quick steps — your answers brand your booking page, funnels, and
-            messages, and our team takes it from there within 48 hours.
+            messages. Your system is ready to use the moment you finish, and if
+            you&apos;d rather we set it up, our team can deploy it for you.
           </p>
           <Suspense fallback={null}>
             <PlanBanner />
