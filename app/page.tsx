@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { ScrollReveal, StaggerGroup, HoverFloat } from "@/components/animations";
-import { Chip } from "@/components/shared";
+import { Chip, IndustrySearch } from "@/components/shared";
 import { Button } from "@/components/ui";
 import { cn } from "@/lib/utils";
 import { CinematicProvider, CineCanvas, Grain, Parallax, ProgressRail } from "@/components/cinematic";
@@ -753,6 +753,7 @@ export default function Home() {
             <p className="text-muted">
               Pre-configured services, pipelines, and automations for the way your industry actually works.
             </p>
+            <IndustrySearch className="mt-8" />
           </div>
 
           <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
