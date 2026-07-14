@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ScrollReveal, StaggerGroup, HoverFloat, CountUp } from "@/components/animations";
+import { ScrollReveal, StaggerGroup, HoverFloat } from "@/components/animations";
 import { BadgeCard, Chip } from "@/components/shared";
 import { SmsChatWidget, LiveQueueWidget } from "@/components/widgets";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent, Button, Card, CardContent } from "@/components/ui";
@@ -497,44 +497,6 @@ export default function BarbershopPage() {
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Proof Stats */}
-      <section className="sec py-20 bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-b border-line-soft">
-        <div className="wrap max-w-7xl mx-auto px-6">
-          <div className="mb-12">
-            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Proof</span>
-            <h2 className="font-display font-extrabold text-3xl tracking-tight">
-              What shops see <span className="text-copper">in the first 90 days</span>
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 text-center mb-12">
-            <div className="bg-navy-800 text-white border border-white/10 p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
-              <CountUp value="120+" className="font-display text-4xl font-extrabold text-copper block mb-1" />
-              <span className="font-mono text-[11px] tracking-wider text-slate-300 uppercase">CALLS ANSWERED/MO</span>
-            </div>
-            <div className="bg-navy-800 text-white border border-white/10 p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
-              <CountUp value="85%" className="font-display text-4xl font-extrabold text-copper block mb-1" />
-              <span className="font-mono text-[11px] tracking-wider text-slate-300 uppercase">FEWER NO-SHOWS</span>
-            </div>
-            <div className="bg-navy-800 text-white border border-white/10 p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
-              <CountUp value="3x" className="font-display text-4xl font-extrabold text-copper block mb-1" />
-              <span className="font-mono text-[11px] tracking-wider text-slate-300 uppercase">WALK-INS SAVED</span>
-            </div>
-            <div className="bg-navy-800 text-white border border-white/10 p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
-              <span className="font-display text-4xl font-extrabold text-copper block mb-1">Auto</span>
-              <span className="font-mono text-[11px] tracking-wider text-slate-300 uppercase">IG SCHEDULING</span>
-            </div>
-            <div className="bg-navy-800 text-white border border-white/10 p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
-              <CountUp value="50+" className="font-display text-4xl font-extrabold text-copper block mb-1" />
-              <span className="font-mono text-[11px] tracking-wider text-slate-300 uppercase">NEW 5-STARS</span>
-            </div>
-          </div>
-          <div className="border border-white/10 p-8 rounded-lg bg-navy-800 text-white max-w-4xl mx-auto text-center italic text-slate-300 text-lg relative">
-             "FYNZ saves us at least 10 calls a day mid-fade. Regulars book with their favorite barbers via individual calendars, and we wake up to walk-in queue requests booked overnight. Saturdays finally run themselves."
-             <span className="block font-mono text-[11px] tracking-widest text-copper uppercase font-bold not-italic mt-4">— KINGS CUT OWNER, TORONTO</span>
           </div>
         </div>
       </section>

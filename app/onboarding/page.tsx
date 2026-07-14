@@ -20,7 +20,7 @@ const BRIDGE_URL = (process.env.NEXT_PUBLIC_ONBOARDING_BRIDGE_URL || "").replace
 
 const PLAN_LABELS: Record<string, string> = {
   free: "Free",
-  launch: "Launch",
+  launch: "Starter", // pricing page's Starter plan maps to the "launch" key
   growth: "Growth",
   managed: "Managed",
 };

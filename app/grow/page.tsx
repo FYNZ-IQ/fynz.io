@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ScrollReveal, StaggerGroup, CountUp } from "@/components/animations";
+import { ScrollReveal, StaggerGroup } from "@/components/animations";
 import { Button } from "@/components/ui";
 
 /* ---------- Lifecycle ladder ---------- */
@@ -212,14 +212,6 @@ const FEATURES = [
   { title: "Ad & campaign tracking", desc: "See which ad or post produced each customer and dollar.", href: "/features/ad-tracking" },
 ];
 
-/* ---------- Outcome stats ---------- */
-const STATS = [
-  { value: "+38%", label: "More leads captured" },
-  { value: "30s", label: "Median first response" },
-  { value: "+41", label: "Reviews per month" },
-  { value: "5.2h", label: "Saved every week" },
-];
-
 export default function GrowPage() {
   return (
     <div className="flex w-full flex-col">
@@ -404,22 +396,6 @@ export default function GrowPage() {
                   LEARN MORE →
                 </span>
               </Link>
-            ))}
-          </StaggerGroup>
-        </div>
-      </section>
-
-      {/* Outcome stats */}
-      <section className="sec-tight border-y border-line-soft bg-secondary">
-        <div className="wrap">
-          <StaggerGroup className="grid grid-cols-2 gap-5 text-center lg:grid-cols-4">
-            {STATS.map((s) => (
-              <div key={s.label} className="rounded-[var(--r-md)] border border-white/10 bg-navy-800 px-4 py-6">
-                <CountUp value={s.value} className="block font-mono text-[clamp(1.9rem,3.6vw,2.7rem)] font-semibold tracking-[-0.02em] text-white" />
-                <span className="mt-2 block font-mono text-[10.5px] uppercase tracking-[0.2em] text-slate-400">
-                  {s.label}
-                </span>
-              </div>
             ))}
           </StaggerGroup>
         </div>

@@ -165,6 +165,9 @@ export const CHECKOUT_LINKS: Record<string, PlanLinks> = {
   "storm-tree": { ...EMPTY },
   "storm-roofing": { ...EMPTY },
   "biohazard-cleanup": { ...EMPTY },
+  // The pricing page's Emergency Restoration view sends this combined key
+  // (its plans map to growth/managed with this industry).
+  "emergency-restoration": { ...EMPTY },
   // Fallback for "Something else" and any industry without its own plans.
   default: { ...EMPTY },
 };

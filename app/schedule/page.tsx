@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { ScrollReveal, StaggerGroup, CountUp } from "@/components/animations";
+import { ScrollReveal, StaggerGroup } from "@/components/animations";
 import { Chip, ArrowLink } from "@/components/shared";
 import { Button, Card } from "@/components/ui";
 import { cn } from "@/lib/utils";
@@ -112,13 +112,6 @@ const FEATURES = [
     desc: "Separate calendars, staff, and services per location under one account.",
     href: "/features/multi-location",
   },
-];
-
-const STATS = [
-  { value: "−63%", label: "Fewer no-shows" },
-  { value: "34%", label: "Of bookings arrive after hours" },
-  { value: "11h", label: "Of phone tag saved weekly" },
-  { value: "1.4M+", label: "Appointments booked on FYNZ" },
 ];
 
 const SERVICES = [
@@ -614,22 +607,6 @@ export default function SchedulePage() {
                   </span>
                 </Link>
               </Card>
-            ))}
-          </StaggerGroup>
-        </div>
-      </section>
-
-      {/* ============ OUTCOME STATS ============ */}
-      <section className="sec-tight py-20 bg-secondary border-y border-line-soft">
-        <div className="wrap max-w-7xl mx-auto px-6">
-          <StaggerGroup className="grid grid-cols-2 lg:grid-cols-4 gap-5 text-center">
-            {STATS.map((s) => (
-              <div key={s.label} className="rounded-[var(--r-md)] border border-white/10 bg-navy-800 px-4 py-6">
-                <CountUp value={s.value} className="font-mono font-semibold text-[clamp(1.9rem,3.6vw,2.7rem)] text-white block tracking-tight" />
-                <span className="font-mono text-[10.5px] tracking-[0.2em] uppercase text-slate-400 block mt-2">
-                  {s.label}
-                </span>
-              </div>
             ))}
           </StaggerGroup>
         </div>
