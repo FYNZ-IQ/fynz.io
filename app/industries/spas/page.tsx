@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ScrollReveal, StaggerGroup, HoverFloat } from "@/components/animations";
 import { BadgeCard, Chip } from "@/components/shared";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent, Button, Card, CardContent } from "@/components/ui";
+import { industryThemeVars } from "@/lib/industries/themes";
 
 const PAINS = [
   "Weekends are packed. Tuesdays are dead. And there's no way to move the demand.",
@@ -344,7 +345,7 @@ const BENEFIT_GROUPS = [
             <span className={vizLabel}>Ask AI</span>
             <div className="text-[0.72rem] text-slate-300 italic mt-4">▸ How many gift cards did we sell in December?</div>
             <div className="bg-navy-800 border border-white/10 rounded p-2">
-              <b className="font-mono text-[9px] text-white">DECEMBER — 112 GIFT CARDS · $14.2K</b>
+              <b className="font-mono text-[11px] text-white">DECEMBER — 112 GIFT CARDS · $14.2K</b>
               <div className="flex items-end gap-1 h-8 mt-1.5">
                 <i className="flex-1 rounded-t bg-copper/40" style={{ height: "38%" }} />
                 <i className="flex-1 rounded-t bg-copper/40" style={{ height: "55%" }} />
@@ -368,8 +369,8 @@ const DEMOS = [
     body: (
       <div className="bg-navy-800 text-white border border-white/10 rounded-[var(--r-lg)] p-5 shadow-md">
         <div className="flex justify-between items-center pb-3 border-b border-white/10 mb-3">
-          <b className="font-mono text-[10px] tracking-[0.16em] text-slate-400">TUESDAY — THE QUIET DAY</b>
-          <span className="font-mono text-[9px] tracking-wide text-copper flex items-center gap-1.5">
+          <b className="font-mono text-[11px] tracking-[0.16em] text-slate-400">TUESDAY — THE QUIET DAY</b>
+          <span className="font-mono text-[11px] tracking-wide text-copper flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-copper animate-pulse" />
             LIVE
           </span>
@@ -393,7 +394,7 @@ const DEMOS = [
           <div className="flex-1 h-2 rounded-full bg-white/[0.04] overflow-hidden">
             <span className="block h-full w-[85%] bg-copper rounded-full" />
           </div>
-          <span className="font-mono text-[10px] text-copper font-bold">85%</span>
+          <span className="font-mono text-[11px] text-copper font-bold">85%</span>
         </div>
       </div>
     )
@@ -407,8 +408,8 @@ const DEMOS = [
     body: (
       <div className="bg-navy-800 text-white border border-white/10 rounded-[var(--r-lg)] p-5 shadow-md">
         <div className="flex justify-between items-center pb-3 border-b border-white/10 mb-3">
-          <b className="font-mono text-[10px] tracking-[0.16em] text-slate-400">ONLINE CHECKOUT — 8:00 PM</b>
-          <span className="font-mono text-[9px] tracking-wide text-copper">SPA CLOSED</span>
+          <b className="font-mono text-[11px] tracking-[0.16em] text-slate-400">ONLINE CHECKOUT — 8:00 PM</b>
+          <span className="font-mono text-[11px] tracking-wide text-copper">SPA CLOSED</span>
         </div>
         <div className="flex justify-between items-center py-2.5 border-b border-white/10 text-[0.84rem]">
           <span>
@@ -429,7 +430,7 @@ const DEMOS = [
           <span>$650.00</span>
         </div>
         <div className="text-center mb-3">
-          <span className="font-mono text-[10px] tracking-widest text-copper font-bold">PAID ✓</span>
+          <span className="font-mono text-[11px] tracking-widest text-copper font-bold">PAID ✓</span>
         </div>
         <div className="text-center">
           <span className="bg-green/10 text-green border border-green/30 px-3 py-1 rounded-full font-mono text-[8px]">
@@ -471,7 +472,7 @@ const FAQs = [
 
 export default function SpasPage() {
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full industry-theme" style={industryThemeVars("spas")}>
       {/* Hero */}
       <section className="s-hero pt-32 pb-16 md:pt-40 md:pb-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -531,7 +532,7 @@ export default function SpasPage() {
                   {["10:00", "2:00", "3:30", "5:00"].map((t) => (
                     <span
                       key={t}
-                      className={`font-mono text-[10px] rounded-lg border px-3 py-1.5 ${t === "2:00" ? "bg-copper-tint border-copper/50 text-copper" : "border-white/10 text-slate-300"}`}
+                      className={`font-mono text-[11px] rounded-lg border px-3 py-1.5 ${t === "2:00" ? "bg-copper-tint border-copper/50 text-copper" : "border-white/10 text-slate-300"}`}
                     >
                       {t}
                     </span>
@@ -573,7 +574,7 @@ export default function SpasPage() {
       <section className="sec py-20 bg-secondary border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="max-w-2xl mb-12">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Sound familiar?</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Sound familiar?</span>
             <h2 className="font-display font-extrabold text-3xl tracking-tight">
               The parts of spa life <span className="text-copper">nobody warned you about</span>
             </h2>
@@ -586,7 +587,7 @@ export default function SpasPage() {
               >
                 <span className="font-display text-copper text-2xl leading-none mt-1 shrink-0 select-none">&ldquo;</span>
                 <CardContent className="p-0">
-                  <p className="text-slate-300 text-sm leading-relaxed">{pain}</p>
+                  <p className="text-slate-300 text-base leading-relaxed">{pain}</p>
                 </CardContent>
               </Card>
             ))}
@@ -598,7 +599,7 @@ export default function SpasPage() {
       <section className="sec py-20 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="max-w-2xl mb-20">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Here&apos;s what changes</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Here&apos;s what changes</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight">
               Keep the room quiet. FYNZ handles <span className="text-copper">the noise</span>.
             </h2>
@@ -608,7 +609,7 @@ export default function SpasPage() {
             {BENEFIT_GROUPS.map((group, groupIdx) => (
               <div key={groupIdx} className="border-t border-line-soft/30 pt-12">
                 <div className="flex items-center gap-4 mb-10">
-                  <span className="font-mono text-xs text-copper bg-copper-tint border border-copper/30 px-3 py-1 rounded-full">{group.num}</span>
+                  <span className="font-mono text-sm text-copper bg-copper-tint border border-copper/30 px-3 py-1 rounded-full">{group.num}</span>
                   <h3 className="font-display font-extrabold text-2xl md:text-3xl tracking-tight">{group.title}</h3>
                 </div>
 
@@ -621,7 +622,7 @@ export default function SpasPage() {
                     >
                       <div>
                         <div className="mb-4">{card.viz}</div>
-                        <p className="text-slate-300 text-sm leading-relaxed mb-6">{card.desc}</p>
+                        <p className="text-slate-300 text-base leading-relaxed mb-6">{card.desc}</p>
                       </div>
                       <span className="block font-mono text-[8px] tracking-wider text-slate-400 uppercase mt-auto">{card.tag}</span>
                     </BadgeCard>
@@ -637,7 +638,7 @@ export default function SpasPage() {
       <section id="showit" className="sec py-20 bg-secondary border-b border-line-soft scroll-mt-20">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="mb-16 max-w-2xl">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Watch it work</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Watch it work</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight leading-tight">
               Two things FYNZ did <span className="text-copper">while the room stayed quiet</span>
             </h2>
@@ -650,10 +651,10 @@ export default function SpasPage() {
                   <b className="font-display font-bold text-xl block mb-2">
                     {demo.title} <span className="text-copper">{demo.titleAccent}</span>.
                   </b>
-                  <p className="text-muted text-sm leading-relaxed">{demo.copy}</p>
+                  <p className="text-muted text-base leading-relaxed">{demo.copy}</p>
                 </div>
                 {demo.body}
-                <span className="font-mono text-[8.5px] tracking-widest text-faint uppercase">{demo.tag}</span>
+                <span className="font-mono text-[11px] tracking-widest text-faint uppercase">{demo.tag}</span>
               </ScrollReveal>
             ))}
           </div>
@@ -664,7 +665,7 @@ export default function SpasPage() {
       <section className="sec py-20 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">A day with FYNZ</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">A day with FYNZ</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight">
               Same Tuesday. <span className="text-copper">Different spa</span>.
             </h2>
@@ -672,7 +673,7 @@ export default function SpasPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="border border-white/10 rounded-[var(--r-lg)] p-8 bg-navy-750">
-              <span className="font-mono text-[10px] tracking-widest text-slate-400 block mb-8 uppercase font-bold">BEFORE FYNZ, TUESDAY</span>
+              <span className="font-mono text-[11px] tracking-widest text-slate-400 block mb-8 uppercase font-bold">BEFORE FYNZ, TUESDAY</span>
               <div className="space-y-6">
                 {BEFORE_ITEMS.map((item, idx) => (
                   <div key={idx} className="flex gap-4 items-start text-sm">
@@ -684,7 +685,7 @@ export default function SpasPage() {
             </div>
 
             <div className="border border-copper/30 rounded-[var(--r-lg)] p-8 bg-navy-800">
-              <span className="font-mono text-[10px] tracking-widest text-copper block mb-8 uppercase font-bold">SAME TUESDAY, WITH FYNZ</span>
+              <span className="font-mono text-[11px] tracking-widest text-copper block mb-8 uppercase font-bold">SAME TUESDAY, WITH FYNZ</span>
               <div className="space-y-6">
                 {AFTER_ITEMS.map((item, idx) => (
                   <div key={idx} className="flex gap-4 items-start text-sm">
@@ -702,7 +703,7 @@ export default function SpasPage() {
       <section className="sec py-20 border-b border-line-soft">
         <div className="wrap max-w-3xl mx-auto px-6">
           <div className="text-center mb-12">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Owner FAQ</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Owner FAQ</span>
             <h2 className="font-display font-extrabold text-3xl tracking-tight">
               Fair <span className="text-copper">questions</span>
             </h2>
@@ -736,7 +737,7 @@ export default function SpasPage() {
       {/* Final CTA */}
       <section className="final py-24 relative overflow-hidden text-center bg-radial-[at_bottom_center] from-copper/10 via-transparent to-transparent">
         <div className="wrap max-w-4xl mx-auto px-6 relative z-10">
-          <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">For spas</span>
+          <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">For spas</span>
           <h2 className="font-display font-extrabold text-4xl md:text-5xl tracking-tight mb-4">
             Keep the room quiet. FYNZ fills <span className="text-copper">the book</span>.
           </h2>

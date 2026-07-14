@@ -564,7 +564,7 @@ export default function IndustriesIndexPage() {
                 <h2 className="font-mono text-[11px] font-semibold tracking-[0.22em] uppercase text-copper">
                   {group.title}
                 </h2>
-                <span className="font-mono text-[10px] tracking-[0.1em] text-faint">
+                <span className="font-mono text-[11px] tracking-[0.1em] text-faint">
                   {group.count}
                 </span>
               </div>
@@ -636,7 +636,7 @@ export default function IndustriesIndexPage() {
       <section className="final py-24 relative overflow-hidden text-center bg-radial-[at_bottom_center] from-copper/10 via-transparent to-transparent">
         <div className="wrap max-w-4xl mx-auto px-6 relative z-10">
           <ScrollReveal>
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">
               Your industry, day one
             </span>
             <h2 className="font-display font-extrabold text-4xl md:text-5xl tracking-tight mb-4">

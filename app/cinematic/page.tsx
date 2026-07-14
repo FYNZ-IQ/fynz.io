@@ -135,13 +135,13 @@ const STATS = [
 function StatusPill({ status }: { status: "live" | "soon" }) {
   if (status === "live") {
     return (
-      <span className="align-middle ml-2 font-mono text-[10px] tracking-[0.15em] px-2 py-0.5 rounded-full bg-green/10 text-green">
+      <span className="align-middle ml-2 font-mono text-[11px] tracking-[0.15em] px-2 py-0.5 rounded-full bg-green/10 text-green">
         LIVE
       </span>
     );
   }
   return (
-    <span className="align-middle ml-2 font-mono text-[10px] tracking-[0.15em] px-2 py-0.5 rounded-full bg-copper-tint text-copper">
+    <span className="align-middle ml-2 font-mono text-[11px] tracking-[0.15em] px-2 py-0.5 rounded-full bg-copper-tint text-copper">
       COMING SOON
     </span>
   );
@@ -211,7 +211,7 @@ export default function CinematicPage() {
                   key={feat.title}
                   className="flex gap-4 items-start py-5 px-5 bg-navy-800 border-t border-white/10 first:border-t-0"
                 >
-                  <span className="flex-none w-6 h-6 rounded-md bg-copper text-copper-ink grid place-items-center text-xs font-bold mt-0.5">
+                  <span className="flex-none w-6 h-6 rounded-md bg-copper text-copper-ink grid place-items-center text-sm font-bold mt-0.5">
                     ✓
                   </span>
                   <div>
@@ -219,7 +219,7 @@ export default function CinematicPage() {
                       {feat.title}
                       {feat.status && <StatusPill status={feat.status} />}
                     </h4>
-                    <p className="text-slate-300 text-sm leading-relaxed mt-1">{feat.desc}</p>
+                    <p className="text-slate-300 text-base leading-relaxed mt-1">{feat.desc}</p>
                   </div>
                 </div>
               ))}

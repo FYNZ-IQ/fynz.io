@@ -79,7 +79,7 @@ const STANDARD_PLANS: Plan[] = [
       "Dashboards"
     ],
     finePrint:
-      "One-time setup $197 — our team configures everything within 48 hours. Messaging usage billed at published rates.",
+      "One-time setup $197 — your system is live instantly, and onboarding help from our team is included for life. Messaging usage billed at published rates.",
     cta: "Start 14-day trial",
     ctaHref: "#start",
     personalize: true
@@ -290,7 +290,7 @@ const FAQS = [
   },
   {
     q: "Do I need a card for the 14-day trial?",
-    a: "Yes. Starter and Growth start with 14 days free, and billing begins when the trial ends — cancel anytime before then and you pay nothing. Your system is live the moment you sign up, so you can dive in right away — and if you'd rather not lift a finger, our team will set everything up for you within 48 hours."
+    a: "Yes. Starter and Growth start with 14 days free, and billing begins when the trial ends — cancel anytime before then and you pay nothing. Your system is live the moment you sign up, so you can dive in right away — and full onboarding help from our team is included for life, whenever you want it."
   },
   {
     q: "What happens if I go over my included usage?",
@@ -306,7 +306,7 @@ const FAQS = [
   },
   {
     q: "What does setup include?",
-    a: "A 48-hour concierge setup: number provisioning, messaging registration, industry configuration, and your first live call or booking handled within 48 hours."
+    a: "Your system and pages are live the instant you sign up. Setup covers number provisioning, messaging registration, and industry configuration — and onboarding help from our team stays included for life, not a one-time window."
   },
   {
     q: "Do you offer discounts?",
@@ -382,13 +382,13 @@ function PlanCard({
       )}
     >
       {plan.badge && (
-        <span className="absolute top-[-11px] left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-[9px] tracking-widest uppercase bg-[#C8895A] text-[#0D2154] font-bold px-3.5 py-1 rounded-full select-none">
+        <span className="absolute top-[-11px] left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-[11px] tracking-widest uppercase bg-[#C8895A] text-[#0D2154] font-bold px-3.5 py-1 rounded-full select-none">
           ★ {plan.badge}
         </span>
       )}
 
       {plan.tag && (
-        <span className="font-mono text-[9px] tracking-wider uppercase text-[#C8895A] block mb-2">{plan.tag}</span>
+        <span className="font-mono text-[11px] tracking-wider uppercase text-[#C8895A] block mb-2">{plan.tag}</span>
       )}
       <h3 className="font-display font-extrabold text-xl mb-3">{plan.name}</h3>
 
@@ -396,25 +396,25 @@ function PlanCard({
       <div className="border-b border-white/10 pb-4 mb-4">
         <div className="flex items-baseline gap-1">
           <span className="font-mono text-3xl font-extrabold tracking-tight text-[#F5F0EB]">{price.big}</span>
-          <span className="font-mono text-[10px] text-[#F5F0EB]/60 tracking-wider uppercase">{price.suffix}</span>
+          <span className="font-mono text-[11px] text-[#F5F0EB]/60 tracking-wider uppercase">{price.suffix}</span>
         </div>
         {price.sub && (
-          <p className="font-mono text-[10px] text-[#E4A87A] tracking-wide mt-1.5">{price.sub}</p>
+          <p className="font-mono text-[11px] text-[#E4A87A] tracking-wide mt-1.5">{price.sub}</p>
         )}
       </div>
 
-      {plan.body && <p className="text-[#F5F0EB]/85 text-sm leading-relaxed mb-4">{plan.body}</p>}
+      {plan.body && <p className="text-[#F5F0EB]/85 text-base leading-relaxed mb-4">{plan.body}</p>}
 
       {industryExample && (
-        <p className="text-[#E4A87A] text-xs leading-relaxed mb-4">
+        <p className="text-[#E4A87A] text-base leading-relaxed mb-4">
           For {industryExample.label.toLowerCase()}: {industryExample.example}.
         </p>
       )}
 
-      {plan.prelude && <p className="font-display font-semibold text-xs text-[#F5F0EB]/70 mb-3">{plan.prelude}</p>}
+      {plan.prelude && <p className="font-display font-semibold text-sm text-[#F5F0EB]/70 mb-3">{plan.prelude}</p>}
 
       {plan.features && (
-        <ul className="space-y-2.5 text-xs text-[#F5F0EB]/85 mb-4">
+        <ul className="space-y-2.5 text-sm text-[#F5F0EB]/85 mb-4">
           {plan.features.map((feat) => (
             <li key={feat} className="flex gap-2.5 items-start">
               <span className="text-[#C8895A] font-mono text-[11px] shrink-0 mt-0.5">✓</span>
@@ -443,7 +443,7 @@ function PlanCard({
                   : "bg-[#0D2154] border-white/20 after:bg-[#F5F0EB]/50"
               )}
             />
-            <span className="text-xs font-display font-semibold text-[#F5F0EB]">
+            <span className="text-sm font-display font-semibold text-[#F5F0EB]">
               ＋ AI Voice & Call Management — {addOnPrice(VOICE_MONTHLY, billing)}
             </span>
           </button>
@@ -459,7 +459,7 @@ function PlanCard({
 
       <div className="mt-auto">
         {/* Setup fee + usage disclosure — on the card itself */}
-        <p className="font-mono text-[10px] leading-relaxed tracking-wide text-[#F5F0EB]/60 border-t border-white/10 pt-4 mb-4">
+        <p className="font-mono text-[11px] leading-relaxed tracking-wide text-[#F5F0EB]/60 border-t border-white/10 pt-4 mb-4">
           {plan.finePrint}
         </p>
         <Button
@@ -503,7 +503,7 @@ function ComparisonTable({ view, billing }: { view: CompareView; billing: Billin
               {col.name}
               <small
                 className={cn(
-                  "block font-mono text-[9px] font-normal tracking-wider mt-1",
+                  "block font-mono text-[11px] font-normal tracking-wider mt-1",
                   col.highlight ? "text-[#E4A87A]" : "text-[#F5F0EB]/50"
                 )}
               >
@@ -516,13 +516,13 @@ function ComparisonTable({ view, billing }: { view: CompareView; billing: Billin
         {/* Body */}
         {view.groups.map((group) => (
           <div key={group.group}>
-            <div className="font-mono text-[9.5px] font-bold tracking-widest text-[#C8895A] bg-[#1A3375]/60 px-3 py-2 uppercase mt-4 rounded">
+            <div className="font-mono text-[11px] font-bold tracking-widest text-[#C8895A] bg-[#1A3375]/60 px-3 py-2 uppercase mt-4 rounded">
               {group.group}
             </div>
             {group.rows.map((row) => (
               <div
                 key={row.name}
-                className={cn("grid border-b border-white/10 py-3.5 items-center text-xs hover:bg-white/[0.04]", gridCols)}
+                className={cn("grid border-b border-white/10 py-3.5 items-center text-sm hover:bg-white/[0.04]", gridCols)}
               >
                 <span className="font-display font-medium text-[#F5F0EB]/85 pr-3">{row.name}</span>
                 {row.cells.map((cell, cidx) => (
@@ -606,7 +606,7 @@ export default function PricingPage() {
             Simple pricing. One platform. <span className="text-[#C8895A]">Built for your industry.</span>
           </h1>
           <p className="text-muted text-lg max-w-2xl mx-auto leading-relaxed">
-            Your system is live instantly — set it up yourself or let our team configure it in 48 hours.
+            Your system is live instantly — set it up yourself or let our team do it for you. Onboarding help is included for life.
           </p>
 
           {/* Billing toggle */}
@@ -639,13 +639,13 @@ export default function PricingPage() {
               )}
             >
               Annual
-              <span className="font-mono text-[9px] tracking-wider bg-[#C8895A]/10 text-[#C8895A] border border-[#C8895A]/40 px-2 py-0.5 rounded-full uppercase shrink-0">
+              <span className="font-mono text-[11px] tracking-wider bg-[#C8895A]/10 text-[#C8895A] border border-[#C8895A]/40 px-2 py-0.5 rounded-full uppercase shrink-0">
                 2 months free
               </span>
             </span>
           </div>
 
-          <p className="mt-6 font-mono text-[10px] tracking-wider text-faint">
+          <p className="mt-6 font-mono text-[11px] tracking-wider text-faint">
             Prices in USD. Canadian customers: applicable taxes added at checkout.
           </p>
         </div>
@@ -654,7 +654,7 @@ export default function PricingPage() {
       {/* 2) Industry selector */}
       <section className="py-10 border-b border-line-soft">
         <div className="wrap max-w-5xl mx-auto px-6">
-          <p className="text-center font-mono text-[10px] tracking-widest uppercase text-faint mb-5">
+          <p className="text-center font-mono text-[11px] tracking-widest uppercase text-faint mb-5">
             What kind of business do you run?
           </p>
           <div className="flex flex-wrap justify-center gap-2.5">
@@ -667,7 +667,7 @@ export default function PricingPage() {
                   aria-pressed={active}
                   onClick={() => selectIndustry(ind.slug)}
                   className={cn(
-                    "rounded-full px-4 py-2 text-xs font-display font-semibold border transition-colors duration-200 cursor-pointer",
+                    "rounded-full px-4 py-2 text-sm font-display font-semibold border transition-colors duration-200 cursor-pointer",
                     active
                       ? "bg-[#0D2154] text-[#F5F0EB] border-[#C8895A]"
                       : "bg-transparent text-muted border-line-soft hover:border-[#E4A87A] hover:text-ink"
@@ -692,8 +692,8 @@ export default function PricingPage() {
                   competitor just booked.
                 </h2>
                 <p className="text-muted text-base leading-relaxed">
-                  Fynz answers in two rings, qualifies the loss, captures the claim, and books your truck — set up for
-                  you in 48 hours.
+                  Fynz answers in two rings, qualifies the loss, captures the claim, and books your truck — live and
+                  answering within 48 hours.
                 </p>
               </div>
             </ScrollReveal>
@@ -731,21 +731,21 @@ export default function PricingPage() {
         <div className="wrap max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-6">
           <ScrollReveal>
             <div className="h-full rounded-xl bg-[#0D2154] text-[#F5F0EB] p-8 flex flex-col">
-              <span className="font-mono text-[9px] tracking-[0.15em] text-[#C8895A] uppercase block mb-3">
+              <span className="font-mono text-[11px] tracking-[0.15em] text-[#C8895A] uppercase block mb-3">
                 Add-on · Any paid plan
               </span>
               <h3 className="font-display font-extrabold text-xl md:text-2xl tracking-tight mb-2">
                 Fynz Social — <span className="text-[#C8895A]">{addOnPrice(249, billing)}</span>
               </h3>
               {billing === "annual" && (
-                <p className="font-mono text-[10px] text-[#E4A87A] tracking-wide mb-2">
+                <p className="font-mono text-[11px] text-[#E4A87A] tracking-wide mb-2">
                   — $249 value/mo, 2 months free
                 </p>
               )}
-              <p className="text-[#F5F0EB]/85 text-sm leading-relaxed mb-5">
+              <p className="text-[#F5F0EB]/85 text-base leading-relaxed mb-5">
                 Done-for-you social media: posting calendar, content, and publishing handled by our team.
               </p>
-              <p className="mt-auto font-display font-semibold text-xs text-[#E4A87A]">
+              <p className="mt-auto font-display font-semibold text-sm text-[#E4A87A]">
                 Add at checkout / ask on your demo. →
               </p>
             </div>
@@ -754,22 +754,22 @@ export default function PricingPage() {
           {!isEmergency && (
             <ScrollReveal>
               <div className="h-full rounded-xl bg-[#0D2154] text-[#F5F0EB] p-8 flex flex-col">
-                <span className="font-mono text-[9px] tracking-[0.15em] text-[#C8895A] uppercase block mb-3">
+                <span className="font-mono text-[11px] tracking-[0.15em] text-[#C8895A] uppercase block mb-3">
                   Add-on · Growth & Managed
                 </span>
                 <h3 className="font-display font-extrabold text-xl md:text-2xl tracking-tight mb-2">
                   ☎ AI Voice & Call Management — <span className="text-[#C8895A]">{addOnPrice(VOICE_MONTHLY, billing)}</span>
                 </h3>
                 {billing === "annual" && (
-                  <p className="font-mono text-[10px] text-[#E4A87A] tracking-wide mb-2">
+                  <p className="font-mono text-[11px] text-[#E4A87A] tracking-wide mb-2">
                     — $100 value/mo, 2 months free
                   </p>
                 )}
-                <p className="text-[#F5F0EB]/85 text-sm leading-relaxed mb-5">
+                <p className="text-[#F5F0EB]/85 text-base leading-relaxed mb-5">
                   24/7 Voice AI answers every call, books the appointment, routes and records per your local consent
                   rules. 500 AI-voice minutes/mo included. Toggle it on inside the Growth or Managed card above.
                 </p>
-                <p className="mt-auto font-display font-semibold text-xs text-[#E4A87A]">
+                <p className="mt-auto font-display font-semibold text-sm text-[#E4A87A]">
                   Add at checkout / ask on your demo. →
                 </p>
               </div>
@@ -782,7 +782,7 @@ export default function PricingPage() {
       <section className="py-16 md:py-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="mb-10 max-w-3xl">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-[#C8895A] uppercase block mb-3">
+            <span className="font-mono text-[11px] tracking-[0.15em] text-[#C8895A] uppercase block mb-3">
               Compare plans
             </span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight">
@@ -798,9 +798,9 @@ export default function PricingPage() {
         <div className="wrap max-w-3xl mx-auto px-6">
           <ScrollReveal>
             <div className="rounded-xl bg-[#0D2154] text-[#F5F0EB] px-8 py-8 text-center">
-              <p className="font-display font-semibold text-sm md:text-base leading-relaxed">
-                <span className="text-[#C8895A]">⚡</span> Set up for you in 48 hours — a real team configures your
-                account, ports your number, and has your first call or booking handled within two days of signup.
+              <p className="font-display font-semibold text-base md:text-base leading-relaxed">
+                <span className="text-[#C8895A]">⚡</span> Ready the moment you sign up — your system goes live instantly, and full onboarding help is
+                included for life: our team configures your account, ports your number, and stays with you whenever you want a hand.
               </p>
             </div>
           </ScrollReveal>
@@ -813,7 +813,7 @@ export default function PricingPage() {
       <section className="py-16 md:py-24">
         <div className="wrap max-w-3xl mx-auto px-6">
           <div className="text-center mb-12">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-[#C8895A] uppercase block mb-3">
+            <span className="font-mono text-[11px] tracking-[0.15em] text-[#C8895A] uppercase block mb-3">
               Questions
             </span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight">
@@ -827,7 +827,7 @@ export default function PricingPage() {
                 <AccordionTrigger className="font-display font-bold text-sm md:text-base text-[#F5F0EB] py-5">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-[#F5F0EB]/80 text-xs md:text-sm leading-relaxed pb-6 pr-6">
+                <AccordionContent className="text-[#F5F0EB]/80 text-base md:text-base leading-relaxed pb-6 pr-6">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>

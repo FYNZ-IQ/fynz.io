@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { ScrollReveal, StaggerGroup, HoverFloat } from "@/components/animations";
-import { Chip } from "@/components/shared";
+import { Chip, IndustrySearch } from "@/components/shared";
 import { Button } from "@/components/ui";
 import { cn } from "@/lib/utils";
 import { CinematicProvider, CineCanvas, Grain, Parallax, ProgressRail } from "@/components/cinematic";
@@ -20,30 +20,30 @@ const BROW_CARDS = [
     reverse: false,
     visual: (
       <div className="panel bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] p-5 relative w-full select-none" aria-hidden="true">
-        <div className="p-title font-mono text-[9px] tracking-wider text-slate-400 border-b border-white/10 pb-2 mb-3">
+        <div className="p-title font-mono text-[11px] tracking-wider text-slate-400 border-b border-white/10 pb-2 mb-3">
           PIPELINE · NEW LEADS <b className="text-copper">TODAY: 14</b>
         </div>
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-3 p-2 bg-navy-750/70 border border-white/10 rounded">
-            <span className="w-6 h-6 rounded-full bg-copper/10 text-copper text-[10px] font-bold flex items-center justify-center shrink-0">JT</span>
+            <span className="w-6 h-6 rounded-full bg-copper/10 text-copper text-[11px] font-bold flex items-center justify-center shrink-0">JT</span>
             <div className="flex-1 min-w-0">
-              <div className="font-display font-semibold text-white text-xs truncate">Jordan T.</div>
+              <div className="font-display font-semibold text-white text-sm truncate">Jordan T.</div>
               <div className="font-mono text-[8px] text-slate-400 truncate">GOOGLE ADS · 4 MIN AGO</div>
             </div>
             <span className="bg-copper/10 text-copper border border-copper/30 px-1.5 py-0.5 rounded text-[7px] font-mono">NEW</span>
           </div>
           <div className="flex items-center gap-3 p-2 bg-navy-750/70 border border-white/10 rounded">
-            <span className="w-6 h-6 rounded-full bg-copper/10 text-copper text-[10px] font-bold flex items-center justify-center shrink-0">MR</span>
+            <span className="w-6 h-6 rounded-full bg-copper/10 text-copper text-[11px] font-bold flex items-center justify-center shrink-0">MR</span>
             <div className="flex-1 min-w-0">
-              <div className="font-display font-semibold text-white text-xs truncate">Maya R.</div>
+              <div className="font-display font-semibold text-white text-sm truncate">Maya R.</div>
               <div className="font-mono text-[8px] text-slate-400 truncate">INSTAGRAM DM · 11 MIN AGO</div>
             </div>
             <span className="bg-green/10 text-green border border-green/30 px-1.5 py-0.5 rounded text-[7px] font-mono">REPLIED</span>
           </div>
           <div className="flex items-center gap-3 p-2 bg-navy-750/70 border border-white/10 rounded">
-            <span className="w-6 h-6 rounded-full bg-copper/10 text-copper text-[10px] font-bold flex items-center justify-center shrink-0">DK</span>
+            <span className="w-6 h-6 rounded-full bg-copper/10 text-copper text-[11px] font-bold flex items-center justify-center shrink-0">DK</span>
             <div className="flex-1 min-w-0">
-              <div className="font-display font-semibold text-white text-xs truncate">Devon K.</div>
+              <div className="font-display font-semibold text-white text-sm truncate">Devon K.</div>
               <div className="font-mono text-[8px] text-slate-400 truncate">MISSED CALL · TEXT-BACK</div>
             </div>
             <span className="bg-copper/10 text-copper border border-copper/30 px-1.5 py-0.5 rounded text-[7px] font-mono">NEW</span>
@@ -61,7 +61,7 @@ const BROW_CARDS = [
     reverse: true,
     visual: (
       <div className="panel bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] p-5 relative w-full select-none" aria-hidden="true">
-        <div className="p-title font-mono text-[9px] tracking-wider text-slate-400 border-b border-white/10 pb-2 mb-3">
+        <div className="p-title font-mono text-[11px] tracking-wider text-slate-400 border-b border-white/10 pb-2 mb-3">
           UNIFIED INBOX · SARAH MITCHELL <b className="text-copper">ALL CHANNELS</b>
         </div>
         <div className="space-y-2.5">
@@ -96,10 +96,10 @@ const BROW_CARDS = [
     reverse: false,
     visual: (
       <div className="panel bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] p-5 relative w-full select-none" aria-hidden="true">
-        <div className="p-title font-mono text-[9px] tracking-wider text-slate-400 border-b border-white/10 pb-2 mb-3">
+        <div className="p-title font-mono text-[11px] tracking-wider text-slate-400 border-b border-white/10 pb-2 mb-3">
           JULY · WEEK 2 <b className="text-copper">3 STAFF SYNCED</b>
         </div>
-        <div className="grid grid-cols-7 gap-1 text-center font-mono text-[10px] text-slate-300">
+        <div className="grid grid-cols-7 gap-1 text-center font-mono text-[11px] text-slate-300">
           <div>M</div><div>T</div><div>W</div><div>T</div><div>F</div><div>S</div><div>S</div>
           <div className="p-1 rounded bg-white/[0.08] text-slate-400">6</div>
           <div className="p-1 rounded bg-copper-tint/20 text-copper border border-copper/20">7</div>
@@ -121,7 +121,7 @@ const BROW_CARDS = [
     reverse: true,
     visual: (
       <div className="panel bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] p-5 relative w-full select-none" aria-hidden="true">
-        <div className="p-title font-mono text-[9px] tracking-wider text-slate-400 border-b border-white/10 pb-2 mb-3">
+        <div className="p-title font-mono text-[11px] tracking-wider text-slate-400 border-b border-white/10 pb-2 mb-3">
           PAYMENTS · THIS WEEK <b className="text-copper">$3,912.50</b>
         </div>
         <div className="space-y-2 text-[0.78rem]">
@@ -152,7 +152,7 @@ const BROW_CARDS = [
     reverse: false,
     visual: (
       <div className="panel bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] p-4 relative w-full select-none" aria-hidden="true">
-        <div className="p-title font-mono text-[9px] tracking-wider text-slate-400 border-b border-white/10 pb-1.5 mb-2.5">
+        <div className="p-title font-mono text-[11px] tracking-wider text-slate-400 border-b border-white/10 pb-1.5 mb-2.5">
           WORKFLOW · "NEW LEAD RESCUE" <b className="text-copper">ACTIVE</b>
         </div>
         <div className="flex flex-col gap-1 items-center text-[0.72rem]">
@@ -180,12 +180,12 @@ const BROW_CARDS = [
     reverse: true,
     visual: (
       <div className="panel bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] p-5 relative w-full select-none" aria-hidden="true">
-        <div className="p-title font-mono text-[9px] tracking-wider text-slate-400 border-b border-white/10 pb-2 mb-3">
+        <div className="p-title font-mono text-[11px] tracking-wider text-slate-400 border-b border-white/10 pb-2 mb-3">
           REVIEWS · LAST 30 DAYS <b className="text-copper">+41 NEW</b>
         </div>
         <div className="space-y-2">
           <div className="bg-navy-750/70 border border-white/10 p-2.5 rounded text-[0.75rem]">
-            <div className="text-copper text-[10px] mb-0.5">★★★★★</div>
+            <div className="text-copper text-[11px] mb-0.5">★★★★★</div>
             <b className="font-semibold block text-white">"Best cut I've had in years."</b>
             <span className="font-mono text-[7.5px] text-slate-400 block mt-1">Google · Reviews AI drafted a reply</span>
           </div>
@@ -202,7 +202,7 @@ const BROW_CARDS = [
     reverse: false,
     visual: (
       <div className="panel bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] p-5 relative w-full select-none" aria-hidden="true">
-        <div className="p-title font-mono text-[9px] tracking-wider text-slate-400 border-b border-white/10 pb-2 mb-4">
+        <div className="p-title font-mono text-[11px] tracking-wider text-slate-400 border-b border-white/10 pb-2 mb-4">
           REVENUE BY MONTH <b className="text-copper">YTD $128,400</b>
         </div>
         <div className="flex items-end justify-between h-14 px-2">
@@ -372,7 +372,7 @@ export default function Home() {
                 Book a demo
               </Button>
             </div>
-            <span className="font-mono text-[9px] tracking-widest text-faint uppercase">FREE PLAN — NO CARD · TRIALS SET UP FOR YOU IN 48H</span>
+            <span className="font-mono text-[11px] tracking-widest text-faint uppercase">FREE PLAN — NO CARD · PAGES READY INSTANTLY · LIFETIME ONBOARDING HELP</span>
           </div>
 
           {/* Hero Dashboard Preview */}
@@ -386,7 +386,7 @@ export default function Home() {
                     <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
                     <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
                   </div>
-                  <span className="font-mono text-[9px] tracking-[0.15em] text-slate-400">FYNZ · TODAY</span>
+                  <span className="font-mono text-[11px] tracking-[0.15em] text-slate-400">FYNZ · TODAY</span>
                 </div>
 
                 <div className="grid grid-cols-3 gap-3 mb-5 text-center">
@@ -424,14 +424,14 @@ export default function Home() {
                 <div className="space-y-2 text-[0.78rem]">
                   <div className="flex justify-between items-center p-2 bg-navy-750/60 border border-white/10 rounded">
                     <div className="flex items-center gap-2">
-                      <span className="w-5 h-5 rounded-full bg-copper/10 text-copper font-bold text-[9px] flex items-center justify-center">SM</span>
+                      <span className="w-5 h-5 rounded-full bg-copper/10 text-copper font-bold text-[11px] flex items-center justify-center">SM</span>
                       <span className="text-slate-200">Sarah M. booked — Color &amp; Cut</span>
                     </div>
                     <span className="font-mono text-[8px] text-slate-400">2:30 PM</span>
                   </div>
                   <div className="flex justify-between items-center p-2 bg-navy-750/60 border border-white/10 rounded">
                     <div className="flex items-center gap-2">
-                      <span className="w-5 h-5 rounded-full bg-copper/10 text-copper font-bold text-[9px] flex items-center justify-center">AI</span>
+                      <span className="w-5 h-5 rounded-full bg-copper/10 text-copper font-bold text-[11px] flex items-center justify-center">AI</span>
                       <span className="text-slate-200">Voice AI answered a missed call</span>
                     </div>
                     <span className="font-mono text-[8px] text-slate-400">2:12 PM</span>
@@ -457,8 +457,8 @@ export default function Home() {
             <div className="flex items-start gap-4 border border-white/10 rounded-[var(--r-md)] bg-navy-900/50 text-white px-6 py-5 max-w-3xl">
               <span className="text-copper text-xl leading-none" aria-hidden="true">⚡</span>
               <div>
-                <b className="text-white font-display text-lg block">Set up for you in 48 hours</b>
-                <span className="text-slate-400 text-sm">A real team configures your account, ports your number, and has your first call or booking handled within two days of signup.</span>
+                <b className="text-white font-display text-lg block">Ready the moment you sign up</b>
+                <span className="text-slate-400 text-base">Your pages and system go live instantly — and full onboarding help is included for life. Our team configures your account, ports your number, and stays with you whenever you want a hand.</span>
               </div>
             </div>
           </div>
@@ -491,8 +491,8 @@ export default function Home() {
                 <div className="flex-1 max-w-xl">
                   <Chip className="mb-4">{card.chip}</Chip>
                   <h3 className="font-display font-extrabold text-2xl md:text-3xl tracking-tight mb-4 text-slate-900 dark:text-white">{card.title}</h3>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">{card.desc}</p>
-                  <Link href={card.link} className="inline-flex items-center gap-1 text-copper font-mono text-xs tracking-wider uppercase group">
+                  <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed mb-6">{card.desc}</p>
+                  <Link href={card.link} className="inline-flex items-center gap-1 text-copper font-mono text-sm tracking-wider uppercase group">
                     {card.linkText} <span className="group-hover:translate-x-1 transition-transform">→</span>
                   </Link>
                 </div>
@@ -534,10 +534,10 @@ export default function Home() {
                     {p.icon}
                   </div>
                   <h3 className="font-display font-bold text-lg text-white group-hover:text-copper transition-colors duration-300 mb-2">{p.title}</h3>
-                  <p className="font-mono text-xs text-slate-400 tracking-wide uppercase mb-3">{p.promise}</p>
-                  <p className="text-slate-400 text-sm leading-relaxed">{p.desc}</p>
+                  <p className="font-mono text-base text-slate-400 tracking-wide uppercase mb-3">{p.promise}</p>
+                  <p className="text-slate-400 text-base leading-relaxed">{p.desc}</p>
                 </div>
-                <span className="inline-flex items-center gap-1 font-mono text-xs tracking-wider text-copper uppercase mt-6 group-hover:translate-x-1 transition-transform">
+                <span className="inline-flex items-center gap-1 font-mono text-sm tracking-wider text-copper uppercase mt-6 group-hover:translate-x-1 transition-transform">
                   Explore →
                 </span>
               </Link>
@@ -567,10 +567,10 @@ export default function Home() {
               {REPLACES_STACK.map((item, idx) => (
                 <div key={idx} className="flex justify-between items-center border border-slate-200 dark:border-line-soft/40 p-3 rounded bg-slate-100 dark:bg-navy-750/70">
                   <div className="flex items-center gap-2">
-                    <span className="font-mono text-[10px] text-slate-500 dark:text-slate-400">0{idx + 1}</span>
+                    <span className="font-mono text-[11px] text-slate-500 dark:text-slate-400">0{idx + 1}</span>
                     <span className="text-sm font-semibold text-slate-900 dark:text-white line-through decoration-copper/50">{item.name}</span>
                   </div>
-                  <span className="font-mono text-[9.5px] text-slate-500 dark:text-slate-400">{item.cost}</span>
+                  <span className="font-mono text-[11px] text-slate-500 dark:text-slate-400">{item.cost}</span>
                 </div>
               ))}
               </div>
@@ -584,11 +584,11 @@ export default function Home() {
                 <path d="M9 18 H23" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
               </svg>
               <h3 className="font-display font-extrabold text-2xl tracking-tight mb-3 text-slate-900 dark:text-white">One platform. One login. One bill.</h3>
-              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
+              <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed mb-6">
                 Every tool in the stack shares one customer record — nothing to sync, nothing to duct-tape.
               </p>
-              <Link href="/pricing" className="font-mono text-xs tracking-wide text-copper font-bold hover:underline">
-                Plans from $97/mo — every tool below, connected out of the box.
+              <Link href="/pricing" className="font-mono text-sm tracking-wide text-copper font-bold hover:underline">
+                Plans from $97/mo — lifetime onboarding help included.
               </Link>
             </div>
           </div>
@@ -613,7 +613,7 @@ export default function Home() {
             {AUTOMATION_STEPS.map((step, idx) => (
               <div key={idx} className="bg-slate-50 dark:bg-navy-800 text-slate-900 dark:text-white border border-slate-200 dark:border-line-soft p-5 rounded-lg flex flex-col justify-between min-h-[160px] relative">
                 <div>
-                  <span className="font-mono text-[9px] tracking-wider text-copper bg-copper-tint/20 border border-copper/20 px-2 py-0.5 rounded block w-fit mb-4">{step.step}</span>
+                  <span className="font-mono text-[11px] tracking-wider text-copper bg-copper-tint/20 border border-copper/20 px-2 py-0.5 rounded block w-fit mb-4">{step.step}</span>
                   <b className="font-display text-sm font-bold text-slate-900 dark:text-white block mb-1">{step.title}</b>
                   <p className="text-slate-600 dark:text-slate-400 text-[11px] leading-relaxed">{step.desc}</p>
                 </div>
@@ -624,7 +624,7 @@ export default function Home() {
             ))}
           </StaggerGroup>
           <div className="text-center mt-10">
-            <span className="font-mono text-[8.5px] tracking-widest text-slate-400 uppercase">BUILT IN <b>4 MINUTES</b> · RUNS ON EVERY LEAD, FOREVER</span>
+            <span className="font-mono text-[11px] tracking-widest text-slate-400 uppercase">BUILT IN <b>4 MINUTES</b> · RUNS ON EVERY LEAD, FOREVER</span>
           </div>
         </div>
       </section>
@@ -652,13 +652,13 @@ export default function Home() {
                 <div>
                   <AiAgentVisual name={agent.name} />
                   <div className="flex justify-between items-center mb-4">
-                    <span className="font-mono text-[10px] text-green border border-green/30 px-2 py-0.5 rounded uppercase font-semibold">ON DUTY</span>
+                    <span className="font-mono text-[11px] text-green border border-green/30 px-2 py-0.5 rounded uppercase font-semibold">ON DUTY</span>
                   </div>
                   <h4 className="font-display font-bold text-lg text-white group-hover:text-copper transition-colors duration-300 mb-1">{agent.name}</h4>
-                  <span className="font-mono text-xs text-slate-400 tracking-wider uppercase block mb-3">{agent.role}</span>
-                  <p className="text-slate-400 text-sm leading-relaxed">{agent.desc}</p>
+                  <span className="font-mono text-base text-slate-400 tracking-wider uppercase block mb-3">{agent.role}</span>
+                  <p className="text-slate-400 text-base leading-relaxed">{agent.desc}</p>
                 </div>
-                <span className="inline-flex items-center gap-1 font-mono text-xs tracking-wider text-copper uppercase mt-6 group-hover:translate-x-1 transition-transform">
+                <span className="inline-flex items-center gap-1 font-mono text-sm tracking-wider text-copper uppercase mt-6 group-hover:translate-x-1 transition-transform">
                   Explore Agent →
                 </span>
               </Link>
@@ -685,15 +685,18 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {CHANNELS.map((ch, idx) => (
-              <div key={idx} className="bg-navy-800/60 text-white border border-white/10 shadow-none p-5 rounded-lg">
+              <div
+                key={idx}
+                className="bg-navy-900 text-white border border-white/10 shadow-none p-5 rounded-lg transition-all duration-200 hover:border-copper/40 hover:-translate-y-0.5"
+              >
                 <ChannelVisual title={ch.title} />
                 <b className="font-display font-bold text-base text-white block mb-2">{ch.title}</b>
-                <p className="text-slate-400 text-sm leading-relaxed">{ch.desc}</p>
+                <p className="text-slate-300 text-base leading-relaxed">{ch.desc}</p>
               </div>
             ))}
-          </div>
+          </StaggerGroup>
         </div>
       </section>
 
@@ -708,6 +711,7 @@ export default function Home() {
             <p className="text-muted">
               Pre-configured services, pipelines, and automations for the way your industry actually works.
             </p>
+            <IndustrySearch className="mt-8" />
           </div>
 
           <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
@@ -720,15 +724,15 @@ export default function Home() {
                 <div>
                   <IndustryVisual title={ind.title} />
                   <b className="font-display font-bold text-base text-white group-hover:text-copper transition-colors duration-300 block mb-1">{ind.title}</b>
-                  <p className="text-slate-400 text-sm">{ind.desc}</p>
+                  <p className="text-slate-400 text-base">{ind.desc}</p>
                 </div>
-                <span className="font-mono text-xs tracking-wider text-copper uppercase mt-4 block group-hover:translate-x-1 transition-transform">
+                <span className="font-mono text-sm tracking-wider text-copper uppercase mt-4 block group-hover:translate-x-1 transition-transform">
                   Explore →
                 </span>
               </Link>
             ))}
           </StaggerGroup>
-          <Link href="/industries" className="font-mono text-xs tracking-wider text-copper font-bold uppercase hover:underline">
+          <Link href="/industries" className="font-mono text-sm tracking-wider text-copper font-bold uppercase hover:underline">
             See every industry →
           </Link>
         </div>
@@ -742,7 +746,7 @@ export default function Home() {
             Your business, <span className="text-copper">handled</span>.
           </h2>
           <p className="text-muted text-lg mb-4 max-w-xl mx-auto">
-            Start your 14-day trial — your system is live instantly, and our team can set everything up for you within 48 hours.
+            Start your 14-day trial — your pages are ready instantly, and full onboarding help from our team is included for life.
           </p>
           <p className="font-mono text-[11px] tracking-wide text-copper uppercase mb-8">
             Real humans set you up and run your campaigns — included in every paid plan

@@ -15,12 +15,13 @@ import {
 } from "@/components/ui";
 import { cn } from "@/lib/utils";
 import type { IndustryData } from "@/lib/industries/types";
+import { industryThemeVars } from "@/lib/industries/themes";
 
 export function IndustryLanding({ data }: { data: IndustryData }) {
   const { hero, pain, benefits, demo, beforeAfter, proof, faq } = data;
 
   return (
-    <>
+    <div className="industry-theme" style={industryThemeVars(data.slug)}>
       {/* Hero */}
       <section className="sec pt-[136px] pb-[84px]">
         <div className="wrap grid lg:grid-cols-[1.05fr_0.95fr] gap-14 items-center">
@@ -29,7 +30,7 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
             <h1 className="font-display font-extrabold text-4xl md:text-5xl lg:text-[3.4rem] tracking-tight leading-[1.08] mt-4 mb-6">
               {hero.headline}
             </h1>
-            <p className="lede text-lg mb-9">{hero.subhead}</p>
+            <p className="lede text-xl mb-9">{hero.subhead}</p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="btn-copper rounded-full h-[52px] px-7 text-base" render={<Link href={`/onboarding?plan=free&industry=${data.slug}`} />}>
                 Start free
@@ -48,7 +49,7 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
           <ScrollReveal direction="left" delay={0.15} className="justify-self-center lg:justify-self-end w-full max-w-[400px]">
             <HoverFloat yOffset={-12} duration={4}>
               <Card className="bg-navy-900 text-white border border-line rounded-[var(--r-lg)] p-6 shadow-lg">
-                <span className="font-mono text-[9px] tracking-[0.18em] uppercase text-copper block mb-4">
+                <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-copper block mb-4">
                   {hero.visual.label}
                 </span>
                 <div className="rounded-[var(--r-md)] border border-line-soft bg-white/[0.04] p-5">
@@ -89,8 +90,8 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
                 <span className="w-9 h-9 rounded-lg bg-copper-tint border border-copper/30 grid place-items-center text-copper mb-4">
                   ✕
                 </span>
-                <h3 className="font-display font-bold text-base text-white mb-2">{card.title}</h3>
-                <p className="text-sm text-white/55 leading-relaxed">{card.desc}</p>
+                <h3 className="font-display font-bold text-lg text-white mb-2">{card.title}</h3>
+                <p className="text-base text-white/60 leading-relaxed">{card.desc}</p>
               </div>
             ))}
           </StaggerGroup>
@@ -118,7 +119,7 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
                 <ul className="mt-6 flex flex-col gap-2.5">
                   {["Designed to save admin hours", "Native client communication layer", "Secure data handling and updates"].map(
                     (f) => (
-                      <li key={f} className="flex items-start gap-2.5 text-sm text-muted">
+                      <li key={f} className="flex items-start gap-2.5 text-base text-muted">
                         <span className="text-green mt-0.5 shrink-0">✓</span>
                         {f}
                       </li>
@@ -128,11 +129,11 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
               </div>
               <Card className="bg-navy-800 text-white border border-white/10 rounded-[var(--r-lg)] shadow-none">
                 <CardContent className="p-7">
-                  <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-400 block mb-4">
+                  <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-slate-400 block mb-4">
                     FYNZ Preview
                   </span>
                   <div className="rounded-[var(--r-md)] border border-white/10 bg-white/[0.04] p-5 min-h-[130px] flex items-center">
-                    <p className="text-[0.95rem] text-slate-100 leading-relaxed">{benefit.preview}</p>
+                    <p className="text-[1.05rem] text-slate-100 leading-relaxed">{benefit.preview}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -168,10 +169,10 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
                       )}
                     />
                     <div>
-                      <p className="font-display font-semibold text-sm text-white">{step.label}</p>
-                      <p className="text-sm text-slate-300 leading-relaxed mt-0.5">{step.desc}</p>
+                      <p className="font-display font-semibold text-base text-white">{step.label}</p>
+                      <p className="text-base text-slate-300 leading-relaxed mt-0.5">{step.desc}</p>
                       {step.sublabel && (
-                        <span className="inline-block mt-1.5 font-mono text-[10px] tracking-[0.12em] uppercase text-copper">
+                        <span className="inline-block mt-1.5 font-mono text-[11px] tracking-[0.12em] uppercase text-copper">
                           {step.sublabel}
                         </span>
                       )}
@@ -199,7 +200,7 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
                 <span className="font-mono text-[11px] font-bold tracking-[0.1em] uppercase text-destructive block mb-3">
                   Before FYNZ
                 </span>
-                <p className="text-[0.95rem] text-slate-300 leading-relaxed">{beforeAfter.before}</p>
+                <p className="text-[1.05rem] text-slate-300 leading-relaxed">{beforeAfter.before}</p>
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
@@ -207,7 +208,7 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
                 <span className="font-mono text-[11px] font-bold tracking-[0.1em] uppercase text-green block mb-3">
                   With FYNZ
                 </span>
-                <p className="text-[0.95rem] text-slate-300 leading-relaxed">{beforeAfter.after}</p>
+                <p className="text-[1.05rem] text-slate-300 leading-relaxed">{beforeAfter.after}</p>
               </div>
             </ScrollReveal>
           </div>
@@ -230,7 +231,7 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
                 className="text-center rounded-[var(--r-md)] border border-white/10 bg-navy-800 p-8"
               >
                 <CountUp value={stat.num} className="block font-display font-extrabold text-4xl text-copper" />
-                <div className="text-sm text-slate-300 mt-1.5">{stat.label}</div>
+                <div className="text-base text-slate-300 mt-1.5">{stat.label}</div>
               </div>
             ))}
           </StaggerGroup>
@@ -258,10 +259,10 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
                 value={`item-${i}`}
                 className="border border-white/10 bg-navy-800 rounded-[var(--r-md)] px-5"
               >
-                <AccordionTrigger className="font-display font-semibold text-[0.95rem] text-white py-5">
+                <AccordionTrigger className="font-display font-semibold text-base text-white py-5">
                   {item.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-sm text-slate-300 leading-relaxed pb-5">
+                <AccordionContent className="text-base text-slate-300 leading-relaxed pb-5">
                   {item.a}
                 </AccordionContent>
               </AccordionItem>
@@ -277,7 +278,7 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
             <h2 className="font-display font-bold text-3xl md:text-[2.2rem] leading-tight mb-3 text-white">
               Ready to transform your business with FYNZ?
             </h2>
-            <p className="text-white/60 max-w-xl mx-auto mb-8">
+            <p className="text-white/70 text-lg max-w-xl mx-auto mb-8">
               Get started with a 14-day free trial. No credit card required.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -296,6 +297,6 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

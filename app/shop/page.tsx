@@ -24,7 +24,7 @@ const BENEFIT_ROWS = [
     reversed: false,
     viz: (
       <div className="bg-gradient-to-br from-navy-800 to-navy-750 text-white border border-white/10 rounded-[var(--r-lg)] p-5 shadow-md relative overflow-hidden">
-        <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-3.5 flex justify-between">
+        <div className="font-mono text-[11px] tracking-[0.18em] uppercase text-slate-400 mb-3.5 flex justify-between">
           STORE · MAPLE &amp; MAIN <b className="text-copper font-medium">3 ORDERS TODAY</b>
         </div>
         <div className="grid grid-cols-3 gap-2.5">
@@ -36,8 +36,8 @@ const BENEFIT_ROWS = [
             <div key={p.name} className="bg-white/[0.06] border border-white/10 rounded-[var(--r-sm)] p-3 text-center">
               <span className="h-11 rounded-md mb-2.5 grid place-items-center bg-gradient-to-br from-copper-tint to-copper/5 border border-copper/20 text-copper text-sm">◇</span>
               <b className="font-display text-[0.72rem] font-semibold block leading-tight">{p.name}</b>
-              <small className="font-mono text-[9.5px] text-copper">{p.price}</small>
-              <span className="block mt-2 font-mono text-[8.5px] tracking-[0.12em] py-1 border border-white/10 rounded-md text-slate-400">ADD</span>
+              <small className="font-mono text-[11px] text-copper">{p.price}</small>
+              <span className="block mt-2 font-mono text-[11px] tracking-[0.12em] py-1 border border-white/10 rounded-md text-slate-400">ADD</span>
             </div>
           ))}
         </div>
@@ -55,17 +55,17 @@ const BENEFIT_ROWS = [
     reversed: true,
     viz: (
       <div className="bg-gradient-to-br from-navy-800 to-navy-750 text-white border border-white/10 rounded-[var(--r-lg)] p-5 shadow-md relative overflow-hidden">
-        <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-3.5 flex justify-between">
+        <div className="font-mono text-[11px] tracking-[0.18em] uppercase text-slate-400 mb-3.5 flex justify-between">
           TEXT-TO-PAY · INVOICE #1047 <b className="text-copper font-medium">PAID IN 4 MIN</b>
         </div>
         <div className="flex flex-row-reverse gap-2.5 mb-2.5 items-start">
-          <span className="bg-green/10 text-green w-[30px] h-[30px] rounded-[9px] shrink-0 grid place-items-center font-mono text-[10px] font-semibold">MM</span>
+          <span className="bg-green/10 text-green w-[30px] h-[30px] rounded-[9px] shrink-0 grid place-items-center font-mono text-[11px] font-semibold">MM</span>
           <div className="bg-copper-tint border border-copper/25 rounded-[12px_4px_12px_12px] px-3 py-2 text-[0.82rem] text-white">
             Hi Rachel! Today&apos;s deep clean is done ✓ Here&apos;s your invoice: fynz.pay/1047
           </div>
         </div>
         <div className="flex gap-2.5 mb-2.5 items-start">
-          <span className="bg-green/10 text-green w-[30px] h-[30px] rounded-[9px] shrink-0 grid place-items-center font-mono text-[10px] font-semibold">RC</span>
+          <span className="bg-green/10 text-green w-[30px] h-[30px] rounded-[9px] shrink-0 grid place-items-center font-mono text-[11px] font-semibold">RC</span>
           <div className="bg-white/[0.06] border border-white/10 rounded-[4px_12px_12px_12px] px-3 py-2 text-[0.82rem] text-slate-300">
             Paid! Thanks for the great work 🙌
           </div>
@@ -73,7 +73,7 @@ const BENEFIT_ROWS = [
         <div className="flex justify-between items-center bg-white/[0.06] border border-white/10 rounded-[var(--r-sm)] px-3.5 py-2.5">
           <div>
             <b className="text-[0.83rem] font-semibold block">Invoice #1047 — deep clean pkg</b>
-            <small className="font-mono text-[9px] text-slate-400">CARD · 1 TAP · RECEIPT SENT</small>
+            <small className="font-mono text-[11px] text-slate-400">CARD · 1 TAP · RECEIPT SENT</small>
           </div>
           <span className="font-mono text-[0.82rem] text-green">+$185.00</span>
         </div>
@@ -88,7 +88,7 @@ const BENEFIT_ROWS = [
     reversed: false,
     viz: (
       <div className="bg-gradient-to-br from-navy-800 to-navy-750 text-white border border-white/10 rounded-[var(--r-lg)] p-5 shadow-md relative overflow-hidden">
-        <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-3.5 flex justify-between">
+        <div className="font-mono text-[11px] tracking-[0.18em] uppercase text-slate-400 mb-3.5 flex justify-between">
           PROPOSAL · KITCHEN REPAINT <b className="text-copper font-medium">SIGNED</b>
         </div>
         <div className="flex flex-col">
@@ -100,9 +100,9 @@ const BENEFIT_ROWS = [
           ].map((n, i, arr) => (
             <React.Fragment key={n.label}>
               <div className="flex items-center gap-2.5 bg-white/[0.06] border border-white/10 rounded-[var(--r-sm)] px-3.5 py-2.5">
-                <span className="w-[26px] h-[26px] rounded-[7px] bg-copper-tint text-copper grid place-items-center font-mono text-[10px] shrink-0">{n.icon}</span>
+                <span className="w-[26px] h-[26px] rounded-[7px] bg-copper-tint text-copper grid place-items-center font-mono text-[11px] shrink-0">{n.icon}</span>
                 <b className="text-[0.8rem] font-semibold">{n.label}</b>
-                <small className="font-mono text-[9px] text-slate-400 ml-auto">{n.when}</small>
+                <small className="font-mono text-[11px] text-slate-400 ml-auto">{n.when}</small>
               </div>
               {i < arr.length - 1 && <span className="w-px h-4 ml-[26px] bg-gradient-to-b from-copper/60 to-copper/15" />}
             </React.Fragment>
@@ -119,7 +119,7 @@ const BENEFIT_ROWS = [
     reversed: true,
     viz: (
       <div className="bg-gradient-to-br from-navy-800 to-navy-750 text-white border border-white/10 rounded-[var(--r-lg)] p-5 shadow-md relative overflow-hidden">
-        <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-3.5 flex justify-between">
+        <div className="font-mono text-[11px] tracking-[0.18em] uppercase text-slate-400 mb-3.5 flex justify-between">
           RECURRING · THIS MONTH <b className="text-copper font-medium">$3,290 MRR</b>
         </div>
         {[
@@ -130,7 +130,7 @@ const BENEFIT_ROWS = [
           <div key={o.name} className="flex justify-between items-center bg-white/[0.06] border border-white/10 rounded-[var(--r-sm)] px-3.5 py-2.5 mb-2">
             <div>
               <b className="text-[0.83rem] font-semibold block">{o.name}</b>
-              <small className="font-mono text-[9px] text-slate-400">{o.note}</small>
+              <small className="font-mono text-[11px] text-slate-400">{o.note}</small>
             </div>
             <span className="font-mono text-[0.82rem] text-green">{o.amt}</span>
           </div>
@@ -203,7 +203,7 @@ export default function ShopPage() {
               aria-label="Today's revenue: services, products, and memberships totaling $4,280"
             >
               <span className="absolute top-0 left-[12%] right-[40%] h-px bg-gradient-to-r from-transparent via-copper/70 to-transparent" />
-              <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-5 flex justify-between">
+              <div className="font-mono text-[11px] tracking-[0.18em] uppercase text-slate-400 mb-5 flex justify-between">
                 REVENUE · TODAY <b className="text-copper font-medium">LIVE</b>
               </div>
               {STREAMS.map((s) => (
@@ -211,7 +211,7 @@ export default function ShopPage() {
                   <div className="flex justify-between items-baseline mb-1.5">
                     <span>
                       <b className="font-display text-[0.86rem] font-semibold">{s.label}</b>
-                      <small className="font-mono text-[9px] text-slate-400 tracking-[0.1em] ml-2">{s.note}</small>
+                      <small className="font-mono text-[11px] text-slate-400 tracking-[0.1em] ml-2">{s.note}</small>
                     </span>
                     <span className="font-mono text-[0.86rem] text-slate-300">{s.amount}</span>
                   </div>
@@ -221,10 +221,10 @@ export default function ShopPage() {
                 </div>
               ))}
               <div className="border-t border-white/10 mt-5 pt-4 flex justify-between items-baseline">
-                <span className="font-mono text-[10px] tracking-[0.18em] text-slate-400">TODAY&apos;S TOTAL</span>
+                <span className="font-mono text-[11px] tracking-[0.18em] text-slate-400">TODAY&apos;S TOTAL</span>
                 <b className="font-mono text-[1.6rem] font-semibold text-white"><em className="not-italic text-copper">$</em>4,280</b>
               </div>
-              <p className="font-mono text-[9.5px] tracking-[0.16em] text-slate-400 text-right mt-3">THREE STREAMS · ONE LEDGER · SYNCED TO OPS</p>
+              <p className="font-mono text-[11px] tracking-[0.16em] text-slate-400 text-right mt-3">THREE STREAMS · ONE LEDGER · SYNCED TO OPS</p>
             </div>
           </div>
         </div>
@@ -234,7 +234,7 @@ export default function ShopPage() {
       <section className="sec py-20 md:py-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="max-w-3xl mb-14">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">How SHOP works</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">How SHOP works</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
               Every way to charge, without the <span className="text-copper">chasing</span>
             </h2>
@@ -279,11 +279,11 @@ export default function ShopPage() {
             <div className="flex items-center gap-3 px-5 py-4 border-b border-white/10">
               <div>
                 <b className="font-display text-[0.95rem] font-bold block">Invoice #1048</b>
-                <small className="font-mono text-[9px] text-slate-400 tracking-[0.12em]">MAPLE &amp; MAIN SALON · POWERED BY FYNZ</small>
+                <small className="font-mono text-[11px] text-slate-400 tracking-[0.12em]">MAPLE &amp; MAIN SALON · POWERED BY FYNZ</small>
               </div>
               <span
                 className={cn(
-                  "ml-auto font-mono text-[9px] tracking-[0.16em] px-2.5 py-1 rounded-md border transition-all",
+                  "ml-auto font-mono text-[11px] tracking-[0.16em] px-2.5 py-1 rounded-md border transition-all",
                   payState === "paid"
                     ? "bg-green/10 text-green border-green/35"
                     : "bg-copper-tint text-copper border-copper/30"
@@ -293,7 +293,7 @@ export default function ShopPage() {
               </span>
             </div>
             <div className="px-5 pt-5 pb-5.5 relative">
-              <p className="font-mono text-[10px] tracking-[0.1em] text-slate-400 mb-4 leading-loose">
+              <p className="font-mono text-[11px] tracking-[0.1em] text-slate-400 mb-4 leading-loose">
                 BILLED TO <b className="text-slate-300 font-medium">SARAH MITCHELL</b> · THU JUL 9 · NET 7
               </p>
               {[
@@ -305,13 +305,13 @@ export default function ShopPage() {
                 <div key={line.name} className="flex justify-between gap-3 py-2.5 border-b border-white/10 text-[0.86rem]">
                   <span className="text-slate-300">
                     {line.name}
-                    <small className="block font-mono text-[9px] text-slate-400 mt-0.5">{line.note}</small>
+                    <small className="block font-mono text-[11px] text-slate-400 mt-0.5">{line.note}</small>
                   </span>
                   <span className="font-mono text-white shrink-0">{line.n}</span>
                 </div>
               ))}
               <div className="flex justify-between items-baseline pt-4 pb-4.5">
-                <span className="font-mono text-[10px] tracking-[0.18em] text-slate-400">TOTAL DUE</span>
+                <span className="font-mono text-[11px] tracking-[0.18em] text-slate-400">TOTAL DUE</span>
                 <b className="font-mono text-[1.45rem] font-semibold">$281.37</b>
               </div>
 
@@ -323,7 +323,7 @@ export default function ShopPage() {
                         key={m.id}
                         onClick={() => setMethod(m.id)}
                         className={cn(
-                          "flex-1 font-mono text-[9px] tracking-[0.1em] text-center py-2.5 px-1 border rounded-lg transition-all",
+                          "flex-1 font-mono text-[11px] tracking-[0.1em] text-center py-2.5 px-1 border rounded-lg transition-all",
                           method === m.id
                             ? "bg-copper-tint border-copper/45 text-copper"
                             : "border-white/10 text-slate-300 hover:border-copper/40"
@@ -353,14 +353,14 @@ export default function ShopPage() {
                       "SYNCED TO OPS — BOOKS ALREADY BALANCED",
                       "REVIEW REQUEST QUEUED · SENDS IN 2H"
                     ].map((b) => (
-                      <span key={b} className="flex items-center gap-2 font-mono text-[9.5px] tracking-[0.1em] text-green">
+                      <span key={b} className="flex items-center gap-2 font-mono text-[11px] tracking-[0.1em] text-green">
                         <span className="text-green">✓</span> {b}
                       </span>
                     ))}
                   </div>
                   <button
                     onClick={() => setPayState("due")}
-                    className="block mx-auto mt-3.5 font-mono text-[10px] tracking-[0.14em] text-slate-400 hover:text-copper"
+                    className="block mx-auto mt-3.5 font-mono text-[11px] tracking-[0.14em] text-slate-400 hover:text-copper"
                   >
                     ↺ RESET DEMO
                   </button>
@@ -371,7 +371,7 @@ export default function ShopPage() {
 
           {/* Side copy */}
           <div className="order-1 lg:order-2">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Live demo</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Live demo</span>
             <h2 className="font-display font-bold text-3xl md:text-4xl tracking-tight leading-tight mb-4">
               Watch an invoice get <span className="text-copper">paid</span>
             </h2>
@@ -398,7 +398,7 @@ export default function ShopPage() {
       <section className="sec py-20 md:py-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="max-w-2xl mb-14">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Everything in SHOP</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Everything in SHOP</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight">
               Four features. One <span className="text-copper">ledger</span>.
             </h2>
@@ -411,7 +411,7 @@ export default function ShopPage() {
                 className="group bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] p-6 flex flex-col gap-2 transition-all hover:border-copper/40 hover:-translate-y-1"
               >
                 <b className="font-display font-semibold text-lg">{f.title}</b>
-                <p className="text-sm text-slate-300 flex-1">{f.desc}</p>
+                <p className="text-base text-slate-300 flex-1">{f.desc}</p>
                 <span className="font-mono text-[11px] tracking-[0.06em] text-copper opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0">
                   LEARN MORE →
                 </span>
@@ -424,7 +424,7 @@ export default function ShopPage() {
       {/* ============ FINAL CTA ============ */}
       <section className="final py-24 relative overflow-hidden text-center bg-radial-[at_bottom_center] from-copper/12 via-transparent to-transparent">
         <div className="wrap max-w-4xl mx-auto px-6 relative z-10">
-          <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">SHOP · Pillar 03</span>
+          <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">SHOP · Pillar 03</span>
           <h2 className="font-display font-extrabold text-4xl md:text-5xl tracking-tight mb-4">
             Charge for everything you&apos;re <span className="text-copper">worth</span>.
           </h2>

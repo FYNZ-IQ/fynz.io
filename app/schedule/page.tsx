@@ -147,9 +147,9 @@ function BookingWidget() {
         </span>
         <div>
           <b className="font-display text-[0.95rem] font-bold block leading-tight">Maple &amp; Main Salon</b>
-          <small className="font-mono text-[9px] tracking-[0.12em] text-slate-400">POWERED BY FYNZ</small>
+          <small className="font-mono text-[11px] tracking-[0.12em] text-slate-400">POWERED BY FYNZ</small>
         </div>
-        <span className="ml-auto font-mono text-[8.5px] tracking-[0.14em] text-copper bg-copper-tint px-[9px] py-[3px] rounded-[5px]">
+        <span className="ml-auto font-mono text-[11px] tracking-[0.14em] text-copper bg-copper-tint px-[9px] py-[3px] rounded-[5px]">
           LIVE PREVIEW
         </span>
       </div>
@@ -172,7 +172,7 @@ function BookingWidget() {
         {/* STEP 1 — service */}
         {step === 1 && (
           <div>
-            <span className="block font-mono text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-3">
+            <span className="block font-mono text-[11px] tracking-[0.18em] uppercase text-slate-400 mb-3">
               1 · Choose a service
             </span>
             {SERVICES.map((s) => (
@@ -186,7 +186,7 @@ function BookingWidget() {
               >
                 <div>
                   <b className="font-display text-[0.88rem] font-semibold block">{s.name}</b>
-                  <small className="font-mono text-[9px] text-slate-400 tracking-[0.06em]">{s.meta}</small>
+                  <small className="font-mono text-[11px] text-slate-400 tracking-[0.06em]">{s.meta}</small>
                 </div>
                 <span className="ml-auto font-mono text-[0.84rem] text-copper">{s.price}</span>
               </button>
@@ -199,11 +199,11 @@ function BookingWidget() {
           <div>
             <button
               onClick={() => setStep(1)}
-              className="font-mono text-[10px] tracking-[0.14em] text-slate-400 mb-3.5 inline-flex items-center gap-1.5 hover:text-copper"
+              className="font-mono text-[11px] tracking-[0.14em] text-slate-400 mb-3.5 inline-flex items-center gap-1.5 hover:text-copper"
             >
               ← BACK
             </button>
-            <span className="block font-mono text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-3">
+            <span className="block font-mono text-[11px] tracking-[0.18em] uppercase text-slate-400 mb-3">
               2 · Pick your person &amp; time — THU JUL 9
             </span>
             <div className="flex gap-2 mb-4 flex-wrap" role="group" aria-label="Choose staff member">
@@ -257,7 +257,7 @@ function BookingWidget() {
               ].map((b) => (
                 <span
                   key={b}
-                  className="font-mono text-[9.5px] tracking-[0.12em] px-3 py-2 rounded-[7px] bg-white/[0.04] border border-white/10 text-slate-300 flex items-center gap-[9px]"
+                  className="font-mono text-[11px] tracking-[0.12em] px-3 py-2 rounded-[7px] bg-white/[0.04] border border-white/10 text-slate-300 flex items-center gap-[9px]"
                 >
                   <span className="text-green not-italic">✓</span> {b}
                 </span>
@@ -283,7 +283,7 @@ function BookingWidget() {
 function Panel({ title, meta, children }: { title: string; meta: string; children: React.ReactNode }) {
   return (
     <div className="bg-navy-800 text-white border border-white/10 rounded-[var(--r-lg)] p-[22px] shadow-[var(--shadow-md)]" aria-hidden="true">
-      <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-3.5 flex justify-between">
+      <div className="font-mono text-[11px] tracking-[0.18em] uppercase text-slate-400 mb-3.5 flex justify-between">
         {title}
         <b className="text-copper font-medium">{meta}</b>
       </div>
@@ -312,11 +312,11 @@ function Lead({
       </span>
       <div className="min-w-0">
         <b className="text-[0.83rem] font-semibold block leading-tight">{title}</b>
-        <small className="font-mono text-[9px] text-slate-400 tracking-[0.06em]">{sub}</small>
+        <small className="font-mono text-[11px] text-slate-400 tracking-[0.06em]">{sub}</small>
       </div>
       <span
         className={cn(
-          "ml-auto font-mono text-[9px] px-[9px] py-[3px] rounded-[5px] shrink-0",
+          "ml-auto font-mono text-[11px] px-[9px] py-[3px] rounded-[5px] shrink-0",
           hot ? "bg-green/10 text-green" : "bg-copper-tint text-copper"
         )}
       >
@@ -374,7 +374,7 @@ export default function SchedulePage() {
                   key={d.day}
                   className="bg-navy-800 text-white border border-white/10 rounded-t-[var(--r-md)] border-b-0 px-2.5 pt-3 pb-5 min-h-[230px]"
                 >
-                  <h6 className="font-mono text-[9.5px] font-medium tracking-[0.16em] text-slate-400 text-center mb-3 pb-2.5 border-b border-white/10">
+                  <h6 className="font-mono text-[11px] font-medium tracking-[0.16em] text-slate-400 text-center mb-3 pb-2.5 border-b border-white/10">
                     {d.day} <b className="text-white font-semibold">{d.date}</b>
                   </h6>
                   {d.appts.map((a, i) => (
@@ -391,7 +391,7 @@ export default function SchedulePage() {
                         </span>
                       )}
                       <b className="font-display text-[0.68rem] font-semibold block leading-tight">{a.title}</b>
-                      {a.time && <small className="font-mono text-[8.5px] text-slate-400 tracking-[0.05em]">{a.time}</small>}
+                      {a.time && <small className="font-mono text-[11px] text-slate-400 tracking-[0.05em]">{a.time}</small>}
                     </div>
                   ))}
                 </div>
@@ -444,7 +444,7 @@ export default function SchedulePage() {
               <Panel title="JULY · WEEK 2" meta="CONFLICTS: 0">
                 <div className="grid grid-cols-7 gap-1.5">
                   {["M", "T", "W", "T", "F", "S", "S"].map((h, i) => (
-                    <div key={`h${i}`} className="aspect-square border border-white/10 rounded-[7px] grid place-items-center font-mono text-[10px] text-slate-400">
+                    <div key={`h${i}`} className="aspect-square border border-white/10 rounded-[7px] grid place-items-center font-mono text-[11px] text-slate-400">
                       {h}
                     </div>
                   ))}
@@ -455,7 +455,7 @@ export default function SchedulePage() {
                     <div
                       key={`c${i}`}
                       className={cn(
-                        "aspect-square border rounded-[7px] grid place-items-center font-mono text-[10px]",
+                        "aspect-square border rounded-[7px] grid place-items-center font-mono text-[11px]",
                         c.today
                           ? "bg-copper text-copper-ink font-semibold border-copper"
                           : c.busy
@@ -509,13 +509,13 @@ export default function SchedulePage() {
             <ScrollReveal className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <Panel title="SARAH MITCHELL · REGULAR" meta="14 VISITS">
                 <div className="flex gap-2.5 mb-2.5 items-start">
-                  <span className="w-[30px] h-[30px] rounded-[9px] shrink-0 grid place-items-center font-mono text-[10px] font-semibold tag-sms">RM</span>
+                  <span className="w-[30px] h-[30px] rounded-[9px] shrink-0 grid place-items-center font-mono text-[11px] font-semibold tag-sms">RM</span>
                   <div className="bg-white/[0.04] border border-white/10 rounded-[4px_12px_12px_12px] px-3.5 py-2.5 text-[0.82rem] text-slate-300">
                     Reminder: Balayage tomorrow at 1:30 PM with Maya. Reply C to confirm.
                   </div>
                 </div>
                 <div className="flex gap-2.5 mb-2.5 items-start flex-row-reverse">
-                  <span className="w-[30px] h-[30px] rounded-[9px] shrink-0 grid place-items-center font-mono text-[10px] font-semibold tag-sms">SM</span>
+                  <span className="w-[30px] h-[30px] rounded-[9px] shrink-0 grid place-items-center font-mono text-[11px] font-semibold tag-sms">SM</span>
                   <div className="bg-copper-tint border border-copper/25 rounded-[12px_4px_12px_12px] px-3.5 py-2.5 text-[0.82rem] text-white">
                     C
                   </div>
@@ -523,7 +523,7 @@ export default function SchedulePage() {
                 <div className="flex justify-between items-center bg-white/[0.04] border border-white/10 rounded-[var(--r-sm)] px-3.5 py-2.5">
                   <div>
                     <b className="text-[0.83rem] font-semibold block leading-tight">Prefers: cooler tones · oat-milk latte</b>
-                    <small className="font-mono text-[9px] text-slate-400">NOTES · VISIBLE TO ASSIGNED STAFF</small>
+                    <small className="font-mono text-[11px] text-slate-400">NOTES · VISIBLE TO ASSIGNED STAFF</small>
                   </div>
                   <span className="font-mono text-[0.82rem] text-green">✓</span>
                 </div>

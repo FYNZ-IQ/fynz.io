@@ -53,7 +53,7 @@ function Panel({ title, badge, children }: { title: string; badge: string; child
   return (
     <div className="relative overflow-hidden rounded-[var(--r-lg)] border border-white/10 bg-navy-800 p-[22px] text-white shadow-[var(--shadow-md)]">
       <span className="absolute left-[12%] right-[45%] top-0 h-px bg-gradient-to-r from-transparent via-copper/70 to-transparent" />
-      <div className="mb-3.5 flex justify-between font-mono text-[10px] uppercase tracking-[0.18em] text-slate-400">
+      <div className="mb-3.5 flex justify-between font-mono text-[11px] uppercase tracking-[0.18em] text-slate-400">
         <span>{title}</span>
         <b className="font-medium text-copper">{badge}</b>
       </div>
@@ -79,9 +79,9 @@ const BENEFIT_ROWS = [
               <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-copper-tint font-display text-[0.72rem] font-bold text-copper">{l.i}</span>
               <div>
                 <b className="block text-[0.83rem] font-semibold">{l.title}</b>
-                <small className="font-mono text-[9px] tracking-[0.06em] text-slate-400">{l.meta}</small>
+                <small className="font-mono text-[11px] tracking-[0.06em] text-slate-400">{l.meta}</small>
               </div>
-              <span className={`ml-auto rounded-[5px] px-[9px] py-[3px] font-mono text-[9px] ${l.hot ? "bg-green/10 text-green" : "bg-copper-tint text-copper"}`}>{l.st}</span>
+              <span className={`ml-auto rounded-[5px] px-[9px] py-[3px] font-mono text-[11px] ${l.hot ? "bg-green/10 text-green" : "bg-copper-tint text-copper"}`}>{l.st}</span>
             </div>
           ))}
         </div>
@@ -101,7 +101,7 @@ const BENEFIT_ROWS = [
         <div className="flex flex-col gap-2.5">
           {CONVERSE_MSGS.map((m, i) => (
             <div key={i} className={`flex items-start gap-2.5 ${m.me ? "flex-row-reverse" : ""}`}>
-              <span className={`grid h-[30px] w-[30px] shrink-0 place-items-center rounded-[9px] font-mono text-[10px] font-semibold ${TAG_TONE[m.tone]}`}>{m.tag}</span>
+              <span className={`grid h-[30px] w-[30px] shrink-0 place-items-center rounded-[9px] font-mono text-[11px] font-semibold ${TAG_TONE[m.tone]}`}>{m.tag}</span>
               <div className={`rounded-[4px_12px_12px_12px] border px-3 py-2.5 text-[0.82rem] ${m.me ? "border-copper/25 bg-copper-tint text-white [border-radius:12px_4px_12px_12px]" : "border-white/10 bg-white/[0.04] text-slate-300"}`}>
                 {m.text}
               </div>
@@ -126,7 +126,7 @@ const BENEFIT_ROWS = [
             <div key={it.title} className="flex items-center justify-between rounded-[var(--r-sm)] border border-white/10 bg-white/[0.04] px-3.5 py-[11px]">
               <div>
                 <b className="block text-[0.83rem] font-semibold">{it.title}</b>
-                <small className="font-mono text-[9px] text-slate-400">{it.meta}</small>
+                <small className="font-mono text-[11px] text-slate-400">{it.meta}</small>
               </div>
               <span className="font-mono text-[0.82rem] text-green">{it.state}</span>
             </div>
@@ -186,7 +186,7 @@ function FlowNode({
         <b className={`block font-display font-semibold ${small ? "text-[0.86rem]" : "text-[0.94rem]"}`}>{title}</b>
         <small className="text-[0.78rem] text-slate-400">{sub}</small>
       </div>
-      <span className="ml-auto shrink-0 rounded-[5px] border border-white/10 px-[9px] py-[3px] font-mono text-[9px] tracking-[0.14em] text-slate-400">
+      <span className="ml-auto shrink-0 rounded-[5px] border border-white/10 px-[9px] py-[3px] font-mono text-[11px] tracking-[0.14em] text-slate-400">
         {k}
       </span>
     </div>
@@ -267,7 +267,7 @@ export default function GrowPage() {
                   className="absolute left-[-28px] top-1/2 h-[9px] w-[9px] -translate-y-1/2 rounded-full bg-copper shadow-[0_0_10px_var(--copper-tint)]"
                 />
                 <div>
-                  <span className="mb-0.5 block font-mono text-[9.5px] tracking-[0.2em] text-copper">{r.stage}</span>
+                  <span className="mb-0.5 block font-mono text-[11px] tracking-[0.2em] text-copper">{r.stage}</span>
                   <b className="block font-display text-[0.92rem] font-semibold">{r.title}</b>
                   <small className="text-[0.76rem] text-slate-400">{r.sub}</small>
                 </div>
@@ -347,13 +347,13 @@ export default function GrowPage() {
 
             <div className="mt-6 grid grid-cols-1 gap-[22px] sm:grid-cols-2">
               <div className="flex flex-col">
-                <span className="mb-3 text-center font-mono text-[9.5px] tracking-[0.2em] text-green">YES — THEY REPLIED</span>
+                <span className="mb-3 text-center font-mono text-[11px] tracking-[0.2em] text-green">YES — THEY REPLIED</span>
                 <FlowNode small title="Send booking link" sub="They pick a slot; deposit collected" k="ACTION" />
                 <FlowDrop />
                 <FlowNode small title="Tag as customer → nurture list" sub="Reminders & review request take over" k="CRM" />
               </div>
               <div className="flex flex-col">
-                <span className="mb-3 text-center font-mono text-[9.5px] tracking-[0.2em] text-faint">NO — WENT QUIET</span>
+                <span className="mb-3 text-center font-mono text-[11px] tracking-[0.2em] text-faint">NO — WENT QUIET</span>
                 <FlowNode small title="Wait 1 day" sub="People are busy; the workflow isn't" k="DELAY" />
                 <FlowDrop />
                 <FlowNode small title="Friendly follow-up, day 2" sub={'"Still interested? Here\'s 10% off this week."'} k="ACTION" />

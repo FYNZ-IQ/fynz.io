@@ -133,7 +133,7 @@ export default function IntegrationsPage() {
           </p>
 
           {/* Legend */}
-          <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center mt-8 font-mono text-[9.5px] tracking-[0.16em] text-faint uppercase" aria-label="Status legend">
+          <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center mt-8 font-mono text-[11px] tracking-[0.16em] text-faint uppercase" aria-label="Status legend">
             <span className="inline-flex items-center gap-2">
               <i className="w-[7px] h-[7px] rounded-full bg-green shadow-[0_0_7px_rgba(31,143,85,0.6)]" />
               LIVE — connected today
@@ -147,7 +147,7 @@ export default function IntegrationsPage() {
               PLANNED — on the roadmap
             </span>
           </div>
-          <p className="mt-3 font-mono text-[9.5px] tracking-[0.14em] text-copper/80 uppercase">
+          <p className="mt-3 font-mono text-[11px] tracking-[0.14em] text-copper/80 uppercase">
             Statuses provisional — confirm before launch
           </p>
 
@@ -158,7 +158,7 @@ export default function IntegrationsPage() {
                 key={f.id}
                 onClick={() => setActive(f.id)}
                 className={cn(
-                  "font-mono text-[10px] tracking-[0.12em] px-4 py-2 rounded-full border transition-all",
+                  "font-mono text-[11px] tracking-[0.12em] px-4 py-2 rounded-full border transition-all",
                   active === f.id
                     ? "bg-copper text-copper-ink border-copper font-semibold"
                     : "border-line-soft text-muted hover:border-copper/40"
@@ -180,7 +180,7 @@ export default function IntegrationsPage() {
                 <h2 className="font-mono text-[11px] font-semibold tracking-[0.22em] uppercase text-copper">
                   {cat.title}
                 </h2>
-                <p className="text-sm text-muted mt-2 max-w-2xl">{cat.blurb}</p>
+                <p className="text-base text-muted mt-2 max-w-2xl">{cat.blurb}</p>
               </div>
 
               <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
@@ -239,7 +239,7 @@ export default function IntegrationsPage() {
               >
                 Request an integration
               </Button>
-              <p className="mt-6 font-mono text-[10px] tracking-[0.12em] text-slate-400 uppercase">
+              <p className="mt-6 font-mono text-[11px] tracking-[0.12em] text-slate-400 uppercase">
                 In the meantime:{" "}
                 <Link href="#zapier" className="text-copper hover:underline underline-offset-4">
                   Zapier
@@ -258,7 +258,7 @@ export default function IntegrationsPage() {
       {/* Final CTA */}
       <section className="final py-24 relative overflow-hidden text-center bg-radial-[at_bottom_center] from-copper/10 via-transparent to-transparent">
         <div className="wrap max-w-4xl mx-auto px-6 relative z-10">
-          <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">
+          <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">
             Connected day one
           </span>
           <h2 className="font-display font-extrabold text-4xl md:text-5xl tracking-tight mb-4">
