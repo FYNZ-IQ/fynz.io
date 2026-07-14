@@ -31,7 +31,7 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
             </h1>
             <p className="lede text-lg mb-9">{hero.subhead}</p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="btn-copper rounded-full h-[52px] px-7 text-base">
+              <Button size="lg" className="btn-copper rounded-full h-[52px] px-7 text-base" render={<Link href={`/onboarding?plan=free&industry=${data.slug}`} />}>
                 Start free
               </Button>
               <Button
@@ -281,7 +281,7 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
               Get started with a 14-day free trial. No credit card required.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="btn-copper rounded-full h-[52px] px-7 text-base">
+              <Button size="lg" className="btn-copper rounded-full h-[52px] px-7 text-base" render={<Link href={`/onboarding?plan=free&industry=${data.slug}`} />}>
                 Start free today
               </Button>
               <Button

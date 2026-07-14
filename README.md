@@ -1,5 +1,36 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Onboarding wizard
+
+All subscribe CTAs route to `/onboarding`, a wizard that collects the new
+customer's brand and business details and posts them to the onboarding bridge
+(`services/onboarding-bridge`), which writes them into the buyer's GHL
+sub-account. Because this site is a static export, the browser calls the
+bridge directly — set the bridge's base URL at build time:
+
+```bash
+NEXT_PUBLIC_ONBOARDING_BRIDGE_URL=https://your-bridge-host pnpm build
+```
+
+The bridge must list this site's origin in its `PUBLIC_SITE_ORIGINS` env var
+(see `services/onboarding-bridge/README.md`). If the variable is unset, the
+wizard renders but submissions show a "not wired up" error with a mailto
+fallback.
+
+### Checkout step (GHL SaaS payment links)
+
+Paid plans should collect payment *before* onboarding — the bridge can only
+sync answers into a sub-account that GHL SaaS mode has provisioned, which
+happens at purchase. GHL plans are prepared **per industry** (each carries
+that industry's snapshot), so `lib/checkout.ts` keys payment-link URLs by
+industry × plan × billing, with a `default` row as fallback. The wizard asks
+"what kind of business are you?" first (skipped when the visitor arrives from
+an industry page with `?industry=…`), then shows the matching "continue to
+secure checkout" gate. GHL redirects buyers back to
+`/onboarding?industry=…&plan=…&billing=…&paid=1` (optionally `&email=…` to
+prefill). Combinations with no link configured skip the gate and go straight
+to the wizard. The picker's options live in `INDUSTRIES` in the same file.
+
 ## Getting Started
 
 First, run the development server:

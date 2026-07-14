@@ -1,0 +1,4 @@
+# Root .gitignore anchors /node_modules to the repo root, so cover this package too.
+node_modules/
+# Root .env* would also ignore the example file; keep it tracked.
+!.env.example

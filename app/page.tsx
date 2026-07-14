@@ -742,7 +742,7 @@ export default function Home() {
             Your business, <span className="text-copper">handled</span>.
           </h2>
           <p className="text-muted text-lg mb-4 max-w-xl mx-auto">
-            Start your 14-day trial — our team sets everything up for you within 48 hours.
+            Start your 14-day trial — your system is live instantly, and our team can set everything up for you within 48 hours.
           </p>
           <p className="font-mono text-[11px] tracking-wide text-copper uppercase mb-8">
             Real humans set you up and run your campaigns — included in every paid plan

@@ -236,7 +236,7 @@ export default function GrowPage() {
               every time, and collect the five-star proof — while you do the actual work.
             </p>
             <div className="flex flex-wrap gap-3.5">
-              <Button size="lg" className="bg-copper font-semibold text-white hover:bg-copper/90">
+              <Button size="lg" className="bg-copper font-semibold text-white hover:bg-copper/90" render={<Link href="/onboarding?plan=free" />}>
                 Start free
               </Button>
               <Button size="lg" variant="outline" render={<Link href="#builder" />}>
@@ -416,7 +416,7 @@ export default function GrowPage() {
             Capture, converse, nurture, prove — and hand every booked lead straight to the SCHEDULE pillar.
           </p>
           <div className="flex flex-wrap justify-center gap-3.5">
-            <Button size="lg" className="bg-copper font-semibold text-white hover:bg-copper/90">
+            <Button size="lg" className="bg-copper font-semibold text-white hover:bg-copper/90" render={<Link href="/onboarding?plan=free" />}>
               Start free
             </Button>
             <Button size="lg" variant="outline" render={<Link href="/schedule" />}>

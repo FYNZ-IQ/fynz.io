@@ -289,6 +289,10 @@ const FAQS = [
     a: "Your card on file is charged at the plan price when the trial ends. You can cancel anytime during the trial from your account settings — no charge."
   },
   {
+    q: "Do I need a card for the 14-day trial?",
+    a: "Yes. Starter and Growth start with 14 days free, and billing begins when the trial ends — cancel anytime before then and you pay nothing. Your system is live the moment you sign up, so you can dive in right away — and if you'd rather not lift a finger, our team will set everything up for you within 48 hours."
+  },
+  {
     q: "What happens if I go over my included usage?",
     a: "Overages are billed at published rates: $0.03 per SMS segment · $2 per 1,000 extra emails · $0.35 per AI-voice minute."
   },
@@ -357,13 +361,15 @@ function PlanCard({
   billing,
   voiceOn,
   onVoiceToggle,
-  industryExample
+  industryExample,
+  ctaHref
 }: {
   plan: Plan;
   billing: BillingCycle;
   voiceOn?: boolean;
   onVoiceToggle?: () => void;
   industryExample?: { label: string; example: string } | null;
+  ctaHref?: string;
 }) {
   const total = plan.monthly + (plan.hasVoiceToggle && voiceOn ? VOICE_MONTHLY : 0);
   const price = priceParts(total, billing);
@@ -463,7 +469,7 @@ function PlanCard({
               ? "bg-[#C8895A] hover:bg-[#E4A87A] text-[#0D2154]"
               : "bg-[#F5F0EB] hover:bg-white text-[#0D2154]"
           )}
-          render={<Link href={plan.ctaHref} />}
+          render={<Link href={ctaHref || plan.ctaHref} />}
         >
           {plan.cta} →
         </Button>
@@ -571,6 +577,24 @@ export default function PricingPage() {
   const plans = isEmergency ? EMERGENCY_PLANS : STANDARD_PLANS;
   const compare = isEmergency ? EMERGENCY_COMPARE : STANDARD_COMPARE;
 
+  const getCtaLink = (plan: Plan) => {
+    const planSlug = plan.id.startsWith("e-") ? plan.id.substring(2) : plan.id;
+    const mappedPlan = planSlug === "starter" ? "launch" : planSlug;
+    
+    if (mappedPlan === "free") {
+      return `/onboarding?plan=free${isEmergency ? "&industry=emergency-restoration" : ""}`;
+    }
+    
+    const industryParam = isEmergency ? "emergency-restoration" : industry !== "salons" && industry ? industry : "";
+    const industryQuery = industryParam ? `&industry=${industryParam}` : "";
+    
+    if (plan.ctaHref === "#demo") {
+      return "#demo";
+    }
+    
+    return `/onboarding?plan=${mappedPlan}${industryQuery}&billing=${billing}`;
+  };
+
   return (
     <div className="flex flex-col w-full">
       {/* 1) Hero */}
@@ -582,7 +606,7 @@ export default function PricingPage() {
             Simple pricing. One platform. <span className="text-[#C8895A]">Built for your industry.</span>
           </h1>
           <p className="text-muted text-lg max-w-2xl mx-auto leading-relaxed">
-            Every plan is set up for you by a real team within 48 hours.
+            Your system is live instantly — set it up yourself or let our team configure it in 48 hours.
           </p>
 
           {/* Billing toggle */}
@@ -695,6 +719,7 @@ export default function PricingPage() {
                       : undefined
                 }
                 industryExample={plan.personalize ? example : null}
+                ctaHref={getCtaLink(plan)}
               />
             ))}
           </StaggerGroup>
