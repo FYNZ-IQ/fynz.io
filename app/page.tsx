@@ -410,7 +410,7 @@ export default function Home() {
                 Book a demo
               </Button>
             </div>
-            <span className="font-mono text-[9px] tracking-widest text-faint uppercase">FREE PLAN — NO CARD · TRIALS SET UP FOR YOU IN 48H</span>
+            <span className="font-mono text-[9px] tracking-widest text-faint uppercase">FREE PLAN — NO CARD · PAGES READY INSTANTLY · LIFETIME ONBOARDING HELP</span>
           </div>
 
           {/* Hero Dashboard Preview */}
@@ -630,7 +630,7 @@ export default function Home() {
                 Every tool above — connected out of the box, sharing one customer record.
               </p>
               <Link href="/pricing" className="font-mono text-xs tracking-widest text-copper font-bold uppercase hover:underline">
-                FROM $97/MO · SET UP FOR YOU · SEE PRICING →
+                FROM $97/MO · LIFETIME ONBOARDING HELP · SEE PRICING →
               </Link>
             </div>
           </div>
@@ -828,7 +828,7 @@ export default function Home() {
             Your business, <span className="text-copper">handled</span>.
           </h2>
           <p className="text-muted text-lg mb-4 max-w-xl mx-auto">
-            Start your 14-day trial — your system is live instantly, and our team can set everything up for you within 48 hours.
+            Start your 14-day trial — your pages are ready instantly, and full onboarding help from our team is included for life.
           </p>
           <p className="font-mono text-[11px] tracking-wide text-copper uppercase mb-8">
             Real humans set you up and run your campaigns — included in every paid plan

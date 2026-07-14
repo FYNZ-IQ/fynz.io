@@ -402,8 +402,9 @@ export default function OnboardingPage() {
           </h1>
           <p className="text-muted text-lg max-w-xl mx-auto leading-relaxed">
             Three quick steps — your answers brand your booking page, funnels, and
-            messages. Your system is ready to use the moment you finish, and if
-            you&apos;d rather we set it up, our team can deploy it for you.
+            messages. Your system is ready to use the moment you finish — and
+            full onboarding help from our team is included for life, whenever
+            you want it.
           </p>
           <Suspense fallback={null}>
             <PlanBanner />

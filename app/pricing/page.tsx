@@ -58,7 +58,7 @@ const PLANS: Plan[] = [
     popular: false,
     features: [
       "Everything in Free",
-      "48-hour concierge setup — our team imports your contacts and turns everything on",
+      "Lifetime onboarding help — our team imports your contacts, turns everything on, and stays with you for as long as you're a customer",
       "Dedicated business phone number + 2-way SMS",
       "Missed-call text-back — never lose a job to a missed call",
       "Unlimited contacts & automations",
@@ -153,7 +153,7 @@ const COMPARISON_MATRIX: { group: string; rows: MatrixRow[] }[] = [
   {
     group: "DONE FOR YOU",
     rows: [
-      { name: "Concierge setup (48h)", free: false, launch: true, growth: true, managed: "WHITE-GLOVE" },
+      { name: "Lifetime onboarding help", free: false, launch: true, growth: true, managed: "WHITE-GLOVE" },
       { name: "Done-for-you campaigns", free: false, launch: false, growth: "1/MO", managed: "UNLIMITED", link: "/features/marketing" },
       { name: "Compliance handled", free: false, launch: false, growth: false, managed: true },
       { name: "Monthly revenue report", free: false, launch: false, growth: false, managed: true, link: "/features/reporting" }
@@ -180,15 +180,15 @@ const FAQS = [
   },
   {
     q: "Do I need a card for the 14-day trial?",
-    a: "Yes. Launch and Growth start with 14 days free, and billing begins when the trial ends — cancel anytime before then and you pay nothing. Your system is live the moment you sign up, so you can dive in right away — and if you'd rather not lift a finger, our team will set everything up for you within 48 hours."
+    a: "Yes. Launch and Growth start with 14 days free, and billing begins when the trial ends — cancel anytime before then and you pay nothing. Your system and pages are live the instant you sign up, so you can dive in right away — and full onboarding help from our team is included for life, whenever you want it."
   },
   {
-    q: "What does concierge setup include?",
-    a: "Within 48 hours of signing up, our team imports your contacts, puts your booking page live, turns on missed-call text-back, and switches on review requests. You start with a working system, not an empty one."
+    q: "What does onboarding help include?",
+    a: "Your system is ready the instant you sign up — booking page, funnels, and automations included. And whenever you want a hand — day one or year three — our team imports your contacts, tunes your booking page, and switches on missed-call text-back and review requests. Onboarding help is included for life, not a one-time window."
   },
   {
     q: "Is there an onboarding fee?",
-    a: "Launch has a one-time $299 onboarding fee and Growth a one-time $499 fee — that's what funds the concierge setup. Both are waived when you choose annual billing."
+    a: "Launch has a one-time $299 onboarding fee and Growth a one-time $499 fee — that's what funds the hands-on onboarding, and the help doesn't stop there: it's included for life. Both fees are waived when you choose annual billing."
   },
   {
     q: "I'm in Canada — what do I pay?",
@@ -281,7 +281,7 @@ export default function PricingPage() {
       <section className="py-16 md:py-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <p className="text-center text-muted text-sm md:text-base font-display font-semibold mb-10">
-            Start your 14-day trial — your system is live instantly, and our team can set everything up for you within 48 hours.
+            Start your 14-day trial — your pages are ready instantly, and full onboarding help from our team is included for life.
           </p>
           <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
             {PLANS.map((plan, idx) => (
