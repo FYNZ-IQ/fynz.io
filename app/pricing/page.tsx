@@ -267,11 +267,11 @@ export default function PricingPage() {
               )}
             >
               Annual
-              <span className="font-mono text-[9px] tracking-wider bg-green/10 text-green border border-green/30 px-2 py-0.5 rounded-full uppercase shrink-0">2 MONTHS FREE</span>
+              <span className="font-mono text-[11px] tracking-wider bg-green/10 text-green border border-green/30 px-2 py-0.5 rounded-full uppercase shrink-0">2 MONTHS FREE</span>
             </span>
           </div>
 
-          <div className="flex flex-col gap-1.5 items-center justify-center mt-6 font-mono text-[9.5px] tracking-wider text-faint">
+          <div className="flex flex-col gap-1.5 items-center justify-center mt-6 font-mono text-[11px] tracking-wider text-faint">
             <span>PRICES IN USD · CAD BILLING AVAILABLE FOR CANADA</span>
           </div>
         </div>
@@ -280,7 +280,7 @@ export default function PricingPage() {
       {/* Plan Cards Grid */}
       <section className="py-16 md:py-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
-          <p className="text-center text-muted text-sm md:text-base font-display font-semibold mb-10">
+          <p className="text-center text-muted text-base md:text-base font-display font-semibold mb-10">
             Start your 14-day trial — your pages are ready instantly, and full onboarding help from our team is included for life.
           </p>
           <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
@@ -304,29 +304,29 @@ export default function PricingPage() {
 
                 <div className="flex flex-col grow">
                   <span className={cn(
-                    "font-mono text-[8.5px] tracking-wider px-2.5 py-1 rounded-md block w-fit mb-4 select-none",
+                    "font-mono text-[11px] tracking-wider px-2.5 py-1 rounded-md block w-fit mb-4 select-none",
                     plan.freeFlag ? "text-green bg-green/10 border border-green/30" : "invisible border border-transparent"
                   )}>
                     {plan.freeFlag || " "}
                   </span>
                   <h3 className="font-display font-extrabold text-xl text-white mb-1.5">{plan.name}</h3>
-                  <p className="text-slate-300 text-xs leading-relaxed min-h-[48px] mb-6">{plan.who}</p>
+                  <p className="text-slate-300 text-base leading-relaxed min-h-[48px] mb-6">{plan.who}</p>
 
                   <div className="flex items-baseline gap-1.5 border-b border-white/10 pb-4 mb-4">
                     {plan.from && (
-                      <span className="font-mono text-[9px] text-slate-400 tracking-wider uppercase">FROM</span>
+                      <span className="font-mono text-[11px] text-slate-400 tracking-wider uppercase">FROM</span>
                     )}
                     <span className="font-mono text-copper text-lg font-bold">$</span>
                     <span className="font-mono text-3xl font-extrabold tracking-tight text-white">
                       {getPrice(plan)}
                     </span>
-                    <span className="font-mono text-[9px] text-slate-400 tracking-wider uppercase">/MO</span>
+                    <span className="font-mono text-[11px] text-slate-400 tracking-wider uppercase">/MO</span>
                   </div>
-                  <span className="font-mono text-[8.5px] tracking-wider text-slate-400 block min-h-[14px]">
+                  <span className="font-mono text-[11px] tracking-wider text-slate-400 block min-h-[14px]">
                     {getCap(plan)}
                   </span>
                   {plan.note && (
-                    <span className="font-mono text-[8.5px] tracking-wider text-slate-400 block mt-1.5">
+                    <span className="font-mono text-[11px] tracking-wider text-slate-400 block mt-1.5">
                       {plan.note}
                     </span>
                   )}
@@ -341,10 +341,10 @@ export default function PricingPage() {
                     {plan.cta}
                   </Button>
 
-                  <ul className="space-y-3.5 text-xs text-slate-300">
+                  <ul className="space-y-3.5 text-base text-slate-300">
                     {plan.features.map((feat, fidx) => (
                       <li key={fidx} className="flex gap-2.5 items-start">
-                        <span className="text-copper font-mono text-[10px] shrink-0 mt-0.5">✓</span>
+                        <span className="text-copper font-mono text-[11px] shrink-0 mt-0.5">✓</span>
                         <span>{feat}</span>
                       </li>
                     ))}
@@ -371,14 +371,14 @@ export default function PricingPage() {
           <ScrollReveal>
             <div className="bg-navy-900 text-white rounded-[var(--r-lg)] p-8 md:p-12 flex flex-col md:flex-row gap-8 md:items-center md:justify-between">
               <div className="max-w-2xl">
-                <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Add-on · Available on any paid plan</span>
+                <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Add-on · Available on any paid plan</span>
                 <h2 className="font-display font-extrabold text-2xl md:text-3xl tracking-tight mb-3">
                   Fynz Social — <span className="text-copper">$249/mo</span>
                 </h2>
-                <p className="text-slate-200 text-sm md:text-base font-semibold leading-relaxed mb-3">
+                <p className="text-slate-200 text-base md:text-base font-semibold leading-relaxed mb-3">
                   You take the pictures and videos. We do the rest.
                 </p>
-                <p className="text-slate-300 text-xs md:text-sm leading-relaxed">
+                <p className="text-slate-300 text-base md:text-base leading-relaxed">
                   Our team creates and publishes 12–16 branded posts per month across Instagram, Facebook, Google Business Profile, TikTok, LinkedIn, X and Pinterest — including seasonal posts and graphics matched to your brand, with a monthly content calendar sent for approval.
                 </p>
               </div>
@@ -398,7 +398,7 @@ export default function PricingPage() {
       <section className="py-24 bg-navy-900 text-white border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="mb-16 max-w-3xl">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Compare plans</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Compare plans</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
               Every feature, by <span className="text-copper">pillar</span>
             </h2>
@@ -414,23 +414,23 @@ export default function PricingPage() {
                 <span />
                 <span className="text-center font-display font-bold text-sm text-slate-200">
                   Free
-                  <small className="block font-mono text-[9px] text-slate-400 font-normal mt-1">$0</small>
+                  <small className="block font-mono text-[11px] text-slate-400 font-normal mt-1">$0</small>
                 </span>
                 <span className="text-center font-display font-bold text-sm text-slate-200">
                   Launch
-                  <small className="block font-mono text-[9px] text-slate-400 font-normal mt-1">
+                  <small className="block font-mono text-[11px] text-slate-400 font-normal mt-1">
                     ${billing === "monthly" ? "97" : "81"}/MO
                   </small>
                 </span>
                 <span className="text-center font-display font-bold text-sm text-copper">
                   Growth
-                  <small className="block font-mono text-[9px] text-copper/60 font-semibold mt-1">
+                  <small className="block font-mono text-[11px] text-copper/60 font-semibold mt-1">
                     ${billing === "monthly" ? "297" : "248"}/MO
                   </small>
                 </span>
                 <span className="text-center font-display font-bold text-sm text-slate-200">
                   Managed
-                  <small className="block font-mono text-[9px] text-slate-400 font-normal mt-1">
+                  <small className="block font-mono text-[11px] text-slate-400 font-normal mt-1">
                     FROM ${billing === "monthly" ? "697" : "581"}/MO
                   </small>
                 </span>
@@ -439,13 +439,13 @@ export default function PricingPage() {
               {/* Table Body */}
               {COMPARISON_MATRIX.map((group, gidx) => (
                 <div key={gidx} className="mb-4">
-                  <div className="font-mono text-[9.5px] font-bold tracking-widest text-copper bg-navy-800/40 text-white px-3 py-2 border-b border-white/10 uppercase mt-4">
+                  <div className="font-mono text-[11px] font-bold tracking-widest text-copper bg-navy-800/40 text-white px-3 py-2 border-b border-white/10 uppercase mt-4">
                     {group.group}
                   </div>
                   {group.rows.map((row, ridx) => (
                     <div
                       key={ridx}
-                      className="grid grid-cols-[2.1fr_1fr_1fr_1fr_1fr] border-b border-white/10 py-3.5 hover:bg-white/[0.04] items-center text-xs"
+                      className="grid grid-cols-[2.1fr_1fr_1fr_1fr_1fr] border-b border-white/10 py-3.5 hover:bg-white/[0.04] items-center text-sm"
                     >
                       <span className="font-display font-medium text-slate-300 hover:text-copper transition-colors">
                         {row.link ? <Link href={row.link}>{row.name}</Link> : row.name}
@@ -463,7 +463,7 @@ export default function PricingPage() {
                             )}
                           >
                             {cell === true ? (
-                              <span className="text-copper text-xs">✓</span>
+                              <span className="text-copper text-sm">✓</span>
                             ) : cell === false ? (
                               <span className="text-slate-500">—</span>
                             ) : cell === "soon" ? (
@@ -487,7 +487,7 @@ export default function PricingPage() {
       <section className="py-24 border-b border-line-soft">
         <div className="wrap max-w-3xl mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Questions</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Questions</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight">
               Fair questions, straight <span className="text-copper">answers</span>
             </h2>
@@ -499,7 +499,7 @@ export default function PricingPage() {
                 <AccordionTrigger className="font-display font-bold text-sm md:text-base text-white py-5">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-slate-300 text-xs md:text-sm leading-relaxed pb-6 pr-6">
+                <AccordionContent className="text-slate-300 text-base md:text-base leading-relaxed pb-6 pr-6">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>
@@ -511,7 +511,7 @@ export default function PricingPage() {
       {/* Final CTA */}
       <section className="final py-24 relative overflow-hidden text-center bg-radial-[at_bottom_center] from-copper/10 via-transparent to-transparent">
         <div className="wrap max-w-4xl mx-auto px-6 relative z-10">
-          <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Start today</span>
+          <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Start today</span>
           <h2 className="font-display font-extrabold text-4xl md:text-5xl tracking-tight mb-4">
             One bill. <span className="text-copper font-extrabold">Zero duct tape</span>.
           </h2>

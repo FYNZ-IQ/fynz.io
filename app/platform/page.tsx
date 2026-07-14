@@ -169,7 +169,7 @@ export default function PlatformPage() {
           <p className="text-muted text-lg max-w-2xl mx-auto leading-relaxed">
             From the first lead to the final invoice, FYNZ runs it — every feature below ships connected, sharing one customer record and one login.
           </p>
-          <div className="flex items-center gap-6 justify-center mt-8 font-mono text-[10px] tracking-wider text-faint">
+          <div className="flex items-center gap-6 justify-center mt-8 font-mono text-[11px] tracking-wider text-faint">
             <span><b>27</b> FEATURES</span>
             <span><b>4</b> PILLARS</span>
             <span><b>1</b> LOGIN</span>
@@ -201,13 +201,13 @@ export default function PlatformPage() {
                 />
                 <span className="flex flex-col">
                   <span className={cn(
-                    "font-display font-extrabold text-xs md:text-sm tracking-wider flex items-baseline gap-1.5 text-white",
+                    "font-display font-extrabold text-sm md:text-sm tracking-wider flex items-baseline gap-1.5 text-white",
                     isSelected ? "text-copper" : "text-white"
                   )}>
                     {p.name}
                     <span className="font-mono text-[8px] text-slate-400 font-normal">{p.count}</span>
                   </span>
-                  <span className="hidden md:block font-mono text-[9px] text-slate-400 mt-1 truncate">{p.job}</span>
+                  <span className="hidden md:block font-mono text-[11px] text-slate-400 mt-1 truncate">{p.job}</span>
                 </span>
               </button>
             );
@@ -236,10 +236,10 @@ export default function PlatformPage() {
                       </React.Fragment>
                     ))}
                   </h2>
-                  <p className="text-muted text-sm md:text-base leading-relaxed">{p.desc}</p>
+                  <p className="text-muted text-base md:text-base leading-relaxed">{p.desc}</p>
                 </div>
                 <div className="flex flex-col items-start lg:items-end gap-3 shrink-0">
-                  <span className="font-mono text-[9px] tracking-widest text-faint">
+                  <span className="font-mono text-[11px] tracking-widest text-faint">
                     <b className="text-copper font-semibold">{p.features.length}</b> FEATURES IN THIS PILLAR
                   </span>
                   <Button variant="ghost" render={<Link href={p.ctaLink} />}>
@@ -262,7 +262,7 @@ export default function PlatformPage() {
                             {feat.name}
                             <span className="font-mono text-[7px] tracking-wider bg-white/[0.04] text-slate-400 px-1.5 py-0.5 rounded border border-white/10">COMING SOON</span>
                           </b>
-                          <p className="text-slate-300 text-xs leading-relaxed mt-2">{feat.desc}</p>
+                          <p className="text-slate-300 text-base leading-relaxed mt-2">{feat.desc}</p>
                         </div>
                       </div>
                     );
@@ -278,9 +278,9 @@ export default function PlatformPage() {
                         <b className="font-display font-bold text-sm text-white group-hover:text-copper transition-colors duration-200">
                           {feat.name}
                         </b>
-                        <p className="text-slate-300 text-xs leading-relaxed mt-2">{feat.desc}</p>
+                        <p className="text-slate-300 text-base leading-relaxed mt-2">{feat.desc}</p>
                       </div>
-                      <span className="font-mono text-[9px] tracking-wider text-copper uppercase mt-4 block">
+                      <span className="font-mono text-[11px] tracking-wider text-copper uppercase mt-4 block">
                         LEARN MORE →
                       </span>
                     </Link>
@@ -289,7 +289,7 @@ export default function PlatformPage() {
               </StaggerGroup>
 
               {/* Thread Banner */}
-              <div className="border border-dashed border-copper/30 bg-navy-800 rounded-[var(--r-md)] p-4 text-xs md:text-sm text-slate-300 flex gap-3 items-start md:items-center">
+              <div className="border border-dashed border-copper/30 bg-navy-800 rounded-[var(--r-md)] p-4 text-base md:text-base text-slate-300 flex gap-3 items-start md:items-center">
                 <Chip className="bg-copper/10 border-copper/30 text-copper uppercase">CONNECTION</Chip>
                 <span>{p.thread}</span>
               </div>
@@ -306,13 +306,13 @@ export default function PlatformPage() {
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4 text-white">
               Simplify your stack
             </h2>
-            <p className="text-slate-400 text-sm leading-relaxed max-w-xl mx-auto">
+            <p className="text-slate-400 text-base leading-relaxed max-w-xl mx-auto">
               Replace multiple disconnected subscriptions with one cohesive system that works together.
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto">
             {REPLACES_ITEMS.map((item, idx) => (
-              <span key={idx} className="font-mono text-xs border border-white/10 px-3 py-1.5 rounded-full text-slate-400 select-none hover:border-white/20 transition-colors">
+              <span key={idx} className="font-mono text-base border border-white/10 px-3 py-1.5 rounded-full text-slate-400 select-none hover:border-white/20 transition-colors">
                 {item}
               </span>
             ))}

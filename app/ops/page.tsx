@@ -94,11 +94,11 @@ const BENEFIT_ROWS: BenefitRow[] = [
             </span>
             <div className="min-w-0">
               <b className="text-[0.83rem] font-semibold block leading-tight">{r.name}</b>
-              <small className="font-mono text-[9px] text-slate-400 tracking-wide">{r.sub}</small>
+              <small className="font-mono text-[11px] text-slate-400 tracking-wide">{r.sub}</small>
             </div>
             <span
               className={cn(
-                "ml-auto font-mono text-[9px] px-2.5 py-1 rounded shrink-0",
+                "ml-auto font-mono text-[11px] px-2.5 py-1 rounded shrink-0",
                 r.hot ? "bg-green/10 text-green" : "bg-copper-tint text-copper"
               )}
             >
@@ -132,7 +132,7 @@ const BENEFIT_ROWS: BenefitRow[] = [
           >
             <div>
               <b className="text-[0.83rem] font-semibold block">{o.t}</b>
-              <small className="font-mono text-[9px] text-slate-400">{o.s}</small>
+              <small className="font-mono text-[11px] text-slate-400">{o.s}</small>
             </div>
             <span className={cn("font-mono text-[0.82rem]", o.pos ? "text-green" : "text-slate-300")}>
               {o.amt}
@@ -155,14 +155,14 @@ const BENEFIT_ROWS: BenefitRow[] = [
     ),
     visual: (
       <div className="mt-1.5">
-        <div className="flex justify-between font-mono text-[10px] text-slate-400 tracking-wide mb-2">
+        <div className="flex justify-between font-mono text-[11px] text-slate-400 tracking-wide mb-2">
           <span>SET ASIDE SO FAR</span>
           <b className="text-white font-semibold">$4,180 / $6,700</b>
         </div>
         <div className="h-2.5 rounded-md bg-white/[0.04] overflow-hidden">
           <i className="block h-full w-[62%] rounded-md bg-gradient-to-r from-copper/45 to-copper" />
         </div>
-        <small className="font-mono text-[9px] text-slate-400 block mt-2 tracking-wide">
+        <small className="font-mono text-[11px] text-slate-400 block mt-2 tracking-wide">
           ESTIMATED FROM LIVE INCOME · UPDATED WITH EVERY PAYMENT
         </small>
       </div>
@@ -287,14 +287,14 @@ export default function OpsPage() {
               <HoverFloat key={idx} yOffset={idx % 2 === 0 ? -6 : 6} duration={4} delay={idx * 0.3}>
                 <div className="bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] px-[18px] py-4 flex items-center gap-4 transition-colors hover:border-copper/30 shadow-sm">
                   <div className="flex-1">
-                    <small className="font-mono text-[9px] tracking-[0.16em] uppercase text-slate-400 block mb-1">
+                    <small className="font-mono text-[11px] tracking-[0.16em] uppercase text-slate-400 block mb-1">
                       {k.label}
                     </small>
                     <b className="font-mono text-xl font-semibold">
                       <em className="not-italic text-copper">$</em>
                       {k.value}
                     </b>
-                    <span className="font-mono text-[9.5px] text-green ml-2">{k.delta}</span>
+                    <span className="font-mono text-[11px] text-green ml-2">{k.delta}</span>
                   </div>
                   <svg viewBox="0 0 88 34" className="w-[88px] h-[34px] shrink-0" aria-hidden="true">
                     <polygon points={k.area} fill="rgba(181,100,63,0.10)" />
@@ -311,7 +311,7 @@ export default function OpsPage() {
                 </div>
               </HoverFloat>
             ))}
-            <p className="font-mono text-[9.5px] tracking-[0.16em] text-faint text-right mt-1">
+            <p className="font-mono text-[11px] tracking-[0.16em] text-faint text-right mt-1">
               FED LIVE BY GROW · SCHEDULE · SHOP
             </p>
           </div>
@@ -344,7 +344,7 @@ export default function OpsPage() {
                       c.soon ? (
                         <span
                           key={ci}
-                          className="font-mono text-[9px] tracking-[0.12em] bg-wash text-faint px-2.5 py-1 rounded-full border border-dashed border-line"
+                          className="font-mono text-[11px] tracking-[0.12em] bg-wash text-faint px-2.5 py-1 rounded-full border border-dashed border-line"
                         >
                           {c.label}
                         </span>
@@ -369,7 +369,7 @@ export default function OpsPage() {
                 <div className={cn(row.reversed && "lg:order-1")}>
                   <div className="relative bg-gradient-to-br from-navy-800 to-navy-750 text-white border border-white/10 rounded-[var(--r-lg)] p-5.5 shadow-[var(--shadow-md)] overflow-hidden">
                     <span className="absolute top-0 left-[12%] right-[45%] h-px bg-gradient-to-r from-transparent via-copper/70 to-transparent" />
-                    <div className="flex justify-between font-mono text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-3.5">
+                    <div className="flex justify-between font-mono text-[11px] tracking-[0.18em] uppercase text-slate-400 mb-3.5">
                       {row.panelTitle}
                     </div>
                     {row.visual}
@@ -399,7 +399,7 @@ export default function OpsPage() {
             <div className="flex items-center gap-3.5 flex-wrap px-6 py-4 border-b border-white/10">
               <div>
                 <b className="font-display text-[0.95rem] font-bold block">Maple &amp; Main Salon</b>
-                <small className="font-mono text-[9px] text-slate-400 tracking-[0.12em] block">OPS · OVERVIEW</small>
+                <small className="font-mono text-[11px] text-slate-400 tracking-[0.12em] block">OPS · OVERVIEW</small>
               </div>
               <div className="ml-auto flex gap-1.5" role="group" aria-label="Date range">
                 {RANGES.map((r) => (
@@ -408,7 +408,7 @@ export default function OpsPage() {
                     onClick={() => setRange(r.key)}
                     aria-pressed={range === r.key}
                     className={cn(
-                      "font-mono text-[10px] tracking-[0.12em] px-3.5 py-1.5 rounded-full border transition-all",
+                      "font-mono text-[11px] tracking-[0.12em] px-3.5 py-1.5 rounded-full border transition-all",
                       range === r.key
                         ? "bg-copper text-white border-copper font-semibold"
                         : "border-white/10 text-slate-300 hover:border-copper/40"
@@ -430,11 +430,11 @@ export default function OpsPage() {
                     { s: "Avg ticket", b: d.ticket, sp: d.ticketD }
                   ].map((k, i) => (
                     <div key={i} className="bg-white/[0.04] border border-white/10 rounded-[var(--r-sm)] px-3.5 py-3">
-                      <small className="font-mono text-[8.5px] tracking-[0.14em] uppercase text-slate-400 block mb-1.5">
+                      <small className="font-mono text-[11px] tracking-[0.14em] uppercase text-slate-400 block mb-1.5">
                         {k.s}
                       </small>
                       <b className="font-mono text-[1.12rem] font-semibold">{k.b}</b>
-                      <span className="font-mono text-[9px] text-green ml-1.5">{k.sp}</span>
+                      <span className="font-mono text-[11px] text-green ml-1.5">{k.sp}</span>
                     </div>
                   ))}
                 </div>
@@ -454,14 +454,14 @@ export default function OpsPage() {
                         )}
                         style={{ height: `${b.h}%` }}
                       />
-                      <span className="font-mono text-[8.5px] tracking-wide text-slate-400 text-center">{b.l}</span>
+                      <span className="font-mono text-[11px] tracking-wide text-slate-400 text-center">{b.l}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               <aside className="border-t lg:border-t-0 lg:border-l border-white/10 p-5">
-                <h5 className="font-mono text-[9px] tracking-[0.18em] uppercase text-slate-400 mb-3.5">Top services</h5>
+                <h5 className="font-mono text-[11px] tracking-[0.18em] uppercase text-slate-400 mb-3.5">Top services</h5>
                 <div>
                   {d.top.map(([name, amt], i) => (
                     <div
@@ -477,7 +477,7 @@ export default function OpsPage() {
             </div>
 
             {/* note */}
-            <div className="flex justify-between flex-wrap gap-2 px-6 py-3.5 border-t border-white/10 font-mono text-[9.5px] tracking-[0.12em] text-slate-400">
+            <div className="flex justify-between flex-wrap gap-2 px-6 py-3.5 border-t border-white/10 font-mono text-[11px] tracking-[0.12em] text-slate-400">
               <span>
                 UPDATED <b className="text-copper font-medium">LIVE</b> · NO EXPORTS, NO SPREADSHEETS
               </span>
@@ -515,7 +515,7 @@ export default function OpsPage() {
                 </div>
                 <span
                   className={cn(
-                    "ml-auto shrink-0 font-mono text-[9px] tracking-[0.14em] px-3.5 py-1.5 rounded-full border",
+                    "ml-auto shrink-0 font-mono text-[11px] tracking-[0.14em] px-3.5 py-1.5 rounded-full border",
                     rm.status === "LIVE" && "bg-green/10 text-green border-green/30",
                     rm.status === "IN DEVELOPMENT" && "bg-copper-tint text-copper border-copper/30",
                     rm.status === "PLANNED" && "bg-white/[0.04] text-slate-400 border-dashed border-white/10"
@@ -546,7 +546,7 @@ export default function OpsPage() {
                   <b className="font-display font-semibold text-[0.99rem] flex items-center gap-2.5 flex-wrap">
                     {f.title}
                     {f.soon && (
-                      <span className="font-mono text-[8.5px] tracking-[0.1em] bg-white/[0.04] text-slate-400 px-1.5 py-0.5 rounded">
+                      <span className="font-mono text-[11px] tracking-[0.1em] bg-white/[0.04] text-slate-400 px-1.5 py-0.5 rounded">
                         COMING SOON
                       </span>
                     )}

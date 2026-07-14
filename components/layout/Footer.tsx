@@ -23,7 +23,7 @@ export function Footer() {
           </div>
           
           <div className="flex flex-col">
-            <h5 className="font-mono text-[10px] font-semibold tracking-[0.2em] uppercase text-copper mb-4">Product</h5>
+            <h5 className="font-mono text-[11px] font-semibold tracking-[0.2em] uppercase text-copper mb-4">Product</h5>
             <FooterLink href="/platform">Platform overview</FooterLink>
             <FooterLink href="/grow">GROW</FooterLink>
             <FooterLink href="/schedule">SCHEDULE</FooterLink>
@@ -34,7 +34,7 @@ export function Footer() {
           </div>
           
           <div className="flex flex-col">
-            <h5 className="font-mono text-[10px] font-semibold tracking-[0.2em] uppercase text-copper mb-4">Who&apos;s it for</h5>
+            <h5 className="font-mono text-[11px] font-semibold tracking-[0.2em] uppercase text-copper mb-4">Who&apos;s it for</h5>
             <FooterLink href="/industries/salons">Salons &amp; barbershops</FooterLink>
             <FooterLink href="/industries/clinics">Clinics &amp; dental</FooterLink>
             <FooterLink href="/industries/fitness">Fitness &amp; gyms</FooterLink>
@@ -44,7 +44,7 @@ export function Footer() {
           </div>
           
           <div className="flex flex-col">
-            <h5 className="font-mono text-[10px] font-semibold tracking-[0.2em] uppercase text-copper mb-4">Resources</h5>
+            <h5 className="font-mono text-[11px] font-semibold tracking-[0.2em] uppercase text-copper mb-4">Resources</h5>
             <FooterLink href="/resources">Blog</FooterLink>
             <FooterLink href="/resources#docs">Help center</FooterLink>
             <FooterLink href="/resources#guides">Guides</FooterLink>
@@ -53,7 +53,7 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col">
-            <h5 className="font-mono text-[10px] font-semibold tracking-[0.2em] uppercase text-copper mb-4">Company</h5>
+            <h5 className="font-mono text-[11px] font-semibold tracking-[0.2em] uppercase text-copper mb-4">Company</h5>
             <FooterLink href="#about">About</FooterLink>
             <FooterLink href="#careers">Careers</FooterLink>
             <FooterLink href="#contact">Contact</FooterLink>

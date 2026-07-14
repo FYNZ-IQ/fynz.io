@@ -162,13 +162,13 @@ function OnboardingWizard() {
   if (status === "done") {
     return (
       <div className="bg-navy-900 text-white rounded-[var(--r-lg)] p-8 md:p-12 text-center">
-        <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">
+        <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">
           You&apos;re in
         </span>
         <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
           <span className="text-copper">{form.company_name || "Your business"}</span> is ready to go
         </h2>
-        <p className="text-slate-300 text-sm md:text-base max-w-xl mx-auto leading-relaxed mb-8">
+        <p className="text-slate-300 text-base md:text-base max-w-xl mx-auto leading-relaxed mb-8">
           Your system is live and your answers are branding it as we speak. Log in and
           start setting it up your way — your login details are in your inbox at{" "}
           <span className="text-white font-semibold">{form.email}</span>. Prefer a hand?
@@ -194,13 +194,13 @@ function OnboardingWizard() {
   if (needsIndustry) {
     return (
       <div className="bg-navy-900 text-white rounded-[var(--r-lg)] p-8 md:p-12 text-center">
-        <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">
+        <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">
           First things first
         </span>
         <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
           What kind of <span className="text-copper">business</span> are you?
         </h2>
-        <p className="text-slate-300 text-sm md:text-base max-w-xl mx-auto leading-relaxed mb-10">
+        <p className="text-slate-300 text-base md:text-base max-w-xl mx-auto leading-relaxed mb-10">
           Your industry decides which ready-made system you get — booking pages,
           automations, and campaigns built for businesses like yours.
         </p>
@@ -210,7 +210,7 @@ function OnboardingWizard() {
               <AccordionTrigger className="font-display font-bold text-sm py-4">
                 <span className="flex items-baseline gap-3">
                   {group.title}
-                  <span className="font-mono text-[9px] tracking-wider text-slate-500 uppercase">
+                  <span className="font-mono text-[11px] tracking-wider text-slate-500 uppercase">
                     {group.items.length}
                   </span>
                 </span>
@@ -239,13 +239,13 @@ function OnboardingWizard() {
   if (needsCheckout) {
     return (
       <div className="bg-navy-900 text-white rounded-[var(--r-lg)] p-8 md:p-12 text-center">
-        <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">
+        <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">
           Secure checkout
         </span>
         <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
           First, activate your <span className="text-copper">{PLAN_LABELS[plan]}</span> plan
         </h2>
-        <p className="text-slate-300 text-sm md:text-base max-w-xl mx-auto leading-relaxed mb-8">
+        <p className="text-slate-300 text-base md:text-base max-w-xl mx-auto leading-relaxed mb-8">
           You&apos;ll check out on our secure payment page ({billing === "annual" ? "annual" : "monthly"} billing)
           and your system is created instantly — then land right back here to put your brand on it.
         </p>
@@ -256,7 +256,7 @@ function OnboardingWizard() {
           <button
             type="button"
             onClick={() => setCheckoutSkipped(true)}
-            className="font-mono text-[10px] tracking-wider uppercase text-slate-500 hover:text-copper underline underline-offset-2 cursor-pointer"
+            className="font-mono text-[11px] tracking-wider uppercase text-slate-500 hover:text-copper underline underline-offset-2 cursor-pointer"
           >
             Already subscribed? Skip to setup
           </button>
@@ -276,7 +276,7 @@ function OnboardingWizard() {
           <React.Fragment key={s.title}>
             <span
               className={cn(
-                "font-mono text-[9px] tracking-wider uppercase transition-colors",
+                "font-mono text-[11px] tracking-wider uppercase transition-colors",
                 i === step ? "text-copper font-bold" : i < step ? "text-slate-300" : "text-slate-500"
               )}
             >
@@ -290,7 +290,7 @@ function OnboardingWizard() {
       <h2 className="font-display font-extrabold text-2xl md:text-3xl tracking-tight mb-2">
         {current.title}
       </h2>
-      <p className="text-slate-400 text-sm mb-8">{current.blurb}</p>
+      <p className="text-slate-400 text-base mb-8">{current.blurb}</p>
 
       <form
         onSubmit={(e) => {
@@ -315,7 +315,7 @@ function OnboardingWizard() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {current.fields.map((field) => (
             <label key={field.key} className="flex flex-col gap-2">
-              <span className="font-mono text-[9.5px] tracking-wider uppercase text-slate-400">
+              <span className="font-mono text-[11px] tracking-wider uppercase text-slate-400">
                 {field.label}
                 {field.required && <span className="text-copper"> *</span>}
               </span>
@@ -379,7 +379,7 @@ function PlanBanner() {
   const billing = params.get("billing") === "annual" ? "annual" : "monthly";
   if (!planLabel) return null;
   return (
-    <p className="font-mono text-[10px] tracking-wider uppercase text-faint mt-4">
+    <p className="font-mono text-[11px] tracking-wider uppercase text-faint mt-4">
       Selected plan: <span className="text-copper font-bold">{planLabel}</span>
       {planParam !== "free" && <> · {billing === "annual" ? "annual" : "monthly"} billing</>}
       {" · "}
