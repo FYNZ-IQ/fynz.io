@@ -235,27 +235,92 @@ export function Navbar() {
               <span className="w-[22px] h-[2px] bg-ink rounded-sm transition-opacity" />
               <span className="w-[22px] h-[2px] bg-ink rounded-sm transition-transform" />
             </SheetTrigger>
-            <SheetContent side="top" className="bg-navy-900 text-white pt-20 pb-16 px-6 border-none">
+            <SheetContent side="top" className="bg-navy-900 text-white pt-20 pb-16 px-6 border-none max-h-dvh overflow-y-auto">
               <SheetTitle className="sr-only">Mobile Navigation</SheetTitle>
               <div className="flex flex-col">
                 <MobileMenuGroup title="Features">
                   <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Grow</h6>
                   <MobileLink href="/grow">Lead capture</MobileLink>
                   <MobileLink href="/features/crm">CRM &amp; pipelines</MobileLink>
+                  <MobileLink href="/features/inbox">Unified inbox</MobileLink>
+                  <MobileLink href="/features/marketing">Email &amp; SMS marketing</MobileLink>
+                  <MobileLink href="/features/automations">Automations</MobileLink>
+                  <MobileLink href="/features/funnels">Funnels &amp; pages</MobileLink>
+                  <MobileLink href="/features/reputation">Reviews &amp; reputation</MobileLink>
                   <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Schedule</h6>
                   <MobileLink href="/schedule">Booking core</MobileLink>
                   <MobileLink href="/features/calendar">Smart calendar</MobileLink>
+                  <MobileLink href="/features/team">Team management</MobileLink>
+                  <MobileLink href="/features/customers">Customer management</MobileLink>
+                  <MobileLink href="/features/reminders">Reminders &amp; no-shows</MobileLink>
+                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Shop</h6>
+                  <MobileLink href="/shop">Online store</MobileLink>
+                  <MobileLink href="/features/payments">Payments</MobileLink>
+                  <MobileLink href="/features/invoicing">Invoicing</MobileLink>
+                  <MobileLink href="/features/memberships">Memberships &amp; courses</MobileLink>
+                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Ops</h6>
+                  <MobileLink href="/ops">Ops overview</MobileLink>
+                  <MobileLink href="/features/reporting">Reporting</MobileLink>
+                  <MobileLink href="/features/accounting">Accounting</MobileLink>
+                  <MobileLink href="/features/tax">Tax tools</MobileLink>
                 </MobileMenuGroup>
                 <MobileMenuGroup title="AI">
                   <MobileLink href="/ai">FYNZ AI hub</MobileLink>
                   <MobileLink href="/ai/voice">Voice AI</MobileLink>
                   <MobileLink href="/ai/conversation">Conversation AI</MobileLink>
+                  <MobileLink href="/ai/reviews">Reviews AI</MobileLink>
+                  <MobileLink href="/ai/content">Content AI</MobileLink>
+                </MobileMenuGroup>
+                <MobileMenuGroup title="Who's it for">
+                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Beauty &amp; personal care</h6>
+                  <MobileLink href="/industries/salons">Salons</MobileLink>
+                  <MobileLink href="/industries/barbershops">Barbershops</MobileLink>
+                  <MobileLink href="/industries/spas">Spas &amp; beauty</MobileLink>
+                  <MobileLink href="/industries/nail-studios">Nail studios</MobileLink>
+                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Health</h6>
+                  <MobileLink href="/industries/clinics">Clinics</MobileLink>
+                  <MobileLink href="/industries/dental">Dental clinics</MobileLink>
+                  <MobileLink href="/industries/medical-clinics">Medical &amp; health</MobileLink>
+                  <MobileLink href="/industries/therapists">Therapists &amp; physio</MobileLink>
+                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Fitness</h6>
+                  <MobileLink href="/industries/gyms">Gyms</MobileLink>
+                  <MobileLink href="/industries/fitness">Fitness studios</MobileLink>
+                  <MobileLink href="/industries/personal-trainers">Personal trainers</MobileLink>
+                  <MobileLink href="/industries/yoga-pilates">Yoga &amp; Pilates</MobileLink>
+                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Food &amp; hospitality</h6>
+                  <MobileLink href="/industries/restaurants">Restaurants</MobileLink>
+                  <MobileLink href="/industries/cafes">Cafés</MobileLink>
+                  <MobileLink href="/industries/bars">Bars</MobileLink>
+                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Retail &amp; commerce</h6>
+                  <MobileLink href="/industries/boutiques">Boutiques</MobileLink>
+                  <MobileLink href="/industries/retail">Retail stores</MobileLink>
+                  <MobileLink href="/industries/ecommerce">E-commerce</MobileLink>
+                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Professional</h6>
+                  <MobileLink href="/industries/accounting">Accounting firms</MobileLink>
+                  <MobileLink href="/industries/legal">Law firms</MobileLink>
+                  <MobileLink href="/industries/coaching">Coaches</MobileLink>
+                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Home services &amp; trades</h6>
+                  <MobileLink href="/industries/home-services">Home services</MobileLink>
+                  <MobileLink href="/industries/plumbing">Plumbing</MobileLink>
+                  <MobileLink href="/industries/cleaning">Cleaning</MobileLink>
+                  <MobileLink href="/industries/contractors">Contractors</MobileLink>
+                  <MobileLink href="/industries/automotive">Auto shops</MobileLink>
+                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Emergency restoration</h6>
+                  <MobileLink href="/industries/emergency-services.html#water">Water damage</MobileLink>
+                  <MobileLink href="/industries/emergency-services.html#mold">Mold remediation</MobileLink>
+                  <MobileLink href="/industries/emergency-services.html#fire">Fire &amp; smoke</MobileLink>
+                  <MobileLink href="/industries/emergency-services.html#storm">Storm &amp; tree</MobileLink>
+                  <MobileLink href="/industries/emergency-services.html#roofing">Storm roofing</MobileLink>
+                  <MobileLink href="/industries/emergency-services.html#biohazard">Biohazard cleanup</MobileLink>
+                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Property</h6>
+                  <MobileLink href="/industries/real-estate">Real estate</MobileLink>
+                  <MobileLink href="/industries" className="text-copper font-semibold">See all industries →</MobileLink>
                 </MobileMenuGroup>
                 <MobileLink href="/pricing" className="font-display font-semibold text-[1.05rem] py-[18px] border-b border-line-soft">Pricing</MobileLink>
                 <MobileLink href="/resources" className="font-display font-semibold text-[1.05rem] py-[18px] border-b border-line-soft">Resources</MobileLink>
-                
+
                 <div className="flex flex-col gap-3 mt-[26px]">
-                  <Button variant="outline" className="w-full btn-ghost rounded-full">Log in</Button>
+                  <Button variant="outline" className="w-full btn-ghost rounded-full" render={<Link href="/login" />}>Log in</Button>
                   <Button className="w-full btn-copper rounded-full" render={<Link href="/onboarding?plan=free" />}>Start free</Button>
                 </div>
               </div>
@@ -321,8 +386,17 @@ function MobileMenuGroup({ title, children }: { title: string; children: React.R
 }
 
 function MobileLink({ href, className, children }: { href: string; className?: string; children: React.ReactNode }) {
+  const cls = cn("block py-[9px] text-slate-200 text-[0.95rem] hover:text-copper", className);
+  // Static .html pages (served from /public) need a plain anchor.
+  if (href.includes(".html")) {
+    return (
+      <a href={href} className={cls}>
+        {children}
+      </a>
+    );
+  }
   return (
-    <Link href={href} className={cn("block py-[9px] text-slate-200 text-[0.95rem] hover:text-copper", className)}>
+    <Link href={href} className={cls}>
       {children}
     </Link>
   );

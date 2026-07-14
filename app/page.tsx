@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ScrollReveal, StaggerGroup, HoverFloat } from "@/components/animations";
 import { Chip, IndustrySearch } from "@/components/shared";
 import { Button } from "@/components/ui";
@@ -277,6 +278,65 @@ const REPLACES_STACK = [
   { name: "SMS platform", cost: "$39/mo" }
 ];
 
+/** The five-step flow, played as a looping "live run": each card lights up
+ *  in sequence like a lead moving through the automation. */
+function AutomationFlow() {
+  const [active, setActive] = React.useState(0);
+
+  React.useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const t = setInterval(
+      () => setActive((a) => (a + 1) % AUTOMATION_STEPS.length),
+      1600,
+    );
+    return () => clearInterval(t);
+  }, []);
+
+  return (
+    <StaggerGroup className="grid grid-cols-1 md:grid-cols-5 gap-6 items-stretch relative">
+      {AUTOMATION_STEPS.map((step, idx) => {
+        const isActive = idx === active;
+        return (
+          <div
+            key={idx}
+            className={cn(
+              "bg-slate-50 dark:bg-navy-800 text-slate-900 dark:text-white border p-5 rounded-lg flex flex-col justify-between min-h-[160px] relative transition-all duration-500",
+              isActive
+                ? "border-copper/60 shadow-[0_0_28px_rgba(181,100,63,0.22)] -translate-y-1 bg-white dark:bg-navy-750"
+                : "border-slate-200 dark:border-line-soft"
+            )}
+          >
+            <div>
+              <span
+                className={cn(
+                  "font-mono text-[11px] tracking-wider px-2 py-0.5 rounded block w-fit mb-4 border transition-colors duration-500",
+                  isActive
+                    ? "text-white bg-copper border-copper"
+                    : "text-copper bg-copper-tint/20 border-copper/20"
+                )}
+              >
+                {step.step}
+              </span>
+              <b className="font-display text-sm font-bold text-slate-900 dark:text-white block mb-1">{step.title}</b>
+              <p className="text-slate-600 dark:text-slate-400 text-[11px] leading-relaxed">{step.desc}</p>
+            </div>
+            {idx < AUTOMATION_STEPS.length - 1 && (
+              <div
+                className={cn(
+                  "hidden md:block absolute top-1/2 -right-4 -translate-y-1/2 font-bold text-lg select-none z-10 transition-all duration-500",
+                  isActive ? "text-copper translate-x-0.5" : "text-slate-600 dark:text-slate-300"
+                )}
+              >
+                →
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </StaggerGroup>
+  );
+}
+
 const AUTOMATION_STEPS = [
   { step: "TRIGGER", title: "New lead comes in", desc: "Form, DM, ad, or missed call" },
   { step: "00:30", title: "Auto text-back", desc: "Instant reply with your booking link" },
@@ -454,11 +514,11 @@ export default function Home() {
       <section className="border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6 py-8 border-t border-line-soft/30">
           <div className="flex justify-center">
-            <div className="flex items-start gap-4 border border-white/10 rounded-[var(--r-md)] bg-navy-900/50 text-white px-6 py-5 max-w-3xl">
+            <div className="flex items-start gap-4 border border-white/10 rounded-[var(--r-md)] bg-navy-900 text-white px-6 py-5 max-w-3xl">
               <span className="text-copper text-xl leading-none" aria-hidden="true">⚡</span>
               <div>
-                <b className="text-white font-display text-lg block">Ready the moment you sign up</b>
-                <span className="text-slate-400 text-base">Your pages and system go live instantly — and full onboarding help is included for life. Our team configures your account, ports your number, and stays with you whenever you want a hand.</span>
+                <b className="text-white font-display text-lg block mb-1">Ready the moment you sign up</b>
+                <span className="text-slate-300 text-base leading-relaxed">Your pages and system go live instantly — and full onboarding help is included for life. Our team configures your account, ports your number, and stays with you whenever you want a hand.</span>
               </div>
             </div>
           </div>
@@ -579,10 +639,7 @@ export default function Home() {
 
             {/* Right side: Replaced Summary */}
             <div className="flex flex-col items-center lg:items-start text-center lg:text-left pl-0 lg:pl-8 border-t lg:border-t-0 lg:border-l border-line-soft/30 pt-8 lg:pt-0">
-              <svg className="w-10 h-10 text-copper mb-6" viewBox="0 0 32 32" fill="none">
-                <path d="M4 26 L16 4 L28 26" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M9 18 H23" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-              </svg>
+              <Image src="/logo-fynz.png" alt="FYNZ" width={40} height={34} className="h-10 w-auto mb-6" />
               <h3 className="font-display font-extrabold text-2xl tracking-tight mb-3 text-slate-900 dark:text-white">One platform. One login. One bill.</h3>
               <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed mb-6">
                 Every tool in the stack shares one customer record — nothing to sync, nothing to duct-tape.
@@ -609,20 +666,7 @@ export default function Home() {
             </p>
           </div>
 
-          <StaggerGroup className="grid grid-cols-1 md:grid-cols-5 gap-6 items-stretch relative">
-            {AUTOMATION_STEPS.map((step, idx) => (
-              <div key={idx} className="bg-slate-50 dark:bg-navy-800 text-slate-900 dark:text-white border border-slate-200 dark:border-line-soft p-5 rounded-lg flex flex-col justify-between min-h-[160px] relative">
-                <div>
-                  <span className="font-mono text-[11px] tracking-wider text-copper bg-copper-tint/20 border border-copper/20 px-2 py-0.5 rounded block w-fit mb-4">{step.step}</span>
-                  <b className="font-display text-sm font-bold text-slate-900 dark:text-white block mb-1">{step.title}</b>
-                  <p className="text-slate-600 dark:text-slate-400 text-[11px] leading-relaxed">{step.desc}</p>
-                </div>
-                {idx < 4 && (
-                  <div className="hidden md:block absolute top-1/2 -right-4 -translate-y-1/2 dark:text-slate-300 text-slate-600  dark:text-line-soft font-bold text-lg select-none z-10">→</div>
-                )}
-              </div>
-            ))}
-          </StaggerGroup>
+          <AutomationFlow />
           <div className="text-center mt-10">
             <span className="font-mono text-[11px] tracking-widest text-slate-400 uppercase">BUILT IN <b>4 MINUTES</b> · RUNS ON EVERY LEAD, FOREVER</span>
           </div>
