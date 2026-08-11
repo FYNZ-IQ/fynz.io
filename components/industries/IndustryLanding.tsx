@@ -278,7 +278,7 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
               Ready to transform your business with FYNZ?
             </h2>
             <p className="text-white/60 max-w-xl mx-auto mb-8">
-              Get started with a 14-day free trial. No credit card required.
+              Start free — no credit card required. Month-to-month, 30-day money-back guarantee.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="btn-copper rounded-full h-[52px] px-7 text-base">

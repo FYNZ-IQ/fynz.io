@@ -150,7 +150,6 @@ const FEATURES = [
 
 /* ---- Outcome stats ---- */
 const STATS = [
-  { value: "$46M+", label: "Processed for owners" },
   { value: "4 min", label: "Median time to paid" },
   { value: "78%", label: "Of invoices paid same day" },
   { value: "2.7×", label: "Revenue streams per business" }

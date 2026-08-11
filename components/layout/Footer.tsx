@@ -16,8 +16,7 @@ export function Footer() {
               The all-in-one platform for small business — grow, schedule, sell, and run operations from one place.
             </p>
             <div className="font-mono text-[11px] text-slate-400 leading-loose">
-              <a href="mailto:hello@fynz.com" className="hover:text-copper transition-colors">hello@fynz.com</a><br/>
-              <a href="tel:+18005550199" className="hover:text-copper transition-colors">1-800-555-0199</a><br/>
+              <a href="mailto:hello@fynz.io" className="hover:text-copper transition-colors">hello@fynz.io</a><br/>
               <span>US &amp; Canada</span>
             </div>
           </div>
@@ -35,6 +34,7 @@ export function Footer() {
           
           <div className="flex flex-col">
             <h5 className="font-mono text-[10px] font-semibold tracking-[0.2em] uppercase text-copper mb-4">Who&apos;s it for</h5>
+            <FooterLink href="/emergency">Emergency restoration</FooterLink>
             <FooterLink href="/industries/salons">Salons &amp; barbershops</FooterLink>
             <FooterLink href="/industries/clinics">Clinics &amp; dental</FooterLink>
             <FooterLink href="/industries/fitness">Fitness &amp; gyms</FooterLink>

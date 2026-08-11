@@ -235,7 +235,7 @@ export default function IntegrationsPage() {
               <Button
                 size="lg"
                 className="bg-copper hover:bg-copper/90 text-white font-semibold"
-                render={<Link href="mailto:hello@fynz.com?subject=Integration%20request" />}
+                render={<Link href="mailto:hello@fynz.io?subject=Integration%20request" />}
               >
                 Request an integration
               </Button>

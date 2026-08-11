@@ -524,7 +524,7 @@ export default function IndustriesIndexPage() {
               </Link>{" "}
               or{" "}
               <Link
-                href="#demo"
+                href="/demo"
                 className="text-copper hover:underline underline-offset-[3px]"
               >
                 book a demo

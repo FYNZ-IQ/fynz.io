@@ -117,7 +117,7 @@ const accounting: IndustryData = {
   faq: [
     {
       q: "Can it handle both US and Canadian clients?",
-      a: "Yes — USD/CAD billing and North American phone configurations are fully native.",
+      a: "Yes — you can invoice your own clients in USD or CAD through Stripe, PayPal, or Square, and North American phone configurations are fully native.",
     },
     {
       q: "How secure is document upload?",

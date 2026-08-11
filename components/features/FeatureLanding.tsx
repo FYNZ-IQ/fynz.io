@@ -137,7 +137,7 @@ export function FeatureLanding({ data, all }: { data: FeatureData; all: Record<s
           {/* CTA */}
           <div className="rounded-[var(--r-lg)] bg-navy-900 text-white text-center px-6 py-14 mt-14">
             <h2 className="font-display font-bold text-3xl leading-tight mb-3 text-white">Try {name} free</h2>
-            <p className="text-white/60 max-w-xl mx-auto mb-8">14-day free trial. No credit card required.</p>
+            <p className="text-white/60 max-w-xl mx-auto mb-8">Free forever plan — no credit card required. Month-to-month, 30-day money-back guarantee.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="btn-copper rounded-full h-[52px] px-7 text-base">Start free</Button>
               <Button size="lg" variant="outline" className="rounded-full h-[52px] px-7 text-base border-white/25 text-white hover:bg-white/10" render={<Link href="/pricing" />}>

@@ -118,7 +118,6 @@ const STATS = [
   { value: "−63%", label: "Fewer no-shows" },
   { value: "34%", label: "Of bookings arrive after hours" },
   { value: "11h", label: "Of phone tag saved weekly" },
-  { value: "1.4M+", label: "Appointments booked on FYNZ" },
 ];
 
 const SERVICES = [
