@@ -2,11 +2,12 @@
 
 import React from "react";
 import Link from "next/link";
-import { ScrollReveal, StaggerGroup, HoverFloat, CountUp } from "@/components/animations";
+import { ScrollReveal, StaggerGroup, HoverFloat } from "@/components/animations";
 import { BadgeCard, Chip } from "@/components/shared";
 import { SmsChatWidget, LiveQueueWidget } from "@/components/widgets";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent, Button, Card, CardContent } from "@/components/ui";
 import { cn } from "@/lib/utils";
+import { industryThemeVars } from "@/lib/industries/themes";
 
 const PAINS = [
   "The phone rings mid-fade. Answer it and lose the cut, ignore it and lose the booking.",
@@ -56,15 +57,15 @@ const BENEFIT_GROUPS = [
           <div className="relative min-h-[140px] bg-white/[0.04] rounded border border-white/10 p-4 overflow-hidden flex flex-col justify-center gap-1.5 w-full">
             <span className="font-mono text-[8px] tracking-[0.1em] text-slate-400 absolute top-2 left-2">ONE SHOP — THREE BOOKS</span>
             <div className="flex gap-1.5 justify-center mt-3 text-[0.75rem]">
-              <div className="bg-navy-800 border border-white/10 p-1.5 rounded flex items-center gap-1 text-[10px]">
+              <div className="bg-navy-800 border border-white/10 p-1.5 rounded flex items-center gap-1 text-[11px]">
                 <span className="w-5 h-5 rounded-full bg-copper/10 grid place-items-center text-copper text-[8px] font-bold">M</span>
                 <span>Marco</span>
               </div>
-              <div className="bg-navy-800 border border-white/10 p-1.5 rounded flex items-center gap-1 text-[10px]">
+              <div className="bg-navy-800 border border-white/10 p-1.5 rounded flex items-center gap-1 text-[11px]">
                 <span className="w-5 h-5 rounded-full bg-copper/10 grid place-items-center text-copper text-[8px] font-bold">D</span>
                 <span>Dre</span>
               </div>
-              <div className="bg-navy-800 border border-white/10 p-1.5 rounded flex items-center gap-1 text-[10px]">
+              <div className="bg-navy-800 border border-white/10 p-1.5 rounded flex items-center gap-1 text-[11px]">
                 <span className="w-5 h-5 rounded-full bg-copper/10 grid place-items-center text-copper text-[8px] font-bold">S</span>
                 <span>Sam</span>
               </div>
@@ -128,7 +129,7 @@ const BENEFIT_GROUPS = [
           <div className="relative min-h-[140px] bg-white/[0.04] rounded border border-white/10 p-4 overflow-hidden flex flex-col justify-center gap-1.5 w-full">
             <span className="font-mono text-[8px] tracking-[0.1em] text-slate-400 absolute top-2 left-2">GOOGLE REVIEW ASK</span>
             <div className="flex gap-0.5 mt-3 justify-center text-copper">★ ★ ★ ★ ★</div>
-            <div className="text-[10px] text-slate-300 text-center font-mono">REPLY POSTED BY REVIEWS AI ✓</div>
+            <div className="text-[11px] text-slate-300 text-center font-mono">REPLY POSTED BY REVIEWS AI ✓</div>
           </div>
         )
       },
@@ -172,7 +173,7 @@ const BENEFIT_GROUPS = [
         viz: (
           <div className="relative min-h-[140px] bg-white/[0.04] rounded border border-white/10 p-4 overflow-hidden flex flex-col justify-center gap-2 w-full">
             <span className="font-mono text-[8px] tracking-[0.1em] text-slate-400 absolute top-2 left-2">REFERRAL SYSTEM</span>
-            <div className="flex gap-2 justify-center mt-3 text-[10px]">
+            <div className="flex gap-2 justify-center mt-3 text-[11px]">
               <span className="text-copper">+ $10 CREDIT ✓</span>
               <span className="text-green">+ $10 OFF ✓</span>
             </div>
@@ -250,8 +251,8 @@ const BENEFIT_GROUPS = [
         viz: (
           <div className="relative min-h-[140px] bg-white/[0.04] rounded border border-white/10 p-4 overflow-hidden flex flex-col justify-center gap-1.5 w-full">
             <span className="font-mono text-[8px] tracking-[0.1em] text-slate-400 absolute top-2 left-2">ASK AI</span>
-            <span className="text-[10px] text-slate-300 italic mt-2">"Who's my top barber this month?"</span>
-            <span className="text-[10px] text-white font-bold font-mono">MARCO — 84 CUTS</span>
+            <span className="text-[11px] text-slate-300 italic mt-2">"Who's my top barber this month?"</span>
+            <span className="text-[11px] text-white font-bold font-mono">MARCO — 84 CUTS</span>
           </div>
         )
       }
@@ -288,7 +289,7 @@ const FAQs = [
 
 export default function BarbershopPage() {
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full industry-theme" style={industryThemeVars("barbershops")}>
       {/* Hero */}
       <section className="s-hero pt-32 pb-16 md:pt-40 md:pb-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -301,7 +302,7 @@ export default function BarbershopPage() {
               FYNZ answers the calls, runs the walk-in queue, posts your best fades, and asks for the review — you just keep cutting.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold">
+              <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/onboarding?plan=free&industry=barbershops" />}>
                 Start free
               </Button>
               <Button size="lg" variant="outline" render={<Link href="#showit" />}>
@@ -315,7 +316,7 @@ export default function BarbershopPage() {
             <HoverFloat className="flex-1" yOffset={-10} duration={3.5}>
               <div className="bg-navy-900 text-white border border-white/10 rounded-[var(--r-lg)] p-5 relative shadow-md">
                 <div className="flex items-center gap-3 pb-3 border-b border-white/10 mb-3">
-                  <span className="w-8 h-8 rounded bg-copper-tint border border-copper/30 grid place-items-center text-copper text-xs shrink-0">✆</span>
+                  <span className="w-8 h-8 rounded bg-copper-tint border border-copper/30 grid place-items-center text-copper text-sm shrink-0">✆</span>
                   <div>
                     <b className="font-display text-[0.8rem] font-bold text-white block leading-tight">Kings Cut Barbershop</b>
                     <small className="font-mono text-[7px] tracking-[0.12em] text-slate-400 block mt-0.5">INCOMING CALL — 11:42 AM</small>
@@ -365,7 +366,7 @@ export default function BarbershopPage() {
       <section className="sec py-20 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="max-w-2xl mb-12">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Sound familiar?</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Sound familiar?</span>
             <h2 className="font-display font-extrabold text-3xl tracking-tight">
               The parts of the shop <span className="text-copper">nobody warned you about</span>
             </h2>
@@ -373,9 +374,9 @@ export default function BarbershopPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {PAINS.map((pain, idx) => (
               <Card key={idx} className="bg-navy-900 border border-transparent shadow-none rounded-2xl ring-0 p-6 flex flex-row items-start gap-4">
-                <span className="font-mono text-copper text-xs mt-0.5 shrink-0 select-none">✕</span>
+                <span className="font-mono text-copper text-sm mt-0.5 shrink-0 select-none">✕</span>
                 <CardContent className="p-0">
-                  <p className="text-slate-300 text-xs md:text-sm leading-relaxed">{pain}</p>
+                  <p className="text-slate-300 text-base md:text-base leading-relaxed">{pain}</p>
                 </CardContent>
               </Card>
             ))}
@@ -387,7 +388,7 @@ export default function BarbershopPage() {
       <section className="sec py-20 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="max-w-2xl mb-20">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Here's what changes</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Here's what changes</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight">
               You keep cutting. FYNZ keeps <span className="text-copper">booking</span>.
             </h2>
@@ -397,7 +398,7 @@ export default function BarbershopPage() {
             {BENEFIT_GROUPS.map((group, groupIdx) => (
               <div key={groupIdx} className="border-t border-line-soft/30 pt-12">
                 <div className="flex items-center gap-4 mb-10">
-                  <span className="font-mono text-xs text-copper bg-copper-tint border border-copper/30 px-3 py-1 rounded-full">{group.num}</span>
+                  <span className="font-mono text-sm text-copper bg-copper-tint border border-copper/30 px-3 py-1 rounded-full">{group.num}</span>
                   <h3 className="font-display font-extrabold text-2xl md:text-3xl tracking-tight">{group.title}</h3>
                 </div>
                 
@@ -408,7 +409,7 @@ export default function BarbershopPage() {
                         <div className="mb-4">
                           {card.viz}
                         </div>
-                        <p className="text-slate-300 text-sm leading-relaxed mb-6">{card.desc}</p>
+                        <p className="text-slate-300 text-base leading-relaxed mb-6">{card.desc}</p>
                       </div>
                       <span className="block font-mono text-[8px] tracking-wider text-slate-400 uppercase mt-auto">
                         {card.tag}
@@ -426,7 +427,7 @@ export default function BarbershopPage() {
       <section id="showit" className="sec py-20 bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-b border-line-soft scroll-mt-20">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="text-center mb-16 max-w-3xl mx-auto">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Watch it work</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Watch it work</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight leading-tight">
               Two things FYNZ did <span className="text-copper">while your clippers were on</span>
             </h2>
@@ -436,12 +437,12 @@ export default function BarbershopPage() {
             <ScrollReveal className="flex flex-col gap-6" direction="left">
               <div className="max-w-md">
                 <b className="font-display font-bold text-xl block mb-2">A missed call becomes a booking <span className="text-copper">in 3 minutes</span>.</b>
-                <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                <p className="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
                   11:12 AM — you're mid-fade, the call drops. The text-back fires instantly; four messages later, it's on the books.
                 </p>
               </div>
               <SmsChatWidget />
-              <span className="font-mono text-[8.5px] tracking-widest text-slate-400">
+              <span className="font-mono text-[11px] tracking-widest text-slate-400">
                 powered by <b className="text-copper">Missed-call text-back · GROW</b> + <b className="text-copper">Conversation AI</b>
               </span>
             </ScrollReveal>
@@ -449,12 +450,12 @@ export default function BarbershopPage() {
             <ScrollReveal className="flex flex-col gap-6" direction="right">
               <div className="max-w-md">
                 <b className="font-display font-bold text-xl block mb-2">The walk-in line <span className="text-copper">runs itself</span>.</b>
-                <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                <p className="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
                   A walk-in scans the QR at the door, grabs a real place in line, and watches the wait tick down — nobody eyeballs the bench and leaves.
                 </p>
               </div>
               <LiveQueueWidget />
-              <span className="font-mono text-[8.5px] tracking-widest text-slate-400">
+              <span className="font-mono text-[11px] tracking-widest text-slate-400">
                 powered by <b className="text-copper">Online booking · SCHEDULE</b>
               </span>
             </ScrollReveal>
@@ -466,7 +467,7 @@ export default function BarbershopPage() {
       <section className="sec py-20 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">A day with FYNZ</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">A day with FYNZ</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight">
               Same Saturday. <span className="text-copper">Different shop</span>.
             </h2>
@@ -474,7 +475,7 @@ export default function BarbershopPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="border border-white/10 rounded-[var(--r-lg)] p-8 bg-navy-900 text-white">
-              <span className="font-mono text-[10px] tracking-widest text-copper block mb-8 uppercase font-bold">BEFORE FYNZ, SATURDAY</span>
+              <span className="font-mono text-[11px] tracking-widest text-copper block mb-8 uppercase font-bold">BEFORE FYNZ, SATURDAY</span>
               <div className="space-y-6">
                 {BEFORE_ITEMS.map((item, idx) => (
                   <div key={idx} className="flex gap-4 items-start text-sm">
@@ -486,7 +487,7 @@ export default function BarbershopPage() {
             </div>
 
             <div className="border border-copper/30 rounded-[var(--r-lg)] p-8 bg-navy-900 text-white">
-              <span className="font-mono text-[10px] tracking-widest text-green block mb-8 uppercase font-bold">SAME SATURDAY, WITH FYNZ</span>
+              <span className="font-mono text-[11px] tracking-widest text-green block mb-8 uppercase font-bold">SAME SATURDAY, WITH FYNZ</span>
               <div className="space-y-6">
                 {AFTER_ITEMS.map((item, idx) => (
                   <div key={idx} className="flex gap-4 items-start text-sm">
@@ -500,49 +501,11 @@ export default function BarbershopPage() {
         </div>
       </section>
 
-      {/* Proof Stats */}
-      <section className="sec py-20 bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-b border-line-soft">
-        <div className="wrap max-w-7xl mx-auto px-6">
-          <div className="mb-12">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Proof</span>
-            <h2 className="font-display font-extrabold text-3xl tracking-tight">
-              What shops see <span className="text-copper">in the first 90 days</span>
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 text-center mb-12">
-            <div className="bg-navy-800 text-white border border-white/10 p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
-              <CountUp value="120+" className="font-display text-4xl font-extrabold text-copper block mb-1" />
-              <span className="font-mono text-[9px] tracking-wider text-slate-300 uppercase">CALLS ANSWERED/MO</span>
-            </div>
-            <div className="bg-navy-800 text-white border border-white/10 p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
-              <CountUp value="85%" className="font-display text-4xl font-extrabold text-copper block mb-1" />
-              <span className="font-mono text-[9px] tracking-wider text-slate-300 uppercase">FEWER NO-SHOWS</span>
-            </div>
-            <div className="bg-navy-800 text-white border border-white/10 p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
-              <CountUp value="3x" className="font-display text-4xl font-extrabold text-copper block mb-1" />
-              <span className="font-mono text-[9px] tracking-wider text-slate-300 uppercase">WALK-INS SAVED</span>
-            </div>
-            <div className="bg-navy-800 text-white border border-white/10 p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
-              <span className="font-display text-4xl font-extrabold text-copper block mb-1">Auto</span>
-              <span className="font-mono text-[9px] tracking-wider text-slate-300 uppercase">IG SCHEDULING</span>
-            </div>
-            <div className="bg-navy-800 text-white border border-white/10 p-6 rounded-lg flex flex-col justify-center min-h-[140px]">
-              <CountUp value="50+" className="font-display text-4xl font-extrabold text-copper block mb-1" />
-              <span className="font-mono text-[9px] tracking-wider text-slate-300 uppercase">NEW 5-STARS</span>
-            </div>
-          </div>
-          <div className="border border-white/10 p-8 rounded-lg bg-navy-800 text-white max-w-4xl mx-auto text-center italic text-slate-300 text-lg relative">
-             "FYNZ saves us at least 10 calls a day mid-fade. Regulars book with their favorite barbers via individual calendars, and we wake up to walk-in queue requests booked overnight. Saturdays finally run themselves."
-             <span className="block font-mono text-[10px] tracking-widest text-copper uppercase font-bold not-italic mt-4">— KINGS CUT OWNER, TORONTO</span>
-          </div>
-        </div>
-      </section>
-
       {/* FAQ */}
       <section className="sec py-20 border-b border-line-soft">
         <div className="wrap max-w-3xl mx-auto px-6">
           <div className="text-center mb-12">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Owner FAQ</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Owner FAQ</span>
             <h2 className="font-display font-extrabold text-3xl tracking-tight">
               Fair <span className="text-copper">questions</span>
             </h2>
@@ -566,7 +529,7 @@ export default function BarbershopPage() {
       {/* Final CTA */}
       <section className="final py-24 relative overflow-hidden text-center bg-radial-[at_bottom_center] from-copper/10 via-transparent to-transparent">
         <div className="wrap max-w-4xl mx-auto px-6 relative z-10">
-          <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">For barbershops</span>
+          <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">For barbershops</span>
           <h2 className="font-display font-extrabold text-4xl md:text-5xl tracking-tight mb-4">
             Keep cutting. FYNZ keeps <span className="text-copper">booking</span>.
           </h2>
@@ -574,7 +537,7 @@ export default function BarbershopPage() {
             Answered calls, a walk-in queue that runs itself, and an Instagram that posts your best work — from day one.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold">
+            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/onboarding?plan=free&industry=barbershops" />}>
               Start free
             </Button>
             <Button size="lg" variant="outline" render={<Link href="/schedule" />}>

@@ -19,7 +19,7 @@ export function BadgeCard({ className, title, subtitle, icon, status, children, 
       {...props}
     >
       {status && (
-        <div className="absolute top-5 right-5 flex items-center gap-[6px] font-mono text-[8.5px] tracking-[0.14em] text-green">
+        <div className="absolute top-5 right-5 flex items-center gap-[6px] font-mono text-[11px] tracking-[0.14em] text-green">
           <span className="w-1.5 h-1.5 rounded-full bg-green shadow-[0_0_8px_var(--green)] animate-pulse" />
           {status}
         </div>
@@ -31,7 +31,7 @@ export function BadgeCard({ className, title, subtitle, icon, status, children, 
       )}
       {title && <h4 className="font-display font-bold text-[1.05rem] mb-1">{title}</h4>}
       {subtitle && (
-        <span className="block font-mono text-[9.5px] tracking-[0.16em] uppercase text-copper mb-3">
+        <span className="block font-mono text-[11px] tracking-[0.16em] uppercase text-copper mb-3">
           {subtitle}
         </span>
       )}

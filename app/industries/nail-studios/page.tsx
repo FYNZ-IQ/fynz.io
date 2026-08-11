@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ScrollReveal, StaggerGroup, HoverFloat } from "@/components/animations";
 import { BadgeCard, Chip } from "@/components/shared";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent, Button, Card, CardContent } from "@/components/ui";
+import { industryThemeVars } from "@/lib/industries/themes";
 
 const PAINS = [
   "Your clients are on a 2–3 week cycle — but only if someone reminds them.",
@@ -154,7 +155,7 @@ const WEEK_SLOTS = [
 
 export default function NailStudiosPage() {
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full industry-theme" style={industryThemeVars("nail-studios")}>
       {/* Hero */}
       <section className="s-hero pt-32 pb-16 md:pt-40 md:pb-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -167,7 +168,7 @@ export default function NailStudiosPage() {
               FYNZ books the fill before they even think about it — and makes no-shows a thing of the past.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold">
+              <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/onboarding?plan=free&industry=nail-studios" />}>
                 Start free
               </Button>
               <Button size="lg" variant="outline" render={<Link href="#showit" />}>
@@ -224,7 +225,7 @@ export default function NailStudiosPage() {
       <section className="sec py-20 bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="max-w-2xl mb-12">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Sound familiar?</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Sound familiar?</span>
             <h2 className="font-display font-extrabold text-3xl tracking-tight">
               The parts of studio life <span className="text-copper">nobody warned you about</span>
             </h2>
@@ -234,7 +235,7 @@ export default function NailStudiosPage() {
               <Card key={idx} className="bg-navy-800 border border-white/10 shadow-none rounded-2xl ring-0 p-6 flex flex-row items-start gap-4">
                 <span className="font-display text-copper text-3xl leading-none opacity-30 select-none">&ldquo;</span>
                 <CardContent className="p-0">
-                  <p className="text-slate-300 text-sm md:text-base leading-relaxed">{pain}</p>
+                  <p className="text-slate-300 text-base md:text-base leading-relaxed">{pain}</p>
                 </CardContent>
               </Card>
             ))}
@@ -246,7 +247,7 @@ export default function NailStudiosPage() {
       <section className="sec py-20 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="max-w-2xl mb-16">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Here&apos;s what changes</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Here&apos;s what changes</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight">
               You do the sets. FYNZ keeps the <span className="text-copper">book full</span>.
             </h2>
@@ -257,7 +258,7 @@ export default function NailStudiosPage() {
               <BadgeCard key={idx} title={card.title} className="bg-navy-900 text-white border-white/10 flex flex-col justify-between min-h-[380px]">
                 <div>
                   <div className="mb-4">{card.viz}</div>
-                  <p className="text-slate-300 text-sm leading-relaxed mb-6">{card.desc}</p>
+                  <p className="text-slate-300 text-base leading-relaxed mb-6">{card.desc}</p>
                 </div>
                 <span className="block font-mono text-[8px] tracking-wider text-slate-400 uppercase mt-auto">
                   {card.tag}
@@ -272,14 +273,14 @@ export default function NailStudiosPage() {
       <section id="showit" className="sec py-20 bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-b border-line-soft scroll-mt-20">
         <div className="wrap max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <ScrollReveal direction="left">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Watch it work</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Watch it work</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight leading-tight mb-4">
               A DM becomes a deposit-paid booking — <span className="text-copper">mid-set</span>.
             </h2>
             <p className="text-slate-600 dark:text-slate-300 text-base leading-relaxed mb-6 max-w-lg">
               1:12 PM, you&apos;re two coats deep. The DM gets answered, the slot gets offered, and the deposit locks it in — all in one thread, all without you looking up.
             </p>
-            <span className="font-mono text-[8.5px] tracking-widest text-slate-400">
+            <span className="font-mono text-[11px] tracking-widest text-slate-400">
               powered by <b className="text-copper">Conversation AI</b> + <b className="text-copper">Deposits &amp; payments · SHOP</b>
             </span>
           </ScrollReveal>
@@ -287,8 +288,8 @@ export default function NailStudiosPage() {
           <ScrollReveal direction="right">
             <Card className="bg-navy-900 text-white border-white/10 rounded-[var(--r-lg)] overflow-hidden shadow-md">
               <div className="px-5 py-4 border-b border-white/10 flex justify-between items-center">
-                <b className="font-mono text-[10px] tracking-[0.16em] text-slate-400">POLISHED — INSTAGRAM DM</b>
-                <span className="font-mono text-[8.5px] tracking-[0.14em] text-copper flex items-center gap-1.5">
+                <b className="font-mono text-[11px] tracking-[0.16em] text-slate-400">POLISHED — INSTAGRAM DM</b>
+                <span className="font-mono text-[11px] tracking-[0.14em] text-copper flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-copper shadow-[0_0_7px] shadow-copper/80" />
                   LIVE
                 </span>
@@ -324,7 +325,7 @@ export default function NailStudiosPage() {
       <section className="sec py-20 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">A day with FYNZ</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">A day with FYNZ</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight">
               Same studio. <span className="text-copper">Different month</span>.
             </h2>
@@ -332,11 +333,11 @@ export default function NailStudiosPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="border border-white/10 rounded-[var(--r-lg)] p-8 bg-navy-900 text-white">
-              <span className="font-mono text-[10px] tracking-widest text-slate-400 block mb-8 uppercase font-bold bg-white/[0.04] px-3 py-1.5 rounded-full inline-block">BEFORE FYNZ</span>
+              <span className="font-mono text-[11px] tracking-widest text-slate-400 block mb-8 uppercase font-bold bg-white/[0.04] px-3 py-1.5 rounded-full inline-block">BEFORE FYNZ</span>
               <div className="space-y-6">
                 {BEFORE_ITEMS.map((item, idx) => (
                   <div key={idx} className="flex gap-4 items-start text-sm">
-                    <span className="font-mono text-[10px] text-slate-400 shrink-0 w-28 pt-1 tracking-wide">{item.time}</span>
+                    <span className="font-mono text-[11px] text-slate-400 shrink-0 w-28 pt-1 tracking-wide">{item.time}</span>
                     <p className="text-slate-300 leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
@@ -344,11 +345,11 @@ export default function NailStudiosPage() {
             </div>
 
             <div className="border border-copper/40 rounded-[var(--r-lg)] p-8 bg-navy-800">
-              <span className="font-mono text-[10px] tracking-widest text-white block mb-8 uppercase font-bold bg-copper px-3 py-1.5 rounded-full inline-block">With FYNZ</span>
+              <span className="font-mono text-[11px] tracking-widest text-white block mb-8 uppercase font-bold bg-copper px-3 py-1.5 rounded-full inline-block">With FYNZ</span>
               <div className="space-y-6">
                 {AFTER_ITEMS.map((item, idx) => (
                   <div key={idx} className="flex gap-4 items-start text-sm">
-                    <span className="font-mono text-[10px] text-copper shrink-0 w-28 pt-1 font-bold tracking-wide">{item.time}</span>
+                    <span className="font-mono text-[11px] text-copper shrink-0 w-28 pt-1 font-bold tracking-wide">{item.time}</span>
                     <p className="text-white leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
@@ -362,7 +363,7 @@ export default function NailStudiosPage() {
       <section className="sec py-20 border-b border-line-soft">
         <div className="wrap max-w-3xl mx-auto px-6">
           <div className="text-center mb-12">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Owner FAQ</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Owner FAQ</span>
             <h2 className="font-display font-extrabold text-3xl tracking-tight">
               Fair <span className="text-copper">questions</span>
             </h2>
@@ -388,7 +389,7 @@ export default function NailStudiosPage() {
       {/* Final CTA */}
       <section className="final py-24 relative overflow-hidden text-center bg-radial-[at_bottom_center] from-copper/10 via-transparent to-transparent">
         <div className="wrap max-w-4xl mx-auto px-6 relative z-10">
-          <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">For nail studios</span>
+          <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">For nail studios</span>
           <h2 className="font-display font-extrabold text-4xl md:text-5xl tracking-tight mb-4">
             You do the sets. FYNZ keeps them <span className="text-copper">coming back</span>.
           </h2>

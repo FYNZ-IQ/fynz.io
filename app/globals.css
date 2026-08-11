@@ -446,3 +446,13 @@
     background: linear-gradient(180deg, rgba(217, 150, 125, 0.75), rgba(217, 150, 125, 0.2));
   }
 }
+
+/* Per-industry landing theme: bright futuristic backdrop in light mode only.
+   Accent recoloring rides on the copper CSS vars set inline by
+   industryThemeVars(); dark mode keeps the page's normal dark background. */
+.industry-theme {
+  background-image: var(--ind-bg);
+}
+.dark .industry-theme {
+  background-image: none;
+}
