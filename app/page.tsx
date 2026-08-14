@@ -572,7 +572,7 @@ export default function Home() {
                 Every tool above — connected out of the box, sharing one customer record.
               </p>
               <Link href="/pricing" className="font-mono text-xs tracking-widest text-copper font-bold uppercase hover:underline">
-                FROM $97/MO · SET UP FOR YOU · SEE PRICING →
+                FROM $97 USD/MO · SET UP FOR YOU · SEE PRICING →
               </Link>
             </div>
           </div>

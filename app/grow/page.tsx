@@ -68,7 +68,7 @@ const BENEFIT_ROWS = [
     kicker: "CAPTURE",
     title: "Capture every lead, from every direction",
     desc: "Forms, funnels, landing pages, QR codes, and quizzes — plus missed-call text-back so an unanswered ring becomes a conversation instead of a lost customer. Every entry point feeds one CRM record.",
-    href: "/features/lead-capture",
+    href: "/features/funnels",
     linkLabel: "Lead capture",
     reverse: false,
     visual: (
@@ -199,17 +199,17 @@ function FlowDrop() {
 
 /* ---------- Feature grid ---------- */
 const FEATURES = [
-  { title: "Lead capture", desc: "Forms, surveys, quizzes, funnels, landing pages, and QR codes.", href: "/features/lead-capture" },
+  { title: "Lead capture", desc: "Forms, surveys, quizzes, funnels, landing pages, and QR codes.", href: "/features/funnels" },
   { title: "CRM & contacts", desc: "360° records with smart lists, tags, custom fields, and lead scoring.", href: "/features/crm" },
-  { title: "Sales pipelines", desc: "Drag-and-drop stages so you always know who's close to a yes.", href: "/features/pipelines" },
+  { title: "Sales pipelines", desc: "Drag-and-drop stages so you always know who's close to a yes.", href: "/features/crm" },
   { title: "Unified inbox", desc: "SMS, email, WhatsApp, IG/FB DMs, and webchat in one thread.", href: "/features/inbox" },
   { title: "Email & SMS marketing", desc: "Campaigns, broadcasts, and drips that write themselves.", href: "/features/marketing" },
   { title: "Automations & workflows", desc: "The connective tissue — triggers and actions across every pillar.", href: "/features/automations" },
   { title: "Reputation & reviews", desc: "Perfectly-timed requests plus AI-drafted responses.", href: "/features/reputation" },
-  { title: "Social planner", desc: "Plan, write, and schedule posts from one calendar.", href: "/features/social-planner" },
-  { title: "Missed-call text-back", desc: "Every unanswered ring gets an instant text.", href: "/features/text-back" },
+  { title: "Social planner", desc: "Plan, write, and schedule posts from one calendar.", href: "/ai/content" },
+  { title: "Missed-call text-back", desc: "Every unanswered ring gets an instant text.", href: "/ai/conversation" },
   { title: "AI agents", desc: "Conversation, Voice, and Content AI working leads 24/7.", href: "/ai" },
-  { title: "Ad & campaign tracking", desc: "See which ad or post produced each customer and dollar.", href: "/features/ad-tracking" },
+  { title: "Ad & campaign tracking", desc: "See which ad or post produced each customer and dollar.", href: "/features/marketing" },
 ];
 
 export default function GrowPage() {

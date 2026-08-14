@@ -70,7 +70,7 @@ const BENEFIT_ROWS: BenefitRow[] = [
     chips: [{ label: "ROLES · LIVE" }],
     title: "Everyone sees exactly what they should",
     desc: "Stylists see their own calendar and clients. Your manager sees the numbers. Your bookkeeper sees the books — and nobody stumbles into payroll. Permissions per role, per location, set once.",
-    link: { href: "/features/roles", label: "Team roles & permissions" },
+    link: { href: "/features/team", label: "Team roles & permissions" },
     reversed: true,
     panelTitle: (
       <>
@@ -228,7 +228,7 @@ const ROADMAP: { title: string; sub: string; status: "LIVE" | "IN DEVELOPMENT" |
 /* ---------- Feature grid ---------- */
 const FEATURES: { title: string; desc: string; href?: string; soon?: boolean }[] = [
   { title: "Reporting & dashboards", desc: "Revenue, bookings, and marketing on one live screen.", href: "/features/reporting" },
-  { title: "Team roles & permissions", desc: "Everyone sees exactly what they should — nothing more.", href: "/features/roles" },
+  { title: "Team roles & permissions", desc: "Everyone sees exactly what they should — nothing more.", href: "/features/team" },
   { title: "Accounting & bookkeeping", desc: "Income and expenses reconciled where the money already lives.", soon: true },
   { title: "Tax", desc: "Know what you owe before tax season does.", soon: true },
   { title: "Multi-location rollups", desc: "Compare and combine numbers across every location.", soon: true }

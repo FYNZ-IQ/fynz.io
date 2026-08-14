@@ -134,7 +134,7 @@ const FAQs = [
   { q: "Which calls does it cover — and can I keep my number?", a: "All inbound calls: after-hours, weekends, overflow when your line is busy, or every call if you want. Your existing number stays — Voice AI just makes sure it always gets answered." },
   { q: "Does it sound human? Will it stay on-brand?", a: "It speaks in a natural voice with a persona you define — name, personality, tone. It only says what your knowledge base and rules allow, and it identifies itself honestly if asked." },
   { q: "When does it hand a call to a human?", a: "On your triggers: specific topics (billing disputes, complaints), caller frustration, or someone simply asking for a person. It transfers live when you're available, or takes a structured message and notifies you instantly. It never guesses." },
-  { q: "What does it cost to run?", a: "Voice AI is part of FYNZ AI. Telephony and AI usage are billed separately — final rates are being confirmed. See pricing for plan details." }
+  { q: "What does it cost to run?", a: "Voice AI is part of FYNZ AI, available as an add-on to any paid plan. Telephony and AI usage are billed separately based on what you use, and we walk you through the exact rates on your demo call — nothing is enabled before you've seen the numbers." }
 ];
 
 export default function VoiceAIPage() {
@@ -155,8 +155,8 @@ export default function VoiceAIPage() {
               It greets callers in a natural voice, answers their questions, books them straight into your calendar, and hands the complex calls to you. No hold music. No voicemail. No missed revenue.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold">
-                Hire Voice AI free
+              <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/demo" />}>
+                Book a demo
               </Button>
               <Button size="lg" variant="outline" render={<Link href="#inaction" />}>
                 Hear a call ↓
@@ -366,11 +366,11 @@ export default function VoiceAIPage() {
             Never send another caller <span className="text-copper">to voicemail</span>.
           </h2>
           <p className="text-muted text-lg mb-8 max-w-xl mx-auto">
-            Hire your receptionist this afternoon. It starts answering tonight.
+            Book a demo and hear it answer — your receptionist can be part of your 48-hour setup.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold">
-              Hire Voice AI free
+            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/demo" />}>
+              Book a demo
             </Button>
             <Button size="lg" variant="outline" render={<Link href="/ai" />}>
               Meet the whole team →

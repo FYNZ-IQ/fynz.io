@@ -76,8 +76,8 @@ const AGENTS: Agent[] = [
     name: "Website & Funnel AI",
     role: "Web designer",
     desc: "Builds full funnels, landing pages, and sites from a plain-language prompt — wired to your CRM.",
-    href: "/ai/website-builder",
-    meet: "MEET WEBSITE & FUNNEL AI →",
+    href: "/features/funnels",
+    meet: "EXPLORE FUNNELS & PAGES →",
     status: "ON SHIFT",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
@@ -90,8 +90,8 @@ const AGENTS: Agent[] = [
     name: "Workflow AI",
     role: "Operations brain",
     desc: "Makes automations smart — reads messy messages, extracts what matters, scores, and routes.",
-    href: "/ai/workflow",
-    meet: "MEET WORKFLOW AI →",
+    href: "/features/automations",
+    meet: "EXPLORE AUTOMATIONS →",
     status: "ON SHIFT",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
@@ -106,8 +106,8 @@ const AGENTS: Agent[] = [
     name: "Ask AI",
     role: "Business analyst",
     desc: "Answers \"how's business?\" in plain language — bookings, revenue, slow days, on demand.",
-    href: "/ai/ask",
-    meet: "MEET ASK AI →",
+    href: "/features/reporting",
+    meet: "EXPLORE REPORTING →",
     status: "ON SHIFT",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
@@ -120,8 +120,8 @@ const AGENTS: Agent[] = [
     name: "Agent Studio",
     role: "Build your own",
     desc: "A drag-and-drop canvas for custom agents with your prompts, your data, and your rules.",
-    href: "/ai/studio",
-    meet: "MEET THE STUDIO →",
+    href: "/demo",
+    meet: "SEE IT IN A DEMO →",
     status: "YOUR HIRE",
     own: true,
     icon: (
@@ -474,7 +474,7 @@ export default function AIPage() {
               <b className="text-white">approve-first mode</b>: it drafts, you tap send.
             </p>
             <p className="mt-3.5 font-mono text-[11px] tracking-[0.12em] text-slate-400">
-              TELEPHONY &amp; AI USAGE BILLED SEPARATELY — RATES TBD
+              TELEPHONY &amp; AI USAGE BILLED SEPARATELY — EXACT RATES SHARED AT YOUR DEMO
             </p>
           </ScrollReveal>
         </div>

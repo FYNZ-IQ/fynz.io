@@ -147,10 +147,6 @@ export default function IntegrationsPage() {
               PLANNED — on the roadmap
             </span>
           </div>
-          <p className="mt-3 font-mono text-[11px] tracking-[0.14em] text-copper/80 uppercase">
-            Statuses provisional — confirm before launch
-          </p>
-
           {/* Filter chips */}
           <div className="flex flex-wrap gap-2 justify-center mt-8" role="group" aria-label="Filter by category">
             {FILTERS.map((f) => (
@@ -240,15 +236,7 @@ export default function IntegrationsPage() {
                 Request an integration
               </Button>
               <p className="mt-6 font-mono text-[11px] tracking-[0.12em] text-slate-400 uppercase">
-                In the meantime:{" "}
-                <Link href="#zapier" className="text-copper hover:underline underline-offset-4">
-                  Zapier
-                </Link>{" "}
-                reaches 6,000+ apps ·{" "}
-                <Link href="#api" className="text-copper hover:underline underline-offset-4">
-                  Webhooks &amp; API
-                </Link>{" "}
-                cover the rest
+                In the meantime: Zapier reaches 6,000+ apps · webhooks &amp; API cover the rest
               </p>
             </div>
           </ScrollReveal>

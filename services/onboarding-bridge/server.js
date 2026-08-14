@@ -150,6 +150,77 @@ app.post('/onboard/web', (req, res) => {
   });
 });
 
+// --- Public endpoint for the website's book-a-demo form --------------------
+// Same protections as /onboard/web: origin allowlist, per-IP rate limit,
+// honeypot, field allowlist. Leads are delivered to the alert webhook (the
+// same monitored channel that receives sync failures), so a demo request is
+// never silently dropped.
+
+const DEMO_ALLOWED_KEYS = ['name', 'business', 'email', 'phone'];
+
+app.options('/demo/web', (req, res) => {
+  if (!applyCors(req, res)) return res.status(403).end();
+  res.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.set('Access-Control-Allow-Headers', 'Content-Type');
+  res.set('Access-Control-Max-Age', '86400');
+  res.status(204).end();
+});
+
+app.post('/demo/web', (req, res) => {
+  if (PUBLIC_SITE_ORIGINS.length === 0) {
+    return res.status(503).json({ error: 'public endpoint not configured' });
+  }
+  if (!applyCors(req, res)) {
+    return res.status(403).json({ error: 'forbidden origin' });
+  }
+
+  const body = req.body || {};
+
+  // Honeypot: real users never fill this hidden field. Pretend success.
+  if (body.website) {
+    return res.status(200).json({ accepted: true });
+  }
+
+  const ip = (req.get('x-forwarded-for') || '').split(',')[0].trim() || req.ip;
+  if (rateLimited(ip)) {
+    return res.status(429).json({ error: 'too many requests' });
+  }
+
+  if (!body.email || !String(body.email).includes('@')) {
+    return res.status(400).json({ error: 'missing or invalid email' });
+  }
+
+  const lead = {};
+  for (const key of DEMO_ALLOWED_KEYS) {
+    if (body[key] === undefined || body[key] === null) continue;
+    lead[key] = String(body[key]).slice(0, MAX_FIELD_LENGTH);
+  }
+
+  res.status(200).json({ accepted: true });
+
+  setImmediate(async () => {
+    const text =
+      `New DEMO REQUEST from the website: ` +
+      `${lead.name || 'no name'} — ${lead.business || 'no business name'} — ` +
+      `${lead.email} — ${lead.phone || 'no phone'}.`;
+    const url = process.env.ALERT_WEBHOOK_URL;
+    if (!url) {
+      console.error(JSON.stringify({ ts: new Date().toISOString(), level: 'error', msg: 'Demo lead received but ALERT_WEBHOOK_URL not set', lead }));
+      return;
+    }
+    try {
+      await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text }),
+      });
+      console.log(JSON.stringify({ ts: new Date().toISOString(), level: 'info', msg: 'Demo lead delivered', email: lead.email }));
+    } catch (err) {
+      console.error(JSON.stringify({ ts: new Date().toISOString(), level: 'error', msg: 'Failed to deliver demo lead', error: err.message, lead }));
+    }
+  });
+});
+
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`fynz-onboarding-bridge listening on :${port}`);

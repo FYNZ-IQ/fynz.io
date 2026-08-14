@@ -26,7 +26,7 @@ const PLANS: Plan[] = [
     price: 0,
     cap: "FREE. FOREVER. NO CARD.",
     cta: "Start free",
-    ctaLink: "#start",
+    ctaLink: "/onboarding?plan=free",
     popular: false,
     freeFlag: "FREE FOREVER · NOT A TRIAL",
     features: [
@@ -113,8 +113,8 @@ const COMPARISON_MATRIX: { group: string; rows: MatrixRow[] }[] = [
       { name: "CRM & pipelines", free: false, starter: true, growth: true, managed: true, link: "/features/crm" },
       { name: "Unified inbox", free: false, starter: true, growth: true, managed: true, link: "/features/inbox" },
       { name: "Base automations", free: false, starter: true, growth: true, managed: true, link: "/features/automations" },
-      { name: "Missed-call text-back", free: false, starter: true, growth: true, managed: true, link: "/features/conversation" },
-      { name: "Review requests", free: false, starter: true, growth: true, managed: true, link: "/features/reviews" },
+      { name: "Missed-call text-back", free: false, starter: true, growth: true, managed: true, link: "/ai/conversation" },
+      { name: "Review requests", free: false, starter: true, growth: true, managed: true, link: "/ai/reviews" },
       { name: "Email marketing & campaigns", free: false, starter: false, growth: true, managed: true, link: "/features/marketing" },
       { name: "Social planner", free: false, starter: false, growth: true, managed: true, link: "/ai/content" },
       { name: "Blogs & surveys", free: false, starter: false, growth: true, managed: true },
@@ -248,7 +248,7 @@ export default function PricingPage() {
                     <span className="font-mono text-3xl font-extrabold tracking-tight text-white">
                       {plan.price}
                     </span>
-                    <span className="font-mono text-[9px] text-slate-400 tracking-wider uppercase">/MO</span>
+                    <span className="font-mono text-[9px] text-slate-400 tracking-wider uppercase">USD/MO</span>
                   </div>
                   <span className="font-mono text-[8.5px] tracking-wider text-slate-400 block min-h-[14px]">
                     {plan.cap}
@@ -296,7 +296,7 @@ export default function PricingPage() {
               <div className="max-w-2xl">
                 <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Add-on · Available on any paid plan</span>
                 <h2 className="font-display font-extrabold text-2xl md:text-3xl tracking-tight mb-3">
-                  Fynz Social — <span className="text-copper">$249/mo</span>
+                  Fynz Social — <span className="text-copper">$249 USD/mo</span>
                 </h2>
                 <p className="text-slate-200 text-sm md:text-base font-semibold leading-relaxed mb-3">
                   You take the pictures and videos. We do the rest.
@@ -341,15 +341,15 @@ export default function PricingPage() {
                 </span>
                 <span className="text-center font-display font-bold text-sm text-slate-200">
                   Starter
-                  <small className="block font-mono text-[9px] text-slate-400 font-normal mt-1">$97/MO</small>
+                  <small className="block font-mono text-[9px] text-slate-400 font-normal mt-1">$97 USD/MO</small>
                 </span>
                 <span className="text-center font-display font-bold text-sm text-copper">
                   Growth
-                  <small className="block font-mono text-[9px] text-copper/60 font-semibold mt-1">$197/MO</small>
+                  <small className="block font-mono text-[9px] text-copper/60 font-semibold mt-1">$197 USD/MO</small>
                 </span>
                 <span className="text-center font-display font-bold text-sm text-slate-200">
                   Managed
-                  <small className="block font-mono text-[9px] text-slate-400 font-normal mt-1">$397/MO</small>
+                  <small className="block font-mono text-[9px] text-slate-400 font-normal mt-1">$397 USD/MO</small>
                 </span>
               </div>
 
@@ -439,7 +439,7 @@ export default function PricingPage() {
             30-day money-back guarantee · month-to-month · cancel anytime
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold">
+            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/onboarding?plan=free" />}>
               Start free
             </Button>
             <Button size="lg" variant="outline" render={<Link href="/demo" />}>

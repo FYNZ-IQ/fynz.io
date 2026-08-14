@@ -43,17 +43,17 @@ const PILLARS_DATA: Record<PillarId, Pillar> = {
     ctaText: "Explore the GROW hub →",
     thread: "Every GROW feature plugs into workflows — a new lead can be texted, scored, pipelined, and booked before you've finished your coffee.",
     features: [
-      { name: "Lead capture", desc: "Forms, surveys, quizzes, funnels, landing pages, and QR codes — every entry point feeds the same CRM.", link: "/features/lead-capture" },
+      { name: "Lead capture", desc: "Forms, surveys, quizzes, funnels, landing pages, and QR codes — every entry point feeds the same CRM.", link: "/features/funnels" },
       { name: "CRM & contacts", desc: "360° customer records with smart lists, tags, custom fields, and lead scoring.", link: "/features/crm" },
-      { name: "Sales pipelines", desc: "Drag-and-drop deal stages so you always know who's close to a yes.", link: "/features/pipelines" },
+      { name: "Sales pipelines", desc: "Drag-and-drop deal stages so you always know who's close to a yes.", link: "/features/crm" },
       { name: "Unified inbox", desc: "SMS, email, WhatsApp, Instagram & Facebook DMs, and webchat in one thread per customer.", link: "/features/inbox" },
       { name: "Email & SMS marketing", desc: "Campaigns, broadcasts, and drip sequences that write themselves with Content AI.", link: "/features/marketing" },
       { name: "Automations & workflows", desc: "Set the trigger once — follow-ups, nudges, and hand-offs run forever.", link: "/features/automations" },
       { name: "Reputation & reviews", desc: "Review requests at the perfect moment, plus drafted responses to every one.", link: "/features/reputation" },
-      { name: "Social planner", desc: "Plan, write, and schedule posts across your profiles from one calendar.", link: "/features/social-planner" },
-      { name: "Missed-call text-back", desc: "Every unanswered call gets an instant text — before the caller tries a competitor.", link: "/features/text-back" },
+      { name: "Social planner", desc: "Plan, write, and schedule posts across your profiles from one calendar.", link: "/ai/content" },
+      { name: "Missed-call text-back", desc: "Every unanswered call gets an instant text — before the caller tries a competitor.", link: "/ai/conversation" },
       { name: "AI agents", desc: "Conversation, Voice, and Content AI working leads around the clock.", link: "/ai" },
-      { name: "Ad & campaign tracking", desc: "See which ad, post, or referral actually produced each customer and dollar.", link: "/features/ad-tracking" }
+      { name: "Ad & campaign tracking", desc: "See which ad, post, or referral actually produced each customer and dollar.", link: "/features/marketing" }
     ]
   },
   schedule: {
@@ -73,8 +73,8 @@ const PILLARS_DATA: Record<PillarId, Pillar> = {
       { name: "Team & staff management", desc: "Individual schedules, services, commissions, and permissions per team member.", link: "/features/team" },
       { name: "Customer management", desc: "Visit history, notes, preferences, and no-show flags on every profile.", link: "/features/customers" },
       { name: "Reminders & no-show reduction", desc: "Automatic SMS + email reminders that keep chairs and slots full.", link: "/features/reminders" },
-      { name: "Booking channels", desc: "Instagram, website embed, QR, WhatsApp, and search — one availability everywhere.", link: "/features/booking-channels" },
-      { name: "Multi-location", desc: "Separate calendars, staff, and services per location under one account.", link: "/features/multi-location" }
+      { name: "Booking channels", desc: "Instagram, website embed, QR, WhatsApp, and search — one availability everywhere.", link: "/schedule" },
+      { name: "Multi-location", desc: "Separate calendars, staff, and services per location under one account.", link: "/platform" }
     ]
   },
   shop: {
@@ -89,10 +89,10 @@ const PILLARS_DATA: Record<PillarId, Pillar> = {
     ctaText: "Explore the SHOP hub →",
     thread: "An unpaid invoice nudges itself. A new member gets onboarded automatically. Money stops waiting on your to-do list.",
     features: [
-      { name: "Online store & products", desc: "Sell products, gift cards, and service packages from your own storefront.", link: "/features/store" },
+      { name: "Online store & products", desc: "Sell products, gift cards, and service packages from your own storefront.", link: "/features/payments" },
       { name: "Payments & invoicing", desc: "Cards, text-to-pay, estimates, proposals, and e-signatures — via Stripe, PayPal, and Square.", link: "/features/payments" },
       { name: "Memberships & courses", desc: "Recurring plans and paid course content, delivered and billed automatically.", link: "/features/memberships" },
-      { name: "Communities", desc: "A private space for your members — included with your plan, not another tool.", link: "/features/communities" }
+      { name: "Communities", desc: "A private space for your members — included with your plan, not another tool.", link: "/features/memberships" }
     ]
   },
   ops: {
@@ -108,7 +108,7 @@ const PILLARS_DATA: Record<PillarId, Pillar> = {
     thread: "OPS doesn't need data entry: every booking, sale, and payment from the other pillars lands here on its own.",
     features: [
       { name: "Reporting & dashboards", desc: "Revenue, bookings, and marketing performance on one screen you'll actually check.", link: "/features/reporting" },
-      { name: "Team roles & permissions", desc: "Give staff exactly the access they need — and nothing they don't.", link: "/features/roles" },
+      { name: "Team roles & permissions", desc: "Give staff exactly the access they need — and nothing they don't.", link: "/features/team" },
       { name: "Accounting & bookkeeping", desc: "Income and expenses reconciled where the money already lives.", soon: true },
       { name: "Tax", desc: "Know what you owe before tax season does.", soon: true },
       { name: "Multi-location rollups", desc: "Compare and combine numbers across every location.", soon: true }

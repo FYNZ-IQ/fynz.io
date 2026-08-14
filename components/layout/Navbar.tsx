@@ -152,10 +152,10 @@ export function Navbar() {
           <ModeToggle />
           
           <div className="hidden md:flex items-center gap-[10px]">
-             <Link href="/login" className="font-display font-medium text-[0.92rem] text-muted hover:text-ink px-3.5 py-2.5 transition-colors">
-               Log in
+             <Link href="/demo" className="font-display font-medium text-[0.92rem] text-muted hover:text-ink px-3.5 py-2.5 transition-colors">
+               Book a demo
              </Link>
-             <Button className="btn-copper rounded-full h-[45px] px-[22px] text-[0.92rem]">
+             <Button className="btn-copper rounded-full h-[45px] px-[22px] text-[0.92rem]" render={<Link href="/pricing" />}>
                Start free
              </Button>
           </div>
@@ -187,8 +187,8 @@ export function Navbar() {
                 <MobileLink href="/resources" className="font-display font-semibold text-[1.05rem] py-[18px] border-b border-line-soft">Resources</MobileLink>
                 
                 <div className="flex flex-col gap-3 mt-[26px]">
-                  <Button variant="outline" className="w-full btn-ghost rounded-full">Log in</Button>
-                  <Button className="w-full btn-copper rounded-full">Start free</Button>
+                  <Button variant="outline" className="w-full btn-ghost rounded-full" render={<Link href="/demo" />}>Book a demo</Button>
+                  <Button className="w-full btn-copper rounded-full" render={<Link href="/pricing" />}>Start free</Button>
                 </div>
               </div>
             </SheetContent>
