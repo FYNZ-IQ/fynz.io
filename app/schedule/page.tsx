@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { ScrollReveal, StaggerGroup, CountUp } from "@/components/animations";
+import { ScrollReveal, StaggerGroup } from "@/components/animations";
 import { Chip, ArrowLink } from "@/components/shared";
 import { Button, Card } from "@/components/ui";
 import { cn } from "@/lib/utils";
@@ -80,7 +80,7 @@ const FEATURES = [
   {
     title: "Booking core",
     desc: "A branded page where customers self-book, reschedule, and pay deposits 24/7.",
-    href: "/features/booking-core",
+    href: "#preview",
   },
   {
     title: "Smart calendar & scheduling",
@@ -105,19 +105,13 @@ const FEATURES = [
   {
     title: "Booking channels",
     desc: "Instagram, website embed, QR, WhatsApp, and search — one availability everywhere.",
-    href: "/features/booking-channels",
+    href: "/platform",
   },
   {
     title: "Multi-location",
     desc: "Separate calendars, staff, and services per location under one account.",
-    href: "/features/multi-location",
+    href: "/platform",
   },
-];
-
-const STATS = [
-  { value: "−63%", label: "Fewer no-shows" },
-  { value: "34%", label: "Of bookings arrive after hours" },
-  { value: "11h", label: "Of phone tag saved weekly" },
 ];
 
 const SERVICES = [
@@ -356,7 +350,7 @@ export default function SchedulePage() {
             kill no-shows. You just show up and do the work.
           </p>
           <div className="flex flex-col sm:flex-row gap-3.5 justify-center">
-            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold">
+            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/onboarding?plan=free" />}>
               Start free
             </Button>
             <Button size="lg" variant="outline" render={<Link href="#preview" />}>
@@ -434,7 +428,7 @@ export default function SchedulePage() {
                   using. They book, reschedule, and pay deposits at 11pm on a Sunday — no phone tag, no
                   double-booking.
                 </p>
-                <ArrowLink href="/features/booking-core">Booking core</ArrowLink>
+                <ArrowLink href="/schedule">Booking core</ArrowLink>
               </div>
               <Panel title="BOOKINGS · LAST 24H" meta="9 NEW">
                 <div className="flex flex-col gap-2">
@@ -618,22 +612,6 @@ export default function SchedulePage() {
         </div>
       </section>
 
-      {/* ============ OUTCOME STATS ============ */}
-      <section className="sec-tight py-20 bg-secondary border-y border-line-soft">
-        <div className="wrap max-w-7xl mx-auto px-6">
-          <StaggerGroup className="grid grid-cols-2 lg:grid-cols-4 gap-5 text-center">
-            {STATS.map((s) => (
-              <div key={s.label} className="rounded-[var(--r-md)] border border-white/10 bg-navy-800 px-4 py-6">
-                <CountUp value={s.value} className="font-mono font-semibold text-[clamp(1.9rem,3.6vw,2.7rem)] text-white block tracking-tight" />
-                <span className="font-mono text-[10.5px] tracking-[0.2em] uppercase text-slate-400 block mt-2">
-                  {s.label}
-                </span>
-              </div>
-            ))}
-          </StaggerGroup>
-        </div>
-      </section>
-
       {/* ============ FINAL CTA ============ */}
       <section className="final py-28 relative overflow-hidden text-center bg-radial-[at_bottom_center] from-copper/10 via-transparent to-transparent">
         <div className="wrap max-w-4xl mx-auto px-6 relative z-10">
@@ -646,7 +624,7 @@ export default function SchedulePage() {
             is just the beginning.
           </p>
           <div className="flex flex-col sm:flex-row gap-3.5 justify-center">
-            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold">
+            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/onboarding?plan=free" />}>
               Start free
             </Button>
             <Button size="lg" variant="outline" render={<Link href="/shop" />}>

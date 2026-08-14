@@ -104,15 +104,6 @@ const yogaPilates: IndustryData = {
     after:
       "After — passes, waitlists, and student welcomes run themselves; you focus on planning studio sequences instead.",
   },
-  proof: {
-    stats: [
-      { num: "92%", label: "Average class occupancy" },
-      { num: "34%", label: "First-to-second visit lift" },
-      { num: "0 hrs", label: "Juggling pass cards manually" },
-    ],
-    testimonial:
-      "“[Yoga/Pilates studio owner testimonial placeholder — space for a quote about class capacity optimization and automated student retention journeys.]”",
-  },
   faq: [
     {
       q: "Can students manage their own passes?",

@@ -105,15 +105,6 @@ const bars: IndustryData = {
     after:
       "After — the Tuesday invite hits 600 phones Sunday; the bar is full by 7:30 PM, plan intact.",
   },
-  proof: {
-    stats: [
-      { num: "2.5x", label: "Event attendance lift" },
-      { num: "+45%", label: "Tuesday night revenue" },
-      { num: "100%", label: "Digital deposit collection" },
-    ],
-    testimonial:
-      "“[Bar owner testimonial placeholder — space for a quote about table bookings, trivia crowds, and automated marketing reach.]”",
-  },
   faq: [
     {
       q: "Can I take deposits for big party bookings?",

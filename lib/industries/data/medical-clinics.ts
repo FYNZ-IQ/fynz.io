@@ -108,15 +108,6 @@ const medicalClinics: IndustryData = {
     after:
       "After — Monday opens to a booked calendar; the only messages left are the ones that truly needed a human.",
   },
-  proof: {
-    stats: [
-      { num: "68%", label: "After-hours calls converted" },
-      { num: "45%", label: "Reduction in no-shows" },
-      { num: "2 hrs", label: "Staff time saved daily" },
-    ],
-    testimonial:
-      "“[Clinic administrator testimonial placeholder — space for a quote about after-hours booking conversion and reduced paperwork backlog.]”",
-  },
   faq: [
     {
       q: "What happens with urgent calls?",

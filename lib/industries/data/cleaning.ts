@@ -106,15 +106,6 @@ const cleaning: IndustryData = {
     after:
       "After — 70% recurring, route gaps fill automatically, and payment details are secure on file.",
   },
-  proof: {
-    stats: [
-      { num: "70%", label: "Recurring client ratio" },
-      { num: "+38%", label: "Quote close-rate increase" },
-      { num: "0 mins", label: "Time spent chasing payments" },
-    ],
-    testimonial:
-      "“[Cleaning company testimonial placeholder — space for a quote about recurring booking success and route density gains.]”",
-  },
   faq: [
     {
       q: "Can clients reschedule online?",

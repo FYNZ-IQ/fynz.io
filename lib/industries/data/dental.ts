@@ -104,19 +104,10 @@ const dental: IndustryData = {
     after:
       "After — recalls text themselves and book straight in; the team spends Friday with the patients in the room.",
   },
-  proof: {
-    stats: [
-      { num: "84%", label: "Cancellation refill rate" },
-      { num: "3x", label: "Recall response rate increase" },
-      { num: "15 hrs", label: "Front desk time saved weekly" },
-    ],
-    testimonial:
-      "“[Dental practice manager placeholder — space for a testimonial regarding chair productivity and automated hygiene recalls.]”",
-  },
   faq: [
     {
       q: "Is patient messaging handled carefully?",
-      a: "Yes — reminders are consent-based and appointment-only. There is a legal-review-required placeholder for your privacy/compliance statement, and we never claim HIPAA/PIPEDA compliance until verified.",
+      a: "Yes — reminders are consent-based and appointment-only, and opt-outs are honored automatically. We walk through your privacy and compliance requirements with you during setup, and we never claim HIPAA or PIPEDA compliance for your practice until it has been verified for your configuration.",
     },
     {
       q: "How does waitlist backfill choose patients?",

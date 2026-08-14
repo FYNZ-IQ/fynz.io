@@ -105,15 +105,6 @@ const legal: IndustryData = {
     after:
       "After — all five were answered live over the weekend; three consults are locked on Monday's calendar.",
   },
-  proof: {
-    stats: [
-      { num: "74%", label: "Inquiry to consult booking" },
-      { num: "85%", label: "Intake completion rate" },
-      { num: "100%", label: "Engagement follow-up reach" },
-    ],
-    testimonial:
-      "“[Managing partner testimonial placeholder — space for a quote about consultation bookings, intake readiness, and case sign-up speed.]”",
-  },
   faq: [
     {
       q: "Is client information handled confidentially?",

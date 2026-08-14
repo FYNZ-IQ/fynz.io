@@ -105,15 +105,6 @@ const automotive: IndustryData = {
     after:
       "After — the seasonal reminder run books out two weeks of tire swaps in three days, keeping techs busy.",
   },
-  proof: {
-    stats: [
-      { num: "3 days", label: "To book out bay season" },
-      { num: "92%", label: "Bay utilization rate" },
-      { num: "0 mins", label: "Time spent playing phone tag" },
-    ],
-    testimonial:
-      "“[Shop owner testimonial placeholder — space for a quote about bay booking rates, tire seasons, and automated phone answers.]”",
-  },
   faq: [
     {
       q: "Can reminders use vehicle service history?",

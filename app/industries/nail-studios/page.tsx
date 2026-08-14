@@ -142,7 +142,7 @@ const FAQs = [
   { q: "Can I require deposits only on certain services?", a: "Yes — per service and per amount." },
   { q: "Can I keep my phone number?", a: "Yes. Your existing number keeps working — FYNZ just makes sure it always gets answered." },
   { q: "How long does setup take?", a: "Most owners are live in under a week." },
-  { q: "What does it cost — am I locked into a contract?", a: "Plans are on the pricing page, and there's a free plan to start. No long-term lock-in framing here until final terms are set." },
+  { q: "What does it cost — am I locked into a contract?", a: "Plans are on the pricing page, and there's a free plan to start. No long-term contract — every paid plan is month-to-month with a 30-day money-back guarantee, and you can cancel anytime from your dashboard." },
   { q: "What happens when the AI can't answer something?", a: "It takes a message, notifies you instantly, and never guesses. You can also run it in approve-first mode — it drafts, you tap send." }
 ];
 
@@ -257,7 +257,7 @@ export default function NailStudiosPage() {
             {BENEFITS.map((card, idx) => (
               <BadgeCard key={idx} title={card.title} className="bg-navy-900 text-white border-white/10 flex flex-col justify-between min-h-[380px]">
                 <div>
-                  <div className="mb-4">{card.viz}</div>
+                  <div className="mb-4" aria-hidden="true">{card.viz}</div>
                   <p className="text-slate-300 text-base leading-relaxed mb-6">{card.desc}</p>
                 </div>
                 <span className="block font-mono text-[8px] tracking-wider text-slate-400 uppercase mt-auto">
@@ -377,7 +377,7 @@ export default function NailStudiosPage() {
                 </AccordionTrigger>
                 <AccordionContent className="text-slate-300 leading-relaxed text-sm pt-2 pb-4 max-w-2xl">
                   {faq.q === "What does it cost — am I locked into a contract?" ? (
-                    <>Plans are on the <Link href="/pricing" className="text-copper hover:underline">pricing page</Link>, and there&apos;s a free plan to start. No long-term lock-in framing here until final terms are set.</>
+                    <>Plans are on the <Link href="/pricing" className="text-copper hover:underline">pricing page</Link>, and there&apos;s a free plan to start. No long-term contract — every paid plan is month-to-month with a 30-day money-back guarantee, and you can cancel anytime from your dashboard.</>
                   ) : faq.a}
                 </AccordionContent>
               </AccordionItem>

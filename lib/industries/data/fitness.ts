@@ -104,15 +104,6 @@ const fitness: IndustryData = {
     after:
       "After — every trial goes on an automated journey; conversions double without staff picking up the phone.",
   },
-  proof: {
-    stats: [
-      { num: "2x", label: "Trial-to-member conversion" },
-      { num: "15+", label: "Members saved by win-back monthly" },
-      { num: "100%", label: "Automated recurring billing" },
-    ],
-    testimonial:
-      "“[Fitness owner testimonial placeholder — space for a quote about trial conversion rates and membership billing ease.]”",
-  },
   faq: [
     {
       q: "Does it handle failed membership payments?",

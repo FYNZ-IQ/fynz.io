@@ -105,15 +105,6 @@ const personalTrainers: IndustryData = {
     after:
       "After — the link does the scheduling; you just show up, train, and focus on client form.",
   },
-  proof: {
-    stats: [
-      { num: "5 hrs", label: "Weekly scheduling time saved" },
-      { num: "100%", label: "Packs sold and paid online" },
-      { num: "98%", label: "Attendance rate with reminders" },
-    ],
-    testimonial:
-      "“[Personal trainer testimonial placeholder — space for a quote about schedule automated backfills and prepaid session packages.]”",
-  },
   faq: [
     {
       q: "Can I block personal time so I never get booked over it?",

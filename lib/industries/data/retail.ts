@@ -109,15 +109,6 @@ const retail: IndustryData = {
     after:
       "With FYNZ — the arrival text sells 14 pieces before anyone walks in. Rain or shine, the list is yours and the shop is always open online.",
   },
-  proof: {
-    stats: [
-      { num: "3×", label: "Repeat-purchase rate vs walk-in only" },
-      { num: "$2k+", label: "Revenue from campaigns per month" },
-      { num: "$1,372", label: "Sold before opening on an arrival day" },
-    ],
-    testimonial:
-      "“[Boutique owner testimonial placeholder] Add a real quote from a boutique owner here — name, store, and city. Requires customer approval before publishing.”",
-  },
   faq: [
     {
       q: "Do I need to run a full e-commerce site?",

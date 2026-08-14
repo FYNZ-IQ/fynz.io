@@ -104,15 +104,6 @@ const ecommerce: IndustryData = {
     after:
       "With FYNZ — “Recovered $1,840 in carts this week” is just a line in your morning summary. The sequence runs itself — you just ship the orders.",
   },
-  proof: {
-    stats: [
-      { num: "~15%", label: "Of abandoned carts recovered on average" },
-      { num: "2.4×", label: "Repeat-order rate lift with replenishment flows" },
-      { num: "340%", label: "ROI on cart recovery send cost" },
-    ],
-    testimonial:
-      "“[Store owner testimonial placeholder] Add a real quote from an e-commerce store owner here — name, store name, and the result they saw. Requires customer approval before publishing.”",
-  },
   faq: [
     {
       q: "I already sell on another platform — does FYNZ still help?",

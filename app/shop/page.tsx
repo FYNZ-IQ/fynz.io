@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { ScrollReveal, StaggerGroup, CountUp } from "@/components/animations";
+import { ScrollReveal, StaggerGroup } from "@/components/animations";
 import { Chip, ArrowLink } from "@/components/shared";
 import { Button } from "@/components/ui";
 import { cn } from "@/lib/utils";
@@ -20,7 +20,7 @@ const BENEFIT_ROWS = [
     chip: "STORE",
     title: "Your storefront, open around the clock",
     desc: "Sell products, gift cards, and service packages from a store that matches your brand. Inventory, order notifications, and customer records all update themselves — no separate e-commerce subscription.",
-    links: [{ label: "Online store & products", href: "/features/store" }],
+    links: [{ label: "Online store & products", href: "/features/payments" }],
     reversed: false,
     viz: (
       <div className="bg-gradient-to-br from-navy-800 to-navy-750 text-white border border-white/10 rounded-[var(--r-lg)] p-5 shadow-md relative overflow-hidden">
@@ -142,17 +142,10 @@ const BENEFIT_ROWS = [
 
 /* ---- Feature grid ---- */
 const FEATURES = [
-  { title: "Online store & products", href: "/features/store", desc: "Products, gift cards, and service packages from your own branded storefront — inventory and orders included." },
+  { title: "Online store & products", href: "/features/payments", desc: "Products, gift cards, and service packages from your own branded storefront — inventory and orders included." },
   { title: "Payments & invoicing", href: "/features/payments", desc: "Cards, text-to-pay, estimates, proposals, and e-signatures — running on Stripe, PayPal, and Square." },
   { title: "Memberships & courses", href: "/features/memberships", desc: "Recurring plans and paid course content, delivered, billed, and dunned automatically." },
-  { title: "Communities", href: "/features/communities", desc: "A private member space tied to your plans and courses — included, not another subscription." }
-];
-
-/* ---- Outcome stats ---- */
-const STATS = [
-  { value: "4 min", label: "Median time to paid" },
-  { value: "78%", label: "Of invoices paid same day" },
-  { value: "2.7×", label: "Revenue streams per business" }
+  { title: "Communities", href: "/features/memberships", desc: "A private member space tied to your plans and courses — included, not another subscription." }
 ];
 
 const INVOICE_METHODS = [
@@ -190,7 +183,7 @@ export default function ShopPage() {
               Services, products, gift cards, memberships, and courses — with checkout, invoicing, and text-to-pay built in. Money stops waiting on your to-do list.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="#start" />}>
+              <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/onboarding?plan=free" />}>
                 Start free
               </Button>
               <Button size="lg" variant="outline" render={<Link href="#invoice" />}>
@@ -263,7 +256,7 @@ export default function ShopPage() {
                     ))}
                   </div>
                 </div>
-                <div className={cn(row.reversed && "lg:order-1")}>{row.viz}</div>
+                <div className={cn(row.reversed && "lg:order-1")} aria-hidden="true">{row.viz}</div>
               </ScrollReveal>
             ))}
           </div>
@@ -428,20 +421,6 @@ export default function ShopPage() {
         </div>
       </section>
 
-      {/* ============ OUTCOME STATS ============ */}
-      <section className="sec-tight py-16 md:py-20 bg-white dark:bg-navy-900 border-y border-line-soft">
-        <div className="wrap max-w-7xl mx-auto px-6">
-          <StaggerGroup className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-            {STATS.map((s) => (
-              <div key={s.label}>
-                <CountUp value={s.value} className="font-mono font-semibold text-4xl md:text-5xl tracking-tight text-ink block" />
-                <span className="font-mono text-[10.5px] tracking-[0.2em] uppercase text-faint block mt-2">{s.label}</span>
-              </div>
-            ))}
-          </StaggerGroup>
-        </div>
-      </section>
-
       {/* ============ FINAL CTA ============ */}
       <section className="final py-24 relative overflow-hidden text-center bg-radial-[at_bottom_center] from-copper/12 via-transparent to-transparent">
         <div className="wrap max-w-4xl mx-auto px-6 relative z-10">
@@ -453,7 +432,7 @@ export default function ShopPage() {
             And every dollar lands in the OPS pillar on its own — reported, reconciled, ready for tax time.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="#start" />}>
+            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/onboarding?plan=free" />}>
               Start free
             </Button>
             <Button size="lg" variant="outline" render={<Link href="/ops" />}>

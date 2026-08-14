@@ -105,15 +105,6 @@ const contractors: IndustryData = {
     after:
       "After — every bid is on a follow-up cadence; you find out 'yes or no' on all 10 without calling.",
   },
-  proof: {
-    stats: [
-      { num: "+42%", label: "Bid win-rate increase" },
-      { num: "2.4 days", label: "Average payment time reduction" },
-      { num: "100%", label: "Leads followed up automatically" },
-    ],
-    testimonial:
-      "“[Contractor testimonial placeholder — space for a quote about bid conversion increases and online deposit collection.]”",
-  },
   faq: [
     {
       q: "Can I take deposits before starting work?",
