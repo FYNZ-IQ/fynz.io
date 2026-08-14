@@ -175,9 +175,6 @@ function OnboardingWizard() {
           Our team can deploy everything for you — just reply to your welcome email.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button size="lg" className="btn-copper" render={<Link href="/login" />}>
-            Log in to your system
-          </Button>
           <Button
             size="lg"
             variant="outline"
@@ -187,6 +184,9 @@ function OnboardingWizard() {
             Back to home
           </Button>
         </div>
+        <p className="mt-6 font-mono text-[10px] tracking-widest text-slate-500 uppercase">
+          Your login link is in your welcome email
+        </p>
       </div>
     );
   }
@@ -252,6 +252,14 @@ function OnboardingWizard() {
         <Button size="lg" className="btn-copper font-semibold px-8" render={<a href={checkoutUrl} />}>
           Continue to secure checkout
         </Button>
+        <p className="mt-5 text-[11px] text-slate-500">
+          All prices in USD. By continuing you agree to our{" "}
+          <Link href="/terms" className="underline underline-offset-2 hover:text-copper">Terms of Service</Link>{" "}
+          and{" "}
+          <Link href="/privacy" className="underline underline-offset-2 hover:text-copper">Privacy Policy</Link>.
+          30-day money-back guarantee — see the{" "}
+          <Link href="/refund" className="underline underline-offset-2 hover:text-copper">Refund Policy</Link>.
+        </p>
         <p className="mt-6">
           <button
             type="button"
@@ -367,6 +375,12 @@ function OnboardingWizard() {
             {status === "submitting" ? "Sending…" : isLast ? "Finish setup" : "Continue"}
           </Button>
         </div>
+        <p className="mt-6 text-[11px] text-slate-500 text-center">
+          By continuing you agree to our{" "}
+          <Link href="/terms" className="underline underline-offset-2 hover:text-copper">Terms of Service</Link>{" "}
+          and{" "}
+          <Link href="/privacy" className="underline underline-offset-2 hover:text-copper">Privacy Policy</Link>.
+        </p>
       </form>
     </div>
   );
