@@ -121,15 +121,78 @@ export function Navbar() {
                   Who&apos;s it for
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="w-[250px] flex flex-col gap-0.5 p-[26px]">
-                    <ListItem href="/emergency" title="Emergency restoration" />
-                    <ListItem href="/industries/salons" title="Salons &amp; barbershops" />
-                    <ListItem href="/industries/clinics" title="Clinics &amp; dental" />
-                    <ListItem href="/industries/fitness" title="Fitness &amp; gyms" />
-                    <ListItem href="/industries/restaurants" title="Restaurants" />
-                    <ListItem href="/industries/home-services" title="Home services" />
-                    <ListItem href="/industries" title="See all industries →" />
-                  </ul>
+                  <div className="w-[min(860px,92vw)] p-[26px]">
+                    <div className="grid grid-cols-4 gap-[22px]">
+                      <div className="flex flex-col gap-5">
+                        <div>
+                          <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">Beauty &amp; personal care</h5>
+                          <MenuLink href="/industries/salons">Salons</MenuLink>
+                          <MenuLink href="/industries/barbershops">Barbershops</MenuLink>
+                          <MenuLink href="/industries/spas">Spas &amp; beauty</MenuLink>
+                          <MenuLink href="/industries/nail-studios">Nail studios</MenuLink>
+                        </div>
+                        <div>
+                          <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">Property</h5>
+                          <MenuLink href="/industries/real-estate">Real estate</MenuLink>
+                        </div>
+                      </div>
+                      <div className="flex flex-col gap-5">
+                        <div>
+                          <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">Health</h5>
+                          <MenuLink href="/industries/clinics">Clinics</MenuLink>
+                          <MenuLink href="/industries/dental">Dental clinics</MenuLink>
+                          <MenuLink href="/industries/medical-clinics">Medical &amp; health</MenuLink>
+                          <MenuLink href="/industries/therapists">Therapists &amp; physio</MenuLink>
+                        </div>
+                        <div>
+                          <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">Fitness</h5>
+                          <MenuLink href="/industries/gyms">Gyms</MenuLink>
+                          <MenuLink href="/industries/fitness">Fitness studios</MenuLink>
+                          <MenuLink href="/industries/personal-trainers">Personal trainers</MenuLink>
+                          <MenuLink href="/industries/yoga-pilates">Yoga &amp; Pilates</MenuLink>
+                        </div>
+                      </div>
+                      <div className="flex flex-col gap-5">
+                        <div>
+                          <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">Food &amp; hospitality</h5>
+                          <MenuLink href="/industries/restaurants">Restaurants</MenuLink>
+                          <MenuLink href="/industries/cafes">Cafés</MenuLink>
+                          <MenuLink href="/industries/bars">Bars</MenuLink>
+                        </div>
+                        <div>
+                          <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">Retail &amp; commerce</h5>
+                          <MenuLink href="/industries/boutiques">Boutiques</MenuLink>
+                          <MenuLink href="/industries/retail">Retail stores</MenuLink>
+                          <MenuLink href="/industries/ecommerce">E-commerce</MenuLink>
+                        </div>
+                        <div>
+                          <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">Professional</h5>
+                          <MenuLink href="/industries/accounting">Accounting firms</MenuLink>
+                          <MenuLink href="/industries/legal">Law firms</MenuLink>
+                          <MenuLink href="/industries/coaching">Coaches</MenuLink>
+                        </div>
+                      </div>
+                      <div className="flex flex-col gap-5">
+                        <div>
+                          <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">Home services &amp; trades</h5>
+                          <MenuLink href="/industries/home-services">Home services</MenuLink>
+                          <MenuLink href="/industries/plumbing">Plumbing</MenuLink>
+                          <MenuLink href="/industries/cleaning">Cleaning</MenuLink>
+                          <MenuLink href="/industries/contractors">Contractors</MenuLink>
+                          <MenuLink href="/industries/automotive">Auto shops</MenuLink>
+                        </div>
+                        <div>
+                          <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">Emergency restoration</h5>
+                          <MenuLink href="/emergency">Restoration &amp; emergency</MenuLink>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="mt-5 pt-4 border-t border-line-soft">
+                      <Link href="/industries" className="font-display font-semibold text-[0.9rem] text-copper hover:underline">
+                        See all industries →
+                      </Link>
+                    </div>
+                  </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
@@ -167,7 +230,7 @@ export function Navbar() {
               <span className="w-[22px] h-[2px] bg-ink rounded-sm transition-opacity" />
               <span className="w-[22px] h-[2px] bg-ink rounded-sm transition-transform" />
             </SheetTrigger>
-            <SheetContent side="top" className="bg-navy-900 text-white pt-20 pb-16 px-6 border-none">
+            <SheetContent side="top" className="bg-navy-900 text-white pt-20 pb-16 px-6 border-none max-h-dvh overflow-y-auto">
               <SheetTitle className="sr-only">Mobile Navigation</SheetTitle>
               <div className="flex flex-col">
                 <MobileMenuGroup title="Features">
@@ -182,6 +245,46 @@ export function Navbar() {
                   <MobileLink href="/ai">FYNZ AI hub</MobileLink>
                   <MobileLink href="/ai/voice">Voice AI</MobileLink>
                   <MobileLink href="/ai/conversation">Conversation AI</MobileLink>
+                </MobileMenuGroup>
+                <MobileMenuGroup title="Who's it for">
+                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Beauty &amp; personal care</h6>
+                  <MobileLink href="/industries/salons">Salons</MobileLink>
+                  <MobileLink href="/industries/barbershops">Barbershops</MobileLink>
+                  <MobileLink href="/industries/spas">Spas &amp; beauty</MobileLink>
+                  <MobileLink href="/industries/nail-studios">Nail studios</MobileLink>
+                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Health</h6>
+                  <MobileLink href="/industries/clinics">Clinics</MobileLink>
+                  <MobileLink href="/industries/dental">Dental clinics</MobileLink>
+                  <MobileLink href="/industries/medical-clinics">Medical &amp; health</MobileLink>
+                  <MobileLink href="/industries/therapists">Therapists &amp; physio</MobileLink>
+                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Fitness</h6>
+                  <MobileLink href="/industries/gyms">Gyms</MobileLink>
+                  <MobileLink href="/industries/fitness">Fitness studios</MobileLink>
+                  <MobileLink href="/industries/personal-trainers">Personal trainers</MobileLink>
+                  <MobileLink href="/industries/yoga-pilates">Yoga &amp; Pilates</MobileLink>
+                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Food &amp; hospitality</h6>
+                  <MobileLink href="/industries/restaurants">Restaurants</MobileLink>
+                  <MobileLink href="/industries/cafes">Cafés</MobileLink>
+                  <MobileLink href="/industries/bars">Bars</MobileLink>
+                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Retail &amp; commerce</h6>
+                  <MobileLink href="/industries/boutiques">Boutiques</MobileLink>
+                  <MobileLink href="/industries/retail">Retail stores</MobileLink>
+                  <MobileLink href="/industries/ecommerce">E-commerce</MobileLink>
+                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Professional</h6>
+                  <MobileLink href="/industries/accounting">Accounting firms</MobileLink>
+                  <MobileLink href="/industries/legal">Law firms</MobileLink>
+                  <MobileLink href="/industries/coaching">Coaches</MobileLink>
+                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Home services &amp; trades</h6>
+                  <MobileLink href="/industries/home-services">Home services</MobileLink>
+                  <MobileLink href="/industries/plumbing">Plumbing</MobileLink>
+                  <MobileLink href="/industries/cleaning">Cleaning</MobileLink>
+                  <MobileLink href="/industries/contractors">Contractors</MobileLink>
+                  <MobileLink href="/industries/automotive">Auto shops</MobileLink>
+                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Emergency restoration</h6>
+                  <MobileLink href="/emergency">Restoration &amp; emergency</MobileLink>
+                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Property</h6>
+                  <MobileLink href="/industries/real-estate">Real estate</MobileLink>
+                  <MobileLink href="/industries" className="text-copper font-semibold">See all industries →</MobileLink>
                 </MobileMenuGroup>
                 <MobileLink href="/pricing" className="font-display font-semibold text-[1.05rem] py-[18px] border-b border-line-soft">Pricing</MobileLink>
                 <MobileLink href="/resources" className="font-display font-semibold text-[1.05rem] py-[18px] border-b border-line-soft">Resources</MobileLink>
