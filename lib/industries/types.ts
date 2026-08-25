@@ -34,11 +34,6 @@ export interface DemoStep {
   success?: boolean;
 }
 
-export interface Stat {
-  num: string;
-  label: string;
-}
-
 export interface FaqItem {
   q: string;
   a: string;
@@ -79,11 +74,6 @@ export interface IndustryData {
     title: string;
     before: string;
     after: string;
-  };
-
-  proof: {
-    stats: Stat[];
-    testimonial: string;
   };
 
   faq: FaqItem[];

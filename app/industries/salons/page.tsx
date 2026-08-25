@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ScrollReveal, StaggerGroup, HoverFloat } from "@/components/animations";
 import { BadgeCard, Chip } from "@/components/shared";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent, Button, Card, CardContent } from "@/components/ui";
+import { industryThemeVars } from "@/lib/industries/themes";
 
 const PAINS = [
   "You're mid-cut and the phone rings — that's a booking you just lost.",
@@ -34,9 +35,9 @@ const BENEFIT_GROUPS = [
           <div className={vizWrap}>
             <span className={vLabel}>YOUR BOOKING PAGE — 2:04 AM</span>
             <div className="flex gap-1.5 justify-center mt-4">
-              <span className="font-mono text-[9px] border border-white/10 rounded px-2 py-1.5 text-slate-300">10:00</span>
-              <span className="font-mono text-[9px] bg-copper-tint border border-copper/50 rounded px-2 py-1.5 text-copper">TUE 11:30</span>
-              <span className="font-mono text-[9px] border border-white/10 rounded px-2 py-1.5 text-slate-300">4:45</span>
+              <span className="font-mono text-[11px] border border-white/10 rounded px-2 py-1.5 text-slate-300">10:00</span>
+              <span className="font-mono text-[11px] bg-copper-tint border border-copper/50 rounded px-2 py-1.5 text-copper">TUE 11:30</span>
+              <span className="font-mono text-[11px] border border-white/10 rounded px-2 py-1.5 text-slate-300">4:45</span>
             </div>
             <div className="text-center mt-1">
               <span className="bg-green/10 text-green border border-green/30 px-2 py-0.5 rounded font-mono text-[7px] tracking-wide uppercase">BOOKED — TUE 11:30 · CONFIRMATION SENT ✓</span>
@@ -346,13 +347,13 @@ const FAQs = [
   { q: "Can I keep my phone number?", a: "Yes. Your existing number keeps working — FYNZ just makes sure it always gets answered." },
   { q: "Can each stylist have their own calendar, booking link, and commission?", a: "Yes — every stylist gets their own services, hours, calendar, and reminders, with their own link to share and their own reporting." },
   { q: "How long does setup take?", a: "Most owners are live in under a week." },
-  { q: "What does it cost — am I locked into a contract?", a: "Plans are on the pricing page, and there's a free plan to start. No long-term lock-in framing here until final terms are set." },
+  { q: "What does it cost — am I locked into a contract?", a: "Plans are on the pricing page, and there's a free plan to start. No long-term contract — every paid plan is month-to-month with a 30-day money-back guarantee, and you can cancel anytime from your dashboard." },
   { q: "What happens when the AI can't answer something?", a: "It takes a message, notifies you instantly, and never guesses. You can also run it in approve-first mode — it drafts, you tap send." }
 ];
 
 export default function SalonsPage() {
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full industry-theme" style={industryThemeVars("salons")}>
       {/* Hero */}
       <section className="s-hero pt-32 pb-16 md:pt-40 md:pb-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -365,7 +366,7 @@ export default function SalonsPage() {
               FYNZ books your clients, reminds them, rebooks them, promotes your work, and asks for the review — while you do the hair.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold">
+              <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/onboarding?plan=free&industry=salons" />}>
                 Start free
               </Button>
               <Button size="lg" variant="outline" render={<Link href="#showit" />}>
@@ -414,7 +415,7 @@ export default function SalonsPage() {
                   {["10:00", "11:30", "1:15", "3:00", "4:45"].map((t, idx) => (
                     <span
                       key={t}
-                      className={`font-mono text-[10px] rounded-lg px-2.5 py-1.5 border ${idx === 1 ? "bg-copper-tint border-copper/50 text-copper" : "border-white/10 text-slate-300"}`}
+                      className={`font-mono text-[11px] rounded-lg px-2.5 py-1.5 border ${idx === 1 ? "bg-copper-tint border-copper/50 text-copper" : "border-white/10 text-slate-300"}`}
                     >
                       {t}
                     </span>
@@ -448,7 +449,7 @@ export default function SalonsPage() {
       <section className="sec py-20 bg-secondary border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="max-w-2xl mb-12">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Sound familiar?</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Sound familiar?</span>
             <h2 className="font-display font-extrabold text-3xl tracking-tight">
               The parts of salon life <span className="text-copper">nobody warned you about</span>
             </h2>
@@ -458,7 +459,7 @@ export default function SalonsPage() {
               <Card key={idx} className="bg-navy-800 border border-white/10 shadow-sm rounded-2xl ring-0 p-6 flex flex-row items-start gap-4">
                 <span className="font-display text-copper text-2xl leading-none mt-0.5 shrink-0 select-none opacity-30">&ldquo;</span>
                 <CardContent className="p-0">
-                  <p className="text-slate-300 text-sm leading-relaxed">{pain}</p>
+                  <p className="text-slate-300 text-base leading-relaxed">{pain}</p>
                 </CardContent>
               </Card>
             ))}
@@ -470,7 +471,7 @@ export default function SalonsPage() {
       <section className="sec py-20 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="max-w-2xl mb-20">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Here's what changes</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Here's what changes</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight">
               Run the chair. FYNZ runs <span className="text-copper">everything else</span>.
             </h2>
@@ -480,7 +481,7 @@ export default function SalonsPage() {
             {BENEFIT_GROUPS.map((group, groupIdx) => (
               <div key={groupIdx} className="border-t border-line-soft/30 pt-12">
                 <div className="flex items-center gap-4 mb-10">
-                  <span className="font-mono text-xs text-copper bg-copper-tint border border-copper/30 px-3 py-1 rounded-full">{group.num}</span>
+                  <span className="font-mono text-sm text-copper bg-copper-tint border border-copper/30 px-3 py-1 rounded-full">{group.num}</span>
                   <h3 className="font-display font-extrabold text-2xl md:text-3xl tracking-tight">{group.title}</h3>
                 </div>
 
@@ -490,8 +491,8 @@ export default function SalonsPage() {
                   {group.cards.map((card, cardIdx) => (
                     <BadgeCard key={cardIdx} title={card.title} className="bg-navy-800 text-white border-white/10 flex flex-col justify-between min-h-[380px]">
                       <div>
-                        <div className="mb-4">{card.viz}</div>
-                        <p className="text-slate-300 text-sm leading-relaxed mb-6">{card.desc}</p>
+                        <div className="mb-4" aria-hidden="true">{card.viz}</div>
+                        <p className="text-slate-300 text-base leading-relaxed mb-6">{card.desc}</p>
                       </div>
                       <span className="block font-mono text-[8px] tracking-wider text-slate-400 uppercase mt-auto">
                         {card.tag}
@@ -509,7 +510,7 @@ export default function SalonsPage() {
       <section id="showit" className="sec py-20 bg-secondary border-b border-line-soft scroll-mt-20">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="mb-16 max-w-2xl">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Watch it work</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Watch it work</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight leading-tight">
               Two things FYNZ did <span className="text-copper">while you were cutting</span>
             </h2>
@@ -520,31 +521,31 @@ export default function SalonsPage() {
             <ScrollReveal className="flex flex-col gap-6" direction="left">
               <div className="max-w-md">
                 <b className="font-display font-bold text-xl block mb-2">A Saturday slot <span className="text-copper">refills itself</span>.</b>
-                <p className="text-muted text-sm leading-relaxed">
+                <p className="text-muted text-base leading-relaxed">
                   Your 4:00 cancels. The waitlist gets a text before you've seen it — chair booked again by 4:12.
                 </p>
               </div>
               <div className="bg-navy-800 border border-white/10 rounded-[var(--r-lg)] p-5 shadow-md">
                 <div className="flex justify-between items-center mb-4">
-                  <b className="font-mono text-[10px] tracking-[0.16em] text-slate-400">SATURDAY — MARIA'S CHAIR</b>
-                  <span className="font-mono text-[9px] tracking-wide text-green flex items-center gap-1.5">
+                  <b className="font-mono text-[11px] tracking-[0.16em] text-slate-400">SATURDAY — MARIA'S CHAIR</b>
+                  <span className="font-mono text-[11px] tracking-wide text-green flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-green animate-pulse" /> LIVE
                   </span>
                 </div>
                 <div className="flex flex-col gap-2">
                   <div className="flex items-center gap-3 bg-white/[0.04] border border-white/10 rounded-[10px] px-3.5 py-2.5">
-                    <span className="font-mono text-[10px] text-slate-400 w-16 shrink-0">1:00 PM</span>
+                    <span className="font-mono text-[11px] text-slate-400 w-16 shrink-0">1:00 PM</span>
                     <span className="text-[0.82rem] font-display font-semibold text-white">Chloe R.</span>
                     <span className="text-[0.72rem] text-slate-400 ml-auto">Cut &amp; style</span>
                   </div>
                   <div className="flex items-center gap-3 bg-green/[0.06] border border-green/40 rounded-[10px] px-3.5 py-2.5">
-                    <span className="font-mono text-[10px] text-slate-400 w-16 shrink-0">4:00 PM</span>
+                    <span className="font-mono text-[11px] text-slate-400 w-16 shrink-0">4:00 PM</span>
                     <span className="text-[0.82rem] font-display font-semibold text-white">Jess T.</span>
                     <span className="text-[0.72rem] text-slate-400 ml-auto">Balayage</span>
                     <span className="font-mono text-[8px] tracking-wide rounded-full px-2 py-0.5 bg-green/15 text-green shrink-0">REFILLED</span>
                   </div>
                   <div className="flex items-center gap-3 bg-white/[0.04] border border-white/10 rounded-[10px] px-3.5 py-2.5">
-                    <span className="font-mono text-[10px] text-slate-400 w-16 shrink-0">5:30 PM</span>
+                    <span className="font-mono text-[11px] text-slate-400 w-16 shrink-0">5:30 PM</span>
                     <span className="text-[0.82rem] font-display font-semibold text-white">Dana K.</span>
                     <span className="text-[0.72rem] text-slate-400 ml-auto">Root touch-up</span>
                   </div>
@@ -556,7 +557,7 @@ export default function SalonsPage() {
                   </div>
                 </div>
               </div>
-              <span className="font-mono text-[8.5px] tracking-widest text-faint">
+              <span className="font-mono text-[11px] tracking-widest text-faint">
                 powered by <b className="text-copper">Class schedules &amp; waitlists · SCHEDULE</b>
               </span>
             </ScrollReveal>
@@ -565,14 +566,14 @@ export default function SalonsPage() {
             <ScrollReveal className="flex flex-col gap-6" direction="right">
               <div className="max-w-md">
                 <b className="font-display font-bold text-xl block mb-2">A post <span className="text-copper">writes itself</span>.</b>
-                <p className="text-muted text-sm leading-relaxed">
+                <p className="text-muted text-base leading-relaxed">
                   You snapped this morning's balayage. Content AI drafts the caption and schedules it everywhere.
                 </p>
               </div>
               <div className="bg-navy-800 border border-white/10 rounded-[var(--r-lg)] p-5 shadow-md">
                 <div className="flex justify-between items-center mb-4">
-                  <b className="font-mono text-[10px] tracking-[0.16em] text-slate-400">CONTENT AI — DRAFTING POST</b>
-                  <span className="font-mono text-[9px] tracking-wide text-copper flex items-center gap-1.5">
+                  <b className="font-mono text-[11px] tracking-[0.16em] text-slate-400">CONTENT AI — DRAFTING POST</b>
+                  <span className="font-mono text-[11px] tracking-wide text-copper flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-copper animate-pulse" /> WORKING
                   </span>
                 </div>
@@ -583,14 +584,14 @@ export default function SalonsPage() {
                   Weekend-ready balayage on Maya — sun-kissed dimension that grows out soft. Booking for next week is open at fynz.io/luxe ✨
                 </div>
                 <div className="flex gap-1.5 flex-wrap mt-3">
-                  <span className="font-mono text-[8.5px] tracking-wide border border-white/10 rounded-full px-2.5 py-1 text-slate-300">INSTAGRAM</span>
-                  <span className="font-mono text-[8.5px] tracking-wide border border-white/10 rounded-full px-2.5 py-1 text-slate-300">FACEBOOK</span>
-                  <span className="font-mono text-[8.5px] tracking-wide border border-white/10 rounded-full px-2.5 py-1 text-slate-300">GOOGLE BUSINESS</span>
-                  <span className="font-mono text-[8.5px] tracking-wide border border-green/40 rounded-full px-2.5 py-1 text-green">SCHEDULED — SAT 9:00 AM ✓</span>
+                  <span className="font-mono text-[11px] tracking-wide border border-white/10 rounded-full px-2.5 py-1 text-slate-300">INSTAGRAM</span>
+                  <span className="font-mono text-[11px] tracking-wide border border-white/10 rounded-full px-2.5 py-1 text-slate-300">FACEBOOK</span>
+                  <span className="font-mono text-[11px] tracking-wide border border-white/10 rounded-full px-2.5 py-1 text-slate-300">GOOGLE BUSINESS</span>
+                  <span className="font-mono text-[11px] tracking-wide border border-green/40 rounded-full px-2.5 py-1 text-green">SCHEDULED — SAT 9:00 AM ✓</span>
                 </div>
-                <div className="text-center mt-3 font-mono text-[9px] tracking-[0.14em] text-copper">YOU APPROVED IT IN 10 SECONDS</div>
+                <div className="text-center mt-3 font-mono text-[11px] tracking-[0.14em] text-copper">YOU APPROVED IT IN 10 SECONDS</div>
               </div>
-              <span className="font-mono text-[8.5px] tracking-widest text-faint">
+              <span className="font-mono text-[11px] tracking-widest text-faint">
                 powered by <b className="text-copper">Content AI</b> + <b className="text-copper">Social planner · GROW</b>
               </span>
             </ScrollReveal>
@@ -602,7 +603,7 @@ export default function SalonsPage() {
       <section className="sec py-20 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">A day with FYNZ</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">A day with FYNZ</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight">
               Same Tuesday. <span className="text-copper">Different salon</span>.
             </h2>
@@ -610,7 +611,7 @@ export default function SalonsPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="border border-white/10 rounded-[var(--r-lg)] p-8 bg-navy-750">
-              <span className="font-mono text-[10px] tracking-widest text-slate-400 block mb-8 uppercase font-bold">BEFORE FYNZ</span>
+              <span className="font-mono text-[11px] tracking-widest text-slate-400 block mb-8 uppercase font-bold">BEFORE FYNZ</span>
               <div className="space-y-6">
                 {BEFORE_ITEMS.map((item, idx) => (
                   <div key={idx} className="flex gap-4 items-start text-sm">
@@ -622,7 +623,7 @@ export default function SalonsPage() {
             </div>
 
             <div className="border border-copper/30 rounded-[var(--r-lg)] p-8 bg-navy-800">
-              <span className="font-mono text-[10px] tracking-widest text-copper block mb-8 uppercase font-bold">SAME TUESDAY, WITH FYNZ</span>
+              <span className="font-mono text-[11px] tracking-widest text-copper block mb-8 uppercase font-bold">SAME TUESDAY, WITH FYNZ</span>
               <div className="space-y-6">
                 {AFTER_ITEMS.map((item, idx) => (
                   <div key={idx} className="flex gap-4 items-start text-sm">
@@ -640,7 +641,7 @@ export default function SalonsPage() {
       <section className="sec py-20 border-b border-line-soft">
         <div className="wrap max-w-3xl mx-auto px-6">
           <div className="text-center mb-12">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Owner FAQ</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Owner FAQ</span>
             <h2 className="font-display font-extrabold text-3xl tracking-tight">
               Fair <span className="text-copper">questions</span>
             </h2>
@@ -659,7 +660,7 @@ export default function SalonsPage() {
                       <Link href="/pricing" className="text-copper hover:underline">
                         pricing page
                       </Link>
-                      , and there's a free plan to start. No long-term lock-in framing here until final terms are set.
+                      , and there's a free plan to start. No long-term contract — every paid plan is month-to-month with a 30-day money-back guarantee, and you can cancel anytime from your dashboard.
                     </>
                   ) : (
                     faq.a
@@ -674,7 +675,7 @@ export default function SalonsPage() {
       {/* Final CTA */}
       <section className="final py-24 relative overflow-hidden text-center bg-radial-[at_bottom_center] from-copper/10 via-transparent to-transparent">
         <div className="wrap max-w-4xl mx-auto px-6 relative z-10">
-          <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">For salons</span>
+          <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">For salons</span>
           <h2 className="font-display font-extrabold text-4xl md:text-5xl tracking-tight mb-4">
             Do the hair. FYNZ does <span className="text-copper">the rest</span>.
           </h2>

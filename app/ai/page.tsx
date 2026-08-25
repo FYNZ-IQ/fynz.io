@@ -76,8 +76,8 @@ const AGENTS: Agent[] = [
     name: "Website & Funnel AI",
     role: "Web designer",
     desc: "Builds full funnels, landing pages, and sites from a plain-language prompt — wired to your CRM.",
-    href: "/ai/website-builder",
-    meet: "MEET WEBSITE & FUNNEL AI →",
+    href: "/features/funnels",
+    meet: "EXPLORE FUNNELS & PAGES →",
     status: "ON SHIFT",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
@@ -90,8 +90,8 @@ const AGENTS: Agent[] = [
     name: "Workflow AI",
     role: "Operations brain",
     desc: "Makes automations smart — reads messy messages, extracts what matters, scores, and routes.",
-    href: "/ai/workflow",
-    meet: "MEET WORKFLOW AI →",
+    href: "/features/automations",
+    meet: "EXPLORE AUTOMATIONS →",
     status: "ON SHIFT",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
@@ -106,8 +106,8 @@ const AGENTS: Agent[] = [
     name: "Ask AI",
     role: "Business analyst",
     desc: "Answers \"how's business?\" in plain language — bookings, revenue, slow days, on demand.",
-    href: "/ai/ask",
-    meet: "MEET ASK AI →",
+    href: "/features/reporting",
+    meet: "EXPLORE REPORTING →",
     status: "ON SHIFT",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
@@ -120,8 +120,8 @@ const AGENTS: Agent[] = [
     name: "Agent Studio",
     role: "Build your own",
     desc: "A drag-and-drop canvas for custom agents with your prompts, your data, and your rules.",
-    href: "/ai/studio",
-    meet: "MEET THE STUDIO →",
+    href: "/demo",
+    meet: "SEE IT IN A DEMO →",
     status: "YOUR HIRE",
     own: true,
     icon: (
@@ -239,7 +239,7 @@ export default function AIPage() {
             Agents that answer the phone, reply to every message, ask for reviews, write your content, and build your pages — around the clock. Hire them once; they never call in sick.
           </p>
           <div className="flex gap-3.5 flex-wrap justify-center">
-            <Button className="btn-copper" render={<Link href="#start" />}>
+            <Button className="btn-copper" render={<Link href="/onboarding?plan=free" />}>
               Start free
             </Button>
             <Button className="btn-ghost" render={<Link href="#roster" />}>
@@ -265,7 +265,7 @@ export default function AIPage() {
               >
                 <span
                   className={
-                    "absolute top-5 right-5 flex items-center gap-1.5 font-mono text-[8.5px] tracking-[0.14em] " +
+                    "absolute top-5 right-5 flex items-center gap-1.5 font-mono text-[11px] tracking-[0.14em] " +
                     (agent.own ? "text-copper" : "text-green")
                   }
                 >
@@ -281,11 +281,11 @@ export default function AIPage() {
                   {agent.icon}
                 </div>
                 <h4 className="font-display font-bold text-[1.05rem] mb-1 text-white">{agent.name}</h4>
-                <span className="block font-mono text-[9.5px] tracking-[0.16em] uppercase text-copper mb-3">
+                <span className="block font-mono text-[11px] tracking-[0.16em] uppercase text-copper mb-3">
                   {agent.role}
                 </span>
                 <p className="text-[0.85rem] text-slate-300">{agent.desc}</p>
-                <span className="mt-3.5 inline-block font-mono text-[10px] tracking-[0.1em] text-copper opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0">
+                <span className="mt-3.5 inline-block font-mono text-[11px] tracking-[0.1em] text-copper opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0">
                   {agent.meet}
                 </span>
               </Link>
@@ -336,11 +336,11 @@ export default function AIPage() {
                 </span>
                 <div>
                   <b className="font-display text-[0.9rem] font-bold block leading-tight text-white">Conversation AI</b>
-                  <small className="font-mono text-[8.5px] text-green tracking-[0.14em] flex items-center gap-1.5 before:content-[''] before:w-1.5 before:h-1.5 before:rounded-full before:bg-green before:shadow-[0_0_7px_var(--green)]">
+                  <small className="font-mono text-[11px] text-green tracking-[0.14em] flex items-center gap-1.5 before:content-[''] before:w-1.5 before:h-1.5 before:rounded-full before:bg-green before:shadow-[0_0_7px_var(--green)]">
                     ON SHIFT
                   </small>
                 </div>
-                <span className="ml-auto font-mono text-[8.5px] tracking-[0.12em] text-slate-400 border border-white/10 px-2.5 py-[3px] rounded-[5px]">
+                <span className="ml-auto font-mono text-[11px] tracking-[0.12em] text-slate-400 border border-white/10 px-2.5 py-[3px] rounded-[5px]">
                   SMS · 11:04 PM
                 </span>
               </div>
@@ -349,7 +349,7 @@ export default function AIPage() {
                   if (msg.kind === "sys") {
                     return (
                       <div key={i} className="self-center max-w-full">
-                        <span className="block px-3.5 py-2.5 rounded-lg bg-green/10 border border-green/25 text-green font-mono text-[9.5px] tracking-[0.1em] text-center">
+                        <span className="block px-3.5 py-2.5 rounded-lg bg-green/10 border border-green/25 text-green font-mono text-[11px] tracking-[0.1em] text-center">
                           {msg.text}
                         </span>
                       </div>
@@ -473,8 +473,8 @@ export default function AIPage() {
               FYNZ AI handles roughly 70–80% of routine contacts on its own — the repetitive majority. The rest get routed to you, and anything complex or sensitive always can be. You can also run any agent in{" "}
               <b className="text-white">approve-first mode</b>: it drafts, you tap send.
             </p>
-            <p className="mt-3.5 font-mono text-[9.5px] tracking-[0.12em] text-slate-400">
-              TELEPHONY &amp; AI USAGE BILLED SEPARATELY — RATES TBD
+            <p className="mt-3.5 font-mono text-[11px] tracking-[0.12em] text-slate-400">
+              TELEPHONY &amp; AI USAGE BILLED SEPARATELY — EXACT RATES SHARED AT YOUR DEMO
             </p>
           </ScrollReveal>
         </div>
@@ -491,7 +491,7 @@ export default function AIPage() {
             Onboard your AI team in an afternoon — and stop losing the leads that arrive after closing time.
           </p>
           <div className="flex gap-3.5 justify-center flex-wrap">
-            <Button className="btn-copper" render={<Link href="#start" />}>
+            <Button className="btn-copper" render={<Link href="/onboarding?plan=free" />}>
               Start free
             </Button>
             <Button className="btn-ghost" render={<Link href="/ai/voice" />}>

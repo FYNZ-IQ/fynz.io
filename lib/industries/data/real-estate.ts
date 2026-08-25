@@ -104,15 +104,6 @@ const realEstate: IndustryData = {
     after:
       "The lead was answered mid-showing. You walked out to a booked appointment waiting in your calendar.",
   },
-  proof: {
-    stats: [
-      { num: "<10s", label: "Median lead response time" },
-      { num: "68%", label: "Of leads booked to a showing" },
-      { num: "3×", label: "More referrals from post-close flows" },
-    ],
-    testimonial:
-      "“[Agent testimonial placeholder — space for a real estate agent quote about FYNZ's impact on lead response and bookings.]”",
-  },
   faq: [
     {
       q: "Will leads know they're texting an AI first?",

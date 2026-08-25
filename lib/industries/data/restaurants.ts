@@ -104,15 +104,6 @@ const restaurants: IndustryData = {
     after:
       "After — the offer goes out at 3 PM and 30+ covers arrive by 7 PM; one SMS campaign to your own list, 47 replies, 18 confirmed reservations.",
   },
-  proof: {
-    stats: [
-      { num: "1,200+", label: "Guest list size built in first 90 days" },
-      { num: "+22", label: "Average covers added on promo nights" },
-      { num: "4.8★", label: "Average Google rating after 90 days of review requests" },
-    ],
-    testimonial:
-      "“[Placeholder: restaurateur testimonial about guest list growth, slow night improvement, or review impact — to be filled in with a real customer quote.]”",
-  },
   faq: [
     {
       q: "Does this replace my reservation platform?",

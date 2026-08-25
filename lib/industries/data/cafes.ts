@@ -104,15 +104,6 @@ const cafes: IndustryData = {
     after:
       "After — 800 local coffee lovers get the new seasonal drink alert at 8 AM; the morning line proves it.",
   },
-  proof: {
-    stats: [
-      { num: "+25%", label: "Repeat-visit rate lift" },
-      { num: "800+", label: "Local subscriber list size" },
-      { num: "10 min", label: "Time to launch SMS specials" },
-    ],
-    testimonial:
-      "“[Café owner testimonial placeholder — space for a quote about text-based loyalty success and morning customer line increases.]”",
-  },
   faq: [
     {
       q: "Is texting customers annoying?",

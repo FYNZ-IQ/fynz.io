@@ -8,6 +8,8 @@ import { cn } from "@/lib/utils";
 
 type IndustryCard = {
   slug: string;
+  /** Full href override (e.g. a static .html deep link). Defaults to `/industries/${slug}`. */
+  href?: string;
   name: React.ReactNode;
   desc: string;
   keywords: string;
@@ -352,6 +354,89 @@ const GROUPS: IndustryGroup[] = [
       },
     ],
   },
+  {
+    title: "Emergency restoration",
+    count: "6 VERTICALS",
+    cards: [
+      {
+        slug: "emergency-water",
+        href: "/industries/emergency-services.html#water",
+        name: "Water damage",
+        desc: "The 2 AM flood call, answered in two rings.",
+        keywords: "emergency restoration water damage flood mitigation 24/7",
+        icon: svg(
+          <path d="M12 3c-4 5-6.5 8.2-6.5 11.5a6.5 6.5 0 0 0 13 0C18.5 11.2 16 8 12 3Z" />
+        ),
+      },
+      {
+        slug: "emergency-mold",
+        href: "/industries/emergency-services.html#mold",
+        name: "Mold remediation",
+        desc: "The callback that never came — caught.",
+        keywords: "emergency restoration mold remediation spores assessment 24/7",
+        icon: svg(
+          <>
+            <circle cx="9" cy="10" r="4.5" />
+            <circle cx="16.5" cy="7.5" r="2.5" />
+            <circle cx="15.5" cy="15.5" r="3.5" />
+            <circle cx="8" cy="18.5" r="1.5" />
+          </>
+        ),
+      },
+      {
+        slug: "emergency-fire",
+        href: "/industries/emergency-services.html#fire",
+        name: "Fire & smoke",
+        desc: "Board-up booked before morning.",
+        keywords: "emergency restoration fire smoke soot board-up 24/7",
+        icon: svg(
+          <>
+            <path d="M12 3c-3.5 4.5-5.5 7-5.5 10a5.5 5.5 0 0 0 11 0c0-3-2-5.5-5.5-10Z" />
+            <path d="M12 13c-1.4 1.8-2 2.8-2 4a2 2 0 0 0 4 0c0-1.2-.6-2.2-2-4Z" />
+          </>
+        ),
+      },
+      {
+        slug: "emergency-storm",
+        href: "/industries/emergency-services.html#storm",
+        name: "Storm & tree",
+        desc: "When the whole town calls at once.",
+        keywords: "emergency restoration storm tree tarp wind damage 24/7",
+        icon: svg(
+          <>
+            <path d="M7 16a4 4 0 0 1 .6-8A5 5 0 0 1 17 6.5 3.5 3.5 0 0 1 17.5 13H7Z" />
+            <path d="m13 11-3 5h3l-2.5 5" />
+          </>
+        ),
+      },
+      {
+        slug: "emergency-roofing",
+        href: "/industries/emergency-services.html#roofing",
+        name: "Storm roofing",
+        desc: "Fifty roofs, one phone line.",
+        keywords: "emergency restoration storm roofing hail roof leak 24/7",
+        icon: svg(
+          <>
+            <path d="m3 11 9-7 9 7" />
+            <path d="M6 10v9h12v-9" />
+          </>
+        ),
+      },
+      {
+        slug: "emergency-biohazard",
+        href: "/industries/emergency-services.html#biohazard",
+        name: "Biohazard cleanup",
+        desc: "Discreet, immediate, handled.",
+        keywords: "emergency restoration biohazard trauma cleanup discreet 24/7",
+        icon: svg(
+          <>
+            <path d="m12 3 7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z" />
+            <path d="m9 12 2 2 4-4" />
+          </>
+        ),
+      },
+    ],
+  },
 ];
 
 const CYCLE_WORDS = [
@@ -479,32 +564,44 @@ export default function IndustriesIndexPage() {
                 <h2 className="font-mono text-[11px] font-semibold tracking-[0.22em] uppercase text-copper">
                   {group.title}
                 </h2>
-                <span className="font-mono text-[10px] tracking-[0.1em] text-faint">
+                <span className="font-mono text-[11px] tracking-[0.1em] text-faint">
                   {group.count}
                 </span>
               </div>
 
               <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
-                {group.cards.map((card) => (
-                  <Link
-                    key={card.slug}
-                    href={`/industries/${card.slug}`}
-                    className="group relative flex flex-col gap-1.5 bg-navy-800 border border-white/10 rounded-[var(--r-md)] p-[22px_20px] transition-all duration-200 hover:border-copper/40 hover:-translate-y-1 hover:shadow-md"
-                  >
-                    <span className="absolute top-5 right-[18px] font-mono text-copper opacity-0 transition-opacity group-hover:opacity-100">
-                      →
-                    </span>
-                    <span className="w-[38px] h-[38px] rounded-[11px] bg-copper-tint grid place-items-center mb-[11px]">
-                      {card.icon}
-                    </span>
-                    <b className="font-display font-semibold text-[0.96rem] text-white">
-                      {card.name}
-                    </b>
-                    <p className="text-[0.8rem] text-slate-400 leading-[1.5]">
-                      {card.desc}
-                    </p>
-                  </Link>
-                ))}
+                {group.cards.map((card) => {
+                  const href = card.href ?? `/industries/${card.slug}`;
+                  const cardClassName =
+                    "group relative flex flex-col gap-1.5 bg-navy-800 border border-white/10 rounded-[var(--r-md)] p-[22px_20px] transition-all duration-200 hover:border-copper/40 hover:-translate-y-1 hover:shadow-md";
+                  const content = (
+                    <>
+                      <span className="absolute top-5 right-[18px] font-mono text-copper opacity-0 transition-opacity group-hover:opacity-100">
+                        →
+                      </span>
+                      <span className="w-[38px] h-[38px] rounded-[11px] bg-copper-tint grid place-items-center mb-[11px]">
+                        {card.icon}
+                      </span>
+                      <b className="font-display font-semibold text-[0.96rem] text-white">
+                        {card.name}
+                      </b>
+                      <p className="text-[0.8rem] text-slate-400 leading-[1.5]">
+                        {card.desc}
+                      </p>
+                    </>
+                  );
+                  // Static .html deep links need a plain anchor — the Next
+                  // router can't client-navigate to files in /public.
+                  return card.href ? (
+                    <a key={card.slug} href={href} className={cardClassName}>
+                      {content}
+                    </a>
+                  ) : (
+                    <Link key={card.slug} href={href} className={cardClassName}>
+                      {content}
+                    </Link>
+                  );
+                })}
               </StaggerGroup>
             </div>
           ))}
@@ -517,14 +614,14 @@ export default function IndustriesIndexPage() {
               FYNZ still fits — the four pillars work for any customer-facing
               SMB.{" "}
               <Link
-                href="#start"
+                href="/onboarding?plan=free"
                 className="text-copper hover:underline underline-offset-[3px]"
               >
                 Start free
               </Link>{" "}
               or{" "}
               <Link
-                href="#demo"
+                href="/demo"
                 className="text-copper hover:underline underline-offset-[3px]"
               >
                 book a demo
@@ -539,7 +636,7 @@ export default function IndustriesIndexPage() {
       <section className="final py-24 relative overflow-hidden text-center bg-radial-[at_bottom_center] from-copper/10 via-transparent to-transparent">
         <div className="wrap max-w-4xl mx-auto px-6 relative z-10">
           <ScrollReveal>
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">
               Your industry, day one
             </span>
             <h2 className="font-display font-extrabold text-4xl md:text-5xl tracking-tight mb-4">
@@ -554,7 +651,7 @@ export default function IndustriesIndexPage() {
               <Button
                 size="lg"
                 className="bg-copper hover:bg-copper/90 text-white font-semibold"
-              >
+               render={<Link href="/onboarding?plan=free" />}>
                 Start free
               </Button>
               <Button size="lg" variant="outline" render={<Link href="/platform" />}>

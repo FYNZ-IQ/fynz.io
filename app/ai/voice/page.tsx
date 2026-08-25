@@ -21,7 +21,7 @@ const CAPABILITIES = [
           <span className="absolute inset-4 rounded-full border border-copper/20 animate-ping [animation-delay:0.3s]"></span>
           <span className="w-12 h-12 rounded-full bg-copper-tint border border-copper/40 flex items-center justify-center text-copper text-xl">✆</span>
         </div>
-        <div className="mt-4"><span className="bg-green/10 text-green border border-green/30 px-3 py-1 rounded-full font-mono text-[9px] tracking-wide uppercase">ANSWERED — RING 1 ✓</span></div>
+        <div className="mt-4"><span className="bg-green/10 text-green border border-green/30 px-3 py-1 rounded-full font-mono text-[11px] tracking-wide uppercase">ANSWERED — RING 1 ✓</span></div>
         <div className="font-mono text-[8px] tracking-[0.1em] text-slate-400 absolute bottom-4">0 CALLS TO VOICEMAIL THIS MONTH</div>
       </div>
     )
@@ -52,9 +52,9 @@ const CAPABILITIES = [
       <div className="flex flex-col justify-center items-center gap-3 relative min-h-[220px] bg-navy-800 text-white border border-white/10 rounded-lg p-6 overflow-hidden w-full">
         <span className="font-mono text-[8px] tracking-[0.1em] text-slate-400 absolute top-4 left-4">YOUR CALENDAR — LIVE AVAILABILITY</span>
         <div className="grid grid-cols-3 gap-2 w-full max-w-[320px] mt-2">
-          <span className="bg-navy-750 border border-white/10 py-2 px-3 text-center text-slate-200 font-mono text-[10px] rounded">TUE 9:00</span>
-          <span className="bg-copper-tint border border-copper/30 py-2 px-3 text-center text-white font-mono text-[10px] rounded font-bold font-mono">TUE 11:30 ✓</span>
-          <span className="bg-navy-750 border border-white/10 py-2 px-3 text-center text-slate-200 font-mono text-[10px] rounded">TUE 2:15</span>
+          <span className="bg-navy-750 border border-white/10 py-2 px-3 text-center text-slate-200 font-mono text-[11px] rounded">TUE 9:00</span>
+          <span className="bg-copper-tint border border-copper/30 py-2 px-3 text-center text-white font-mono text-[11px] rounded font-bold font-mono">TUE 11:30 ✓</span>
+          <span className="bg-navy-750 border border-white/10 py-2 px-3 text-center text-slate-200 font-mono text-[11px] rounded">TUE 2:15</span>
         </div>
         <div className="flex gap-2 mt-2">
           <span className="bg-copper/10 text-copper border border-copper/30 px-3 py-1 rounded-full font-mono text-[8px] tracking-wide uppercase">QUALIFIED — NEW CLIENT · URGENT</span>
@@ -134,7 +134,7 @@ const FAQs = [
   { q: "Which calls does it cover — and can I keep my number?", a: "All inbound calls: after-hours, weekends, overflow when your line is busy, or every call if you want. Your existing number stays — Voice AI just makes sure it always gets answered." },
   { q: "Does it sound human? Will it stay on-brand?", a: "It speaks in a natural voice with a persona you define — name, personality, tone. It only says what your knowledge base and rules allow, and it identifies itself honestly if asked." },
   { q: "When does it hand a call to a human?", a: "On your triggers: specific topics (billing disputes, complaints), caller frustration, or someone simply asking for a person. It transfers live when you're available, or takes a structured message and notifies you instantly. It never guesses." },
-  { q: "What does it cost to run?", a: "Voice AI is part of FYNZ AI. Telephony and AI usage are billed separately — final rates are being confirmed. See pricing for plan details." }
+  { q: "What does it cost to run?", a: "Voice AI is part of FYNZ AI, available as an add-on to any paid plan. Telephony and AI usage are billed separately based on what you use, and we walk you through the exact rates on your demo call — nothing is enabled before you've seen the numbers." }
 ];
 
 export default function VoiceAIPage() {
@@ -145,7 +145,7 @@ export default function VoiceAIPage() {
         <div className="wrap max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <Chip className="mb-4">FYNZ AI · Agent 01</Chip>
-            <span className="block font-mono text-[9px] tracking-[0.15em] text-copper mb-4 uppercase">
+            <span className="block font-mono text-[11px] tracking-[0.15em] text-copper mb-4 uppercase">
               JOB TITLE — YOUR 24/7 RECEPTIONIST
             </span>
             <h1 className="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.08] mb-6">
@@ -155,8 +155,8 @@ export default function VoiceAIPage() {
               It greets callers in a natural voice, answers their questions, books them straight into your calendar, and hands the complex calls to you. No hold music. No voicemail. No missed revenue.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold">
-                Hire Voice AI free
+              <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/demo" />}>
+                Book a demo
               </Button>
               <Button size="lg" variant="outline" render={<Link href="#inaction" />}>
                 Hear a call ↓
@@ -166,7 +166,7 @@ export default function VoiceAIPage() {
 
           {/* Badge Card Representation */}
           <div className="bg-navy-900 text-white border border-white/10 rounded-[var(--r-lg)] p-8 relative max-w-[450px] justify-self-center lg:justify-self-end w-full shadow-lg">
-            <div className="absolute top-6 right-6 flex items-center gap-1.5 font-mono text-[8.5px] tracking-[0.14em] text-green">
+            <div className="absolute top-6 right-6 flex items-center gap-1.5 font-mono text-[11px] tracking-[0.14em] text-green">
               <span className="w-1.5 h-1.5 rounded-full bg-green shadow-[0_0_8px_var(--green)] animate-pulse" />
               ON SHIFT RIGHT NOW
             </div>
@@ -176,28 +176,28 @@ export default function VoiceAIPage() {
               </span>
               <div>
                 <b className="font-display text-[1rem] font-bold text-white block">Voice AI</b>
-                <small className="font-mono text-[8.5px] tracking-[0.12em] text-slate-400 block">EMPLOYEE ID — FYNZ-AI-01</small>
+                <small className="font-mono text-[11px] tracking-[0.12em] text-slate-400 block">EMPLOYEE ID — FYNZ-AI-01</small>
               </div>
             </div>
             <div className="flex flex-col gap-4">
               <div className="flex justify-between border-b border-white/10 pb-2 text-[0.8rem]">
-                <span className="text-slate-400 font-mono text-[9px] uppercase tracking-wider">ROLE</span>
+                <span className="text-slate-400 font-mono text-[11px] uppercase tracking-wider">ROLE</span>
                 <b className="text-slate-200">Receptionist</b>
               </div>
               <div className="flex justify-between border-b border-white/10 pb-2 text-[0.8rem]">
-                <span className="text-slate-400 font-mono text-[9px] uppercase tracking-wider">SHIFT</span>
+                <span className="text-slate-400 font-mono text-[11px] uppercase tracking-wider">SHIFT</span>
                 <b className="text-slate-200">24/7 — nights, weekends, holidays</b>
               </div>
               <div className="flex justify-between border-b border-white/10 pb-2 text-[0.8rem]">
-                <span className="text-slate-400 font-mono text-[9px] uppercase tracking-wider">SICK DAYS</span>
+                <span className="text-slate-400 font-mono text-[11px] uppercase tracking-wider">SICK DAYS</span>
                 <b className="text-green font-bold">Zero, ever</b>
               </div>
               <div className="flex justify-between border-b border-white/10 pb-2 text-[0.8rem]">
-                <span className="text-slate-400 font-mono text-[9px] uppercase tracking-wider">SPEAKS</span>
+                <span className="text-slate-400 font-mono text-[11px] uppercase tracking-wider">SPEAKS</span>
                 <b className="text-slate-200">Your tone, your rules</b>
               </div>
               <div className="flex justify-between pb-2 text-[0.8rem]">
-                <span className="text-slate-400 font-mono text-[9px] uppercase tracking-wider">HANDS OFF TO</span>
+                <span className="text-slate-400 font-mono text-[11px] uppercase tracking-wider">HANDS OFF TO</span>
                 <b className="text-slate-200">You, the moment it should</b>
               </div>
             </div>
@@ -209,7 +209,7 @@ export default function VoiceAIPage() {
       <section className="sec py-20 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="max-w-2xl mb-16">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">What it does</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">What it does</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight leading-tight">
               Everything a great receptionist does — <span className="text-copper">without the front desk</span>
             </h2>
@@ -219,7 +219,7 @@ export default function VoiceAIPage() {
             {CAPABILITIES.map((cap, index) => (
               <ScrollReveal key={index} direction={cap.flip ? "left" : "right"} className={cn("grid grid-cols-1 lg:grid-cols-2 gap-12 items-center", cap.flip && "lg:flex-row-reverse")}>
                 <div className={cn(cap.flip && "lg:order-2")}>
-                  <span className="font-mono text-xs text-copper tracking-wider block mb-2">{cap.num}</span>
+                  <span className="font-mono text-sm text-copper tracking-wider block mb-2">{cap.num}</span>
                   <h3 className="font-display font-bold text-2xl mb-4">{cap.title}</h3>
                   <p className="text-muted leading-relaxed">{cap.desc}</p>
                 </div>
@@ -235,7 +235,7 @@ export default function VoiceAIPage() {
       {/* How it works */}
       <section className="sec py-20 bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6 text-center">
-          <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">How it works</span>
+          <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">How it works</span>
           <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-16">
             Onboard it like a hire. <span className="text-copper">Four steps</span>, one afternoon.
           </h2>
@@ -244,14 +244,14 @@ export default function VoiceAIPage() {
             {STEPS.map((step, idx) => (
               <div key={idx} className="bg-navy-800 text-white border border-white/10 p-6 rounded-[var(--r-md)] text-left flex flex-col justify-between min-h-[200px]">
                 <div>
-                  <span className="font-mono text-[10px] tracking-widest text-copper block mb-3">{step.num}</span>
+                  <span className="font-mono text-[11px] tracking-widest text-copper block mb-3">{step.num}</span>
                   <b className="font-display font-bold text-lg text-white block mb-2">{step.title}</b>
-                  <p className="text-slate-300 text-sm leading-relaxed">{step.desc}</p>
+                  <p className="text-slate-300 text-base leading-relaxed">{step.desc}</p>
                 </div>
               </div>
             ))}
           </div>
-          <p className="font-mono text-[9px] tracking-widest text-slate-400 uppercase bg-navy-800 py-4 px-6 rounded-full inline-block">
+          <p className="font-mono text-[11px] tracking-widest text-slate-400 uppercase bg-navy-800 py-4 px-6 rounded-full inline-block">
             AFTER EVERY CALL: <b className="text-copper font-medium">FOLLOW-UP TEXT OR EMAIL SENT · CONTACT UPDATED · DEAL STAGE MOVED</b> — AUTOMATICALLY
           </p>
         </div>
@@ -261,14 +261,14 @@ export default function VoiceAIPage() {
       <section id="inaction" className="sec py-20 border-b border-line-soft scroll-mt-20">
         <div className="wrap max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">In Action</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">In Action</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-6">
               11:02 PM. A pipe bursts. <span className="text-copper">Voice AI picks up.</span>
             </h2>
             <p className="text-muted leading-relaxed mb-6">
               A real emergency call, handled end to end: answered on the first ring, urgency qualified, the first morning slot booked, and a confirmation text sent — all while the owner sleeps.
             </p>
-            <ul className="flex flex-col gap-3 font-medium text-sm text-muted mb-8">
+            <ul className="flex flex-col gap-3 font-medium text-base text-muted mb-8">
               <li className="flex items-center gap-3">
                 <span className="text-copper font-mono">→</span> Books into <Link href="/schedule" className="text-copper hover:underline">SCHEDULE</Link>'s real availability
               </li>
@@ -289,7 +289,7 @@ export default function VoiceAIPage() {
       {/* Best For */}
       <section className="sec py-12 bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-b border-line">
         <div className="wrap max-w-7xl mx-auto px-6 text-center">
-          <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Best for</span>
+          <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Best for</span>
           <h2 className="font-display font-extrabold text-2xl md:text-3xl tracking-tight mb-8">
             Anywhere a missed call is <span className="text-copper">lost revenue</span>
           </h2>
@@ -298,7 +298,7 @@ export default function VoiceAIPage() {
               <Button key={idx} variant="outline" render={<Link href={item.href} />} className="rounded-full px-6 py-5 bg-navy-800/80 border border-white/5 text-slate-200 hover:-translate-y-0.5 hover:bg-navy-750/50 hover:border-copper/40 transition-all">
                 <span className="flex items-center">
                   <span className={cn(
-                    "flex items-center justify-center w-7 h-7 rounded-full bg-navy-750/60 border border-white/5 mr-2.5 text-xs shrink-0 transition-colors",
+                    "flex items-center justify-center w-7 h-7 rounded-full bg-navy-750/60 border border-white/5 mr-2.5 text-sm shrink-0 transition-colors",
                     item.icon === "→" && "text-copper bg-copper/10 border-copper/20"
                   )}>
                     <i className="not-italic">{item.icon}</i>
@@ -315,7 +315,7 @@ export default function VoiceAIPage() {
       <section className="sec py-20 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="mb-12">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Works with the rest of FYNZ</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Works with the rest of FYNZ</span>
             <h2 className="font-display font-extrabold text-3xl tracking-tight">
               A receptionist that's <span className="text-copper">plugged into everything</span>
             </h2>
@@ -324,7 +324,7 @@ export default function VoiceAIPage() {
             {WORKS_WITH.map((card, idx) => (
               <BadgeCard key={idx} title={card.title} subtitle={card.prefix} className="bg-navy-900 text-white border border-white/5">
                 <p className="mb-4 text-slate-300">{card.desc}</p>
-                <Link href={card.href} className="text-copper font-mono text-[10px] tracking-wider font-semibold uppercase hover:underline">
+                <Link href={card.href} className="text-copper font-mono text-[11px] tracking-wider font-semibold uppercase hover:underline">
                   Learn more →
                 </Link>
               </BadgeCard>
@@ -337,7 +337,7 @@ export default function VoiceAIPage() {
       <section className="sec py-20 border-b border-line-soft">
         <div className="wrap max-w-3xl mx-auto px-6">
           <div className="text-center mb-12">
-            <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Fair questions</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Fair questions</span>
             <h2 className="font-display font-extrabold text-3xl tracking-tight">
               Before you <span className="text-copper">hire it</span>
             </h2>
@@ -361,16 +361,16 @@ export default function VoiceAIPage() {
       {/* Final CTA */}
       <section className="final py-24 relative overflow-hidden text-center bg-radial-[at_bottom_center] from-copper/10 via-transparent to-transparent">
         <div className="wrap max-w-4xl mx-auto px-6 relative z-10">
-          <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Voice AI</span>
+          <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Voice AI</span>
           <h2 className="font-display font-extrabold text-4xl md:text-5xl tracking-tight mb-4">
             Never send another caller <span className="text-copper">to voicemail</span>.
           </h2>
           <p className="text-muted text-lg mb-8 max-w-xl mx-auto">
-            Hire your receptionist this afternoon. It starts answering tonight.
+            Book a demo and hear it answer — your receptionist can be part of your 48-hour setup.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold">
-              Hire Voice AI free
+            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/demo" />}>
+              Book a demo
             </Button>
             <Button size="lg" variant="outline" render={<Link href="/ai" />}>
               Meet the whole team →

@@ -34,7 +34,7 @@ export function FeatureLanding({ data, all }: { data: FeatureData; all: Record<s
             </h1>
             <p className="lede text-lg mb-9">{hero.subhead}</p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="btn-copper rounded-full h-[52px] px-7 text-base">
+              <Button size="lg" className="btn-copper rounded-full h-[52px] px-7 text-base" render={<Link href="/onboarding?plan=free" />}>
                 Start free
               </Button>
               <Button size="lg" variant="outline" className="btn-ghost rounded-full h-[52px] px-7 text-base" render={<Link href={pillarLink} />}>
@@ -64,7 +64,7 @@ export function FeatureLanding({ data, all }: { data: FeatureData; all: Record<s
               <div key={i} className="rounded-[var(--r-md)] border border-white/10 bg-white/[0.04] p-6">
                 <span className="w-8 h-8 rounded-lg bg-copper-tint border border-copper/30 grid place-items-center text-copper mb-4 text-sm">✓</span>
                 <h3 className="font-display font-bold text-base text-white mb-2">{c.title}</h3>
-                <p className="text-sm text-white/60 leading-relaxed">{c.desc}</p>
+                <p className="text-base text-white/60 leading-relaxed">{c.desc}</p>
               </div>
             ))}
           </StaggerGroup>
@@ -85,7 +85,7 @@ export function FeatureLanding({ data, all }: { data: FeatureData; all: Record<s
               <div key={i} className="rounded-[var(--r-md)] border border-white/10 bg-navy-800 p-6">
                 <span className="font-mono text-[11px] tracking-widest text-copper block mb-3">STEP 0{i + 1}</span>
                 <h3 className="font-display font-bold text-base text-white mb-2">{s.title}</h3>
-                <p className="text-sm text-slate-300 leading-relaxed">{s.desc}</p>
+                <p className="text-base text-slate-300 leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </StaggerGroup>
@@ -103,7 +103,7 @@ export function FeatureLanding({ data, all }: { data: FeatureData; all: Record<s
             {faq.map((item, i) => (
               <AccordionItem key={i} value={`item-${i}`} className="border border-white/10 bg-navy-800 rounded-[var(--r-md)] px-5">
                 <AccordionTrigger className="font-display font-semibold text-[0.95rem] text-white py-5">{item.q}</AccordionTrigger>
-                <AccordionContent className="text-sm text-slate-300 leading-relaxed pb-5">{item.a}</AccordionContent>
+                <AccordionContent className="text-base text-slate-300 leading-relaxed pb-5">{item.a}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
@@ -125,10 +125,10 @@ export function FeatureLanding({ data, all }: { data: FeatureData; all: Record<s
               if (!r) return null;
               return (
                 <Link key={slug} href={featureHref(slug, all)} className="group rounded-[var(--r-md)] border border-white/10 bg-navy-800 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-copper/40">
-                  <span className="font-mono text-[10px] tracking-widest text-copper block mb-2">{r.pillar}</span>
+                  <span className="font-mono text-[11px] tracking-widest text-copper block mb-2">{r.pillar}</span>
                   <h3 className="font-display font-bold text-base text-white group-hover:text-copper transition-colors mb-1.5">{r.name}</h3>
-                  <p className="text-sm text-slate-300 leading-relaxed">{r.hero.subhead}</p>
-                  <span className="inline-block font-mono text-xs tracking-wider text-copper uppercase mt-4 group-hover:translate-x-1 transition-transform">Explore →</span>
+                  <p className="text-base text-slate-300 leading-relaxed">{r.hero.subhead}</p>
+                  <span className="inline-block font-mono text-sm tracking-wider text-copper uppercase mt-4 group-hover:translate-x-1 transition-transform">Explore →</span>
                 </Link>
               );
             })}
@@ -137,9 +137,9 @@ export function FeatureLanding({ data, all }: { data: FeatureData; all: Record<s
           {/* CTA */}
           <div className="rounded-[var(--r-lg)] bg-navy-900 text-white text-center px-6 py-14 mt-14">
             <h2 className="font-display font-bold text-3xl leading-tight mb-3 text-white">Try {name} free</h2>
-            <p className="text-white/60 max-w-xl mx-auto mb-8">14-day free trial. No credit card required.</p>
+            <p className="text-white/60 max-w-xl mx-auto mb-8">Free forever plan — no credit card required. Month-to-month, 30-day money-back guarantee.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="btn-copper rounded-full h-[52px] px-7 text-base">Start free</Button>
+              <Button size="lg" className="btn-copper rounded-full h-[52px] px-7 text-base" render={<Link href="/onboarding?plan=free" />}>Start free</Button>
               <Button size="lg" variant="outline" className="rounded-full h-[52px] px-7 text-base border-white/25 text-white hover:bg-white/10" render={<Link href="/pricing" />}>
                 See pricing
               </Button>

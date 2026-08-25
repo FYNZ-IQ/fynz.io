@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ScrollReveal, StaggerGroup, CountUp } from "@/components/animations";
+import { ScrollReveal, StaggerGroup } from "@/components/animations";
 import { Button } from "@/components/ui";
 
 /* ---------- Lifecycle ladder ---------- */
@@ -53,7 +53,7 @@ function Panel({ title, badge, children }: { title: string; badge: string; child
   return (
     <div className="relative overflow-hidden rounded-[var(--r-lg)] border border-white/10 bg-navy-800 p-[22px] text-white shadow-[var(--shadow-md)]">
       <span className="absolute left-[12%] right-[45%] top-0 h-px bg-gradient-to-r from-transparent via-copper/70 to-transparent" />
-      <div className="mb-3.5 flex justify-between font-mono text-[10px] uppercase tracking-[0.18em] text-slate-400">
+      <div className="mb-3.5 flex justify-between font-mono text-[11px] uppercase tracking-[0.18em] text-slate-400">
         <span>{title}</span>
         <b className="font-medium text-copper">{badge}</b>
       </div>
@@ -68,7 +68,7 @@ const BENEFIT_ROWS = [
     kicker: "CAPTURE",
     title: "Capture every lead, from every direction",
     desc: "Forms, funnels, landing pages, QR codes, and quizzes — plus missed-call text-back so an unanswered ring becomes a conversation instead of a lost customer. Every entry point feeds one CRM record.",
-    href: "/features/lead-capture",
+    href: "/features/funnels",
     linkLabel: "Lead capture",
     reverse: false,
     visual: (
@@ -79,9 +79,9 @@ const BENEFIT_ROWS = [
               <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-copper-tint font-display text-[0.72rem] font-bold text-copper">{l.i}</span>
               <div>
                 <b className="block text-[0.83rem] font-semibold">{l.title}</b>
-                <small className="font-mono text-[9px] tracking-[0.06em] text-slate-400">{l.meta}</small>
+                <small className="font-mono text-[11px] tracking-[0.06em] text-slate-400">{l.meta}</small>
               </div>
-              <span className={`ml-auto rounded-[5px] px-[9px] py-[3px] font-mono text-[9px] ${l.hot ? "bg-green/10 text-green" : "bg-copper-tint text-copper"}`}>{l.st}</span>
+              <span className={`ml-auto rounded-[5px] px-[9px] py-[3px] font-mono text-[11px] ${l.hot ? "bg-green/10 text-green" : "bg-copper-tint text-copper"}`}>{l.st}</span>
             </div>
           ))}
         </div>
@@ -101,7 +101,7 @@ const BENEFIT_ROWS = [
         <div className="flex flex-col gap-2.5">
           {CONVERSE_MSGS.map((m, i) => (
             <div key={i} className={`flex items-start gap-2.5 ${m.me ? "flex-row-reverse" : ""}`}>
-              <span className={`grid h-[30px] w-[30px] shrink-0 place-items-center rounded-[9px] font-mono text-[10px] font-semibold ${TAG_TONE[m.tone]}`}>{m.tag}</span>
+              <span className={`grid h-[30px] w-[30px] shrink-0 place-items-center rounded-[9px] font-mono text-[11px] font-semibold ${TAG_TONE[m.tone]}`}>{m.tag}</span>
               <div className={`rounded-[4px_12px_12px_12px] border px-3 py-2.5 text-[0.82rem] ${m.me ? "border-copper/25 bg-copper-tint text-white [border-radius:12px_4px_12px_12px]" : "border-white/10 bg-white/[0.04] text-slate-300"}`}>
                 {m.text}
               </div>
@@ -126,7 +126,7 @@ const BENEFIT_ROWS = [
             <div key={it.title} className="flex items-center justify-between rounded-[var(--r-sm)] border border-white/10 bg-white/[0.04] px-3.5 py-[11px]">
               <div>
                 <b className="block text-[0.83rem] font-semibold">{it.title}</b>
-                <small className="font-mono text-[9px] text-slate-400">{it.meta}</small>
+                <small className="font-mono text-[11px] text-slate-400">{it.meta}</small>
               </div>
               <span className="font-mono text-[0.82rem] text-green">{it.state}</span>
             </div>
@@ -186,7 +186,7 @@ function FlowNode({
         <b className={`block font-display font-semibold ${small ? "text-[0.86rem]" : "text-[0.94rem]"}`}>{title}</b>
         <small className="text-[0.78rem] text-slate-400">{sub}</small>
       </div>
-      <span className="ml-auto shrink-0 rounded-[5px] border border-white/10 px-[9px] py-[3px] font-mono text-[9px] tracking-[0.14em] text-slate-400">
+      <span className="ml-auto shrink-0 rounded-[5px] border border-white/10 px-[9px] py-[3px] font-mono text-[11px] tracking-[0.14em] text-slate-400">
         {k}
       </span>
     </div>
@@ -199,25 +199,17 @@ function FlowDrop() {
 
 /* ---------- Feature grid ---------- */
 const FEATURES = [
-  { title: "Lead capture", desc: "Forms, surveys, quizzes, funnels, landing pages, and QR codes.", href: "/features/lead-capture" },
+  { title: "Lead capture", desc: "Forms, surveys, quizzes, funnels, landing pages, and QR codes.", href: "/features/funnels" },
   { title: "CRM & contacts", desc: "360° records with smart lists, tags, custom fields, and lead scoring.", href: "/features/crm" },
-  { title: "Sales pipelines", desc: "Drag-and-drop stages so you always know who's close to a yes.", href: "/features/pipelines" },
+  { title: "Sales pipelines", desc: "Drag-and-drop stages so you always know who's close to a yes.", href: "/features/crm" },
   { title: "Unified inbox", desc: "SMS, email, WhatsApp, IG/FB DMs, and webchat in one thread.", href: "/features/inbox" },
   { title: "Email & SMS marketing", desc: "Campaigns, broadcasts, and drips that write themselves.", href: "/features/marketing" },
   { title: "Automations & workflows", desc: "The connective tissue — triggers and actions across every pillar.", href: "/features/automations" },
   { title: "Reputation & reviews", desc: "Perfectly-timed requests plus AI-drafted responses.", href: "/features/reputation" },
-  { title: "Social planner", desc: "Plan, write, and schedule posts from one calendar.", href: "/features/social-planner" },
-  { title: "Missed-call text-back", desc: "Every unanswered ring gets an instant text.", href: "/features/text-back" },
+  { title: "Social planner", desc: "Plan, write, and schedule posts from one calendar.", href: "/ai/content" },
+  { title: "Missed-call text-back", desc: "Every unanswered ring gets an instant text.", href: "/ai/conversation" },
   { title: "AI agents", desc: "Conversation, Voice, and Content AI working leads 24/7.", href: "/ai" },
-  { title: "Ad & campaign tracking", desc: "See which ad or post produced each customer and dollar.", href: "/features/ad-tracking" },
-];
-
-/* ---------- Outcome stats ---------- */
-const STATS = [
-  { value: "+38%", label: "More leads captured" },
-  { value: "30s", label: "Median first response" },
-  { value: "+41", label: "Reviews per month" },
-  { value: "5.2h", label: "Saved every week" },
+  { title: "Ad & campaign tracking", desc: "See which ad or post produced each customer and dollar.", href: "/features/marketing" },
 ];
 
 export default function GrowPage() {
@@ -244,7 +236,7 @@ export default function GrowPage() {
               every time, and collect the five-star proof — while you do the actual work.
             </p>
             <div className="flex flex-wrap gap-3.5">
-              <Button size="lg" className="bg-copper font-semibold text-white hover:bg-copper/90">
+              <Button size="lg" className="bg-copper font-semibold text-white hover:bg-copper/90" render={<Link href="/onboarding?plan=free" />}>
                 Start free
               </Button>
               <Button size="lg" variant="outline" render={<Link href="#builder" />}>
@@ -275,7 +267,7 @@ export default function GrowPage() {
                   className="absolute left-[-28px] top-1/2 h-[9px] w-[9px] -translate-y-1/2 rounded-full bg-copper shadow-[0_0_10px_var(--copper-tint)]"
                 />
                 <div>
-                  <span className="mb-0.5 block font-mono text-[9.5px] tracking-[0.2em] text-copper">{r.stage}</span>
+                  <span className="mb-0.5 block font-mono text-[11px] tracking-[0.2em] text-copper">{r.stage}</span>
                   <b className="block font-display text-[0.92rem] font-semibold">{r.title}</b>
                   <small className="text-[0.76rem] text-slate-400">{r.sub}</small>
                 </div>
@@ -355,13 +347,13 @@ export default function GrowPage() {
 
             <div className="mt-6 grid grid-cols-1 gap-[22px] sm:grid-cols-2">
               <div className="flex flex-col">
-                <span className="mb-3 text-center font-mono text-[9.5px] tracking-[0.2em] text-green">YES — THEY REPLIED</span>
+                <span className="mb-3 text-center font-mono text-[11px] tracking-[0.2em] text-green">YES — THEY REPLIED</span>
                 <FlowNode small title="Send booking link" sub="They pick a slot; deposit collected" k="ACTION" />
                 <FlowDrop />
                 <FlowNode small title="Tag as customer → nurture list" sub="Reminders & review request take over" k="CRM" />
               </div>
               <div className="flex flex-col">
-                <span className="mb-3 text-center font-mono text-[9.5px] tracking-[0.2em] text-faint">NO — WENT QUIET</span>
+                <span className="mb-3 text-center font-mono text-[11px] tracking-[0.2em] text-faint">NO — WENT QUIET</span>
                 <FlowNode small title="Wait 1 day" sub="People are busy; the workflow isn't" k="DELAY" />
                 <FlowDrop />
                 <FlowNode small title="Friendly follow-up, day 2" sub={'"Still interested? Here\'s 10% off this week."'} k="ACTION" />
@@ -409,22 +401,6 @@ export default function GrowPage() {
         </div>
       </section>
 
-      {/* Outcome stats */}
-      <section className="sec-tight border-y border-line-soft bg-secondary">
-        <div className="wrap">
-          <StaggerGroup className="grid grid-cols-2 gap-5 text-center lg:grid-cols-4">
-            {STATS.map((s) => (
-              <div key={s.label} className="rounded-[var(--r-md)] border border-white/10 bg-navy-800 px-4 py-6">
-                <CountUp value={s.value} className="block font-mono text-[clamp(1.9rem,3.6vw,2.7rem)] font-semibold tracking-[-0.02em] text-white" />
-                <span className="mt-2 block font-mono text-[10.5px] uppercase tracking-[0.2em] text-slate-400">
-                  {s.label}
-                </span>
-              </div>
-            ))}
-          </StaggerGroup>
-        </div>
-      </section>
-
       {/* Final CTA */}
       <section className="relative overflow-hidden py-32 text-center">
         <span
@@ -440,7 +416,7 @@ export default function GrowPage() {
             Capture, converse, nurture, prove — and hand every booked lead straight to the SCHEDULE pillar.
           </p>
           <div className="flex flex-wrap justify-center gap-3.5">
-            <Button size="lg" className="bg-copper font-semibold text-white hover:bg-copper/90">
+            <Button size="lg" className="bg-copper font-semibold text-white hover:bg-copper/90" render={<Link href="/onboarding?plan=free" />}>
               Start free
             </Button>
             <Button size="lg" variant="outline" render={<Link href="/schedule" />}>

@@ -105,15 +105,6 @@ const clinics: IndustryData = {
     after:
       "After — Monday opens to a fully booked calendar; the team focuses on patient check-ins.",
   },
-  proof: {
-    stats: [
-      { num: "85%", label: "Calls handled without voicemail" },
-      { num: "-40%", label: "No-show rate reduction" },
-      { num: "0 mins", label: "Time spent on intake paperwork" },
-    ],
-    testimonial:
-      "“[Clinic administrator testimonial placeholder — space for a quote about after-hours call conversion and front desk efficiency.]”",
-  },
   faq: [
     {
       q: "What happens with urgent medical calls?",

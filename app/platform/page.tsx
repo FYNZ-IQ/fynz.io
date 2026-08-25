@@ -43,17 +43,17 @@ const PILLARS_DATA: Record<PillarId, Pillar> = {
     ctaText: "Explore the GROW hub →",
     thread: "Every GROW feature plugs into workflows — a new lead can be texted, scored, pipelined, and booked before you've finished your coffee.",
     features: [
-      { name: "Lead capture", desc: "Forms, surveys, quizzes, funnels, landing pages, and QR codes — every entry point feeds the same CRM.", link: "/features/lead-capture" },
+      { name: "Lead capture", desc: "Forms, surveys, quizzes, funnels, landing pages, and QR codes — every entry point feeds the same CRM.", link: "/features/funnels" },
       { name: "CRM & contacts", desc: "360° customer records with smart lists, tags, custom fields, and lead scoring.", link: "/features/crm" },
-      { name: "Sales pipelines", desc: "Drag-and-drop deal stages so you always know who's close to a yes.", link: "/features/pipelines" },
+      { name: "Sales pipelines", desc: "Drag-and-drop deal stages so you always know who's close to a yes.", link: "/features/crm" },
       { name: "Unified inbox", desc: "SMS, email, WhatsApp, Instagram & Facebook DMs, and webchat in one thread per customer.", link: "/features/inbox" },
       { name: "Email & SMS marketing", desc: "Campaigns, broadcasts, and drip sequences that write themselves with Content AI.", link: "/features/marketing" },
       { name: "Automations & workflows", desc: "Set the trigger once — follow-ups, nudges, and hand-offs run forever.", link: "/features/automations" },
       { name: "Reputation & reviews", desc: "Review requests at the perfect moment, plus drafted responses to every one.", link: "/features/reputation" },
-      { name: "Social planner", desc: "Plan, write, and schedule posts across your profiles from one calendar.", link: "/features/social-planner" },
-      { name: "Missed-call text-back", desc: "Every unanswered call gets an instant text — before the caller tries a competitor.", link: "/features/text-back" },
+      { name: "Social planner", desc: "Plan, write, and schedule posts across your profiles from one calendar.", link: "/ai/content" },
+      { name: "Missed-call text-back", desc: "Every unanswered call gets an instant text — before the caller tries a competitor.", link: "/ai/conversation" },
       { name: "AI agents", desc: "Conversation, Voice, and Content AI working leads around the clock.", link: "/ai" },
-      { name: "Ad & campaign tracking", desc: "See which ad, post, or referral actually produced each customer and dollar.", link: "/features/ad-tracking" }
+      { name: "Ad & campaign tracking", desc: "See which ad, post, or referral actually produced each customer and dollar.", link: "/features/marketing" }
     ]
   },
   schedule: {
@@ -73,8 +73,8 @@ const PILLARS_DATA: Record<PillarId, Pillar> = {
       { name: "Team & staff management", desc: "Individual schedules, services, commissions, and permissions per team member.", link: "/features/team" },
       { name: "Customer management", desc: "Visit history, notes, preferences, and no-show flags on every profile.", link: "/features/customers" },
       { name: "Reminders & no-show reduction", desc: "Automatic SMS + email reminders that keep chairs and slots full.", link: "/features/reminders" },
-      { name: "Booking channels", desc: "Instagram, website embed, QR, WhatsApp, and search — one availability everywhere.", link: "/features/booking-channels" },
-      { name: "Multi-location", desc: "Separate calendars, staff, and services per location under one account.", link: "/features/multi-location" }
+      { name: "Booking channels", desc: "Instagram, website embed, QR, WhatsApp, and search — one availability everywhere.", link: "/schedule" },
+      { name: "Multi-location", desc: "Separate calendars, staff, and services per location under one account.", link: "/platform" }
     ]
   },
   shop: {
@@ -89,10 +89,10 @@ const PILLARS_DATA: Record<PillarId, Pillar> = {
     ctaText: "Explore the SHOP hub →",
     thread: "An unpaid invoice nudges itself. A new member gets onboarded automatically. Money stops waiting on your to-do list.",
     features: [
-      { name: "Online store & products", desc: "Sell products, gift cards, and service packages from your own storefront.", link: "/features/store" },
+      { name: "Online store & products", desc: "Sell products, gift cards, and service packages from your own storefront.", link: "/features/payments" },
       { name: "Payments & invoicing", desc: "Cards, text-to-pay, estimates, proposals, and e-signatures — via Stripe, PayPal, and Square.", link: "/features/payments" },
       { name: "Memberships & courses", desc: "Recurring plans and paid course content, delivered and billed automatically.", link: "/features/memberships" },
-      { name: "Communities", desc: "A private space for your members — included with your plan, not another tool.", link: "/features/communities" }
+      { name: "Communities", desc: "A private space for your members — included with your plan, not another tool.", link: "/features/memberships" }
     ]
   },
   ops: {
@@ -108,7 +108,7 @@ const PILLARS_DATA: Record<PillarId, Pillar> = {
     thread: "OPS doesn't need data entry: every booking, sale, and payment from the other pillars lands here on its own.",
     features: [
       { name: "Reporting & dashboards", desc: "Revenue, bookings, and marketing performance on one screen you'll actually check.", link: "/features/reporting" },
-      { name: "Team roles & permissions", desc: "Give staff exactly the access they need — and nothing they don't.", link: "/features/roles" },
+      { name: "Team roles & permissions", desc: "Give staff exactly the access they need — and nothing they don't.", link: "/features/team" },
       { name: "Accounting & bookkeeping", desc: "Income and expenses reconciled where the money already lives.", soon: true },
       { name: "Tax", desc: "Know what you owe before tax season does.", soon: true },
       { name: "Multi-location rollups", desc: "Compare and combine numbers across every location.", soon: true }
@@ -169,7 +169,7 @@ export default function PlatformPage() {
           <p className="text-muted text-lg max-w-2xl mx-auto leading-relaxed">
             From the first lead to the final invoice, FYNZ runs it — every feature below ships connected, sharing one customer record and one login.
           </p>
-          <div className="flex items-center gap-6 justify-center mt-8 font-mono text-[10px] tracking-wider text-faint">
+          <div className="flex items-center gap-6 justify-center mt-8 font-mono text-[11px] tracking-wider text-faint">
             <span><b>27</b> FEATURES</span>
             <span><b>4</b> PILLARS</span>
             <span><b>1</b> LOGIN</span>
@@ -201,13 +201,13 @@ export default function PlatformPage() {
                 />
                 <span className="flex flex-col">
                   <span className={cn(
-                    "font-display font-extrabold text-xs md:text-sm tracking-wider flex items-baseline gap-1.5 text-white",
+                    "font-display font-extrabold text-sm md:text-sm tracking-wider flex items-baseline gap-1.5 text-white",
                     isSelected ? "text-copper" : "text-white"
                   )}>
                     {p.name}
                     <span className="font-mono text-[8px] text-slate-400 font-normal">{p.count}</span>
                   </span>
-                  <span className="hidden md:block font-mono text-[9px] text-slate-400 mt-1 truncate">{p.job}</span>
+                  <span className="hidden md:block font-mono text-[11px] text-slate-400 mt-1 truncate">{p.job}</span>
                 </span>
               </button>
             );
@@ -236,10 +236,10 @@ export default function PlatformPage() {
                       </React.Fragment>
                     ))}
                   </h2>
-                  <p className="text-muted text-sm md:text-base leading-relaxed">{p.desc}</p>
+                  <p className="text-muted text-base md:text-base leading-relaxed">{p.desc}</p>
                 </div>
                 <div className="flex flex-col items-start lg:items-end gap-3 shrink-0">
-                  <span className="font-mono text-[9px] tracking-widest text-faint">
+                  <span className="font-mono text-[11px] tracking-widest text-faint">
                     <b className="text-copper font-semibold">{p.features.length}</b> FEATURES IN THIS PILLAR
                   </span>
                   <Button variant="ghost" render={<Link href={p.ctaLink} />}>
@@ -262,7 +262,7 @@ export default function PlatformPage() {
                             {feat.name}
                             <span className="font-mono text-[7px] tracking-wider bg-white/[0.04] text-slate-400 px-1.5 py-0.5 rounded border border-white/10">COMING SOON</span>
                           </b>
-                          <p className="text-slate-300 text-xs leading-relaxed mt-2">{feat.desc}</p>
+                          <p className="text-slate-300 text-base leading-relaxed mt-2">{feat.desc}</p>
                         </div>
                       </div>
                     );
@@ -278,9 +278,9 @@ export default function PlatformPage() {
                         <b className="font-display font-bold text-sm text-white group-hover:text-copper transition-colors duration-200">
                           {feat.name}
                         </b>
-                        <p className="text-slate-300 text-xs leading-relaxed mt-2">{feat.desc}</p>
+                        <p className="text-slate-300 text-base leading-relaxed mt-2">{feat.desc}</p>
                       </div>
-                      <span className="font-mono text-[9px] tracking-wider text-copper uppercase mt-4 block">
+                      <span className="font-mono text-[11px] tracking-wider text-copper uppercase mt-4 block">
                         LEARN MORE →
                       </span>
                     </Link>
@@ -289,7 +289,7 @@ export default function PlatformPage() {
               </StaggerGroup>
 
               {/* Thread Banner */}
-              <div className="border border-dashed border-copper/30 bg-navy-800 rounded-[var(--r-md)] p-4 text-xs md:text-sm text-slate-300 flex gap-3 items-start md:items-center">
+              <div className="border border-dashed border-copper/30 bg-navy-800 rounded-[var(--r-md)] p-4 text-base md:text-base text-slate-300 flex gap-3 items-start md:items-center">
                 <Chip className="bg-copper/10 border-copper/30 text-copper uppercase">CONNECTION</Chip>
                 <span>{p.thread}</span>
               </div>
@@ -306,13 +306,13 @@ export default function PlatformPage() {
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4 text-white">
               Simplify your stack
             </h2>
-            <p className="text-slate-400 text-sm leading-relaxed max-w-xl mx-auto">
+            <p className="text-slate-400 text-base leading-relaxed max-w-xl mx-auto">
               Replace multiple disconnected subscriptions with one cohesive system that works together.
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto">
             {REPLACES_ITEMS.map((item, idx) => (
-              <span key={idx} className="font-mono text-xs border border-white/10 px-3 py-1.5 rounded-full text-slate-400 select-none hover:border-white/20 transition-colors">
+              <span key={idx} className="font-mono text-base border border-white/10 px-3 py-1.5 rounded-full text-slate-400 select-none hover:border-white/20 transition-colors">
                 {item}
               </span>
             ))}
@@ -331,7 +331,7 @@ export default function PlatformPage() {
             Start free and turn features on as you grow — no migrations, no duct tape, no eleventh subscription.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold">
+            <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/onboarding?plan=free" />}>
               Start free
             </Button>
             <Button size="lg" variant="outline" render={<Link href="/pricing" />}>

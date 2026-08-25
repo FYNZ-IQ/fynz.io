@@ -104,15 +104,6 @@ const gyms: IndustryData = {
     after:
       "After — every trial is on an automated 7-day journey; conversions double without anyone picking up a phone.",
   },
-  proof: {
-    stats: [
-      { num: "2x", label: "Trial-to-member conversion" },
-      { num: "15+", label: "Members saved by win-back monthly" },
-      { num: "100%", label: "Automated recurring billing" },
-    ],
-    testimonial:
-      "“[Gym owner testimonial placeholder — space for a quote about trial conversion rates and membership billing ease.]”",
-  },
   faq: [
     {
       q: "Does it handle failed membership payments?",

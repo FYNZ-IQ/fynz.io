@@ -105,15 +105,6 @@ const saas: IndustryData = {
     after:
       "After — every trial user gets a tailored onboarding path; conversion doubles and Ask AI highlights wins.",
   },
-  proof: {
-    stats: [
-      { num: "18%", label: "Trial-to-paid conversion rate" },
-      { num: "+34%", label: "User activation rate lift" },
-      { num: "1 place", label: "For all emails, SMS, and lead notes" },
-    ],
-    testimonial:
-      "“[SaaS founder testimonial placeholder — space for a quote about user activation improvements and trial conversion rates.]”",
-  },
   faq: [
     {
       q: "Does this replace our product analytics?",

@@ -10,13 +10,6 @@ import { CinematicProvider, CineCanvas, Grain, Parallax, ProgressRail } from "@/
 import { AiAgentVisual, ChannelVisual, IndustryVisual, VisualStyles } from "@/components/cinematic/visuals";
 
 
-const PROOF_BADGES = [
-  { name: "CAPTERRA", rating: "4.9 / 5" },
-  { name: "G2", rating: "4.8 / 5" },
-  { name: "TRUSTPILOT", rating: "4.9 / 5" },
-  { name: "GETAPP", rating: "4.8 / 5" }
-];
-
 const BROW_CARDS = [
   {
     chip: "GROW",
@@ -160,7 +153,7 @@ const BROW_CARDS = [
     visual: (
       <div className="panel bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] p-4 relative w-full select-none" aria-hidden="true">
         <div className="p-title font-mono text-[9px] tracking-wider text-slate-400 border-b border-white/10 pb-1.5 mb-2.5">
-          WORKFLOW · "NEW LEAD RESCUE" <b className="text-copper">ACTIVE</b>
+          WORKFLOW · &quot;NEW LEAD RESCUE&quot; <b className="text-copper">ACTIVE</b>
         </div>
         <div className="flex flex-col gap-1 items-center text-[0.72rem]">
           <div className="px-2 py-1 bg-navy-750 border border-white/10 rounded w-full text-center">
@@ -193,7 +186,7 @@ const BROW_CARDS = [
         <div className="space-y-2">
           <div className="bg-navy-750/70 border border-white/10 p-2.5 rounded text-[0.75rem]">
             <div className="text-copper text-[10px] mb-0.5">★★★★★</div>
-            <b className="font-semibold block text-white">"Best cut I've had in years."</b>
+            <b className="font-semibold block text-white">&quot;Best cut I&apos;ve had in years.&quot;</b>
             <span className="font-mono text-[7.5px] text-slate-400 block mt-1">Google · Reviews AI drafted a reply</span>
           </div>
         </div>
@@ -340,34 +333,6 @@ const INDUSTRIES = [
   { title: "Home services", desc: "Estimates, dispatch, invoicing", link: "/industries/home-services" }
 ];
 
-const STATS = [
-  { num: "2,000+", label: "Businesses served" },
-  { num: "1.4M+", label: "Appointments booked" },
-  { num: "8.2M+", label: "Messages automated" },
-  { num: "$46M+", label: "Processed for owners" }
-];
-
-const TESTIMONIALS = [
-  {
-    stars: "★★★★★",
-    quote: "\"I cancelled four subscriptions the month we switched. The missed-call text-back alone books us two or three extra clients a week.\"",
-    author: "Danielle L.",
-    biz: "MAPLE & MAIN SALON · TORONTO, ON"
-  },
-  {
-    stars: "★★★★★",
-    quote: "\"Voice AI answers when we're mid-service. Customers think we hired a receptionist. We didn't — and our no-show rate is basically zero.\"",
-    author: "Marcus P.",
-    biz: "IRONWORKS FITNESS · AUSTIN, TX"
-  },
-  {
-    stars: "★★★★★",
-    quote: "\"Estimates, invoices, review requests — it all just happens now. I run a six-person crew from my phone.\"",
-    author: "Rachel C.",
-    biz: "NORTHPOINT HOME SERVICES · DENVER, CO"
-  }
-];
-
 export default function Home() {
   return (
     <CinematicProvider>
@@ -404,13 +369,13 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-4">
               <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/pricing" />}>
-                Start 14-day trial
+                Start free
               </Button>
-              <Button size="lg" variant="outline" render={<Link href="#demo" />}>
+              <Button size="lg" variant="outline" render={<Link href="/demo" />}>
                 Book a demo
               </Button>
             </div>
-            <span className="font-mono text-[9px] tracking-widest text-faint uppercase">FREE PLAN — NO CARD · TRIALS SET UP FOR YOU IN 48H</span>
+            <span className="font-mono text-[9px] tracking-widest text-faint uppercase">FREE FOREVER — NO CARD · MONTH-TO-MONTH · LIVE IN 48 HOURS</span>
           </div>
 
           {/* Hero Dashboard Preview */}
@@ -485,29 +450,6 @@ export default function Home() {
         <span className="hidden lg:block absolute bottom-6 left-1/2 -translate-x-1/2 pointer-events-none">
           <span className="block font-mono text-[11px] tracking-[0.35em] text-faint animate-bounce">SCROLL</span>
         </span>
-        </div>
-      </section>
-
-      {/* Proof Strip */}
-      <section className="border-b border-line-soft">
-        <div className="wrap max-w-7xl mx-auto px-6 py-8 border-t border-line-soft/30">
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
-            <div className="text-center lg:text-left">
-              <b className="text-ink font-display text-lg block">2,000+ businesses</b>
-              <span className="text-muted text-sm">run on FYNZ across the US &amp; Canada</span>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-              {PROOF_BADGES.map((badge, idx) => (
-                <div key={idx} className="flex flex-col items-center border border-white/10 px-4 py-2 rounded bg-navy-900/50 text-white">
-                  <span className="text-copper text-xs mb-0.5">★★★★★</span>
-                  <div className="text-center">
-                    <b className="text-white text-xs block leading-none">{badge.rating}</b>
-                    <small className="font-mono text-[10px] text-slate-400 tracking-wider uppercase mt-1 block">{badge.name}</small>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
@@ -630,7 +572,7 @@ export default function Home() {
                 Every tool above — connected out of the box, sharing one customer record.
               </p>
               <Link href="/pricing" className="font-mono text-xs tracking-widest text-copper font-bold uppercase hover:underline">
-                FROM $97/MO · SET UP FOR YOU · SEE PRICING →
+                FROM $97 USD/MO · SET UP FOR YOU · SEE PRICING →
               </Link>
             </div>
           </div>
@@ -743,7 +685,7 @@ export default function Home() {
       <section id="industries" className="sec py-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <div className="max-w-2xl mb-16">
-            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Who's it for</span>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Who&apos;s it for</span>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
               Built for <span className="text-copper">your</span> business
             </h2>
@@ -776,47 +718,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Band */}
-      <section className="py-12 bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-b border-line-soft text-center select-none">
-        <div className="wrap max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {STATS.map((stat, idx) => (
-            <div key={idx} className="flex flex-col items-center">
-              <span className="font-display text-3xl md:text-4xl font-extrabold text-copper block mb-1">{stat.num}</span>
-              <span className="font-mono text-[9px] tracking-widest dark:text-slate-300 text-slate-600  uppercase">{stat.label}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="sec py-24 border-b border-line-soft">
-        <div className="wrap max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Owners on FYNZ</span>
-            <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight">
-              Less juggling. More <span className="text-copper">business</span>.
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {TESTIMONIALS.map((t, idx) => (
-              <div key={idx} className="bg-white dark:bg-navy-800 text-slate-900 dark:text-white border border-slate-200 shadow-sm dark:border-white/5 dark:shadow-none p-6 rounded-[var(--r-md)] flex flex-col justify-between">
-                <div>
-                  <span className="text-copper text-xs block mb-4">{t.stars}</span>
-                  <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6 italic">{t.quote}</p>
-                </div>
-                <div className="flex items-center gap-3 border-t border-slate-100 dark:border-white/5 pt-4 mt-auto">
-                  <span className="w-8 h-8 rounded-full bg-copper/10 text-copper font-bold text-xs flex items-center justify-center shrink-0">
-                    {t.author.substring(0, 2)}
-                  </span>
-                  <div>
-                    <b className="font-display font-bold text-xs block text-slate-900 dark:text-white">{t.author}</b>
-                    <small className="font-mono text-[8px] text-slate-500 dark:text-slate-400 block uppercase mt-0.5">{t.biz}</small>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+      {/* Value Band */}
+      <section className="py-16 bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-b border-line-soft text-center">
+        <div className="wrap max-w-3xl mx-auto px-6">
+          <h2 className="font-display font-extrabold text-2xl md:text-3xl tracking-tight mb-3">
+            Less juggling. More <span className="text-copper">business</span>.
+          </h2>
+          <p className="text-slate-600 dark:text-slate-400 text-sm md:text-base leading-relaxed">
+            One platform for the whole customer journey — capture the lead, book the job, take the payment, win the review. Every part talks to every other part, so nothing slips.
+          </p>
         </div>
       </section>
 
@@ -828,16 +738,16 @@ export default function Home() {
             Your business, <span className="text-copper">handled</span>.
           </h2>
           <p className="text-muted text-lg mb-4 max-w-xl mx-auto">
-            Start your 14-day trial — our team sets everything up for you within 48 hours.
+            Start free — or book a demo and our team has you live within 48 hours.
           </p>
           <p className="font-mono text-[11px] tracking-wide text-copper uppercase mb-8">
-            Real humans set you up and run your campaigns — included in every paid plan
+            Month-to-month · 30-day money-back guarantee · cancel anytime
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/pricing" />}>
-              Start 14-day trial
+              Start free
             </Button>
-            <Button size="lg" variant="outline" render={<Link href="#demo" />}>
+            <Button size="lg" variant="outline" render={<Link href="/demo" />}>
               Book a demo
             </Button>
           </div>

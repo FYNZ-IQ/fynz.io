@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 export interface CountUpProps {
-  /** The final display string, e.g. "+38%", "$46M+", "4.9", "1,240", "10 min". */
+  /** The final display string, e.g. "+38%", "4.9", "1,240", "10 min". */
   value: string;
   /** Animation length in seconds. */
   duration?: number;

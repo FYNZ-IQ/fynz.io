@@ -100,20 +100,11 @@ const coaching: IndustryData = {
     ],
   },
   beforeAfter: {
-    title: "200 downloads, two very different outcomes",
+    title: "The same download list, two very different outcomes",
     before:
-      "Without FYNZ — 200 freebie downloads, 2 discovery calls. The rest of the list went cold and you never heard from them again.",
+      "Without FYNZ — freebie downloads pile up, a handful book a call, and the rest of the list goes cold. You never hear from them again.",
     after:
-      "With FYNZ — the nurture sequence books 15 calls from the same 200. (Placeholder figures — replace with your data.)",
-  },
-  proof: {
-    stats: [
-      { num: "7.5%", label: "Download → call conversion rate (placeholder)" },
-      { num: "$0", label: "Manual follow-up time spent per lead" },
-      { num: "1 place", label: "For programs, billing, and content" },
-    ],
-    testimonial:
-      "“[Coach testimonial placeholder — space for a coaching or consulting client quote about FYNZ's impact on their call bookings and program revenue.]”",
+      "With FYNZ — every download enters a nurture sequence that follows up automatically and keeps offering your booking link, so warm leads book calls while you coach.",
   },
   faq: [
     {

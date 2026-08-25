@@ -104,15 +104,6 @@ const plumbing: IndustryData = {
     after:
       "After — both callers get a text in seconds; both are on tomorrow's schedule.",
   },
-  proof: {
-    stats: [
-      { num: "28", label: "Jobs saved monthly from missed calls" },
-      { num: "+45", label: "Google reviews in 90 days" },
-      { num: "100%", label: "Automated quote follow-up" },
-    ],
-    testimonial:
-      "“[Plumber owner testimonial placeholder — space for a quote about missed call saves and auto-quote follow-up wins.]”",
-  },
   faq: [
     {
       q: "What about emergency plumbing calls?",

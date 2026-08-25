@@ -108,15 +108,6 @@ const homeServices: IndustryData = {
     after:
       "After — both callers get a text back in seconds; both are on Thursday's schedule.",
   },
-  proof: {
-    stats: [
-      { num: "28", label: "Jobs saved monthly" },
-      { num: "+38%", label: "Quote close rate" },
-      { num: "0 hrs", label: "Time chasing payments" },
-    ],
-    testimonial:
-      "“[Home Services manager testimonial placeholder — space for a quote about route density, automated scheduling, and text-back saves.]”",
-  },
   faq: [
     {
       q: "What about emergency calls?",

@@ -105,15 +105,6 @@ const therapists: IndustryData = {
     after:
       "After — the reschedule offer goes out instantly; they're back in Thursday's 3 PM, plan intact.",
   },
-  proof: {
-    stats: [
-      { num: "+30%", label: "Plan completion lift" },
-      { num: "92%", label: "Cancellations rebooked" },
-      { num: "0 mins", label: "Manual email follow-up time" },
-    ],
-    testimonial:
-      "“[Therapy practitioner testimonial placeholder — space for a quote about plan adherence and client recovery tracking.]”",
-  },
   faq: [
     {
       q: "Can follow-ups be fully manual-approve?",

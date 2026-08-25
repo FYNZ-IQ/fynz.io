@@ -105,15 +105,6 @@ const tutoring: IndustryData = {
     after:
       "After — all three answered within a minute; two new trial sessions locked on the calendar.",
   },
-  proof: {
-    stats: [
-      { num: "85%", label: "Inquiry-to-trial conversion" },
-      { num: "98%", label: "Session attendance rate" },
-      { num: "100%", label: "Prepaid package collection" },
-    ],
-    testimonial:
-      "“[Tutor testimonial placeholder — space for a quote about parent communication clarity and package booking ease.]”",
-  },
   faq: [
     {
       q: "Can reminders go to the parent instead of the student?",

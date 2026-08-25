@@ -105,19 +105,10 @@ const accounting: IndustryData = {
     after:
       "After — the phone line is clear, the folders chase themselves, and you prepare returns instead.",
   },
-  proof: {
-    stats: [
-      { num: "2.4 days", label: "Document turnaround time" },
-      { num: "85%", label: "Calls handled by AI assistant" },
-      { num: "100%", label: "Pre-tax season prep readiness" },
-    ],
-    testimonial:
-      "“[CPA testimonial placeholder — space for a quote about tax season call handling and automated document collections.]”",
-  },
   faq: [
     {
       q: "Can it handle both US and Canadian clients?",
-      a: "Yes — USD/CAD billing and North American phone configurations are fully native.",
+      a: "Yes — you can invoice your own clients in USD or CAD through Stripe, PayPal, or Square, and North American phone configurations are fully native.",
     },
     {
       q: "How secure is document upload?",

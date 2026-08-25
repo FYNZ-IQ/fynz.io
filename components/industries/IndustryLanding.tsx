@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ScrollReveal, StaggerGroup, HoverFloat, CountUp } from "@/components/animations";
+import { ScrollReveal, StaggerGroup, HoverFloat } from "@/components/animations";
 import { Chip } from "@/components/shared";
 import {
   Accordion,
@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 import type { IndustryData } from "@/lib/industries/types";
 
 export function IndustryLanding({ data }: { data: IndustryData }) {
-  const { hero, pain, benefits, demo, beforeAfter, proof, faq } = data;
+  const { hero, pain, benefits, demo, beforeAfter, faq } = data;
 
   return (
     <>
@@ -31,14 +31,18 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
             </h1>
             <p className="lede text-lg mb-9">{hero.subhead}</p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="btn-copper rounded-full h-[52px] px-7 text-base">
+              <Button
+                size="lg"
+                className="btn-copper rounded-full h-[52px] px-7 text-base"
+                render={<Link href={`/onboarding?plan=free&industry=${data.slug}`} />}
+              >
                 Start free
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="btn-ghost rounded-full h-[52px] px-7 text-base"
-                render={<Link href="/pricing" />}
+                render={<Link href="/demo" />}
               >
                 Book demo
               </Button>
@@ -214,34 +218,6 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
         </div>
       </section>
 
-      {/* Proof */}
-      <section className="sec bg-secondary/50">
-        <div className="wrap">
-          <ScrollReveal className="sec-head">
-            <span className="eyebrow eyebrow-line mb-4">Proven impact</span>
-            <h2 className="font-display font-bold text-3xl md:text-[2.4rem] leading-tight mt-3">
-              Outcome metrics
-            </h2>
-          </ScrollReveal>
-          <StaggerGroup className="grid sm:grid-cols-3 gap-6">
-            {proof.stats.map((stat, i) => (
-              <div
-                key={i}
-                className="text-center rounded-[var(--r-md)] border border-white/10 bg-navy-800 p-8"
-              >
-                <CountUp value={stat.num} className="block font-display font-extrabold text-4xl text-copper" />
-                <div className="text-sm text-slate-300 mt-1.5">{stat.label}</div>
-              </div>
-            ))}
-          </StaggerGroup>
-          <ScrollReveal>
-            <blockquote className="mt-6 rounded-[var(--r-lg)] border border-white/10 bg-navy-800 p-8 text-center italic text-slate-300">
-              {proof.testimonial}
-            </blockquote>
-          </ScrollReveal>
-        </div>
-      </section>
-
       {/* FAQ */}
       <section className="sec">
         <div className="wrap max-w-[760px] mx-auto">
@@ -278,17 +254,21 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
               Ready to transform your business with FYNZ?
             </h2>
             <p className="text-white/60 max-w-xl mx-auto mb-8">
-              Get started with a 14-day free trial. No credit card required.
+              Start free — no credit card required. Month-to-month, 30-day money-back guarantee.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="btn-copper rounded-full h-[52px] px-7 text-base">
+              <Button
+                size="lg"
+                className="btn-copper rounded-full h-[52px] px-7 text-base"
+                render={<Link href={`/onboarding?plan=free&industry=${data.slug}`} />}
+              >
                 Start free today
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="rounded-full h-[52px] px-7 text-base border-white/25 text-white hover:bg-white/10"
-                render={<Link href="/pricing" />}
+                render={<Link href="/demo" />}
               >
                 Book a demo
               </Button>
