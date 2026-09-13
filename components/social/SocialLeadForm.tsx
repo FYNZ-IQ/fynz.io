@@ -28,9 +28,9 @@ type Props = {
 };
 
 const inputClass =
-  "w-full rounded-lg border-2 border-navy-deep/20 bg-white px-4 py-3 text-[18px] text-navy-deep outline-none placeholder:text-navy-deep/45 focus:border-copper focus-visible:ring-4 focus-visible:ring-copper/25";
+  "w-full rounded-xl border-2 border-navy-deep/15 bg-white px-4 py-3 text-[18px] text-navy-deep outline-none transition-[border-color,box-shadow] duration-300 placeholder:text-navy-deep/40 focus:border-copper focus:shadow-[0_0_0_4px_rgba(200,137,90,0.25)]";
 
-const labelClass = "block text-[16px] font-bold text-navy-deep mb-1.5";
+const labelClass = "block text-[15px] font-display text-navy-deep mb-1.5";
 
 export function SocialLeadForm({ industryDefault, replyWindow, page }: Props) {
   const uid = useId();
@@ -120,10 +120,10 @@ export function SocialLeadForm({ industryDefault, replyWindow, page }: Props) {
       <div
         role="status"
         aria-live="polite"
-        className="rounded-2xl bg-white border-2 border-copper p-6 md:p-8"
+        className="rounded-2xl bg-white border-2 border-copper p-6 md:p-8 demo-in"
       >
-        <p className="text-[14px] font-bold uppercase tracking-[0.18em] text-copper mb-3">Request received</p>
-        <h3 className="text-2xl md:text-3xl font-bold leading-tight mb-4">
+        <p className="text-[14px] uppercase tracking-[0.18em] text-copper mb-3">Request received</p>
+        <h3 className="text-2xl md:text-3xl leading-tight mb-4">
           Here&rsquo;s what happens next.
         </h3>
         <ol className="list-decimal pl-6 space-y-3 text-[18px]">
@@ -299,9 +299,10 @@ export function SocialLeadForm({ industryDefault, replyWindow, page }: Props) {
           type="submit"
           disabled={!consent || status === "submitting"}
           aria-disabled={!consent || status === "submitting"}
-          className="inline-flex w-full md:w-auto items-center justify-center rounded-lg bg-copper px-7 py-4 text-[18px] font-bold text-navy-deep hover:bg-copper-light focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-copper/40 disabled:cursor-not-allowed disabled:opacity-50"
+          className="btn-copper w-full md:w-auto"
         >
           {status === "submitting" ? "Sending…" : "Send me four free posts"}
+          <span className="arrow" aria-hidden="true">→</span>
         </button>
         {!consent && (
           <p className="text-[15px] text-navy-deep/70">Tick the consent box to send this request.</p>

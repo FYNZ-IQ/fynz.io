@@ -1,7 +1,7 @@
 /*
  * Stylesheet for the standalone FYNZ Social landing page (app/(social)).
- * Deliberately separate from globals.css: no Google Fonts import, no theme
- * toggling, one font family at two weights, fixed brand palette.
+ * Separate from globals.css: no Google Fonts import, no theme toggling,
+ * two web-font weights, fixed brand palette. Dark-first.
  */
 /* Only scan this route's own sources so the CSS bundle stays small. */
 @import "tailwindcss" source(none);
@@ -12,23 +12,26 @@
 @theme {
   --color-navy-deep: #0D2154;
   --color-navy-mid: #1A3375;
+  --color-navy-ink: #081640; /* derived: one step deeper than Navy Deep, for depth */
   --color-copper: #C8895A;
   --color-copper-light: #E4A87A;
   --color-warm-white: #F5F0EB;
 
   --font-sans: var(--font-social), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--font-social-display), var(--font-social), system-ui, sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @layer base {
   html {
-    color-scheme: light;
-    scroll-behavior: smooth;
+    color-scheme: dark;
     -webkit-text-size-adjust: 100%;
   }
 
   body {
-    background: var(--color-warm-white);
-    color: var(--color-navy-deep);
+    background: var(--color-navy-deep);
+    color: var(--color-warm-white);
     font-family: var(--font-sans);
     font-size: 18px;
     line-height: 1.6;
@@ -36,36 +39,135 @@
     overflow-x: hidden;
   }
 
-  img,
-  svg {
-    display: block;
-    max-width: 100%;
+  h1, h2, h3, .display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
   }
 
-  button:not(:disabled) {
-    cursor: pointer;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
-  }
+  img, svg { display: block; max-width: 100%; }
+  button:not(:disabled) { cursor: pointer; }
+  ::selection { background: var(--color-copper); color: var(--color-navy-deep); }
 }
 
 @utility social-wrap {
-  max-width: 1120px;
+  max-width: 1160px;
   margin-inline: auto;
   padding-inline: 20px;
-  @media (min-width: 768px) {
-    padding-inline: 32px;
-  }
+  @media (min-width: 768px) { padding-inline: 40px; }
 }
 
-/* Native accordion: hide the default marker, animate the chevron. */
-@utility faq-summary {
-  list-style: none;
-  &::-webkit-details-marker {
-    display: none;
+@utility font-display {
+  font-family: var(--font-display);
+}
+
+/* Elements that animate in start hidden only when JS is running and motion is allowed. */
+html.has-js:not(.reduced) [data-reveal],
+html.has-js:not(.reduced) [data-reveal-stagger] > *,
+html.has-js:not(.reduced) [data-hero-in] {
+  opacity: 0;
+}
+
+/* --- Buttons ------------------------------------------------------------ */
+@utility btn-copper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 12px;
+  background: var(--color-copper);
+  color: var(--color-navy-deep);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+  padding: 16px 26px;
+  overflow: hidden;
+  transition: transform 0.35s var(--ease-out-expo), background-color 0.25s ease, box-shadow 0.35s var(--ease-out-expo);
+  box-shadow: 0 0 0 0 rgba(200, 137, 90, 0);
+  & > .arrow {
+    display: inline-block;
+    transition: transform 0.35s var(--ease-out-expo);
   }
+  &:hover {
+    background: var(--color-copper-light);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px -12px rgba(200, 137, 90, 0.6);
+  }
+  &:hover > .arrow { transform: translateX(4px); }
+  &:active { transform: translateY(0); }
+  &:focus-visible { outline: 3px solid var(--color-copper-light); outline-offset: 3px; }
+  &:disabled { opacity: 0.45; cursor: not-allowed; transform: none; box-shadow: none; }
+}
+
+/* --- Hero demo ---------------------------------------------------------- */
+@keyframes demo-pop {
+  from { opacity: 0; transform: translateY(14px) scale(0.92); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes demo-dot {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+@keyframes demo-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(200, 137, 90, 0.55); }
+  100% { box-shadow: 0 0 0 18px rgba(200, 137, 90, 0); }
+}
+@keyframes demo-caret { 50% { opacity: 0; } }
+@keyframes demo-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes demo-line {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.demo-in { animation: demo-pop 0.55s var(--ease-out-expo) both; }
+.demo-dot { animation: demo-dot 1s ease-in-out infinite; }
+.demo-dot:nth-child(2) { animation-delay: 0.15s; }
+.demo-dot:nth-child(3) { animation-delay: 0.3s; }
+.demo-pulse { animation: demo-pulse 1.1s ease-out infinite; }
+.demo-caret::after { content: ""; display: inline-block; width: 2px; height: 1em; background: currentColor; margin-left: 2px; vertical-align: -0.15em; animation: demo-caret 0.8s steps(1) infinite; }
+.demo-float { animation: demo-float 6s ease-in-out infinite; }
+.demo-line { transform-origin: left center; animation: demo-line 0.6s var(--ease-out-expo) both; }
+
+/* --- Marquee ------------------------------------------------------------ */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
+/* --- Accordion ---------------------------------------------------------- */
+.acc-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s var(--ease-out-expo);
+}
+.acc-panel[data-open="true"] { grid-template-rows: 1fr; }
+.acc-panel > div { overflow: hidden; }
+
+/* --- Checklist draw ----------------------------------------------------- */
+.check-path {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  transition: stroke-dashoffset 0.5s var(--ease-out-expo);
+}
+.is-drawn .check-path { stroke-dashoffset: 0; }
+
+/* --- Reduced motion ----------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-track { animation: none; flex-wrap: wrap; width: auto; }
+  .demo-in, .demo-dot, .demo-pulse, .demo-float, .demo-line, .demo-caret::after { animation: none !important; }
+  .acc-panel, .btn-copper, .check-path { transition: none; }
+  .is-drawn .check-path, .check-path { stroke-dashoffset: 0; }
 }
