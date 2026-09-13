@@ -31,6 +31,45 @@ secure checkout" gate. GHL redirects buyers back to
 prefill). Combinations with no link configured skip the gate and go straight
 to the wizard. The picker's options live in `INDUSTRIES` in the same file.
 
+## FYNZ Social landing page (`/social`)
+
+`app/(social)/social` is a standalone landing page for the done-for-you
+social media service. It lives in its own route group with its own root
+layout (`app/(social)/layout.tsx`) and stylesheet (`app/social.css`), so it
+loads one font family at two weights and none of the main site's navbar,
+footer or theme code. Everything else on the site lives in `app/(site)`.
+
+The general page is the master template. All copy sits in
+`lib/social/content.ts` (`DEFAULT_SOCIAL_CONTENT`). To clone an industry
+version, add a sibling route that overrides only the swappable fields:
+
+```tsx
+// app/(social)/social/restaurants/page.tsx
+import { SocialLanding } from "@/components/social/SocialLanding";
+import { buildSocialMetadata } from "@/components/social/metadata";
+import { DEFAULT_SOCIAL_CONTENT, type SocialPageContent } from "@/lib/social/content";
+
+const content: SocialPageContent = {
+  ...DEFAULT_SOCIAL_CONTENT,
+  path: "/social/restaurants",
+  meta: { ...DEFAULT_SOCIAL_CONTENT.meta, title: "...", description: "..." },
+  hero: { ...DEFAULT_SOCIAL_CONTENT.hero, headline: "..." },
+  howItWorks: { ...DEFAULT_SOCIAL_CONTENT.howItWorks, steps: [/* three steps */] },
+  whoItsFor: { ...DEFAULT_SOCIAL_CONTENT.whoItsFor, row: [/* ... */] },
+  offer: { ...DEFAULT_SOCIAL_CONTENT.offer, industryDefault: "restaurant" },
+  faq: { ...DEFAULT_SOCIAL_CONTENT.faq, industryAnswer: "..." },
+};
+
+export const metadata = buildSocialMetadata(content);
+export default function Page() { return <SocialLanding content={content} />; }
+```
+
+Nullable fields (`pricing.annualDiscount`, `faq.turnaround`, `LEGAL.address`,
+`LEGAL.phone`) are omitted from the page until a real value is set. The
+form posts to the bridge's `POST /social/web` (see
+`services/onboarding-bridge/README.md`) and needs
+`NEXT_PUBLIC_ONBOARDING_BRIDGE_URL` at build time, like the wizard.
+
 ## Getting Started
 
 First, run the development server:

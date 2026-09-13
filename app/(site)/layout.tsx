@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Sora, Instrument_Sans, IBM_Plex_Mono } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import { cn } from "@/lib/utils";
 import { Navbar, Footer } from "@/components/layout";
 import { ThemeProvider } from "@/components/theme-provider";

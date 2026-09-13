@@ -1,0 +1,71 @@
+/*
+ * Stylesheet for the standalone FYNZ Social landing page (app/(social)).
+ * Deliberately separate from globals.css: no Google Fonts import, no theme
+ * toggling, one font family at two weights, fixed brand palette.
+ */
+/* Only scan this route's own sources so the CSS bundle stays small. */
+@import "tailwindcss" source(none);
+@source "./(social)";
+@source "../components/social";
+@source "../lib/social";
+
+@theme {
+  --color-navy-deep: #0D2154;
+  --color-navy-mid: #1A3375;
+  --color-copper: #C8895A;
+  --color-copper-light: #E4A87A;
+  --color-warm-white: #F5F0EB;
+
+  --font-sans: var(--font-social), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-warm-white);
+    color: var(--color-navy-deep);
+    font-family: var(--font-sans);
+    font-size: 18px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  img,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@utility social-wrap {
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: 20px;
+  @media (min-width: 768px) {
+    padding-inline: 32px;
+  }
+}
+
+/* Native accordion: hide the default marker, animate the chevron. */
+@utility faq-summary {
+  list-style: none;
+  &::-webkit-details-marker {
+    display: none;
+  }
+}

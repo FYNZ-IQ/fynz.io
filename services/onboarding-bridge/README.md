@@ -63,6 +63,17 @@ submission only lands once GHL has provisioned that sub-account (checkout →
 SaaS provisioning). Lookup retries cover ~3 minutes; later submissions than
 that will alert as failures for manual recovery.
 
+## FYNZ Social form (`/social/web`)
+
+The `/social` landing page's "first month free" form posts to
+`POST /social/web`. It shares the origin allowlist and per-IP rate limit
+with the other public routes, uses a `nickname` honeypot (that form has a real
+`website` field), and only forwards `business`, `name`, `email`, `phone`,
+`website`, `industry`, `consent`, `updates`, `utm_source`, `utm_medium`,
+`utm_campaign` and `page`. Requests without `consent: true` are rejected
+with 400. Leads are delivered as a text message to `ALERT_WEBHOOK_URL`, the
+same monitored channel as demo requests.
+
 ## GHL wiring (after deploy)
 
 1. **Send workflow** — Trigger: Survey Submitted (onboarding wizard). Action: Custom Webhook, `POST https://your-host/onboard`, JSON body:
