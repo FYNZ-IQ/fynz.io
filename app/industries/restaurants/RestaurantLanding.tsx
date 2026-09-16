@@ -207,7 +207,7 @@ const TIMELINE = [
   {
     when: "Day 60 of silence",
     title: "A genuine \"we've missed you\"",
-    desc: "When a guest hasn't been in for 60 days, they get a real offer, not a newsletter. The ones who were drifting get a reason to come back before they've settled somewhere else.",
+    desc: "When a guest hasn't ordered, booked or checked in for 60 days, they get a real offer, not a newsletter. The ones who were drifting get a reason to come back before they've settled somewhere else.",
   },
 ];
 
@@ -310,7 +310,7 @@ export function RestaurantLanding() {
               Your regulars didn&apos;t complain. <span className="text-copper">They just stopped coming.</span>
             </h1>
             <p className="text-muted text-lg mb-8 max-w-xl leading-relaxed">
-              Most guests who drift away never tell you why. They just start eating somewhere else. Fynz remembers every guest who joins your list. When someone hasn&apos;t been in for 60 days, it sends a genuine &quot;we&apos;ve missed you&quot; offer, and it sends a birthday treat every year. Nobody on your team has to notice or remember. It also texts back missed calls and takes orders direct so the delivery apps stop taking a cut. It works alongside your POS and reservation system, not instead of them.
+              Most guests who drift away never tell you why. They just start eating somewhere else. Fynz remembers every guest who joins your list. When someone hasn&apos;t ordered, booked or checked in for 60 days, it sends a genuine &quot;we&apos;ve missed you&quot; offer, and it sends a birthday treat every year. Nobody on your team has to notice or remember. It also texts back missed calls and takes orders direct so the delivery apps stop taking a cut. It works alongside your POS and reservation system, not instead of them.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <CallButton />
@@ -381,7 +381,7 @@ export function RestaurantLanding() {
                 Most first-time diners never come back, and nobody on the floor notices. A guest who leaves quietly looks exactly like one who&apos;ll be back next month, right up until they aren&apos;t.
               </p>
               <HowFynzHandlesIt>
-                <p>Every guest who joins your list is remembered. When someone hasn&apos;t been in for 60 days, Fynz sends them a real offer on its own. The regulars you would have lost quietly get a reason to come back before they&apos;ve settled somewhere else.</p>
+                <p>Every guest who joins your list is remembered. When someone hasn&apos;t ordered, booked or checked in for 60 days, Fynz sends them a real offer on its own. The regulars you would have lost quietly get a reason to come back before they&apos;ve settled somewhere else.</p>
               </HowFynzHandlesIt>
             </div>
           </div>

@@ -81,7 +81,7 @@ export const PLAN_TABLE: PlanRow[] = [
 export const RESTAURANT_FAQS: { q: string; a: string }[] = [
   {
     q: "Will it actually bring in customers?",
-    a: "We won't promise a number. Every guest who goes quiet for 60 days gets an offer, every missed call gets a text back, and on the Managed plan your food gets posted every week. The free plan shows your real missed calls before you spend anything.",
+    a: "We won't promise a number. Every guest who hasn't ordered, booked or checked in for 60 days gets an offer, every missed call gets a text back, and on the Managed plan your food gets posted every week. The free plan shows your real missed calls before you spend anything.",
   },
   {
     q: "Is it easy to use?",
