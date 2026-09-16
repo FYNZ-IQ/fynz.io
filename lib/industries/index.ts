@@ -3,7 +3,6 @@ import type { IndustryData } from "./types";
 // Food & Hospitality
 import cafes from "./data/cafes";
 import bars from "./data/bars";
-import restaurants from "./data/restaurants";
 // Health & Wellness
 import clinics from "./data/clinics";
 import dental from "./data/dental";
@@ -36,13 +35,13 @@ import tutoring from "./data/tutoring";
 
 /**
  * All template-driven industry landing pages, in display order.
- * The bespoke /industries/barbershops route is intentionally not listed here —
- * it has its own hand-built page and takes precedence over the [slug] route.
+ * The bespoke /industries/barbershops and /industries/restaurants routes are
+ * intentionally not listed here — they have their own hand-built pages and take
+ * precedence over the [slug] route.
  */
 export const industries: IndustryData[] = [
   cafes,
   bars,
-  restaurants,
   clinics,
   dental,
   medicalClinics,
