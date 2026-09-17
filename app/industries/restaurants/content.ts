@@ -119,3 +119,110 @@ export const INTEREST_OPTIONS: { value: string; label: string }[] = [
   { value: "growth", label: "Growth · $197/mo" },
   { value: "managed", label: "Managed · $397/mo" },
 ];
+
+/* ------------------------------------------------------------------ */
+/* Visuals                                                             */
+/* ------------------------------------------------------------------ */
+
+export type VisualAspect = "portrait" | "phone" | "wide" | "photo" | "square" | "strip";
+
+export interface Visual {
+  /** What kind of asset belongs here. */
+  kind: "Photo" | "Screenshot" | "Before / after" | "Logo strip";
+  title: string;
+  /** The brief for whoever sources or shoots the image. Shown in the placeholder until `src` is set. */
+  brief: string;
+  alt: string;
+  aspect: VisualAspect;
+  /**
+   * Path under /public once the asset exists, e.g. "/industries/restaurants/hero.jpg".
+   * Leave unset to show the placeholder with the brief.
+   */
+  src?: string;
+  caption?: string;
+}
+
+export const VISUALS = {
+  hero: {
+    kind: "Photo",
+    title: "A host welcoming a returning guest at the door",
+    brief:
+      "Real restaurant, real people, shot at the entrance during service. The host and the guest clearly know each other: a handshake, a hand on the shoulder or a hug. Warm interior light, evening, nobody smiling at the camera. Portrait crop with the guest's face visible; the host in profile is fine. No other brands' logos in frame. If you shoot at Abyssinia, get written permission from everyone pictured.",
+    alt: "A host welcoming a returning guest at the door",
+    aspect: "portrait",
+  },
+  messages: {
+    kind: "Screenshot",
+    title: "The three automatic messages, as the guest sees them",
+    brief:
+      "Phone screenshot of a real Fynz text thread from the guest's side: the welcome text on the day they joined, the birthday message with its offer, and the day-60 \"we've missed you\" text with the booking link. Use the restaurant's real name as the sender and real menu language in the offer. Hide the guest's number. At least one message must show \"Reply STOP to opt out\".",
+    alt: "A phone showing the welcome, birthday and win-back texts from a restaurant",
+    aspect: "phone",
+  },
+  textback: {
+    kind: "Screenshot",
+    title: "A missed call becoming a booking by text",
+    brief:
+      "Phone screenshot from the guest's side: the missed call at the top, the text-back arriving seconds later from the restaurant's own number, the guest's reply with party size and time, and the confirmation. Friday-evening timestamps. Hide the guest's number.",
+    alt: "A phone showing a missed call followed by a text conversation that ends in a confirmed table",
+    aspect: "phone",
+  },
+  dashboard: {
+    kind: "Screenshot",
+    title: "The free plan's missed-call counter",
+    brief:
+      "Desktop screenshot of the Fynz dashboard for a restaurant on the free plan: calls missed this week by day, with Friday and Saturday visibly highest, and the lapsed-guest count beside it. Use a demo account with a made-up restaurant name, never a customer's real data. Light theme, cropped to the two counters.",
+    alt: "The Fynz dashboard counting missed calls by day and lapsed guests",
+    aspect: "wide",
+  },
+  ordering: {
+    kind: "Screenshot",
+    title: "The restaurant's own ordering page on a phone",
+    brief:
+      "Phone screenshot of a Fynz ordering page under the restaurant's own name: three or four dishes with photos and prices, a cart with a total, and the pay button showing Square or Stripe. No delivery-app branding anywhere. If you use Abyssinia's page, get permission and show their real dishes.",
+    alt: "A phone showing a restaurant's direct ordering page with a cart and a pay button",
+    aspect: "phone",
+  },
+  content: {
+    kind: "Before / after",
+    title: "One dish photo becoming a week of posts",
+    brief:
+      "Left: the raw phone photo a cook took at the pass, unedited; slightly crooked is fine. Right: the same dish as the published Instagram post, Facebook post and Google Business post, with captions, side by side. Real published posts, not mock-ups. Landscape.",
+    alt: "A raw kitchen photo beside the finished social posts made from it",
+    aspect: "wide",
+  },
+  events: {
+    kind: "Photo",
+    title: "Door check-in by QR",
+    brief:
+      "A host at the entrance scanning a guest's phone with their own phone, the QR code visible on the guest's screen. Evening, with a queue or a full room behind them. Landscape, both phones in focus.",
+    alt: "A host scanning a guest's QR ticket at the restaurant door",
+    aspect: "photo",
+  },
+  reviews: {
+    kind: "Screenshot",
+    title: "The review request, and the review it produced",
+    brief:
+      "Left: the one-line review request on the guest's phone, sent the evening after their visit, with the Google link. Right: the resulting five-star Google review, with the reviewer's name and photo blurred. Same restaurant on both sides. Landscape.",
+    alt: "A review request text beside the Google review it led to",
+    aspect: "wide",
+  },
+  proof: {
+    kind: "Screenshot",
+    title: "Abyssinia's Instagram grid",
+    brief:
+      "The profile grid on Instagram showing the weekly posts Fynz has published: at least nine posts, profile header included. Square crop. Shared with the owner's written permission.",
+    alt: "The Instagram profile grid of Abyssinia Restaurant showing weekly posts",
+    aspect: "square",
+  },
+  stack: {
+    kind: "Logo strip",
+    title: "The tools it sits alongside",
+    brief:
+      "One row of logos: the reservation systems your restaurants use (OpenTable, Resy), the POS systems (Toast, Square, Clover) and the processors (Stripe, Square). Monochrome or muted, transparent background, evenly spaced. Only include a logo where that brand's guidelines allow it.",
+    alt: "Logos of reservation, POS and payment tools Fynz works alongside",
+    aspect: "strip",
+  },
+} satisfies Record<string, Visual>;
+
+export type VisualId = keyof typeof VISUALS;

@@ -22,6 +22,9 @@ import {
   PLAN_TABLE,
   RESTAURANT_FAQS,
   RESTAURANT_PLANS,
+  VISUALS,
+  type Visual,
+  type VisualId,
 } from "./content";
 
 /* ------------------------------------------------------------------ */
@@ -185,6 +188,93 @@ function NumberField({ label, value, onChange, prefix, suffix, min = 0, max, ste
         {suffix && <span className="font-mono text-slate-400 text-sm">{suffix}</span>}
       </span>
     </label>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Visuals                                                             */
+/* ------------------------------------------------------------------ */
+
+const ASPECT: Record<Visual["aspect"], string> = {
+  portrait: "aspect-[4/5]",
+  phone: "aspect-[9/16] max-w-[340px] mx-auto w-full",
+  wide: "aspect-[16/9]",
+  photo: "aspect-[3/2]",
+  square: "aspect-square max-w-[420px] mx-auto w-full",
+  strip: "aspect-[3/1] md:aspect-[5/1]",
+};
+
+/**
+ * A slot for a photo or screenshot of the tool in action. Until the asset
+ * exists it renders the brief for whoever is sourcing the image; once `src`
+ * is set in content.ts it renders the image.
+ */
+function VisualSlot({ id, className }: { id: VisualId; className?: string }) {
+  const v: Visual = VISUALS[id];
+  const aspect = ASPECT[v.aspect];
+  if (v.src) {
+    return (
+      <figure className={cn("relative overflow-hidden rounded-[var(--r-lg)] border border-white/10 bg-navy-900", aspect, className)}>
+        <Image src={v.src} alt={v.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
+        {v.caption && (
+          <figcaption className="absolute inset-x-0 bottom-0 bg-navy-900/80 text-slate-200 text-xs px-4 py-2">{v.caption}</figcaption>
+        )}
+      </figure>
+    );
+  }
+  return (
+    <div
+      role="img"
+      aria-label={`Placeholder for: ${v.alt}`}
+      className={cn(
+        "relative rounded-[var(--r-lg)] border-2 border-dashed border-copper/50 bg-copper-tint/40 p-5 md:p-6 flex flex-col justify-center overflow-hidden",
+        aspect,
+        className
+      )}
+    >
+      <span className="font-mono text-[10px] tracking-widest text-copper uppercase mb-2">Visual to add · {v.kind}</span>
+      <b className="font-display font-bold text-base md:text-lg leading-snug mb-2">{v.title}</b>
+      <p className="text-xs md:text-sm text-muted leading-relaxed">{v.brief}</p>
+      <p className="font-mono text-[10px] text-faint mt-3 leading-relaxed">
+        Save as /public/industries/restaurants/{id}.jpg and set src on &quot;{id}&quot; in content.ts · alt: &quot;{v.alt}&quot;
+      </p>
+    </div>
+  );
+}
+
+function WinBackCard() {
+  return (
+    <div className="bg-navy-900 text-white border border-white/10 rounded-[var(--r-lg)] p-5 shadow-md">
+      <div className="flex items-center gap-3 pb-3 border-b border-white/10 mb-3">
+        <span className="w-8 h-8 rounded bg-copper-tint border border-copper/30 grid place-items-center text-copper text-sm shrink-0">♥</span>
+        <div>
+          <b className="font-display text-[0.8rem] font-bold text-white block leading-tight">Win-back · Day 60</b>
+          <small className="font-mono text-[7px] tracking-[0.12em] text-slate-400 block mt-0.5">SENT AUTOMATICALLY — TUESDAY 4:10 PM</small>
+        </div>
+        <span className="font-mono text-[7.5px] tracking-[0.14em] text-green border border-green/30 px-2 py-0.5 rounded ml-auto uppercase">Delivered</span>
+      </div>
+      <div className="bg-white/[0.05] border border-white/10 rounded-md p-3 text-[0.8rem] text-slate-200 leading-relaxed">
+        Hi Dawit, it&apos;s been a while and we&apos;ve missed you at the restaurant. Come in this week and dessert is on us. Reply STOP to opt out.
+      </div>
+      <div className="mt-3.5 bg-green/10 border border-green/30 p-2 rounded text-center">
+        <span className="font-mono text-[8px] text-green uppercase tracking-wide">Booked — Table for 3, Thursday 7:00 PM ✓</span>
+      </div>
+    </div>
+  );
+}
+
+function TextBackCard() {
+  return (
+    <div className="bg-navy-900 text-white border border-white/10 rounded-[var(--r-lg)] p-5 shadow-md">
+      <div className="flex justify-between items-center pb-3 border-b border-white/10 mb-3">
+        <span className="font-display text-[0.8rem] font-bold text-white uppercase tracking-wide">Missed call · Friday 7:42 PM</span>
+        <span className="font-mono text-[7.5px] tracking-[0.14em] text-copper uppercase">Text-back</span>
+      </div>
+      <div className="space-y-2 text-[0.78rem]">
+        <div className="text-slate-300"><b>Fynz:</b> &quot;Sorry we missed your call, it&apos;s a full house tonight. Reply with your party size and time and we&apos;ll get you sorted.&quot;</div>
+        <div className="text-copper"><b>Guest:</b> &quot;4 people, 8:30?&quot;</div>
+      </div>
+    </div>
   );
 }
 
@@ -509,38 +599,7 @@ export function RestaurantLanding() {
             ))}
             <li className="text-xs text-faint mt-2">It works alongside your POS and reservation system, not instead of them.</li>
           </ul>
-          <div className="relative flex flex-col gap-5 w-full max-w-[460px] justify-self-center md:justify-self-end">
-            <HoverFloat yOffset={-8} duration={3.5}>
-              <div className="bg-navy-900 text-white border border-white/10 rounded-[var(--r-lg)] p-5 shadow-md">
-                <div className="flex items-center gap-3 pb-3 border-b border-white/10 mb-3">
-                  <span className="w-8 h-8 rounded bg-copper-tint border border-copper/30 grid place-items-center text-copper text-sm shrink-0">♥</span>
-                  <div>
-                    <b className="font-display text-[0.8rem] font-bold text-white block leading-tight">Win-back · Day 60</b>
-                    <small className="font-mono text-[7px] tracking-[0.12em] text-slate-400 block mt-0.5">SENT AUTOMATICALLY — TUESDAY 4:10 PM</small>
-                  </div>
-                  <span className="font-mono text-[7.5px] tracking-[0.14em] text-green border border-green/30 px-2 py-0.5 rounded ml-auto uppercase">Delivered</span>
-                </div>
-                <div className="bg-white/[0.05] border border-white/10 rounded-md p-3 text-[0.8rem] text-slate-200 leading-relaxed">
-                  Hi Dawit, it&apos;s been a while and we&apos;ve missed you at the restaurant. Come in this week and dessert is on us. Reply STOP to opt out.
-                </div>
-                <div className="mt-3.5 bg-green/10 border border-green/30 p-2 rounded text-center">
-                  <span className="font-mono text-[8px] text-green uppercase tracking-wide">Booked — Table for 3, Thursday 7:00 PM ✓</span>
-                </div>
-              </div>
-            </HoverFloat>
-            <HoverFloat yOffset={8} duration={4} delay={0.5}>
-              <div className="bg-navy-900 text-white border border-white/10 rounded-[var(--r-lg)] p-5 shadow-md">
-                <div className="flex justify-between items-center pb-3 border-b border-white/10 mb-3">
-                  <span className="font-display text-[0.8rem] font-bold text-white uppercase tracking-wide">Missed call · Friday 7:42 PM</span>
-                  <span className="font-mono text-[7.5px] tracking-[0.14em] text-copper uppercase">Text-back</span>
-                </div>
-                <div className="space-y-2 text-[0.78rem]">
-                  <div className="text-slate-300"><b>Fynz:</b> &quot;Sorry we missed your call, it&apos;s a full house tonight. Reply with your party size and time and we&apos;ll get you sorted.&quot;</div>
-                  <div className="text-copper"><b>Guest:</b> &quot;4 people, 8:30?&quot;</div>
-                </div>
-              </div>
-            </HoverFloat>
-          </div>
+          <VisualSlot id="hero" className="w-full max-w-[460px] justify-self-center md:justify-self-end" />
         </div>
       </section>
 
@@ -575,6 +634,15 @@ export function RestaurantLanding() {
             </DarkCard>
           ))}
         </StaggerGroup>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 items-center">
+          <VisualSlot id="messages" />
+          <div className="flex flex-col gap-4">
+            <p className="text-sm text-muted leading-relaxed">What the day-60 message looks like from your side: sent on its own, with the reply and the booking logged against the guest.</p>
+            <HoverFloat yOffset={-6} duration={3.5}>
+              <WinBackCard />
+            </HoverFloat>
+          </div>
+        </div>
         <p className="text-sm text-muted leading-relaxed mt-8 max-w-3xl mx-auto text-center">
           Consent is recorded separately for text and email and checked before every send. We set up your messaging to follow CASL in Canada, and in the US we handle A2P 10DLC registration for your texting number and follow TCPA consent rules. Missed-call replies go only to people who just called you.
         </p>
@@ -588,12 +656,19 @@ export function RestaurantLanding() {
         title={<>The phone rings during the rush. <span className="text-copper">Nobody can get to it.</span></>}
       >
         <FridayNightCalculator />
-        <div className="mt-6">
-          <HowFynzHandlesIt>
-            <p>Every call that rings out gets a text back within seconds, from your number, asking what they need. Bookings go to your reservation link, orders to your ordering page, and anything else to your phone as a message you can answer when the rush is over.</p>
-            <p>You set your restaurant phone to forward unanswered calls to a free Fynz number, which takes about two minutes, and the dashboard counts every call you missed. Your number doesn&apos;t change.</p>
-          </HowFynzHandlesIt>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 items-start">
+          <div className="flex flex-col gap-6">
+            <HowFynzHandlesIt>
+              <p>Every call that rings out gets a text back within seconds, from your number, asking what they need. Bookings go to your reservation link, orders to your ordering page, and anything else to your phone as a message you can answer when the rush is over.</p>
+              <p>You set your restaurant phone to forward unanswered calls to a free Fynz number, which takes about two minutes, and the dashboard counts every call you missed. Your number doesn&apos;t change.</p>
+            </HowFynzHandlesIt>
+            <HoverFloat yOffset={6} duration={4}>
+              <TextBackCard />
+            </HoverFloat>
+          </div>
+          <VisualSlot id="textback" />
         </div>
+        <VisualSlot id="dashboard" className="mt-6" />
         <CtaStrip title="Find out how many calls you missed last Friday." body="The free plan counts them for you. Or book a call and we'll read them with you." />
       </Step>
 
@@ -603,7 +678,9 @@ export function RestaurantLanding() {
         eyebrow="Step 4 · The apps"
         title={<>Take orders directly, and keep what a <span className="text-copper">delivery app would have taken</span></>}
         intro="Your food cost, labour and rent are the same either way. What changes is who takes a cut."
+        wide
       >
+        <div className="grid grid-cols-1 md:grid-cols-[1.4fr_0.8fr] gap-6 items-start">
         <DarkCard className="md:p-8">
           <b className="font-display font-bold text-lg block mb-5">The same $100 order</b>
           <table className="w-full text-sm">
@@ -634,6 +711,8 @@ export function RestaurantLanding() {
             Commission tiers as published by DoorDash and Uber Eats. The effective cost is often higher once promotions and refunds are counted. Processing shown at 2.9% + 30¢.
           </p>
         </DarkCard>
+        <VisualSlot id="ordering" />
+        </div>
         <CtaStrip title="See what the apps cost you last month." body="Bring last month's app statement. We'll do the arithmetic on your numbers, not ours." showFree={false} />
       </Step>
 
@@ -644,6 +723,7 @@ export function RestaurantLanding() {
         intro="The restaurants people talk about are the ones they keep seeing. A feed that goes quiet for three weeks tells guests the kitchen has too."
         wide
       >
+        <VisualSlot id="content" className="mb-6" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
           <HowFynzHandlesIt>
             <p><b className="text-white">On the Managed plan,</b> you send one photo. We edit it, caption it and publish it across Instagram, Facebook, Google Business, TikTok and more: 12 to 16 posts a month on a calendar you approve in advance, with holidays and specials built in.</p>
@@ -678,6 +758,7 @@ export function RestaurantLanding() {
             </DarkCard>
           ))}
         </StaggerGroup>
+        <VisualSlot id="events" className="mt-6" />
 
         <div className="mt-14 text-center mb-8">
           <Eyebrow>Reviews</Eyebrow>
@@ -701,17 +782,21 @@ export function RestaurantLanding() {
             </DarkCard>
           ))}
         </div>
+        <VisualSlot id="reviews" className="mt-6" />
       </Step>
 
       {/* 7. Proof */}
-      <Step eyebrow="Step 6 · Proof" title={<>Already running for <span className="text-copper">restaurants like yours</span></>}>
-        <DarkCard className="md:p-8">
-          <b className="font-display font-bold text-xl block mb-2">Abyssinia Restaurant, Calgary</b>
-          <p className="text-sm md:text-base text-slate-200 leading-relaxed">
-            An Ethiopian and Eritrean restaurant on 12 Avenue SW. Fynz runs the account, and it posts every week without the owner writing a single caption.
-          </p>
-          <p className="text-xs text-slate-400 italic mt-4">Shared with the owner&apos;s permission.</p>
-        </DarkCard>
+      <Step eyebrow="Step 6 · Proof" title={<>Already running for <span className="text-copper">restaurants like yours</span></>} wide>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+          <VisualSlot id="proof" />
+          <DarkCard className="md:p-8">
+            <b className="font-display font-bold text-xl block mb-2">Abyssinia Restaurant, Calgary</b>
+            <p className="text-sm md:text-base text-slate-200 leading-relaxed">
+              An Ethiopian and Eritrean restaurant on 12 Avenue SW. Fynz runs the account, and it posts every week without the owner writing a single caption.
+            </p>
+            <p className="text-xs text-slate-400 italic mt-4">Shared with the owner&apos;s permission.</p>
+          </DarkCard>
+        </div>
       </Step>
 
       {/* 8. Offer */}
@@ -840,6 +925,7 @@ export function RestaurantLanding() {
             </p>
           </DarkCard>
         </div>
+        <VisualSlot id="stack" className="mt-6" />
         <div className="mt-14 text-center mb-8">
           <Eyebrow>Getting started</Eyebrow>
           <h3 className="font-display font-extrabold text-2xl md:text-3xl tracking-tight">Your first <span className="text-copper">90 days</span></h3>
