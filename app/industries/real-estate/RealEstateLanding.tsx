@@ -697,7 +697,7 @@ function RealEstateBody() {
           <div className="text-center mb-8">
             <Eyebrow>Book a 15-minute call</Eyebrow>
             <h2 className="font-display font-extrabold text-4xl md:text-5xl tracking-tight mb-4">
-              Be the name they <span className="text-copper">remember</span>.
+              You keep the deal. <span className="text-copper">Fynz keeps the rest.</span>
             </h2>
             <p className="text-muted text-base md:text-lg leading-relaxed">
               We&apos;ll walk through your missed calls, your referral fees and how many past clients haven&apos;t heard from you, on your numbers. No pitch deck.

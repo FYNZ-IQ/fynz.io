@@ -86,7 +86,7 @@ export const PLAN_TABLE: PlanRow[] = [
 export const REAL_ESTATE_FAQS: { q: string; a: string }[] = [
   {
     q: "Will it actually bring me more deals?",
-    a: "We won't promise a number. Every past client gets a closing-anniversary note, a birthday message and a yearly check-in, every missed call and portal inquiry gets an answer within seconds, and on the Managed plan every listing gets posted. The free plan shows your real missed calls before you spend anything.",
+    a: "We won't promise a number. Every past client gets a closing-anniversary note, a birthday message and a check-in when they've gone quiet, every missed call and portal inquiry gets an answer within seconds, and on the Managed plan every listing gets posted. The free plan shows your real missed calls before you spend anything.",
   },
   {
     q: "Is it easy to use?",

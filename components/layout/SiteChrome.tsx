@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
 
 /**
@@ -19,17 +20,28 @@ export function isFunnelPath(pathname: string | null): boolean {
  * True when the rendered page has marked itself as a funnel with
  * `data-funnel-page`. This covers previews served from a different URL,
  * where the pathname check alone would bring the site chrome back after
- * hydration. Reading the DOM here is safe: on the server it is skipped, and on
- * the client the server-rendered markup is already present during hydration.
+ * hydration. On the server there is no document, so it is false there.
  */
 function hasFunnelMarker(): boolean {
   if (typeof document === "undefined") return false;
   return document.querySelector("[data-funnel-page]") !== null;
 }
 
+/**
+ * Re-evaluates the marker whenever the page content under <main> changes,
+ * so leaving a funnel page by browser navigation brings the chrome back.
+ */
+function subscribeToPageSwaps(onChange: () => void): () => void {
+  const root = document.querySelector("main") ?? document.body;
+  const observer = new MutationObserver(onChange);
+  observer.observe(root, { childList: true, subtree: true });
+  return () => observer.disconnect();
+}
+
 /** Renders its children everywhere except on funnel routes. */
 export function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  if (isFunnelPath(pathname) || hasFunnelMarker()) return null;
+  const marker = useSyncExternalStore(subscribeToPageSwaps, hasFunnelMarker, hasFunnelMarker);
+  if (isFunnelPath(pathname) || marker) return null;
   return <>{children}</>;
 }

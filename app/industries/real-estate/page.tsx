@@ -7,7 +7,7 @@ const PAGE_URL = "https://fynz.io/industries/real-estate";
 export const metadata: Metadata = {
   title: "The Follow-Up System for Real Estate Agents in Canada | Fynz",
   description:
-    "Every lead answered, every past client remembered, every listing posted, while you're in a showing. Fynz does the follow-up as it happens. Works with your brokerage's tools. Free plan available.",
+    "Every lead answered, every past client remembered, every listing posted, while you're in a showing. Works with your brokerage's tools. Free plan available.",
   alternates: { canonical: PAGE_URL },
   openGraph: {
     title: "The follow-up system for real estate agents in Canada | Fynz",
