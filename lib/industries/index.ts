@@ -29,15 +29,14 @@ import automotive from "./data/automotive";
 // Professional Services
 import accounting from "./data/accounting";
 import legal from "./data/legal";
-import realEstate from "./data/real-estate";
 import saas from "./data/saas";
 import tutoring from "./data/tutoring";
 
 /**
  * All template-driven industry landing pages, in display order.
- * The bespoke /industries/barbershops and /industries/restaurants routes are
- * intentionally not listed here — they have their own hand-built pages and take
- * precedence over the [slug] route.
+ * The bespoke /industries/barbershops, /industries/restaurants and
+ * /industries/real-estate routes are intentionally not listed here — they have
+ * their own hand-built pages and take precedence over the [slug] route.
  */
 export const industries: IndustryData[] = [
   cafes,
@@ -63,7 +62,6 @@ export const industries: IndustryData[] = [
   automotive,
   accounting,
   legal,
-  realEstate,
   saas,
   tutoring,
 ];

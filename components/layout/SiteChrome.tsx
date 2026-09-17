@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
  * Routes rendered as single-goal funnel pages. They carry their own minimal
  * header and footer, so the site-wide navbar and footer are suppressed.
  */
-export const FUNNEL_PATHS = ["/industries/restaurants"];
+export const FUNNEL_PATHS = ["/industries/restaurants", "/industries/real-estate"];
 
 export function isFunnelPath(pathname: string | null): boolean {
   if (!pathname) return false;

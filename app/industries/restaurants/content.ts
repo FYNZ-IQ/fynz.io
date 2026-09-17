@@ -1,3 +1,5 @@
+import type { Visual } from "@/components/funnel";
+
 // Copy and structured data for /industries/restaurants. This is a funnel page:
 // every call to action stays on the page and lands on the #book form, which
 // carries the visitor's plan interest to the team.
@@ -123,24 +125,6 @@ export const INTEREST_OPTIONS: { value: string; label: string }[] = [
 /* ------------------------------------------------------------------ */
 /* Visuals                                                             */
 /* ------------------------------------------------------------------ */
-
-export type VisualAspect = "portrait" | "phone" | "wide" | "photo" | "square" | "strip";
-
-export interface Visual {
-  /** What kind of asset belongs here. */
-  kind: "Photo" | "Screenshot" | "Before / after" | "Logo strip";
-  title: string;
-  /** The brief for whoever sources or shoots the image. Shown in the placeholder until `src` is set. */
-  brief: string;
-  alt: string;
-  aspect: VisualAspect;
-  /**
-   * Path under /public once the asset exists, e.g. "/industries/restaurants/hero.jpg".
-   * Leave unset to show the placeholder with the brief.
-   */
-  src?: string;
-  caption?: string;
-}
 
 export const VISUALS = {
   hero: {
