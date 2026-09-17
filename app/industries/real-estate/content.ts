@@ -163,9 +163,9 @@ export const VISUALS = {
     kind: "Screenshot",
     title: "A referral arriving from a past client",
     brief:
-      "Phone or inbox screenshot of a real message from a past client, something like \"My sister is selling in the spring, can she call you?\", landing in the Fynz inbox with the client's record beside it showing their closing date and the last check-in that went out. Names blurred. Landscape.",
+      "Phone or inbox screenshot of a real message from a past client, something like \"My sister is selling in the spring, can she call you?\", landing in the Fynz inbox with the client's record showing their closing date and the last check-in that went out. Names blurred. Portrait crop.",
     alt: "A text from a past client referring their sister, shown in the Fynz inbox",
-    aspect: "wide",
+    aspect: "portrait",
   },
   content: {
     kind: "Before / after",

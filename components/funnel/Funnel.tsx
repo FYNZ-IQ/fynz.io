@@ -236,7 +236,8 @@ export function VisualSlot({ id, visual, className }: { id: string; visual: Visu
       role="img"
       aria-label={`Placeholder for: ${v.alt}`}
       className={cn(
-        "relative rounded-[var(--r-lg)] border-2 border-dashed border-copper/50 bg-copper-tint/40 p-5 md:p-6 flex flex-col justify-center overflow-hidden",
+        // The aspect ratio is a minimum here: the box grows if the brief needs more room.
+        "relative rounded-[var(--r-lg)] border-2 border-dashed border-copper/50 bg-copper-tint/40 p-5 md:p-6 flex flex-col justify-center",
         aspect,
         className
       )}
