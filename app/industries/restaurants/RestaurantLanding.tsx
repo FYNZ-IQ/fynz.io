@@ -475,7 +475,7 @@ export function RestaurantLanding() {
     interest === "free" ? "Set me up on the free plan" : interest === "call" ? "Book my 15-minute call" : "Talk to me about this plan";
   return (
     <InterestContext.Provider value={{ interest, setInterest }}>
-    <div id="top" className="flex flex-col w-full industry-theme pb-20 md:pb-0" style={industryThemeVars("restaurants")}>
+    <div id="top" data-funnel-page className="flex flex-col w-full bg-background pb-20 md:pb-0" style={industryThemeVars("restaurants")}>
       <FunnelHeader />
 
       {/* 1. Hook */}
