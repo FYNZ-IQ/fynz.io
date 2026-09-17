@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Sora, Instrument_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { Navbar, Footer } from "@/components/layout";
+import { Navbar, Footer, SiteChrome } from "@/components/layout";
 import { ThemeProvider } from "@/components/theme-provider";
 
 const fontDisplay = Sora({
@@ -43,9 +43,13 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
-          <Navbar />
+          <SiteChrome>
+            <Navbar />
+          </SiteChrome>
           <main className="flex-1">{children}</main>
-          <Footer />
+          <SiteChrome>
+            <Footer />
+          </SiteChrome>
         </ThemeProvider>
       </body>
     </html>

@@ -2,7 +2,7 @@
 // client component so the route's server file can feed the same FAQ and plan
 // data into the page's JSON-LD without crossing the client boundary.
 
-export const BOOK_CALL_HREF = "/demo";
+export const BOOK_CALL_HREF = "#book";
 export const BOOK_CALL_LABEL = "Book a 15-minute call";
 export const FREE_PLAN_HREF = "/onboarding?plan=free&industry=restaurants";
 export const FREE_PLAN_LABEL = "Start on the free plan";

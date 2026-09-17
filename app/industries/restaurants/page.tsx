@@ -41,7 +41,7 @@ const productSchema = {
     name: plan.name,
     price: String(plan.price),
     priceCurrency: "USD",
-    url: `https://fynz.io${plan.href}`,
+    url: plan.href.startsWith("#") ? `${PAGE_URL}${plan.href}` : `https://fynz.io${plan.href}`,
   })),
 };
 
