@@ -5,14 +5,14 @@ import { REAL_ESTATE_FAQS, REAL_ESTATE_PLANS } from "./content";
 const PAGE_URL = "https://fynz.io/industries/real-estate";
 
 export const metadata: Metadata = {
-  title: "Real Estate Marketing and Client System for Agents in Canada | Fynz",
+  title: "The Follow-Up System for Real Estate Agents in Canada | Fynz",
   description:
-    "Fynz keeps your past clients warm with anniversary and check-in messages, texts back missed calls mid-showing and answers portal leads in seconds. Works with your brokerage's tools. Free plan available.",
+    "Every lead answered, every past client remembered, every listing posted, while you're in a showing. Fynz does the follow-up as it happens. Works with your brokerage's tools. Free plan available.",
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: "Real estate marketing and client system for agents in Canada | Fynz",
+    title: "The follow-up system for real estate agents in Canada | Fynz",
     description:
-      "Your past clients would hire you again. They just forgot your name. Fynz keeps you in front of them automatically.",
+      "Every lead answered. Every past client remembered. Every listing posted. While you're in a showing.",
     url: PAGE_URL,
     type: "website",
   },

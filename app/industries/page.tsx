@@ -278,7 +278,7 @@ const GROUPS: IndustryGroup[] = [
       {
         slug: "real-estate",
         name: "Real estate agents & brokerages",
-        desc: "Your past clients would hire you again. They just forgot your name.",
+        desc: "Every lead answered, every past client remembered, every listing posted.",
         keywords:
           "real estate agents & brokerages realtor broker property listings real estate",
         icon: svg(

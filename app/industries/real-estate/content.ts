@@ -129,10 +129,10 @@ export const INTEREST_OPTIONS: { value: string; label: string }[] = [
 export const VISUALS = {
   hero: {
     kind: "Photo",
-    title: "An agent greeting past clients at their front door",
+    title: "An agent mid-showing, phone face-down on the counter",
     brief:
-      "A real agent, real clients, on the doorstep of a Canadian home a year or two after closing. They clearly know each other: a hug or a handshake, maybe a kid or a dog in the frame. Daylight, a recognisably Canadian street, no lawn signs from other brokerages. Portrait crop with faces visible. Get written permission from everyone pictured.",
-    alt: "A real estate agent greeting past clients at the front door of their home",
+      "A real agent walking buyers through a kitchen or living room of a Canadian home, fully present with the clients. In the foreground, the agent's phone lies face-down on the counter, screen lit at the edge as if a message just arrived. Daylight, no lawn signs or other brokerages' branding in frame. Portrait crop, the agent and clients in focus, the phone sharp enough to read as a phone. Get written permission from everyone pictured.",
+    alt: "A real estate agent showing a home to clients while their phone lies face-down on the counter",
     aspect: "portrait",
   },
   messages: {

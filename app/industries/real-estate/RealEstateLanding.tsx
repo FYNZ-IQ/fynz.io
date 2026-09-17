@@ -44,16 +44,16 @@ import {
 
 const CONFIG: FunnelConfig = {
   theme: "real-estate",
-  tag: "For agents in Canada",
+  tag: "Follow-up for agents in Canada",
   bookHref: BOOK_CALL_HREF,
   bookLabel: BOOK_CALL_LABEL,
   bookShortLabel: "Book a call",
   freeHref: FREE_PLAN_HREF,
   freeLabel: FREE_PLAN_LABEL,
   menu: [
-    { href: "#leak", label: "The leak" },
-    { href: "#how", label: "How it works" },
-    { href: "#fees", label: "Referral fees" },
+    { href: "#phone", label: "Leads" },
+    { href: "#leak", label: "Past clients" },
+    { href: "#seen", label: "Listings" },
     { href: "#pricing", label: "Pricing" },
     { href: "#faq", label: "FAQ" },
   ],
@@ -181,10 +181,10 @@ function LeadResponseCalculator() {
 /* ------------------------------------------------------------------ */
 
 const HERO_LINES = [
-  "Keeps every past client warm with anniversary, birthday and check-in messages, on its own",
-  "Texts back every missed call within seconds, even mid-showing",
-  "Replies to portal and website inquiries before the next agent does",
-  "Asks every closed client for a review, with no gating",
+  "Leads: missed calls texted back and portal inquiries answered in seconds",
+  "Past clients: anniversary, birthday and check-in messages, sent on the day",
+  "Listings: photo-to-post, open-house sign-in and review requests",
+  "Money: the deals your own database sends you, with no referral fee",
 ];
 
 const TIMELINE = [
@@ -308,21 +308,19 @@ function RealEstateBody() {
       {/* 1. Hook */}
       <section className="pt-14 pb-14 md:pt-20 md:pb-20 border-b border-line-soft">
         <div className="max-w-3xl mx-auto px-5 sm:px-6 text-center">
-          <Eyebrow>Real estate marketing and client system for agents in Canada</Eyebrow>
+          <Eyebrow>The follow-up system for real estate agents in Canada</Eyebrow>
           <h1 className="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.08] mb-6">
-            Your past clients would hire you again. <span className="text-copper">They just forgot your name.</span>
+            Every lead answered. Every past client remembered. Every listing posted. <span className="text-copper">While you&apos;re in a showing.</span>
           </h1>
           <p className="text-muted text-lg leading-relaxed mb-8">
-            Most people who bought or sold with you would call you next time. By the time they move, they can&apos;t remember your name, and the first agent who stayed in touch gets the call. Fynz remembers every client. It sends a closing-anniversary note every year, a birthday message, and a genuine check-in when someone hasn&apos;t heard from you in 90 days. Nobody has to remember a date.
+            An agent&apos;s day is showings, offers and driving. The follow-up happens at 11 PM or not at all. Fynz does it as it happens: texts back the call you missed, replies to the portal inquiry in seconds, sends the closing-anniversary note on the day, books the showing from your calendar, and posts the listing you just took. You keep the deal. It keeps the rest.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <CallButton />
             <FreeButton />
           </div>
           <p className="text-sm text-muted mt-6 leading-relaxed">
-            Firms that contacted a web lead within an hour were nearly seven times as likely to qualify it as those that waited even an hour longer. (
-            <a href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads" target="_blank" rel="noopener noreferrer" className="text-copper hover:underline">Harvard Business Review, 2011</a>
-            )
+            Built for independent agents in Canada. Works with your brokerage&apos;s tools and your board&apos;s forms, not instead of them.
           </p>
         </div>
 
@@ -334,16 +332,47 @@ function RealEstateBody() {
                 <span>{line}</span>
               </li>
             ))}
-            <li className="text-xs text-faint mt-2">It works alongside your brokerage&apos;s tools and your board&apos;s forms, not instead of them.</li>
+            <li className="text-xs text-faint mt-2">One system, four jobs. Each one has its own section below.</li>
           </ul>
           <VisualSlot id="hero" visual={VISUALS.hero} className="w-full max-w-[460px] justify-self-center md:justify-self-end" />
         </div>
       </section>
 
-      {/* 2. The leak */}
+      {/* 2. Leads: missed calls and slow replies */}
+      <Step
+        id="phone"
+        eyebrow="Step 1 · The leads"
+        title={<>The lead calls while you&apos;re in a showing. <span className="text-copper">By 3 PM they&apos;ve called someone else.</span></>}
+        intro={
+          <>
+            Firms that contacted a web lead within an hour were nearly seven times as likely to qualify it as those that waited even an hour longer. (
+            <a href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads" target="_blank" rel="noopener noreferrer" className="text-copper hover:underline">Harvard Business Review, 2011</a>
+            )
+          </>
+        }
+      >
+        <LeadResponseCalculator />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 items-start">
+          <div className="flex flex-col gap-6">
+            <HowFynzHandlesIt>
+              <p>Every call that rings out gets a text back within seconds, from your number, asking whether it&apos;s about a listing or about selling. Showing requests get a booking link with real times from your calendar. Everything else lands in your inbox as a message you answer when the showing is over.</p>
+              <p>Portal and website inquiries get the same treatment: a reply within seconds by text or email, two qualifying questions, and a time to talk. Nobody waits an hour.</p>
+              <p>You set your phone to forward unanswered calls to a free Fynz number, which takes about two minutes, and the dashboard counts every call you missed. Your number doesn&apos;t change.</p>
+            </HowFynzHandlesIt>
+            <HoverFloat yOffset={6} duration={4}>
+              <TextBackCard />
+            </HoverFloat>
+          </div>
+          <VisualSlot id="textback" visual={VISUALS.textback} />
+        </div>
+        <VisualSlot id="dashboard" visual={VISUALS.dashboard} className="mt-6" />
+        <CtaStrip title="Find out how many calls you missed last Saturday." body="The free plan counts them for you. Or book a call and we'll read them with you." />
+      </Step>
+
+      {/* 3. Past clients: the leak */}
       <Step
         id="leak"
-        eyebrow="Step 1 · The leak"
+        eyebrow="Step 2 · Past clients"
         title={<>Your past clients and their referrals are <span className="text-copper">most of your next year</span></>}
         intro="Every agent says the business is referrals. Then a past client's sister decides to sell, and she calls the agent whose postcard arrived last month, because that's the name she could find."
       >
@@ -355,10 +384,10 @@ function RealEstateBody() {
         </div>
       </Step>
 
-      {/* 3. How the follow-up works */}
+      {/* 4. How the follow-up works */}
       <Step
         id="how"
-        eyebrow="Step 2 · What runs on its own"
+        eyebrow="Step 3 · What runs on its own"
         title={<>A thank-you the week they close. <span className="text-copper">Your name in front of them every year after.</span></>}
         wide
       >
@@ -384,30 +413,6 @@ function RealEstateBody() {
           Consent is recorded separately for text and email and checked before every send, as CASL requires. Every message carries your name and brokerage the way your provincial regulator expects. Missed-call replies go only to people who just called you.
         </p>
         <CtaStrip title="Want to see it run on your own database?" body="Fifteen minutes. Bring nothing but your phone number and a rough count of your past clients." />
-      </Step>
-
-      {/* 4. Missed calls and slow replies */}
-      <Step
-        id="phone"
-        eyebrow="Step 3 · The phone"
-        title={<>The lead calls while you&apos;re in a showing. <span className="text-copper">By 3 PM they&apos;ve called someone else.</span></>}
-      >
-        <LeadResponseCalculator />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 items-start">
-          <div className="flex flex-col gap-6">
-            <HowFynzHandlesIt>
-              <p>Every call that rings out gets a text back within seconds, from your number, asking whether it&apos;s about a listing or about selling. Showing requests get a booking link with real times from your calendar. Everything else lands in your inbox as a message you answer when the showing is over.</p>
-              <p>Portal and website inquiries get the same treatment: a reply within seconds by text or email, two qualifying questions, and a time to talk. Nobody waits an hour.</p>
-              <p>You set your phone to forward unanswered calls to a free Fynz number, which takes about two minutes, and the dashboard counts every call you missed. Your number doesn&apos;t change.</p>
-            </HowFynzHandlesIt>
-            <HoverFloat yOffset={6} duration={4}>
-              <TextBackCard />
-            </HoverFloat>
-          </div>
-          <VisualSlot id="textback" visual={VISUALS.textback} />
-        </div>
-        <VisualSlot id="dashboard" visual={VISUALS.dashboard} className="mt-6" />
-        <CtaStrip title="Find out how many calls you missed last Saturday." body="The free plan counts them for you. Or book a call and we'll read them with you." />
       </Step>
 
       {/* 5. Referral fees */}
@@ -453,6 +458,7 @@ function RealEstateBody() {
 
       {/* 6. Content, open houses, reviews */}
       <Step
+        id="seen"
         eyebrow="Step 5 · Being seen"
         title={<>Every listing is a marketing campaign, <span className="text-copper">if someone runs it</span></>}
         intro="Sellers interview the agent whose listings they keep seeing. A feed that goes quiet between listings tells them you're between listings."
