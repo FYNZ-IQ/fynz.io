@@ -156,7 +156,7 @@ app.post('/onboard/web', (req, res) => {
 // same monitored channel that receives sync failures), so a demo request is
 // never silently dropped.
 
-const DEMO_ALLOWED_KEYS = ['name', 'business', 'email', 'phone'];
+const DEMO_ALLOWED_KEYS = ['name', 'business', 'email', 'phone', 'interest', 'source'];
 
 app.options('/demo/web', (req, res) => {
   if (!applyCors(req, res)) return res.status(403).end();
@@ -202,7 +202,10 @@ app.post('/demo/web', (req, res) => {
     const text =
       `New DEMO REQUEST from the website: ` +
       `${lead.name || 'no name'} — ${lead.business || 'no business name'} — ` +
-      `${lead.email} — ${lead.phone || 'no phone'}.`;
+      `${lead.email} — ${lead.phone || 'no phone'}` +
+      (lead.interest ? ` — interested in: ${lead.interest}` : '') +
+      (lead.source ? ` — from: ${lead.source}` : '') +
+      `.`;
     const url = process.env.ALERT_WEBHOOK_URL;
     if (!url) {
       console.error(JSON.stringify({ ts: new Date().toISOString(), level: 'error', msg: 'Demo lead received but ALERT_WEBHOOK_URL not set', lead }));

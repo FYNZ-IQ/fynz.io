@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
-import Link from "next/link";
+import React, { createContext, useContext, useState } from "react";
 import Image from "next/image";
 import { StaggerGroup, HoverFloat } from "@/components/animations";
 import { DemoForm } from "@/components/shared";
@@ -19,6 +18,7 @@ import {
   BOOK_CALL_LABEL,
   FREE_PLAN_HREF,
   FREE_PLAN_LABEL,
+  INTEREST_OPTIONS,
   PLAN_TABLE,
   RESTAURANT_FAQS,
   RESTAURANT_PLANS,
@@ -27,6 +27,24 @@ import {
 /* ------------------------------------------------------------------ */
 /* Helpers                                                             */
 /* ------------------------------------------------------------------ */
+
+/**
+ * Which plan or path the visitor showed interest in before reaching the form.
+ * Every CTA on the page sets this and then scrolls to #book, so the one form
+ * can tell the team what the visitor was looking at.
+ */
+const InterestContext = createContext<{ interest: string; setInterest: (v: string) => void }>({
+  interest: "call",
+  setInterest: () => {},
+});
+
+const MENU = [
+  { href: "#leak", label: "The leak" },
+  { href: "#how", label: "How it works" },
+  { href: "#apps", label: "Delivery apps" },
+  { href: "#pricing", label: "Pricing" },
+  { href: "#faq", label: "FAQ" },
+];
 
 const money = (n: number, digits = 0) =>
   "$" + Math.round(n).toLocaleString("en-US", { minimumFractionDigits: digits, maximumFractionDigits: digits });
@@ -80,20 +98,26 @@ function Step({
 }
 
 function CallButton({ className, size = "lg" }: { className?: string; size?: "lg" | "default" | "sm" }) {
+  const { setInterest } = useContext(InterestContext);
   return (
-    <Button size={size} className={cn("bg-copper hover:bg-copper/90 text-white font-semibold", className)} render={<a href={BOOK_CALL_HREF} />}>
+    <Button
+      size={size}
+      className={cn("bg-copper hover:bg-copper/90 text-white font-semibold", className)}
+      render={<a href={BOOK_CALL_HREF} onClick={() => setInterest("call")} />}
+    >
       {BOOK_CALL_LABEL}
     </Button>
   );
 }
 
 function FreeButton({ className, onDark = false }: { className?: string; onDark?: boolean }) {
+  const { setInterest } = useContext(InterestContext);
   return (
     <Button
       size="lg"
       variant="outline"
       className={cn(onDark && "border-white/20 text-white hover:bg-white/10", className)}
-      render={<Link href={FREE_PLAN_HREF} />}
+      render={<a href={FREE_PLAN_HREF} onClick={() => setInterest("free")} />}
     >
       {FREE_PLAN_LABEL}
     </Button>
@@ -358,19 +382,58 @@ const NINETY_DAYS = [
 /* ------------------------------------------------------------------ */
 
 function FunnelHeader() {
+  const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-40 border-b border-line-soft bg-background/85 backdrop-blur-md">
       <div className="max-w-5xl mx-auto px-5 sm:px-6 h-16 flex items-center justify-between gap-4">
         <a href="#top" className="flex items-center gap-[11px] shrink-0" aria-label="Back to top">
           <Image src="/logo-fynz.png" alt="" width={36} height={31} className="h-[30px] w-auto" priority />
           <span className="font-display font-extrabold text-[1.22rem] tracking-[0.06em]">FYNZ</span>
-          <span className="hidden sm:inline font-mono text-[10px] tracking-[0.15em] uppercase text-muted ml-3">For restaurants</span>
         </a>
-        <CallButton size="default" className="hidden md:inline-flex" />
-        <Button size="default" className="md:hidden bg-copper hover:bg-copper/90 text-white font-semibold" render={<a href={BOOK_CALL_HREF} />}>
-          Book a call
-        </Button>
+        <nav aria-label="On this page" className="hidden md:flex items-center gap-6">
+          {MENU.map((item) => (
+            <a key={item.href} href={item.href} className="text-sm font-medium text-muted hover:text-copper transition-colors">
+              {item.label}
+            </a>
+          ))}
+        </nav>
+        <div className="flex items-center gap-2">
+          <CallButton size="default" className="hidden md:inline-flex" />
+          <Button size="default" className="md:hidden bg-copper hover:bg-copper/90 text-white font-semibold" render={<a href={BOOK_CALL_HREF} />}>
+            Book a call
+          </Button>
+          <button
+            type="button"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="funnel-menu"
+            onClick={() => setOpen((o) => !o)}
+            className="md:hidden w-10 h-10 grid place-items-center rounded-md border border-line-soft text-foreground"
+          >
+            <span className="relative block w-4 h-3">
+              <span className={cn("absolute left-0 h-[2px] w-4 bg-current transition-transform", open ? "top-[5px] rotate-45" : "top-0")} />
+              <span className={cn("absolute left-0 top-[5px] h-[2px] w-4 bg-current transition-opacity", open && "opacity-0")} />
+              <span className={cn("absolute left-0 h-[2px] w-4 bg-current transition-transform", open ? "top-[5px] -rotate-45" : "top-[10px]")} />
+            </span>
+          </button>
+        </div>
       </div>
+      {open && (
+        <nav id="funnel-menu" aria-label="On this page" className="md:hidden border-t border-line-soft bg-background">
+          <div className="max-w-5xl mx-auto px-5 py-2 flex flex-col">
+            {MENU.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="py-3 text-base font-medium text-foreground border-b border-line-soft last:border-b-0 hover:text-copper"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </nav>
+      )}
     </header>
   );
 }
@@ -393,8 +456,8 @@ function FunnelFooter() {
         <div className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-2 font-mono text-[10.5px] tracking-[0.06em] text-faint uppercase">
           <span>© 2026 FYNZ, Inc.</span>
           <span>Prices in USD</span>
-          <Link href="/privacy" className="hover:text-copper">Privacy</Link>
-          <Link href="/terms" className="hover:text-copper">Terms</Link>
+          <a href="/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-copper">Privacy</a>
+          <a href="/terms" target="_blank" rel="noopener noreferrer" className="hover:text-copper">Terms</a>
           <a href="mailto:hello@fynz.io" className="hover:text-copper">hello@fynz.io</a>
         </div>
       </div>
@@ -407,7 +470,11 @@ function FunnelFooter() {
 /* ------------------------------------------------------------------ */
 
 export function RestaurantLanding() {
+  const [interest, setInterest] = useState("call");
+  const submitLabel =
+    interest === "free" ? "Set me up on the free plan" : interest === "call" ? "Book my 15-minute call" : "Talk to me about this plan";
   return (
+    <InterestContext.Provider value={{ interest, setInterest }}>
     <div id="top" className="flex flex-col w-full industry-theme pb-20 md:pb-0" style={industryThemeVars("restaurants")}>
       <FunnelHeader />
 
@@ -479,6 +546,7 @@ export function RestaurantLanding() {
 
       {/* 2. The leak */}
       <Step
+        id="leak"
         eyebrow="Step 1 · The leak"
         title={<>Your repeat guests already pay for <span className="text-copper">most of your year</span></>}
         intro="Most first-time diners never come back, and nobody on the floor notices. A guest who leaves quietly looks exactly like one who'll be back next month, right up until they aren't."
@@ -493,6 +561,7 @@ export function RestaurantLanding() {
 
       {/* 3. How the follow-up works */}
       <Step
+        id="how"
         eyebrow="Step 2 · What runs on its own"
         title={<>A welcome the moment they join. <span className="text-copper">A reason to return before they forget you.</span></>}
         wide
@@ -514,6 +583,7 @@ export function RestaurantLanding() {
 
       {/* 4. Missed calls */}
       <Step
+        id="phone"
         eyebrow="Step 3 · The phone"
         title={<>The phone rings during the rush. <span className="text-copper">Nobody can get to it.</span></>}
       >
@@ -529,6 +599,7 @@ export function RestaurantLanding() {
 
       {/* 5. Direct ordering */}
       <Step
+        id="apps"
         eyebrow="Step 4 · The apps"
         title={<>Take orders directly, and keep what a <span className="text-copper">delivery app would have taken</span></>}
         intro="Your food cost, labour and rent are the same either way. What changes is who takes a cut."
@@ -727,7 +798,7 @@ export function RestaurantLanding() {
                   "w-full mt-6 py-6 font-semibold",
                   plan.popular ? "bg-copper hover:bg-copper/90 text-white" : "bg-white text-navy-900 hover:bg-slate-100 border-none"
                 )}
-                render={plan.href.startsWith("#") ? <a href={plan.href} /> : <Link href={plan.href} />}
+                render={<a href={plan.href} onClick={() => setInterest(plan.key)} />}
               >
                 {plan.cta}
               </Button>
@@ -785,7 +856,7 @@ export function RestaurantLanding() {
       </Step>
 
       {/* 10. FAQ */}
-      <Step eyebrow="Owner FAQ" title={<>Fair <span className="text-copper">questions</span></>}>
+      <Step id="faq" eyebrow="Owner FAQ" title={<>Fair <span className="text-copper">questions</span></>}>
         <Accordion className="w-full bg-navy-800 border-white/10">
           {RESTAURANT_FAQS.map((faq, idx) => (
             <AccordionItem key={idx} value={`faq-${idx}`} className="border-b border-white/10 py-2">
@@ -814,14 +885,24 @@ export function RestaurantLanding() {
           </div>
           <div className="bg-navy-900 text-white rounded-[var(--r-lg)] p-6 md:p-10">
             <DemoForm
-              submitLabel="Book my 15-minute call"
+              submitLabel={submitLabel}
               successHeadline={<>We&apos;ll be in touch within <span className="text-copper">one business day</span>.</>}
-              successBody={(email) => <>A human from our team will email {email || "you"} to set up your 15-minute call.</>}
+              successBody={(email) => (
+                <>
+                  A human from our team will email {email || "you"} to{" "}
+                  {interest === "free" ? "switch on your free plan" : interest === "call" ? "set up your 15-minute call" : "get you started on the plan you picked"}.
+                </>
+              )}
               phonePlaceholder="Restaurant phone line (for the missed-call count)"
+              interestOptions={INTEREST_OPTIONS}
+              interest={interest}
+              onInterestChange={setInterest}
+              extra={{ source: "restaurants-funnel" }}
+              legalInNewTab
             />
           </div>
           <p className="text-sm text-muted text-center mt-8 leading-relaxed">
-            Rather see your own numbers first? <Link href={FREE_PLAN_HREF} className="text-copper hover:underline font-semibold">Start on the free plan</Link>. It counts the calls you&apos;re already missing. It costs nothing and it is not a trial.
+            Rather see your own numbers first? Pick <b>the free plan</b> above. It counts the calls you&apos;re already missing. It costs nothing and it is not a trial.
           </p>
           <p className="text-sm text-muted text-center mt-6 leading-relaxed">
             <b>P.S.</b> If you only read this far: the free plan counts the calls you&apos;re already missing. See your own numbers first, then decide.
@@ -832,5 +913,6 @@ export function RestaurantLanding() {
       <FunnelFooter />
       <MobileCtaBar />
     </div>
+    </InterestContext.Provider>
   );
 }
