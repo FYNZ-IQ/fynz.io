@@ -118,9 +118,9 @@ const STEPS = [
 
 const BEST_FOR = [
   { icon: "🔧", label: "Home services", href: "/industries/home-services" },
-  { icon: "🩺", label: "Clinics & dental", href: "/industries/clinics" },
-  { icon: "🏠", label: "Real estate", href: "/industries/real-estate" },
-  { icon: "✂️", label: "Salons", href: "/industries/salons" },
+  { icon: "🚿", label: "Plumbing", href: "/industries/plumbing" },
+  { icon: "🏠", label: "Real estate teams", href: "/industries/real-estate" },
+  { icon: "🧮", label: "Accounting firms", href: "/industries/accounting" },
   { icon: "→", label: "All industries", href: "/industries" }
 ];
 

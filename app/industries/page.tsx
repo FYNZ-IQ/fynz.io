@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ScrollReveal, StaggerGroup } from "@/components/animations";
 import { Button } from "@/components/ui";
 import { cn } from "@/lib/utils";
+import { isIndustryPublished } from "@/lib/industries/published";
 
 type IndustryCard = {
   slug: string;
@@ -488,7 +489,9 @@ export default function IndustriesIndexPage() {
     const groups = GROUPS.map((group) => ({
       ...group,
       cards: group.cards.filter(
-        (card) => !q || card.keywords.indexOf(q) !== -1
+        (card) =>
+          isIndustryPublished(card.slug) &&
+          (!q || card.keywords.indexOf(q) !== -1)
       ),
     })).filter((group) => group.cards.length > 0);
     const count = groups.reduce((sum, group) => sum + group.cards.length, 0);

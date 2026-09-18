@@ -325,12 +325,13 @@ const CHANNELS = [
 ];
 
 const INDUSTRIES = [
-  { title: "Salons & barbershops", desc: "Chairs, color services, rebooking", link: "/industries/barbershops" },
-  { title: "Clinics & dental", desc: "Intake, recalls, HIPAA-minded flows", link: "/industries/clinics" },
-  { title: "Fitness & gyms", desc: "Classes, memberships, waitlists", link: "/industries/fitness" },
-  { title: "Restaurants", desc: "Reservations, events, private dining", link: "/industries/restaurants" },
-  { title: "Retail & boutiques", desc: "Store, styling appointments, loyalty", link: "/industries/retail" },
-  { title: "Home services", desc: "Estimates, dispatch, invoicing", link: "/industries/home-services" }
+  { title: "Cleaning", desc: "Recurring jobs, crews, route scheduling", link: "/industries/cleaning" },
+  { title: "Plumbing", desc: "Emergency calls, quotes, dispatch", link: "/industries/plumbing" },
+  { title: "Contractors", desc: "Estimates, project stages, progress billing", link: "/industries/contractors" },
+  { title: "Auto shops", desc: "Bookings, approvals, pickup reminders", link: "/industries/automotive" },
+  { title: "Home services", desc: "Estimates, dispatch, invoicing", link: "/industries/home-services" },
+  { title: "Accounting firms", desc: "Client intake, deadlines, document chase", link: "/industries/accounting" },
+  { title: "Real estate teams", desc: "Leads, viewings, follow-up", link: "/industries/real-estate" }
 ];
 
 export default function Home() {
