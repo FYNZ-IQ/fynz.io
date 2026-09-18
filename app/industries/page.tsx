@@ -356,6 +356,11 @@ const GROUPS: IndustryGroup[] = [
     ],
   },
   {
+    // Hidden for the current launch: none of these slugs are in
+    // lib/industries/published, so every card below is filtered out before
+    // render. Their target page moved to app/_emergency/emergency-services.html
+    // and is no longer served — restore that file to public/industries/ before
+    // publishing any of these slugs, or the links will 404.
     title: "Emergency restoration",
     count: "6 VERTICALS",
     cards: [
