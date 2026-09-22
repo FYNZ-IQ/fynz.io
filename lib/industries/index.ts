@@ -18,7 +18,6 @@ import yogaPilates from "./data/yoga-pilates";
 import coaching from "./data/coaching";
 // Home & Trades
 import homeServices from "./data/home-services";
-import cleaning from "./data/cleaning";
 import contractors from "./data/contractors";
 import plumbing from "./data/plumbing";
 // Retail & Commerce
@@ -34,9 +33,10 @@ import tutoring from "./data/tutoring";
 
 /**
  * All template-driven industry landing pages, in display order.
- * The bespoke /industries/barbershops, /industries/restaurants and
- * /industries/real-estate routes are intentionally not listed here — they have
- * their own hand-built pages and take precedence over the [slug] route.
+ * The bespoke /industries/barbershops, /industries/restaurants,
+ * /industries/real-estate and /industries/cleaning routes are intentionally not
+ * listed here — they have their own hand-built pages and take precedence over
+ * the [slug] route.
  */
 export const industries: IndustryData[] = [
   cafes,
@@ -53,7 +53,6 @@ export const industries: IndustryData[] = [
   yogaPilates,
   coaching,
   homeServices,
-  cleaning,
   contractors,
   plumbing,
   retail,

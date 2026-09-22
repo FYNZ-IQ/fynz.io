@@ -246,7 +246,7 @@ const GROUPS: IndustryGroup[] = [
       {
         slug: "cleaning",
         name: "Cleaning services",
-        desc: "Fill your route with recurring clients.",
+        desc: "Every call answered, every client rebooked, every clean reviewed.",
         keywords: "cleaning services maid janitorial house cleaning cleaner",
         icon: svg(
           <path d="M9 7h6v13a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V7ZM10 7V5h4v2M17 3h.01M20 5h.01M20 2h.01M17 6h.01" />
