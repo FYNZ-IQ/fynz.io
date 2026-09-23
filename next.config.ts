@@ -1,18 +1,13 @@
 import type { NextConfig } from "next";
 
-// When building for GitHub Pages we produce a fully static export served from
-// a project subpath (https://<owner>.github.io/<repo>/). Local dev/build are
-// unaffected because the subpath options are gated behind the GITHUB_PAGES env var.
-const isGithubPages = process.env.GITHUB_PAGES === "true";
-const repoBasePath = "/fynz.io";
-
+// Static export served from the root of the custom domain (https://fynz.io/).
+// public/CNAME is what tells GitHub Pages to serve the site there; because the
+// site is no longer on the <owner>.github.io/<repo>/ project subpath, no
+// basePath or assetPrefix is needed and asset URLs stay root-relative.
 const nextConfig: NextConfig = {
   output: "export",
   trailingSlash: true,
   images: { unoptimized: true },
-  ...(isGithubPages
-    ? { basePath: repoBasePath, assetPrefix: `${repoBasePath}/` }
-    : {}),
 };
 
 export default nextConfig;
