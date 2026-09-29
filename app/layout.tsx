@@ -1,30 +1,20 @@
 import type { Metadata } from "next";
-import { Sora, Instrument_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Navbar, Footer } from "@/components/layout";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const fontDisplay = Sora({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-display",
-});
-
-const fontBody = Instrument_Sans({
-  subsets: ["latin"],
-  variable: "--font-body",
-});
-
-const fontMono = IBM_Plex_Mono({
-  weight: ["400", "500", "600"],
-  subsets: ["latin"],
-  variable: "--font-mono",
+  display: "swap",
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
-  title: "FYNZ — Run your entire business in one place",
+  title: "FYNZ IQ | We Answer Your Leads and Book Your Jobs",
   description:
-    "FYNZ is the all-in-one business platform: capture leads, book appointments, sell online, and run operations — with AI employees working 24/7.",
+    "FYNZ IQ sets up and runs your calls, follow-ups, bookings, and reviews, done for you and built for cleaning, plumbing, accounting firms, and real estate teams.",
 };
 
 export default function RootLayout({
@@ -33,16 +23,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={cn(
-          "min-h-screen flex flex-col bg-background text-foreground antialiased",
-          fontDisplay.variable,
-          fontBody.variable,
-          fontMono.variable
-        )}
-      >
-        <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
+    <html lang="en" suppressHydrationWarning className={inter.variable}>
+      <body className={cn("min-h-screen flex flex-col bg-background text-foreground antialiased")}>
+        <ThemeProvider attribute="class" forcedTheme="light" disableTransitionOnChange>
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />

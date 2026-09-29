@@ -1,79 +1,94 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Placeholder } from "@/components/home/Placeholder";
+
+const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [
+  {
+    title: "Product",
+    links: [
+      { label: "Answer every call", href: "/#answer-every-call" },
+      { label: "Follow up fast", href: "/#follow-up-fast" },
+      { label: "Book jobs", href: "/#book-jobs" },
+      { label: "Get more reviews", href: "/#get-more-reviews" },
+      { label: "AI Voice", href: "/#ai-voice" },
+      { label: "Fynz Social", href: "/#fynz-social" },
+      { label: "Pricing", href: "/pricing" },
+    ],
+  },
+  {
+    title: "Industries",
+    links: [
+      { label: "Cleaning", href: "/industries/cleaning" },
+      { label: "Plumbing", href: "/industries/plumbing" },
+      { label: "Accounting Firms", href: "/industries/accounting-firms" },
+      { label: "Real Estate Teams", href: "/industries/real-estate-teams" },
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      { label: "Learn", href: "/learn" },
+      { label: "Webinars", href: "/learn#webinars" },
+      { label: "Guides", href: "/learn#guides" },
+      { label: "FAQ", href: "/#faq" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "About", href: "/about" },
+      { label: "Contact", href: "/contact" },
+      { label: "Sign in", href: "/signin" },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms", href: "/terms" },
+      { label: "Anti-spam and Consent Policy", href: "/anti-spam" },
+    ],
+  },
+];
 
 export function Footer() {
   return (
-    <footer className="bg-navy-800 text-white border-t border-line-soft pt-[72px] pb-[36px]">
+    <footer className="bg-navy-900 text-white pt-16 pb-9">
       <div className="wrap">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr_1fr] gap-[36px] mb-[56px]">
-          <div className="flex flex-col">
-            <Link href="/" className="flex items-center gap-[11px] shrink-0" aria-label="FYNZ home">
-              <Image src="/logo-fynz.png" alt="" width={34} height={29} className="h-[28px] w-auto" />
-              <span className="font-display font-extrabold text-[1.22rem] tracking-[0.06em]">FYNZ</span>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-[1.4fr_repeat(5,1fr)] gap-x-8 gap-y-10 mb-14">
+          <div className="col-span-2 md:col-span-3 lg:col-span-1 flex flex-col">
+            <Link href="/" className="flex items-center gap-2.5 shrink-0" aria-label="FYNZ IQ home">
+              <Image src="/fynz-logo-mark.svg" alt="" width={57} height={32} className="h-[32px] w-auto" loading="lazy" unoptimized />
+              <span className="font-bold text-[1.1rem] tracking-tight">
+                FYNZ <span className="font-semibold text-copper">IQ</span>
+              </span>
             </Link>
-            <p className="text-[0.86rem] text-slate-300 my-4 mb-5 max-w-[260px]">
-              The all-in-one platform for small business — grow, schedule, sell, and run operations from one place.
+            <p className="text-[0.9rem] text-white/70 mt-4 max-w-[260px] leading-relaxed">
+              We answer your leads and book your jobs. You do the work.
             </p>
-            <div className="font-mono text-[11px] text-slate-400 leading-loose">
-              <a href="mailto:hello@fynz.io" className="hover:text-copper transition-colors">hello@fynz.io</a><br/>
-              <span>US &amp; Canada</span>
+          </div>
+          {COLUMNS.map((col) => (
+            <div key={col.title} className="flex flex-col">
+              <h2 className="text-[11px] font-semibold tracking-[0.14em] uppercase text-copper mb-3">{col.title}</h2>
+              {col.links.map((l) => (
+                <Link key={l.label} href={l.href} prefetch={false} className="block text-[0.9rem] text-white/75 py-1.5 transition-colors hover:text-white">
+                  {l.label}
+                </Link>
+              ))}
             </div>
-          </div>
-          
-          <div className="flex flex-col">
-            <h5 className="font-mono text-[10px] font-semibold tracking-[0.2em] uppercase text-copper mb-4">Product</h5>
-            <FooterLink href="/platform">Platform overview</FooterLink>
-            <FooterLink href="/grow">GROW</FooterLink>
-            <FooterLink href="/schedule">SCHEDULE</FooterLink>
-            <FooterLink href="/shop">SHOP</FooterLink>
-            <FooterLink href="/ops">OPS</FooterLink>
-            <FooterLink href="/ai">FYNZ AI</FooterLink>
-            <FooterLink href="/integrations">Integrations</FooterLink>
-          </div>
-          
-          <div className="flex flex-col">
-            <h5 className="font-mono text-[10px] font-semibold tracking-[0.2em] uppercase text-copper mb-4">Who&apos;s it for</h5>
-            <FooterLink href="/emergency">Emergency restoration</FooterLink>
-            <FooterLink href="/industries/salons">Salons &amp; barbershops</FooterLink>
-            <FooterLink href="/industries/clinics">Clinics &amp; dental</FooterLink>
-            <FooterLink href="/industries/fitness">Fitness &amp; gyms</FooterLink>
-            <FooterLink href="/industries/home-services">Home services</FooterLink>
-            <FooterLink href="/industries/real-estate">Real estate</FooterLink>
-            <FooterLink href="/industries">All industries</FooterLink>
-          </div>
-          
-          <div className="flex flex-col">
-            <h5 className="font-mono text-[10px] font-semibold tracking-[0.2em] uppercase text-copper mb-4">Resources</h5>
-            <FooterLink href="/resources">Resources</FooterLink>
-            <FooterLink href="/pricing">Pricing</FooterLink>
-            <FooterLink href="/demo">Book a demo</FooterLink>
-            <FooterLink href="/onboarding?plan=free">Start free</FooterLink>
-          </div>
-
-          <div className="flex flex-col">
-            <h5 className="font-mono text-[10px] font-semibold tracking-[0.2em] uppercase text-copper mb-4">Company</h5>
-            <FooterLink href="/about">About</FooterLink>
-            <FooterLink href="/contact">Contact</FooterLink>
-            <FooterLink href="/privacy">Privacy Policy</FooterLink>
-            <FooterLink href="/terms">Terms of Service</FooterLink>
-            <FooterLink href="/refund">Refund &amp; Cancellation</FooterLink>
-          </div>
+          ))}
         </div>
-        
-        <div className="border-t border-line-soft pt-[26px] flex justify-between items-center gap-5 flex-wrap">
-          <span className="font-mono text-[10.5px] text-slate-400 tracking-[0.06em]">© 2026 FYNZ, INC. ALL RIGHTS RESERVED.</span>
-          <span className="font-mono text-[10.5px] text-slate-400 tracking-[0.06em]">ALL PRICES IN USD</span>
+        <div className="border-t border-white/10 pt-6 text-[0.82rem] text-white/60 flex flex-wrap gap-x-3 gap-y-2 items-center">
+          <span>© 2026 Fynz IQ Inc.</span>
+          <span aria-hidden="true">·</span>
+          <span>Toronto, Ontario</span>
+          <span aria-hidden="true">·</span>
+          <Placeholder>[email]</Placeholder>
+          <span aria-hidden="true">·</span>
+          <Placeholder>[phone]</Placeholder>
         </div>
       </div>
     </footer>
-  );
-}
-
-function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
-  return (
-    <Link href={href} className="block text-[0.86rem] text-slate-300 py-1.5 transition-colors hover:text-white">
-      {children}
-    </Link>
   );
 }

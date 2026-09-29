@@ -63,6 +63,13 @@ submission only lands once GHL has provisioned that sub-account (checkout →
 SaaS provisioning). Lookup retries cover ~3 minutes; later submissions than
 that will alert as failures for manual recovery.
 
+## Homepage calculator (`/roi/web`)
+
+The homepage "What are missed calls costing you?" form posts
+`{ email, optin, calls_per_week, miss_rate, conversion_rate, job_value, estimate }`
+to `POST /roi/web`. It uses the same origin allow-list, honeypot (`website`),
+and rate limit as `/demo/web`, and forwards the lead to `ALERT_WEBHOOK_URL`.
+
 ## GHL wiring (after deploy)
 
 1. **Send workflow** — Trigger: Survey Submitted (onboarding wizard). Action: Custom Webhook, `POST https://your-host/onboard`, JSON body:

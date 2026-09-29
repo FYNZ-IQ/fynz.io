@@ -3,352 +3,262 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import { Button } from "@/components/ui/button";
-import { ModeToggle } from "@/components/ui/mode-toggle";
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
+import { PRODUCT_LINKS, INDUSTRY_LINKS, ROUTES } from "@/lib/site-nav";
+
+type MenuKey = "product" | "industries" | null;
 
 export function Navbar() {
   const [scrolled, setScrolled] = React.useState(false);
+  const [open, setOpen] = React.useState<MenuKey>(null);
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const closeTimer = React.useRef<number | null>(null);
+  const headerRef = React.useRef<HTMLElement>(null);
 
   React.useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 24);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Close menus on Escape / outside click.
+  React.useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(null);
+        setMobileOpen(false);
+      }
+    };
+    const onClick = (e: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) setOpen(null);
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("click", onClick);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("click", onClick);
+    };
+  }, []);
+
+  // Lock body scroll while the mobile drawer is open.
+  React.useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
+  const show = (key: MenuKey) => {
+    if (closeTimer.current) window.clearTimeout(closeTimer.current);
+    setOpen(key);
+  };
+  const hide = () => {
+    if (closeTimer.current) window.clearTimeout(closeTimer.current);
+    closeTimer.current = window.setTimeout(() => setOpen(null), 120);
+  };
+
+  // The homepage hero is Navy Deep, so the transparent header inverts to white there.
+  const pathname = usePathname();
+  const solid = scrolled || open !== null || mobileOpen;
+  const inverted = !solid && pathname === "/";
 
   return (
     <header
+      ref={headerRef}
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent",
-        scrolled && "bg-nav-bg backdrop-blur-[14px] border-line-soft"
+        "fixed top-0 left-0 right-0 z-50 transition-[background-color,box-shadow,border-color] duration-300 border-b border-transparent",
+        solid && "bg-[color:var(--warm-white)] shadow-[0_6px_24px_rgba(13,33,84,0.08)] border-line-soft",
+        inverted ? "text-white" : "text-navy-900"
       )}
+      data-inverted={inverted || undefined}
+      onMouseLeave={hide}
     >
-      <div className="wrap h-[72px] flex items-center gap-[34px]">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-[11px] shrink-0" aria-label="FYNZ home">
-          <Image src="/logo-fynz.png" alt="" width={36} height={31} className="h-[30px] w-auto" priority />
-          <span className="font-display font-extrabold text-[1.22rem] tracking-[0.06em]">FYNZ</span>
+      <div className="wrap h-[64px] md:h-[68px] flex items-center gap-6">
+        <Link href="/" className="flex items-center gap-2.5 shrink-0" aria-label="FYNZ IQ home" onClick={() => setMobileOpen(false)}>
+          <Image src="/fynz-logo-mark.svg" alt="" width={53} height={30} className="h-[30px] w-auto" priority unoptimized />
+          <span className="font-bold text-[1.1rem] tracking-tight">
+            FYNZ <span className="font-semibold text-copper">IQ</span>
+          </span>
         </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-1.5 flex-1">
-          <NavigationMenu>
-            <NavigationMenuList className="gap-1.5">
-              
-              {/* Features Mega Menu */}
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent hover:bg-transparent data-[state=open]:bg-transparent text-slate-600 dark:text-slate-300 hover:text-copper data-[state=open]:text-copper font-display font-medium text-[0.92rem]">
-                  Features
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="w-[min(920px,92vw)] grid grid-cols-5 gap-[22px] p-[26px]">
-                    <div className="flex flex-col">
-                      <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">Grow</h5>
-                      <MenuLink href="/grow">Lead capture</MenuLink>
-                      <MenuLink href="/features/crm">CRM &amp; pipelines</MenuLink>
-                      <MenuLink href="/features/inbox">Unified inbox</MenuLink>
-                      <MenuLink href="/features/marketing">Email &amp; SMS marketing</MenuLink>
-                      <MenuLink href="/features/automations">Automations</MenuLink>
-                      <MenuLink href="/features/funnels">Funnels &amp; pages</MenuLink>
-                      <MenuLink href="/features/reputation">Reviews &amp; reputation</MenuLink>
-                    </div>
-                    <div className="flex flex-col">
-                      <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">Schedule</h5>
-                      <MenuLink href="/schedule">Booking core</MenuLink>
-                      <MenuLink href="/features/calendar">Smart calendar</MenuLink>
-                      <MenuLink href="/features/team">Team management</MenuLink>
-                      <MenuLink href="/features/customers">Customer management</MenuLink>
-                      <MenuLink href="/features/reminders">Reminders &amp; no-shows</MenuLink>
-                    </div>
-                    <div className="flex flex-col">
-                      <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">Shop</h5>
-                      <MenuLink href="/shop">Online store</MenuLink>
-                      <MenuLink href="/features/payments">Payments</MenuLink>
-                      <MenuLink href="/features/invoicing">Invoicing</MenuLink>
-                      <MenuLink href="/features/memberships">Memberships &amp; courses</MenuLink>
-                    </div>
-                    <div className="flex flex-col">
-                      <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">Ops</h5>
-                      <MenuLink href="/ops">Ops overview</MenuLink>
-                      <MenuLink href="/features/reporting">Reporting</MenuLink>
-                      <MenuLink href="/features/accounting">Accounting</MenuLink>
-                      <MenuLink href="/features/tax">Tax tools</MenuLink>
-                    </div>
-                    <div className="flex flex-col">
-                      <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">FYNZ AI</h5>
-                      <MenuLink href="/ai">All AI agents</MenuLink>
-                      <MenuLink href="/ai/voice">Voice AI</MenuLink>
-                      <MenuLink href="/ai/conversation">Conversation AI</MenuLink>
-                      <MenuLink href="/ai/reviews">Reviews AI</MenuLink>
-                      <MenuLink href="/ai/content">Content AI</MenuLink>
-                    </div>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
+        {/* Desktop menus */}
+        <nav className="hidden lg:flex items-center gap-1 ml-2" aria-label="Main">
+          <MenuButton
+            label="Product"
+            active={open === "product"}
+            onEnter={() => show("product")}
+            onToggle={() => setOpen(open === "product" ? null : "product")}
+          />
+          <MenuButton
+            label="Industries"
+            active={open === "industries"}
+            onEnter={() => show("industries")}
+            onToggle={() => setOpen(open === "industries" ? null : "industries")}
+          />
+          <TopLink href={ROUTES.pricing} onEnter={() => show(null)}>Pricing</TopLink>
+          <TopLink href={ROUTES.learn} onEnter={() => show(null)}>Learn</TopLink>
+        </nav>
 
-              {/* AI Dropdown */}
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent hover:bg-transparent data-[state=open]:bg-transparent text-slate-600 dark:text-slate-300 hover:text-copper data-[state=open]:text-copper font-display font-medium text-[0.92rem]">
-                  AI
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="w-[250px] flex flex-col gap-0.5 p-[26px]">
-                    <ListItem href="/ai" title="FYNZ AI hub">Meet your whole AI team</ListItem>
-                    <ListItem href="/ai/voice" title="Voice AI">Answers every call, 24/7</ListItem>
-                    <ListItem href="/ai/conversation" title="Conversation AI">Replies to every message</ListItem>
-                    <ListItem href="/ai/reviews" title="Reviews AI">Requests &amp; responds to reviews</ListItem>
-                    <ListItem href="/ai/content" title="Content AI">Writes posts, emails &amp; pages</ListItem>
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              {/* Who's it for Dropdown */}
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent hover:bg-transparent data-[state=open]:bg-transparent text-slate-600 dark:text-slate-300 hover:text-copper data-[state=open]:text-copper font-display font-medium text-[0.92rem]">
-                  Who&apos;s it for
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="w-[min(860px,92vw)] p-[26px]">
-                    <div className="grid grid-cols-4 gap-[22px]">
-                      <div className="flex flex-col gap-5">
-                        <div>
-                          <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">Beauty &amp; personal care</h5>
-                          <MenuLink href="/industries/salons">Salons</MenuLink>
-                          <MenuLink href="/industries/barbershops">Barbershops</MenuLink>
-                          <MenuLink href="/industries/spas">Spas &amp; beauty</MenuLink>
-                          <MenuLink href="/industries/nail-studios">Nail studios</MenuLink>
-                        </div>
-                        <div>
-                          <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">Property</h5>
-                          <MenuLink href="/industries/real-estate">Real estate</MenuLink>
-                        </div>
-                      </div>
-                      <div className="flex flex-col gap-5">
-                        <div>
-                          <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">Health</h5>
-                          <MenuLink href="/industries/clinics">Clinics</MenuLink>
-                          <MenuLink href="/industries/dental">Dental clinics</MenuLink>
-                          <MenuLink href="/industries/medical-clinics">Medical &amp; health</MenuLink>
-                          <MenuLink href="/industries/therapists">Therapists &amp; physio</MenuLink>
-                        </div>
-                        <div>
-                          <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">Fitness</h5>
-                          <MenuLink href="/industries/gyms">Gyms</MenuLink>
-                          <MenuLink href="/industries/fitness">Fitness studios</MenuLink>
-                          <MenuLink href="/industries/personal-trainers">Personal trainers</MenuLink>
-                          <MenuLink href="/industries/yoga-pilates">Yoga &amp; Pilates</MenuLink>
-                        </div>
-                      </div>
-                      <div className="flex flex-col gap-5">
-                        <div>
-                          <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">Food &amp; hospitality</h5>
-                          <MenuLink href="/industries/restaurants">Restaurants</MenuLink>
-                          <MenuLink href="/industries/cafes">Cafés</MenuLink>
-                          <MenuLink href="/industries/bars">Bars</MenuLink>
-                        </div>
-                        <div>
-                          <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">Retail &amp; commerce</h5>
-                          <MenuLink href="/industries/boutiques">Boutiques</MenuLink>
-                          <MenuLink href="/industries/retail">Retail stores</MenuLink>
-                          <MenuLink href="/industries/ecommerce">E-commerce</MenuLink>
-                        </div>
-                        <div>
-                          <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">Professional</h5>
-                          <MenuLink href="/industries/accounting">Accounting firms</MenuLink>
-                          <MenuLink href="/industries/legal">Law firms</MenuLink>
-                          <MenuLink href="/industries/coaching">Coaches</MenuLink>
-                        </div>
-                      </div>
-                      <div className="flex flex-col gap-5">
-                        <div>
-                          <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">Home services &amp; trades</h5>
-                          <MenuLink href="/industries/home-services">Home services</MenuLink>
-                          <MenuLink href="/industries/plumbing">Plumbing</MenuLink>
-                          <MenuLink href="/industries/cleaning">Cleaning</MenuLink>
-                          <MenuLink href="/industries/contractors">Contractors</MenuLink>
-                          <MenuLink href="/industries/automotive">Auto shops</MenuLink>
-                        </div>
-                        <div>
-                          <h5 className="font-mono text-[10.5px] font-semibold tracking-[0.2em] uppercase text-copper mb-3 pb-2.5 border-b border-line-soft">Emergency restoration</h5>
-                          <MenuLink href="/emergency">Restoration &amp; emergency</MenuLink>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="mt-5 pt-4 border-t border-line-soft">
-                      <Link href="/industries" className="font-display font-semibold text-[0.9rem] text-copper hover:underline">
-                        See all industries →
-                      </Link>
-                    </div>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuLink render={<Link href="/pricing" />} className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-transparent data-[state=open]:bg-transparent text-slate-600 dark:text-slate-300 hover:text-copper font-display font-medium text-[0.92rem]")}>
-                  Pricing
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink render={<Link href="/resources" />} className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-transparent data-[state=open]:bg-transparent text-slate-600 dark:text-slate-300 hover:text-copper font-display font-medium text-[0.92rem]")}>
-                  Resources
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+        <div className="hidden lg:flex items-center gap-2 ml-auto">
+          <TopLink href={ROUTES.signIn} onEnter={() => show(null)}>Sign in</TopLink>
+          <Link href={ROUTES.bookDemo} prefetch={false} className="btn-copper h-[42px] px-5 text-[0.92rem] py-0">
+            Book a demo
+          </Link>
         </div>
 
-        {/* Right Nav */}
-        <div className="flex items-center gap-[10px] ml-auto">
-          <ModeToggle />
-          
-          <div className="hidden md:flex items-center gap-[10px]">
-             <Link href="/demo" className="font-display font-medium text-[0.92rem] text-muted hover:text-ink px-3.5 py-2.5 transition-colors">
-               Book a demo
-             </Link>
-             <Button className="btn-copper rounded-full h-[45px] px-[22px] text-[0.92rem]" render={<Link href="/pricing" />}>
-               Start free
-             </Button>
-          </div>
+        {/* Mobile toggle */}
+        <button
+          type="button"
+          className="lg:hidden ml-auto flex flex-col justify-center gap-[5px] p-2.5 -mr-2"
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileOpen}
+          onClick={() => setMobileOpen((v) => !v)}
+        >
+          <span className={cn("w-[22px] h-[2px] bg-current rounded-sm transition-transform duration-200", mobileOpen && "translate-y-[7px] rotate-45")} />
+          <span className={cn("w-[22px] h-[2px] bg-current rounded-sm transition-opacity duration-200", mobileOpen && "opacity-0")} />
+          <span className={cn("w-[22px] h-[2px] bg-current rounded-sm transition-transform duration-200", mobileOpen && "-translate-y-[7px] -rotate-45")} />
+        </button>
+      </div>
 
-          {/* Mobile Menu */}
-          <Sheet>
-            <SheetTrigger className="md:hidden flex flex-col gap-[5px] p-2.5" aria-label="Open menu">
-              <span className="w-[22px] h-[2px] bg-ink rounded-sm transition-transform" />
-              <span className="w-[22px] h-[2px] bg-ink rounded-sm transition-opacity" />
-              <span className="w-[22px] h-[2px] bg-ink rounded-sm transition-transform" />
-            </SheetTrigger>
-            <SheetContent side="top" className="bg-navy-900 text-white pt-20 pb-16 px-6 border-none max-h-dvh overflow-y-auto">
-              <SheetTitle className="sr-only">Mobile Navigation</SheetTitle>
-              <div className="flex flex-col">
-                <MobileMenuGroup title="Features">
-                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Grow</h6>
-                  <MobileLink href="/grow">Lead capture</MobileLink>
-                  <MobileLink href="/features/crm">CRM &amp; pipelines</MobileLink>
-                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Schedule</h6>
-                  <MobileLink href="/schedule">Booking core</MobileLink>
-                  <MobileLink href="/features/calendar">Smart calendar</MobileLink>
-                </MobileMenuGroup>
-                <MobileMenuGroup title="AI">
-                  <MobileLink href="/ai">FYNZ AI hub</MobileLink>
-                  <MobileLink href="/ai/voice">Voice AI</MobileLink>
-                  <MobileLink href="/ai/conversation">Conversation AI</MobileLink>
-                </MobileMenuGroup>
-                <MobileMenuGroup title="Who's it for">
-                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Beauty &amp; personal care</h6>
-                  <MobileLink href="/industries/salons">Salons</MobileLink>
-                  <MobileLink href="/industries/barbershops">Barbershops</MobileLink>
-                  <MobileLink href="/industries/spas">Spas &amp; beauty</MobileLink>
-                  <MobileLink href="/industries/nail-studios">Nail studios</MobileLink>
-                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Health</h6>
-                  <MobileLink href="/industries/clinics">Clinics</MobileLink>
-                  <MobileLink href="/industries/dental">Dental clinics</MobileLink>
-                  <MobileLink href="/industries/medical-clinics">Medical &amp; health</MobileLink>
-                  <MobileLink href="/industries/therapists">Therapists &amp; physio</MobileLink>
-                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Fitness</h6>
-                  <MobileLink href="/industries/gyms">Gyms</MobileLink>
-                  <MobileLink href="/industries/fitness">Fitness studios</MobileLink>
-                  <MobileLink href="/industries/personal-trainers">Personal trainers</MobileLink>
-                  <MobileLink href="/industries/yoga-pilates">Yoga &amp; Pilates</MobileLink>
-                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Food &amp; hospitality</h6>
-                  <MobileLink href="/industries/restaurants">Restaurants</MobileLink>
-                  <MobileLink href="/industries/cafes">Cafés</MobileLink>
-                  <MobileLink href="/industries/bars">Bars</MobileLink>
-                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Retail &amp; commerce</h6>
-                  <MobileLink href="/industries/boutiques">Boutiques</MobileLink>
-                  <MobileLink href="/industries/retail">Retail stores</MobileLink>
-                  <MobileLink href="/industries/ecommerce">E-commerce</MobileLink>
-                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Professional</h6>
-                  <MobileLink href="/industries/accounting">Accounting firms</MobileLink>
-                  <MobileLink href="/industries/legal">Law firms</MobileLink>
-                  <MobileLink href="/industries/coaching">Coaches</MobileLink>
-                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Home services &amp; trades</h6>
-                  <MobileLink href="/industries/home-services">Home services</MobileLink>
-                  <MobileLink href="/industries/plumbing">Plumbing</MobileLink>
-                  <MobileLink href="/industries/cleaning">Cleaning</MobileLink>
-                  <MobileLink href="/industries/contractors">Contractors</MobileLink>
-                  <MobileLink href="/industries/automotive">Auto shops</MobileLink>
-                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Emergency restoration</h6>
-                  <MobileLink href="/emergency">Restoration &amp; emergency</MobileLink>
-                  <h6 className="font-mono text-[10px] tracking-[0.2em] uppercase text-copper mt-3.5 mb-1">Property</h6>
-                  <MobileLink href="/industries/real-estate">Real estate</MobileLink>
-                  <MobileLink href="/industries" className="text-copper font-semibold">See all industries →</MobileLink>
-                </MobileMenuGroup>
-                <MobileLink href="/pricing" className="font-display font-semibold text-[1.05rem] py-[18px] border-b border-line-soft">Pricing</MobileLink>
-                <MobileLink href="/resources" className="font-display font-semibold text-[1.05rem] py-[18px] border-b border-line-soft">Resources</MobileLink>
-                
-                <div className="flex flex-col gap-3 mt-[26px]">
-                  <Button variant="outline" className="w-full btn-ghost rounded-full" render={<Link href="/demo" />}>Book a demo</Button>
-                  <Button className="w-full btn-copper rounded-full" render={<Link href="/pricing" />}>Start free</Button>
-                </div>
-              </div>
-            </SheetContent>
-          </Sheet>
+      {/* Mega menu (desktop): two columns — products + one-liners left, industries right */}
+      <div
+        className={cn("mega hidden lg:block absolute left-0 right-0 top-full", open && "open")}
+        onMouseEnter={() => open && show(open)}
+        onMouseLeave={hide}
+        aria-hidden={!open}
+        inert={!open}
+      >
+        <div className="wrap">
+          <div className="bg-white rounded-2xl border border-line-soft shadow-[0_24px_60px_rgba(13,33,84,0.16)] p-2 grid grid-cols-[1.5fr_1fr] w-[min(860px,100%)]">
+            <div className={cn("p-5 grid grid-cols-2 gap-x-6 gap-y-1", open === "industries" && "opacity-60")}>
+              <p className="col-span-2 text-[11px] font-semibold tracking-[0.14em] uppercase text-grey mb-2">Product</p>
+              {PRODUCT_LINKS.map((l) => (
+                <Link
+                  key={l.title}
+                  href={l.href}
+                  prefetch={false}
+                  onClick={() => setOpen(null)}
+                  className="group rounded-xl px-3 py-2.5 -mx-3 hover:bg-[color:var(--warm-white)] transition-colors"
+                >
+                  <div className="font-semibold text-[0.95rem] text-navy-900 group-hover:text-copper">{l.title}</div>
+                  <div className="text-[0.82rem] text-grey leading-snug mt-0.5">{l.desc}</div>
+                </Link>
+              ))}
+            </div>
+            <div className={cn("p-5 bg-[color:var(--warm-white)] rounded-xl m-1", open === "product" && "opacity-70")}>
+              <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-grey mb-3">Industries</p>
+              {INDUSTRY_LINKS.map((l) => (
+                <Link
+                  key={l.title}
+                  href={l.href}
+                  prefetch={false}
+                  onClick={() => setOpen(null)}
+                  className="block font-semibold text-[0.95rem] text-navy-900 hover:text-copper py-2 border-b border-line-soft last:border-0"
+                >
+                  {l.title}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile drawer */}
+      <div
+        className={cn(
+          "lg:hidden fixed inset-x-0 top-[64px] bottom-0 bg-[color:var(--warm-white)] text-navy-900 overflow-y-auto transition-[opacity,transform] duration-200 ease-out",
+          mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"
+        )}
+        aria-hidden={!mobileOpen}
+        inert={!mobileOpen}
+      >
+        <div className="wrap py-4 flex flex-col">
+          <MobileGroup title="Product">
+            {PRODUCT_LINKS.map((l) => (
+              <Link key={l.title} href={l.href} prefetch={false} onClick={() => setMobileOpen(false)} className="block py-2.5">
+                <div className="font-semibold text-navy-900">{l.title}</div>
+                <div className="text-[0.85rem] text-grey">{l.desc}</div>
+              </Link>
+            ))}
+          </MobileGroup>
+          <MobileGroup title="Industries">
+            {INDUSTRY_LINKS.map((l) => (
+              <Link key={l.title} href={l.href} prefetch={false} onClick={() => setMobileOpen(false)} className="block py-2.5 font-semibold text-navy-900">
+                {l.title}
+              </Link>
+            ))}
+          </MobileGroup>
+          <Link href={ROUTES.pricing} prefetch={false} onClick={() => setMobileOpen(false)} className="font-semibold text-[1.05rem] py-4 border-b border-line-soft">Pricing</Link>
+          <Link href={ROUTES.learn} prefetch={false} onClick={() => setMobileOpen(false)} className="font-semibold text-[1.05rem] py-4 border-b border-line-soft">Learn</Link>
+          <Link href={ROUTES.signIn} prefetch={false} onClick={() => setMobileOpen(false)} className="font-semibold text-[1.05rem] py-4 border-b border-line-soft">Sign in</Link>
+          <div className="flex flex-col gap-3 mt-6">
+            <Link href={ROUTES.bookDemo} prefetch={false} onClick={() => setMobileOpen(false)} className="btn-copper w-full">Book a demo</Link>
+            <Link href={ROUTES.tryIt} prefetch={false} onClick={() => setMobileOpen(false)} className="btn-ghost w-full">Try it on your phone</Link>
+          </div>
         </div>
       </div>
     </header>
   );
 }
 
-function MenuLink({ href, children }: { href: string; children: React.ReactNode }) {
+function MenuButton({
+  label,
+  active,
+  onEnter,
+  onToggle,
+}: {
+  label: string;
+  active: boolean;
+  onEnter: () => void;
+  onToggle: () => void;
+}) {
   return (
-    <Link href={href} className="block text-[0.87rem] text-muted py-1.5 transition-colors hover:text-copper">
+    <button
+      type="button"
+      onMouseEnter={onEnter}
+      onFocus={onEnter}
+      onClick={onToggle}
+      aria-expanded={active}
+      aria-haspopup="true"
+      className={cn(
+        "inline-flex items-center gap-1 px-3 py-2 rounded-full text-[0.92rem] font-medium hover:text-copper transition-colors",
+        active && "text-copper"
+      )}
+    >
+      {label}
+      <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" className={cn("transition-transform duration-200", active && "rotate-180")}>
+        <path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </button>
+  );
+}
+
+function TopLink({ href, children, onEnter }: { href: string; children: React.ReactNode; onEnter: () => void }) {
+  return (
+    <Link
+      href={href}
+      prefetch={false}
+      onMouseEnter={onEnter}
+      onFocus={onEnter}
+      className="px-3 py-2 rounded-full text-[0.92rem] font-medium hover:text-copper transition-colors"
+    >
       {children}
     </Link>
   );
 }
 
-const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a"> & { title: string }
->(({ className, title, children, href, ...props }, ref) => {
+function MobileGroup({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <li>
-      <NavigationMenuLink
-        render={<Link ref={ref} href={href!} {...props as any} />}
-        className={cn(
-          "block select-none space-y-1 rounded-lg p-[9px_12px] leading-none no-underline outline-none transition-colors hover:bg-copper-tint hover:text-ink text-muted focus:bg-copper-tint group",
-          className
-        )}
-      >
-        <div className="text-[0.88rem] font-semibold font-display text-ink group-hover:text-copper leading-none">{title}</div>
-        {children && <p className="text-[0.78rem] leading-snug text-faint group-hover:text-muted mt-1.5">{children}</p>}
-      </NavigationMenuLink>
-    </li>
-  )
-})
-ListItem.displayName = "ListItem"
-
-function MobileMenuGroup({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <div className="border-b border-line-soft">
-      <details className="group">
-        <summary className="flex justify-between items-center font-display font-semibold text-[1.05rem] py-[18px] text-left text-white cursor-pointer list-none">
-          {title}
-          <span className="text-copper text-[0.8em] transition-transform group-open:rotate-180">▾</span>
-        </summary>
-        <div className="pb-4 px-1">{children}</div>
-      </details>
-    </div>
-  );
-}
-
-function MobileLink({ href, className, children }: { href: string; className?: string; children: React.ReactNode }) {
-  return (
-    <Link href={href} className={cn("block py-[9px] text-slate-200 text-[0.95rem] hover:text-copper", className)}>
-      {children}
-    </Link>
+    <details className="group border-b border-line-soft">
+      <summary className="flex justify-between items-center font-semibold text-[1.05rem] py-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+        {title}
+        <svg width="14" height="14" viewBox="0 0 12 12" aria-hidden="true" className="text-copper transition-transform duration-200 group-open:rotate-180">
+          <path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </summary>
+      <div className="pb-3">{children}</div>
+    </details>
   );
 }
