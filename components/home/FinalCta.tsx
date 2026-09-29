@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { Reveal } from "./Reveal";
+import { Reveal, useParallax } from "./Reveal";
 import { ROUTES } from "@/lib/site-nav";
 
 const NEXT_STEPS = [
@@ -11,15 +11,16 @@ const NEXT_STEPS = [
 ];
 
 export function FinalCta() {
+  const ref = useParallax<HTMLElement>();
   return (
-    <section className="relative isolate bg-navy-deep text-white cut-top pt-[calc(var(--cut)+64px)] md:pt-[calc(var(--cut)+80px)] pb-24 md:pb-32 overflow-hidden" aria-labelledby="cta-title">
-      <div className="mesh opacity-90" aria-hidden="true">
+    <section ref={ref} className="relative isolate bg-navy-deep text-white cut-top pt-[calc(var(--cut)+64px)] md:pt-[calc(var(--cut)+80px)] pb-24 md:pb-32 overflow-hidden" aria-labelledby="cta-title">
+      <div className="mesh opacity-90 px-layer" style={{ "--px": "16px" } as React.CSSProperties} aria-hidden="true">
         <i className="m2" style={{ top: "-30vw" }} />
         <i className="m3" style={{ top: "-14vw" }} />
       </div>
       <div className="wrap relative grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center">
         <Reveal>
-          <h2 id="cta-title" className="font-bold tracking-[-0.03em] leading-[1.02] text-[2.4rem] sm:text-[3rem] lg:text-[3.8rem] mb-5 max-w-[14ch]">
+          <h2 id="cta-title" className="rv-wipe font-bold tracking-[-0.03em] leading-[1.02] text-[2.4rem] sm:text-[3rem] lg:text-[3.8rem] mb-5 max-w-[14ch]">
             Stop losing jobs to missed calls.
           </h2>
           <p className="text-[1.05rem] md:text-[1.15rem] text-white/80 leading-relaxed max-w-[540px] mb-8">

@@ -11,36 +11,45 @@ export type AccordionEntry = {
 
 /**
  * Single-open accordion with animated height (grid-template-rows) and a
- * delayed content fade. Fully keyboard accessible (button + region).
+ * delayed content fade. Keyboard accessible (button + region). Can be
+ * uncontrolled (`defaultOpen`) or controlled (`value` + `onOpenChange`).
+ * `progressMs` draws a copper progress bar under the open item, used for
+ * auto-advancing panels; `paused` freezes it.
  */
 export function Accordion({
   items,
   defaultOpen = null,
+  value,
   dark = false,
   className,
   onOpenChange,
+  progressMs,
+  progressKey,
+  paused = false,
 }: {
   items: AccordionEntry[];
   defaultOpen?: string | null;
+  value?: string | null;
   dark?: boolean;
   className?: string;
   onOpenChange?: (id: string | null) => void;
+  progressMs?: number;
+  progressKey?: string | number;
+  paused?: boolean;
 }) {
-  const [open, setOpen] = React.useState<string | null>(defaultOpen);
+  const [inner, setInner] = React.useState<string | null>(defaultOpen);
+  const open = value !== undefined ? value : inner;
   const toggle = (id: string) => {
     const next = open === id ? null : id;
-    setOpen(next);
+    if (value === undefined) setInner(next);
     onOpenChange?.(next);
   };
   return (
-    <div className={cn("flex flex-col", className)}>
+    <div className={cn("flex flex-col", paused && "acc-paused", className)}>
       {items.map((item) => {
         const isOpen = open === item.id;
         return (
-          <div
-            key={item.id}
-            className={cn("border-b", dark ? "border-white/10" : "border-line-soft")}
-          >
+          <div key={item.id} className={cn("relative border-b", dark ? "border-white/10" : "border-line-soft")}>
             <h3 className="m-0">
               <button
                 type="button"
@@ -50,7 +59,7 @@ export function Accordion({
                 onClick={() => toggle(item.id)}
                 className={cn(
                   "w-full flex items-center justify-between gap-6 text-left py-5 font-semibold text-[1.05rem] md:text-[1.15rem] tracking-tight transition-colors",
-                  dark ? "text-white hover:text-copper-light" : "text-navy-900 hover:text-copper",
+                  dark ? "text-white hover:text-copper-light" : "text-navy-deep hover:text-copper",
                   isOpen && (dark ? "text-copper-light" : "text-copper")
                 )}
               >
@@ -78,11 +87,17 @@ export function Accordion({
               inert={!isOpen}
             >
               <div>
-                <div className="acc-inner pb-6">
-                  {item.content}
-                </div>
+                <div className="acc-inner pb-6">{item.content}</div>
               </div>
             </div>
+            {progressMs && isOpen ? (
+              <span
+                key={progressKey}
+                className="acc-progress run"
+                style={{ "--ms": `${progressMs}ms` } as React.CSSProperties}
+                aria-hidden="true"
+              />
+            ) : null}
           </div>
         );
       })}

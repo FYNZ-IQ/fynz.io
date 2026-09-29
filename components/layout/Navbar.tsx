@@ -134,13 +134,14 @@ export function Navbar() {
           <div className="bg-white rounded-2xl border border-line-soft shadow-[0_24px_60px_rgba(13,33,84,0.16)] p-2 grid grid-cols-[1.5fr_1fr] w-[min(860px,100%)]">
             <div className={cn("p-5 grid grid-cols-2 gap-x-6 gap-y-1", open === "industries" && "opacity-60")}>
               <p className="col-span-2 text-[11px] font-semibold tracking-[0.14em] uppercase text-grey mb-2">Product</p>
-              {PRODUCT_LINKS.map((l) => (
+              {PRODUCT_LINKS.map((l, i) => (
                 <Link
                   key={l.title}
                   href={l.href}
                   prefetch={false}
                   onClick={() => setOpen(null)}
-                  className="group rounded-xl px-3 py-2.5 -mx-3 hover:bg-[color:var(--warm-white)] transition-colors"
+                  style={{ "--i": i } as React.CSSProperties}
+                  className="mega-item group rounded-xl px-3 py-2.5 -mx-3 hover:bg-[color:var(--warm-white)] transition-colors"
                 >
                   <div className="font-semibold text-[0.95rem] text-navy-900 group-hover:text-copper">{l.title}</div>
                   <div className="text-[0.82rem] text-grey leading-snug mt-0.5">{l.desc}</div>
@@ -149,13 +150,14 @@ export function Navbar() {
             </div>
             <div className={cn("p-5 bg-[color:var(--warm-white)] rounded-xl m-1", open === "product" && "opacity-70")}>
               <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-grey mb-3">Industries</p>
-              {INDUSTRY_LINKS.map((l) => (
+              {INDUSTRY_LINKS.map((l, i) => (
                 <Link
                   key={l.title}
                   href={l.href}
                   prefetch={false}
                   onClick={() => setOpen(null)}
-                  className="block font-semibold text-[0.95rem] text-navy-900 hover:text-copper py-2 border-b border-line-soft last:border-0"
+                  style={{ "--i": i + 2 } as React.CSSProperties}
+                  className="mega-item block font-semibold text-[0.95rem] text-navy-900 hover:text-copper py-2 border-b border-line-soft last:border-0"
                 >
                   {l.title}
                 </Link>

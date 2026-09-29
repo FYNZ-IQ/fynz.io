@@ -46,12 +46,30 @@ const PLANS: Plan[] = [
   },
 ];
 
+function useTilt() {
+  const onMove = (e: React.PointerEvent<HTMLElement>) => {
+    if (e.pointerType !== "mouse") return;
+    const el = e.currentTarget;
+    const r = el.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    el.style.setProperty("--ry", `${(x * 6).toFixed(2)}deg`);
+    el.style.setProperty("--rx", `${(-y * 6).toFixed(2)}deg`);
+  };
+  const onLeave = (e: React.PointerEvent<HTMLElement>) => {
+    e.currentTarget.style.setProperty("--rx", "0deg");
+    e.currentTarget.style.setProperty("--ry", "0deg");
+  };
+  return { onPointerMove: onMove, onPointerLeave: onLeave };
+}
+
 export function Pricing() {
+  const tilt = useTilt();
   return (
     <section id="pricing" className="py-20 md:py-28 scroll-mt-16" aria-labelledby="pricing-title">
       <div className="wrap">
         <Reveal className="max-w-[720px] mb-12 md:mb-16">
-          <h2 id="pricing-title" className="font-bold tracking-[-0.03em] leading-[1.08] text-[2.1rem] md:text-[3rem] text-navy-deep mb-4">
+          <h2 id="pricing-title" className="rv-wipe font-bold tracking-[-0.03em] leading-[1.08] text-[2.1rem] md:text-[3rem] text-navy-deep mb-4">
             Choose how much we do for you.
           </h2>
           <p className="text-[1.05rem] md:text-[1.15rem] text-grey leading-relaxed">
@@ -61,13 +79,14 @@ export function Pricing() {
 
         <Reveal group className="grid md:grid-cols-3 gap-5 md:gap-4 lg:gap-6 items-stretch">
           {PLANS.map((p) => (
+            <div key={p.key} className={cn("flex", p.featured && "md:-mt-4 md:-mb-4 z-10")}>
             <article
-              key={p.key}
+              {...tilt}
               className={cn(
-                "relative flex flex-col rounded-2xl p-7 md:p-8 border transition-transform",
+                "tilt relative flex flex-col w-full rounded-2xl p-7 md:p-8 border",
                 p.featured
-                  ? "bg-navy-deep text-white border-navy-deep shadow-[0_30px_70px_rgba(13,33,84,0.28)] md:-translate-y-4 md:scale-[1.02] z-10"
-                  : "bg-white text-navy-deep border-line-soft shadow-[0_8px_24px_rgba(13,33,84,0.05)]"
+                  ? "bg-navy-deep text-white border-navy-deep shadow-[0_30px_70px_rgba(13,33,84,0.28)]"
+                  : "bg-white text-navy-deep border-line-soft shadow-[0_8px_24px_rgba(13,33,84,0.05)] hover:shadow-[0_22px_48px_rgba(13,33,84,0.12)]"
               )}
             >
               {p.featured && (
@@ -84,6 +103,7 @@ export function Pricing() {
                 {p.cta}
               </Link>
             </article>
+            </div>
           ))}
         </Reveal>
 

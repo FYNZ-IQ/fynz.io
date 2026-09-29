@@ -683,7 +683,7 @@
   border: 1px solid var(--line-soft);
   border-radius: 16px;
   box-shadow: 0 1px 2px rgba(13, 33, 84, 0.04), 0 8px 24px rgba(13, 33, 84, 0.05);
-  transition: transform 220ms ease-out, box-shadow 220ms ease-out;
+  transition: transform 220ms ease-out, box-shadow 220ms ease-out, opacity 400ms ease-out;
   overflow: hidden;
 }
 .pcard::before {
@@ -965,4 +965,190 @@
     animation-duration: 1ms !important;
     animation-delay: 0ms !important;
   }
+}
+
+/* ============================================================
+   Homepage motion layer v2
+   ============================================================ */
+
+/* Cursor parallax: sections set --mx/--my in [-1, 1] */
+.px-layer {
+  transform: translate3d(calc(var(--mx, 0) * var(--px, 10px)), calc(var(--my, 0) * var(--px, 10px)), 0);
+  transition: transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+
+/* Typing indicator */
+.dots {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  height: 12px;
+}
+.dots i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.45;
+  animation: dot 1s ease-in-out infinite;
+}
+.dots i:nth-child(2) { animation-delay: 150ms; }
+.dots i:nth-child(3) { animation-delay: 300ms; }
+@keyframes dot {
+  0%, 100% { transform: translateY(0); opacity: 0.45; }
+  50% { transform: translateY(-3px); opacity: 1; }
+}
+
+/* Ringing shake for the missed-call icon */
+.play .ring, .notif .ring {
+  animation: ring 900ms ease-in-out 2;
+  transform-origin: 50% 50%;
+}
+@keyframes ring {
+  0%, 100% { transform: rotate(0); }
+  15% { transform: rotate(-14deg); }
+  30% { transform: rotate(12deg); }
+  45% { transform: rotate(-10deg); }
+  60% { transform: rotate(8deg); }
+  75% { transform: rotate(-4deg); }
+}
+
+/* Heading wipe (used on section titles alongside the rise) */
+.rv-wipe {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.rv.in .rv-wipe, .in > .rv-wipe {
+  clip-path: inset(0 0 -10% 0);
+}
+
+/* Mega menu item stagger */
+.mega .mega-item {
+  opacity: 0;
+  transform: translateY(6px);
+}
+.mega.open .mega-item {
+  animation: mega-item 260ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 30ms + 60ms);
+}
+@keyframes mega-item {
+  to { opacity: 1; transform: none; }
+}
+
+/* Expandable product card */
+.pcard.is-open {
+  box-shadow: 0 2px 4px rgba(13, 33, 84, 0.05), 0 28px 60px rgba(13, 33, 84, 0.16);
+}
+.pcard.is-open::before {
+  transform: scaleX(1);
+}
+.expander {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.expander[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+.expander > div {
+  overflow: hidden;
+  min-height: 0;
+}
+.expander .exp-inner {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 300ms ease-out 140ms, transform 300ms ease-out 140ms;
+}
+.expander[data-open="true"] .exp-inner {
+  opacity: 1;
+  transform: none;
+}
+.exp-step {
+  opacity: 0;
+  transform: translateX(-8px);
+}
+.expander[data-open="true"] .exp-step {
+  animation: exp-step 360ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 110ms + 260ms);
+}
+@keyframes exp-step {
+  to { opacity: 1; transform: none; }
+}
+.plus-icon {
+  transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.is-open .plus-icon {
+  transform: rotate(45deg);
+}
+
+/* Accordion auto-advance progress bar */
+.acc-progress {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 2px;
+  width: 100%;
+  transform-origin: left;
+  transform: scaleX(0);
+  background: var(--copper-light);
+}
+.acc-progress.run {
+  animation: acc-progress var(--ms, 7000ms) linear forwards;
+}
+.acc-paused .acc-progress.run {
+  animation-play-state: paused;
+}
+@keyframes acc-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* Pricing card tilt (pointer devices only) */
+@media (hover: hover) and (pointer: fine) {
+  .tilt {
+    transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(0);
+    transition: transform 250ms ease-out, box-shadow 250ms ease-out;
+    transform-style: preserve-3d;
+  }
+}
+
+/* Demo-steps timeline line */
+.tl-line {
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 900ms cubic-bezier(0.2, 0.8, 0.2, 1) 200ms;
+}
+.play .tl-line {
+  transform: scaleY(1);
+}
+
+/* Number bump when the calculator result changes */
+.bump {
+  animation: bump 320ms cubic-bezier(0.2, 1.4, 0.4, 1);
+}
+@keyframes bump {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.035); }
+  100% { transform: scale(1); }
+}
+
+/* Column glow on the comparison header */
+.play .col-glow {
+  animation: col-glow 1400ms ease-out 400ms both;
+}
+@keyframes col-glow {
+  0% { box-shadow: 0 0 0 0 rgba(200, 137, 90, 0); }
+  40% { box-shadow: 0 0 0 8px rgba(200, 137, 90, 0.25), 0 12px 32px rgba(200, 137, 90, 0.35); }
+  100% { box-shadow: 0 0 0 0 rgba(200, 137, 90, 0), 0 8px 24px rgba(200, 137, 90, 0.18); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .px-layer { transform: none !important; transition: none; }
+  .dots i, .ring, .mega.open .mega-item, .acc-progress.run, .bump, .play .col-glow { animation: none !important; }
+  .mega .mega-item { opacity: 1; transform: none; }
+  .rv-wipe { clip-path: none; transition: none; }
+  .expander, .expander .exp-inner, .tl-line, .tilt, .plus-icon { transition-duration: 1ms !important; transition-delay: 0ms !important; }
+  .expander[data-open="true"] .exp-step { animation-duration: 1ms !important; animation-delay: 0ms !important; }
+  .tl-line { transform: scaleY(1); }
 }

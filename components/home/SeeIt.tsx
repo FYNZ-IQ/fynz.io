@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { cn } from "@/lib/utils";
-import { Reveal, useInView } from "./Reveal";
+import { Reveal, useInView, Playable } from "./Reveal";
 import { Placeholder } from "./Placeholder";
 
 const BRIDGE_URL = (process.env.NEXT_PUBLIC_ONBOARDING_BRIDGE_URL || "").replace(/\/$/, "");
@@ -12,7 +12,7 @@ export function SeeIt() {
     <section id="try-it" className="relative bg-white cut-top pt-[calc(var(--cut)+56px)] md:pt-[calc(var(--cut)+72px)] pb-20 md:pb-28 scroll-mt-16" aria-labelledby="see-title">
       <div className="wrap">
         <Reveal className="mb-12 md:mb-16">
-          <h2 id="see-title" className="font-bold tracking-[-0.03em] leading-[1.08] text-[2.1rem] md:text-[3rem] text-navy-deep">
+          <h2 id="see-title" className="rv-wipe font-bold tracking-[-0.03em] leading-[1.08] text-[2.1rem] md:text-[3rem] text-navy-deep">
             See it. Then do the math.
           </h2>
         </Reveal>
@@ -20,14 +20,17 @@ export function SeeIt() {
         <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-12 items-start">
           <Reveal className="rounded-2xl bg-warm-white border border-line-soft p-7 md:p-9">
             <h3 className="font-bold tracking-tight text-[1.4rem] text-navy-deep mb-6">Try it on your own phone</h3>
-            <ol className="flex flex-col gap-4 mb-8">
-              {["Call the number below.", "Hang up before anyone answers.", "Check your texts."].map((s, i) => (
-                <li key={s} className="flex items-start gap-4">
-                  <span className="shrink-0 w-8 h-8 rounded-full bg-copper-core text-white font-bold text-[0.9rem] flex items-center justify-center">{i + 1}</span>
-                  <span className="text-[1.02rem] text-navy-deep pt-1">{s}</span>
-                </li>
-              ))}
-            </ol>
+            <Playable>
+              <ol className="relative flex flex-col gap-5 mb-8">
+                <span className="tl-line absolute left-4 top-3 bottom-3 w-px bg-copper-core/40" aria-hidden="true" />
+                {["Call the number below.", "Hang up before anyone answers.", "Check your texts."].map((s, i) => (
+                  <li key={s} className="relative flex items-start gap-4">
+                    <span className="pop shrink-0 w-8 h-8 rounded-full bg-copper-core text-white font-bold text-[0.9rem] flex items-center justify-center ring-4 ring-warm-white" style={{ "--d": `${300 + i * 350}ms` } as React.CSSProperties}>{i + 1}</span>
+                    <span className="fade-in text-[1.02rem] text-navy-deep pt-1" style={{ "--d": `${400 + i * 350}ms` } as React.CSSProperties}>{s}</span>
+                  </li>
+                ))}
+              </ol>
+            </Playable>
             <div className="font-bold tracking-tight text-[1.6rem] sm:text-[2rem] md:text-[2.3rem] text-navy-deep mb-6 break-words">
               <Placeholder className="whitespace-normal!">[Demo phone number]</Placeholder>
             </div>
@@ -90,12 +93,22 @@ function Calculator() {
   const { ref, inView } = useInView<HTMLDivElement>({ threshold: 0.3 });
   const total = estimate(v);
   const shown = useAnimatedNumber(total, inView);
+  const [bump, setBump] = React.useState(0);
+  const first = React.useRef(true);
+  React.useEffect(() => {
+    if (first.current) {
+      first.current = false;
+      return;
+    }
+    const id = window.setTimeout(() => setBump((b) => b + 1), 0);
+    return () => window.clearTimeout(id);
+  }, [total]);
   const set = (k: keyof Inputs) => (e: React.ChangeEvent<HTMLInputElement>) => setV((s) => ({ ...s, [k]: Number(e.target.value) }));
 
   return (
     <div ref={ref} className="rounded-2xl bg-navy-deep text-white p-7 md:p-9 shadow-[0_30px_70px_rgba(13,33,84,0.25)]">
       <h3 className="font-bold tracking-tight text-[1.4rem] mb-5">What are missed calls costing you?</h3>
-      <div className="mb-1 font-bold tracking-[-0.03em] text-[2.8rem] md:text-[3.6rem] leading-none text-copper-light tabular-nums" aria-live="polite" aria-atomic="true">
+      <div key={bump} className={cn("mb-1 font-bold tracking-[-0.03em] text-[2.8rem] md:text-[3.6rem] leading-none text-copper-light tabular-nums origin-left", bump > 0 && "bump")} aria-live="polite" aria-atomic="true">
         {money(shown)} <span className="text-[1.1rem] md:text-[1.3rem] font-semibold text-white/70 tracking-normal">a month</span>
       </div>
       <p className="text-[0.85rem] text-white/60 mb-7">Example based on the starting numbers below. Move the sliders to see yours.</p>

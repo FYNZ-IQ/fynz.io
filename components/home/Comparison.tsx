@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Reveal } from "./Reveal";
+import { Reveal, Playable } from "./Reveal";
 
 const COLS = ["Software on your own", "Typical marketing agency", "FYNZ IQ"];
 const ROWS: { label: string; cells: [string, string, string] }[] = [
@@ -17,12 +17,13 @@ export function Comparison() {
     <section className="py-20 md:py-28" aria-labelledby="compare-title">
       <div className="wrap">
         <Reveal className="max-w-[720px] mb-10 md:mb-14">
-          <h2 id="compare-title" className="font-bold tracking-[-0.03em] leading-[1.08] text-[2.1rem] md:text-[3rem] text-navy-deep">
+          <h2 id="compare-title" className="rv-wipe font-bold tracking-[-0.03em] leading-[1.08] text-[2.1rem] md:text-[3rem] text-navy-deep">
             Not another login. A team that runs it.
           </h2>
         </Reveal>
 
-        <Reveal className="overflow-x-auto -mx-7 px-7 md:mx-0 md:px-0">
+        <Reveal>
+        <Playable className="overflow-x-auto -mx-7 px-7 md:mx-0 md:px-0">
           <table className="w-full min-w-[640px] border-collapse text-left">
             <thead>
               <tr>
@@ -35,7 +36,7 @@ export function Comparison() {
                     scope="col"
                     className={
                       i === 2
-                        ? "px-5 py-4 bg-copper-core text-white rounded-t-2xl font-bold text-[1rem] tracking-tight"
+                        ? "col-glow px-5 py-4 bg-copper-core text-white rounded-t-2xl font-bold text-[1rem] tracking-tight"
                         : "px-5 pb-4 border-b border-line font-semibold text-[0.95rem] text-navy-deep align-bottom"
                     }
                   >
@@ -57,7 +58,7 @@ export function Comparison() {
                         className={`px-5 py-4 bg-warm-white border-b border-line-soft font-semibold text-navy-deep ${ri === ROWS.length - 1 ? "rounded-b-2xl" : ""}`}
                       >
                         <span className="inline-flex items-center gap-2.5">
-                          <span className="w-5 h-5 rounded-full bg-copper-core text-white flex items-center justify-center shrink-0" aria-hidden="true">
+                          <span className="pop w-5 h-5 rounded-full bg-copper-core text-white flex items-center justify-center shrink-0" style={{ "--d": `${600 + ri * 160}ms` } as React.CSSProperties} aria-hidden="true">
                             <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.5 5 9l4.5-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                           </span>
                           {cell}
@@ -73,6 +74,7 @@ export function Comparison() {
               ))}
             </Reveal>
           </table>
+        </Playable>
         </Reveal>
       </div>
     </section>

@@ -3,8 +3,10 @@
 import * as React from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { Reveal } from "./Reveal";
+import { Reveal, useVisible, useReducedMotion } from "./Reveal";
 import { Accordion } from "./Accordion";
+
+const ADVANCE_MS = 7000;
 
 type Industry = {
   id: string;
@@ -81,13 +83,46 @@ const INDUSTRIES: Industry[] = [
 
 export function Industries() {
   const [open, setOpen] = React.useState<string | null>(INDUSTRIES[0].id);
+  const [auto, setAuto] = React.useState(true);
+  const [hover, setHover] = React.useState(false);
+  const [round, setRound] = React.useState(0);
+  const { ref, visible } = useVisible<HTMLElement>(0.35);
+  const reduced = useReducedMotion();
   const active = INDUSTRIES.find((i) => i.id === open) ?? INDUSTRIES[0];
 
+  // Stripe-style auto-advance: rotate panels while the section is on screen,
+  // pause on hover/focus, and stop for good once the visitor picks one.
+  const running = auto && visible && !hover && !reduced && open !== null;
+  React.useEffect(() => {
+    if (!running) return;
+    const id = window.setTimeout(() => {
+      setOpen((cur) => {
+        const i = INDUSTRIES.findIndex((x) => x.id === cur);
+        return INDUSTRIES[(i + 1) % INDUSTRIES.length].id;
+      });
+      setRound((r) => r + 1);
+    }, ADVANCE_MS);
+    return () => window.clearTimeout(id);
+  }, [running, open]);
+
+  const onManual = (id: string | null) => {
+    setAuto(false);
+    setOpen(id);
+  };
+
   return (
-    <section className="bg-navy-deep text-white py-20 md:py-28" aria-labelledby="industries-title">
+    <section
+      ref={ref}
+      className="bg-navy-deep text-white py-20 md:py-28"
+      aria-labelledby="industries-title"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      onFocusCapture={() => setHover(true)}
+      onBlurCapture={() => setHover(false)}
+    >
       <div className="wrap">
         <Reveal className="max-w-[720px] mb-10 md:mb-14">
-          <h2 id="industries-title" className="font-bold tracking-[-0.03em] leading-[1.08] text-[2.1rem] md:text-[3rem]">
+          <h2 id="industries-title" className="rv-wipe font-bold tracking-[-0.03em] leading-[1.08] text-[2.1rem] md:text-[3rem]">
             Built for your business.
           </h2>
         </Reveal>
@@ -96,8 +131,11 @@ export function Industries() {
           <Reveal>
             <Accordion
               dark
-              defaultOpen={INDUSTRIES[0].id}
-              onOpenChange={setOpen}
+              value={open}
+              onOpenChange={onManual}
+              progressMs={auto && !reduced ? ADVANCE_MS : undefined}
+              progressKey={`${open}-${round}`}
+              paused={!running}
               items={INDUSTRIES.map((ind) => ({
                 id: ind.id,
                 title: ind.name,

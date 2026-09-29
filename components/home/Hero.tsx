@@ -4,20 +4,21 @@ import * as React from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ROUTES } from "@/lib/site-nav";
+import { useParallax, useReducedMotion } from "./Reveal";
 
 const HEADLINE = "We answer your leads and book your jobs. You do the work.";
 
 export function Hero() {
   const words = HEADLINE.split(" ");
+  const ref = useParallax<HTMLElement>();
   return (
-    <section className="relative isolate bg-navy-deep text-white cut-bottom overflow-hidden" aria-labelledby="hero-title">
-      <div className="mesh" aria-hidden="true">
+    <section ref={ref} className="relative isolate bg-navy-deep text-white cut-bottom overflow-hidden" aria-labelledby="hero-title">
+      <div className="mesh px-layer" style={{ "--px": "18px" } as React.CSSProperties} aria-hidden="true">
         <i className="m1" />
         <i className="m2" />
         <i className="m3" />
         <i className="m4" />
       </div>
-      {/* subtle grain/vignette to keep text legible over the mesh */}
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(13,33,84,0.55)_0%,rgba(13,33,84,0.15)_55%,transparent_100%)] pointer-events-none" aria-hidden="true" />
 
       <div className="wrap relative pt-[120px] md:pt-[150px] pb-[calc(var(--cut)+56px)] md:pb-[calc(var(--cut)+72px)] grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-8 items-center">
@@ -50,7 +51,7 @@ export function Hero() {
           </p>
         </div>
 
-        <div className="flex flex-col items-center lg:items-end">
+        <div className="flex flex-col items-center lg:items-end px-layer" style={{ "--px": "-10px" } as React.CSSProperties}>
           <PhoneStory />
           <span className="mt-4 text-[0.78rem] tracking-[0.12em] uppercase text-white/55">Sample business</span>
         </div>
@@ -59,74 +60,80 @@ export function Hero() {
   );
 }
 
-type Step = { kind: "call" | "sent" | "reply" | "booked"; title: string; body: string; meta: string };
+type Kind = "call" | "typing-biz" | "sent" | "typing-cust" | "reply" | "booked";
+type Item = { kind: Kind; title: string; body: string; meta: string };
 
-const STEPS: Step[] = [
-  { kind: "call", title: "Missed call", body: "(416) 555-0142", meta: "Just now" },
-  { kind: "sent", title: "Text sent", body: "Hi, it's Maple Plumbing. Sorry we missed your call! How can we help?", meta: "8 sec later" },
-  { kind: "reply", title: "Customer replied", body: "Leak under my kitchen sink. Can someone come today?", meta: "2 min later" },
-  { kind: "booked", title: "Calendar", body: "Booked · Today 3:00 PM · Leak repair", meta: "Confirmed" },
+const ITEMS: Record<Kind, Item> = {
+  call: { kind: "call", title: "Missed call", body: "(416) 555-0142", meta: "Just now" },
+  "typing-biz": { kind: "typing-biz", title: "Maple Plumbing", body: "", meta: "typing…" },
+  sent: { kind: "sent", title: "Text sent", body: "Hi, it's Maple Plumbing. Sorry we missed your call! How can we help?", meta: "8 sec later" },
+  "typing-cust": { kind: "typing-cust", title: "Customer", body: "", meta: "typing…" },
+  reply: { kind: "reply", title: "Customer replied", body: "Leak under my kitchen sink. Can someone come today?", meta: "2 min later" },
+  booked: { kind: "booked", title: "Calendar", body: "Booked · Today 3:00 PM · Leak repair", meta: "Confirmed" },
+};
+
+/**
+ * 10-second timeline. Each frame is the full list of cards on screen, so a
+ * typing indicator is swapped for the message it precedes.
+ */
+const TIMELINE: { at: number; show: Kind[] }[] = [
+  { at: 0, show: ["call"] },
+  { at: 1300, show: ["call", "typing-biz"] },
+  { at: 2500, show: ["call", "sent"] },
+  { at: 4300, show: ["call", "sent", "typing-cust"] },
+  { at: 5200, show: ["call", "sent", "reply"] },
+  { at: 7400, show: ["call", "sent", "reply", "booked"] },
 ];
+const LOOP_MS = 10000;
+const FINAL: Kind[] = ["call", "sent", "reply", "booked"];
 
-const STEP_MS = 2500; // 4 steps × 2.5s = 10s loop
-
-/** Phone mockup that replays a 4-step missed-call → booked story on a 10-second loop. */
+/** Phone mockup that replays a missed-call → booked story on a 10-second loop. */
 export function PhoneStory({ className }: { className?: string }) {
-  const [state, setState] = React.useState({ count: 1, loop: 0 });
-  const [reduced, setReduced] = React.useState(false);
-  const { count, loop } = state;
+  const reduced = useReducedMotion();
+  const [state, setState] = React.useState({ frame: 0, loop: 0 });
 
   React.useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mq.matches) {
-      // Reduced motion: show the whole story statically.
-      const raf = requestAnimationFrame(() => {
-        setReduced(true);
-        setState({ count: STEPS.length, loop: 0 });
-      });
-      return () => cancelAnimationFrame(raf);
-    }
-    let id: number | undefined;
-    const start = () => {
-      stop();
-      id = window.setInterval(
-        () =>
-          setState((s) =>
-            s.count >= STEPS.length ? { count: 1, loop: s.loop + 1 } : { count: s.count + 1, loop: s.loop }
-          ),
-        STEP_MS
-      );
+    if (reduced) return;
+    let timer: number | undefined;
+    let loop = 0;
+    let frame = 0;
+    const schedule = () => {
+      const next = frame + 1;
+      const delay = next < TIMELINE.length ? TIMELINE[next].at - TIMELINE[frame].at : LOOP_MS - TIMELINE[frame].at;
+      timer = window.setTimeout(() => {
+        if (next < TIMELINE.length) frame = next;
+        else {
+          frame = 0;
+          loop += 1;
+        }
+        setState({ frame, loop });
+        schedule();
+      }, delay);
     };
-    const stop = () => {
-      if (id) window.clearInterval(id);
-      id = undefined;
-    };
-    // Pause the loop while the tab is hidden so it never drifts or burns battery.
-    const onVis = () => (document.hidden ? stop() : start());
+    const stop = () => window.clearTimeout(timer);
+    const onVis = () => (document.hidden ? stop() : schedule());
     document.addEventListener("visibilitychange", onVis);
-    start();
+    schedule();
     return () => {
       stop();
       document.removeEventListener("visibilitychange", onVis);
     };
-  }, []);
+  }, [reduced]);
 
-  const visible = STEPS.slice(0, count);
+  const shown = reduced ? FINAL : TIMELINE[state.frame].show;
 
   return (
     <div className={cn("float-phone", className)} role="img" aria-label="Phone showing a missed call, an automatic text back, the customer's reply, and a booked appointment.">
       <div className="relative w-[270px] sm:w-[300px] h-[560px] sm:h-[600px] rounded-[44px] bg-navy-deep p-[10px] shadow-[0_40px_80px_rgba(0,0,0,0.45),0_0_0_1px_rgba(255,255,255,0.12)]">
         <div className="relative h-full w-full rounded-[36px] bg-warm-white overflow-hidden text-navy-deep">
-          {/* notch */}
           <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-[92px] h-[26px] rounded-full bg-navy-deep z-10" aria-hidden="true" />
-          {/* status bar */}
           <div className="flex justify-between px-6 pt-4 text-[11px] font-semibold text-navy-deep/80">
             <span>9:41</span>
             <span aria-hidden="true">●●●</span>
           </div>
           <div className="px-4 pt-6 flex flex-col gap-3">
-            {visible.map((s) => (
-              <Notification key={`${loop}-${s.kind}`} step={s} reduced={reduced} />
+            {shown.map((k) => (
+              <Notification key={`${state.loop}-${k}`} item={ITEMS[k]} reduced={reduced} />
             ))}
           </div>
           <div className="absolute bottom-3 left-1/2 -translate-x-1/2 w-[110px] h-[5px] rounded-full bg-navy-deep/25" aria-hidden="true" />
@@ -136,9 +143,11 @@ export function PhoneStory({ className }: { className?: string }) {
   );
 }
 
-function Notification({ step, reduced }: { step: Step; reduced: boolean }) {
-  const isReply = step.kind === "reply";
-  const isBooked = step.kind === "booked";
+function Notification({ item, reduced }: { item: Item; reduced: boolean }) {
+  const k = item.kind;
+  const typing = k === "typing-biz" || k === "typing-cust";
+  const isReply = k === "reply" || k === "typing-cust";
+  const isBooked = k === "booked";
   return (
     <div
       className={cn(
@@ -151,32 +160,43 @@ function Notification({ step, reduced }: { step: Step; reduced: boolean }) {
         <span
           className={cn(
             "w-7 h-7 rounded-lg flex items-center justify-center shrink-0",
-            step.kind === "call" && "bg-red-50 text-red-500",
-            step.kind === "sent" && "bg-copper-core/15 text-copper",
+            k === "call" && "bg-red-50 text-red-500",
+            (k === "sent" || k === "typing-biz") && "bg-copper-core/15 text-copper",
             isReply && "bg-navy-deep/8 text-navy-deep",
             isBooked && "bg-copper-core text-white"
           )}
           aria-hidden="true"
         >
-          {step.kind === "call" && <PhoneIcon />}
-          {step.kind === "sent" && <MessageIcon />}
-          {isReply && <MessageIcon />}
+          {k === "call" && <span className="ring inline-flex"><PhoneIcon /></span>}
+          {(k === "sent" || k === "typing-biz" || isReply) && <MessageIcon />}
           {isBooked && <CalendarIcon />}
         </span>
-        <span className="font-semibold text-[0.82rem] flex-1">{step.title}</span>
-        <span className="text-[0.7rem] text-grey">{step.meta}</span>
+        <span className="font-semibold text-[0.82rem] flex-1">{item.title}</span>
+        <span className="text-[0.7rem] text-grey">{item.meta}</span>
       </div>
-      <p
-        className={cn(
-          "text-[0.86rem] leading-snug",
-          step.kind === "sent" && "bg-copper-core text-white rounded-2xl rounded-tl-md px-3 py-2 inline-block",
-          isReply && "bg-warm-white rounded-2xl rounded-tl-md px-3 py-2 inline-block",
-          isBooked && "font-semibold text-navy-deep",
-          step.kind === "call" && "text-navy-deep font-medium"
-        )}
-      >
-        {step.body}
-      </p>
+      {typing ? (
+        <span
+          className={cn(
+            "dots rounded-2xl px-3 py-2.5",
+            k === "typing-biz" ? "bg-copper-core text-white rounded-tl-md" : "bg-warm-white text-navy-deep rounded-tl-md"
+          )}
+          aria-label="typing"
+        >
+          <i /><i /><i />
+        </span>
+      ) : (
+        <p
+          className={cn(
+            "text-[0.86rem] leading-snug",
+            k === "sent" && "bg-copper-core text-white rounded-2xl rounded-tl-md px-3 py-2 inline-block",
+            k === "reply" && "bg-warm-white rounded-2xl rounded-tl-md px-3 py-2 inline-block",
+            isBooked && "font-semibold text-navy-deep",
+            k === "call" && "text-navy-deep font-medium"
+          )}
+        >
+          {item.body}
+        </p>
+      )}
     </div>
   );
 }
