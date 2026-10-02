@@ -24,7 +24,7 @@ const STEPS = [
   {
     step: "03",
     title: "A 20-minute call, on your numbers",
-    desc: "We walk through what you're missing, in dollars, and show you exactly how FYNZ would answer, book, and recover it."
+    desc: "We walk through what you're missing, in dollars, and show you exactly how FYNZ would answer, book, and recover it — then you choose Self-Serve (live in minutes) or Managed (built for you, live within 48 hours of signing)."
   }
 ];
 
@@ -181,7 +181,7 @@ export default function DemoPage() {
             We record what your line does after hours, then show you what you&apos;re missing on a 20-minute call — your numbers, your industry, no slideware.
           </p>
           <p className="font-mono text-[9.5px] tracking-widest text-faint uppercase">
-            Month-to-month · 30-day money-back guarantee · live in 48 hours
+            Month-to-month · 30-day money-back guarantee · Managed builds live in 48 hours
           </p>
         </div>
       </section>

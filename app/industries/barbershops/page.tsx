@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { ScrollReveal, StaggerGroup, HoverFloat } from "@/components/animations";
-import { BadgeCard, Chip } from "@/components/shared";
+import { BadgeCard, Chip, WaysInCards } from "@/components/shared";
 import { SmsChatWidget, LiveQueueWidget } from "@/components/widgets";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent, Button, Card, CardContent } from "@/components/ui";
 import { cn } from "@/lib/utils";
@@ -279,10 +279,10 @@ const AFTER_ITEMS = [
 ];
 
 const FAQs = [
-  { q: "Do I need to be techy?", a: "No. Setup is guided step by step, and once it's running, it runs itself. If you can post a fade to Instagram, you can run FYNZ." },
+  { q: "Do I need to be techy?", a: "No. Pick the Barbershops snapshot and you're live in minutes with everything pre-configured — and the FYNZ team handles setup questions, configuration changes, and troubleshooting for you. If you can post a fade to Instagram, you can run FYNZ." },
   { q: "Will my regulars notice it's AI on the phone?", a: "It sounds natural, knows your prices, hours, and each barber's schedule, and hands the call to you the moment it should." },
   { q: "Can I keep my phone number?", a: "Yes. Your existing shop number keeps working — FYNZ just makes sure it always gets answered." },
-  { q: "How long does setup take?", a: "Most owners are live in under a week." },
+  { q: "How long does setup take?", a: "Two ways in. Self-Serve: minutes — pick the Barbershops snapshot, provision yourself, and it's live. Managed: our experts build it to how your barbershop actually runs and hand it over working, live within 48 hours of signing." },
   { q: "What does it cost — am I locked into a contract?", a: "Plans are on the pricing page, and there's a free plan to start. No long-term contract — every paid plan is month-to-month with a 30-day money-back guarantee, and you can cancel anytime from your dashboard." },
   { q: "What happens when the AI can't answer something?", a: "It takes a message, notifies you instantly, and never guesses. You can also run it in approve-first mode — it drafts, you tap send." }
 ];
@@ -498,6 +498,24 @@ export default function BarbershopPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Two ways in — the team behind the account */}
+      <section className="sec py-20 bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-b border-line-soft">
+        <div className="wrap max-w-7xl mx-auto px-6">
+          <div className="max-w-3xl mb-10">
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">Software plus the people who run it</span>
+            <h2 className="font-display font-extrabold text-3xl tracking-tight mb-3">
+              Two ways to get your barbershop <span className="text-copper">live on FYNZ</span>
+            </h2>
+            <p className="text-muted text-sm md:text-base">
+              Either way, you&apos;re not handed a login and left to work it out — setup, configuration, changes, and troubleshooting are done for you by people who know the system.
+            </p>
+          </div>
+          <ScrollReveal>
+            <WaysInCards industryName="Barbershops" />
+          </ScrollReveal>
         </div>
       </section>
 

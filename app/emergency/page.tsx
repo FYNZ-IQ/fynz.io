@@ -42,7 +42,7 @@ const BUNDLES = [
       "Saved-job & recovered-revenue attribution",
       "Emergency-tuned booking & dispatch flow",
       "Full FYNZ Growth platform underneath",
-      "Live in 48 hours"
+      "Self-serve snapshot — live in minutes, FYNZ team behind it"
     ]
   },
   {
@@ -52,6 +52,7 @@ const BUNDLES = [
     popular: true,
     features: [
       "Everything in Emergency Growth",
+      "Human build to your business — live within 48 hours of signing",
       "After-hours human coverage overlap",
       "Live escalation on complex losses",
       "Follow-up chase on every open lead",
@@ -87,7 +88,7 @@ export default function EmergencyPage() {
               The 2 a.m. call you miss is a job your <span className="text-copper">competitor booked</span>.
             </h1>
             <p className="text-muted text-lg mb-8 max-w-xl">
-              Water, fire, mold — losses don&apos;t wait for office hours, and neither do insurance-funded jobs. FYNZ answers in two rings, qualifies the loss, captures the claim details, and books the truck. Live in 48 hours.
+              Water, fire, mold — losses don&apos;t wait for office hours, and neither do insurance-funded jobs. FYNZ answers in two rings, qualifies the loss, captures the claim details, and books the truck. Self-serve in minutes — or built for you by our team, live within 48 hours of signing.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-4">
               <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/demo" />}>
@@ -97,7 +98,7 @@ export default function EmergencyPage() {
                 Get your free missed-call audit
               </Button>
             </div>
-            <span className="font-mono text-[9px] tracking-widest text-faint uppercase">MONTH-TO-MONTH · 30-DAY MONEY-BACK GUARANTEE · LIVE IN 48H</span>
+            <span className="font-mono text-[9px] tracking-widest text-faint uppercase">MONTH-TO-MONTH · 30-DAY MONEY-BACK GUARANTEE · MANAGED: LIVE IN 48H</span>
           </div>
 
           {/* Hero visual — after-hours call, answered */}
@@ -266,7 +267,7 @@ export default function EmergencyPage() {
             Book a demo and get your free missed-call audit — we&apos;ll show you what happens to your line after hours, and what it should be booking instead.
           </p>
           <p className="font-mono text-[11px] tracking-wide text-copper uppercase mb-8">
-            Month-to-month · 30-day money-back guarantee · live in 48 hours
+            Month-to-month · 30-day money-back guarantee · Managed: live in 48 hours
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/demo" />}>

@@ -13,7 +13,7 @@ export function Footer() {
               <span className="font-display font-extrabold text-[1.22rem] tracking-[0.06em]">FYNZ</span>
             </Link>
             <p className="text-[0.86rem] text-slate-300 my-4 mb-5 max-w-[260px]">
-              The all-in-one platform for small business — grow, schedule, sell, and run operations from one place.
+              The all-in-one platform for small business — grow, schedule, sell, and run operations from one place, with the FYNZ team behind every account.
             </p>
             <div className="font-mono text-[11px] text-slate-400 leading-loose">
               <a href="mailto:hello@fynz.io" className="hover:text-copper transition-colors">hello@fynz.io</a><br/>

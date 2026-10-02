@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { ScrollReveal, StaggerGroup, HoverFloat } from "@/components/animations";
-import { Chip } from "@/components/shared";
+import { Chip, ExpandMore, WaysInCards } from "@/components/shared";
 import {
   Accordion,
   AccordionItem,
@@ -119,16 +119,21 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
                   {benefit.title}
                 </h2>
                 <p className="lede">{benefit.desc}</p>
-                <ul className="mt-6 flex flex-col gap-2.5">
-                  {["Designed to save admin hours", "Native client communication layer", "Secure data handling and updates"].map(
-                    (f) => (
+                <ExpandMore className="mt-5" panelClassName="pb-4">
+                  <ul className="flex flex-col gap-2.5">
+                    {[
+                      "Designed to save admin hours",
+                      "Native client communication layer",
+                      "Secure data handling and updates",
+                      "Configured and adjusted for you by the FYNZ team",
+                    ].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-muted">
                         <span className="text-green mt-0.5 shrink-0">✓</span>
                         {f}
                       </li>
-                    )
-                  )}
-                </ul>
+                    ))}
+                  </ul>
+                </ExpandMore>
               </div>
               <Card className="bg-navy-800 text-white border border-white/10 rounded-[var(--r-lg)] shadow-none">
                 <CardContent className="p-7">
@@ -215,6 +220,23 @@ export function IndustryLanding({ data }: { data: IndustryData }) {
               </div>
             </ScrollReveal>
           </div>
+        </div>
+      </section>
+
+      {/* Two ways in — the team behind the account */}
+      <section className="sec bg-secondary/50">
+        <div className="wrap">
+          <ScrollReveal className="sec-head">
+            <span className="eyebrow eyebrow-line mb-4">Software plus the people who run it</span>
+            <h2 className="font-display font-bold text-3xl md:text-[2.4rem] leading-tight mt-3">
+              Two ways to get {data.name.toLowerCase()} live on FYNZ
+            </h2>
+            <p className="lede mt-4">
+              Either way, you&apos;re not handed a login and left to work it out — setup, configuration, changes, and
+              troubleshooting are done for you by people who know the system.
+            </p>
+          </ScrollReveal>
+          <WaysInCards industryName={data.name} />
         </div>
       </section>
 

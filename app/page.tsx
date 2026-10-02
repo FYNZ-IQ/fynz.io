@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { ScrollReveal, StaggerGroup, HoverFloat } from "@/components/animations";
-import { Chip } from "@/components/shared";
+import { Chip, ExpandMore, WaysInCards, TEAM_PROMISE } from "@/components/shared";
 import { Button } from "@/components/ui";
 import { cn } from "@/lib/utils";
 import { CinematicProvider, CineCanvas, Grain, Parallax, ProgressRail } from "@/components/cinematic";
@@ -14,7 +14,8 @@ const BROW_CARDS = [
   {
     chip: "GROW",
     title: "Capture every lead, everywhere they find you",
-    desc: "Forms, funnels, missed-call text-back, and social DMs all flow into one CRM. No lead slips through a busy Tuesday again — every inquiry gets a name, a pipeline stage, and a next step.",
+    desc: "Forms, funnels, missed-call text-back, and social DMs all flow into one CRM.",
+    more: "No lead slips through a busy Tuesday again — every inquiry gets a name, a pipeline stage, and a next step. And because the FYNZ team configures your pipeline for you, it matches how you actually sell from day one.",
     link: "/grow",
     linkText: "Explore GROW",
     reverse: false,
@@ -55,9 +56,10 @@ const BROW_CARDS = [
   {
     chip: "GROW",
     title: "One inbox for every message",
-    desc: "SMS, email, WhatsApp, Instagram, Facebook, and webchat — answered from a single thread per customer. Stop app-hopping; the full conversation history is always right there.",
+    desc: "SMS, email, WhatsApp, Instagram, Facebook, and webchat — answered from a single thread per customer.",
+    more: "Stop app-hopping; the full conversation history is always right there, and every reply — human or AI — lands on the same customer record.",
     link: "/features/inbox",
-    linkText: "Learn more",
+    linkText: "Explore the inbox",
     reverse: true,
     visual: (
       <div className="panel bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] p-5 relative w-full select-none" aria-hidden="true">
@@ -90,7 +92,8 @@ const BROW_CARDS = [
   {
     chip: "SCHEDULE",
     title: "Book appointments 24/7 — even while you sleep",
-    desc: "A booking page that knows your services, staff, and real availability. Customers self-book, reschedule, and get reminders automatically, so no-shows drop and your phone stops ringing off the hook.",
+    desc: "A booking page that knows your services, staff, and real availability.",
+    more: "Customers self-book, reschedule, and get reminders automatically, so no-shows drop and your phone stops ringing off the hook. Your services and staff are loaded for you, so there's nothing to build.",
     link: "/schedule",
     linkText: "Explore SCHEDULE",
     reverse: false,
@@ -115,7 +118,8 @@ const BROW_CARDS = [
   {
     chip: "SHOP",
     title: "Get paid & sell online",
-    desc: "Take deposits at booking, sell products and gift cards from your own store, and send invoices that get paid in one tap — through Stripe, PayPal, Square, and the cards your customers already carry.",
+    desc: "Take deposits at booking, sell products and gift cards from your own store, and send invoices that get paid in one tap.",
+    more: "Works through Stripe, PayPal, Square, and the cards your customers already carry — every payment lands on the same customer record as the booking it came from.",
     link: "/shop",
     linkText: "Explore SHOP",
     reverse: true,
@@ -146,9 +150,10 @@ const BROW_CARDS = [
   {
     chip: "AUTOMATION",
     title: "Automate the busywork",
-    desc: "Follow-ups, reminders, rebooking nudges, birthday offers — build the workflow once and FYNZ runs it forever. Automation is the connective tissue between every pillar, not an add-on.",
+    desc: "Follow-ups, reminders, rebooking nudges, birthday offers — set the workflow once and FYNZ runs it forever.",
+    more: "Automation is the connective tissue between every pillar, not an add-on. Need a flow changed? The FYNZ team adjusts it for you — you don't have to learn a workflow builder.",
     link: "/features/automations",
-    linkText: "Learn more",
+    linkText: "Explore automations",
     reverse: false,
     visual: (
       <div className="panel bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] p-4 relative w-full select-none" aria-hidden="true">
@@ -174,9 +179,10 @@ const BROW_CARDS = [
   {
     chip: "REPUTATION",
     title: "Win reviews on autopilot",
-    desc: "After every visit, FYNZ asks happy customers for a Google review at exactly the right moment — and drafts your responses. More stars, higher local ranking, zero chasing.",
+    desc: "After every visit, FYNZ asks happy customers for a Google review at exactly the right moment — and drafts your responses.",
+    more: "More stars, higher local ranking, zero chasing. Requests go out on the timing that works for your industry, and your responses stay in your voice.",
     link: "/features/reputation",
-    linkText: "Learn more",
+    linkText: "Explore reviews",
     reverse: true,
     visual: (
       <div className="panel bg-navy-800 text-white border border-white/10 rounded-[var(--r-md)] p-5 relative w-full select-none" aria-hidden="true">
@@ -196,7 +202,8 @@ const BROW_CARDS = [
   {
     chip: "OPS",
     title: "See the whole business at a glance",
-    desc: "Revenue, bookings, payroll hours, and what you owe at tax time — one dashboard instead of a shoebox of receipts. Accounting and tax tools are rolling out under the OPS pillar.",
+    desc: "Revenue, bookings, payroll hours, and what you owe at tax time — one dashboard instead of a shoebox of receipts.",
+    more: "Because every account is instrumented for attribution from day one, the dashboard also shows what FYNZ earned you: source, saved-job value, closed amount, date. Accounting and tax tools are rolling out under the OPS pillar.",
     link: "/ops",
     linkText: "Explore OPS",
     reverse: false,
@@ -341,6 +348,7 @@ export default function Home() {
       <ProgressRail
         sections={[
           { id: "hero", label: "Fynz", color: "#D9967D" },
+          { id: "team", label: "Team", color: "#E9BE6A" },
           { id: "features", label: "Platform", color: "#D9967D" },
           { id: "pillars", label: "Pillars", color: "#7FB2E5" },
           { id: "automation", label: "Automation", color: "#E9BE6A" },
@@ -365,7 +373,7 @@ export default function Home() {
               Run your entire business in <span className="text-copper">one place</span>.
             </h1>
             <p className="text-muted text-lg mb-8 max-w-xl">
-              Get customers, book them, sell to them, and run the whole operation — without juggling ten different tools. FYNZ puts your CRM, calendar, store, and back office on a single screen.
+              Get customers, book them, sell to them, and run the whole operation — without juggling ten different tools. FYNZ puts your CRM, calendar, store, and back office on a single screen, and our experts set it up, configure it, and keep it running for you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-4">
               <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/pricing" />}>
@@ -375,7 +383,7 @@ export default function Home() {
                 Book a demo
               </Button>
             </div>
-            <span className="font-mono text-[9px] tracking-widest text-faint uppercase">FREE FOREVER — NO CARD · MONTH-TO-MONTH · LIVE IN 48 HOURS</span>
+            <span className="font-mono text-[9px] tracking-widest text-faint uppercase">FREE FOREVER — NO CARD · MONTH-TO-MONTH · SET UP &amp; SUPPORTED BY FYNZ EXPERTS</span>
           </div>
 
           {/* Hero Dashboard Preview */}
@@ -453,6 +461,22 @@ export default function Home() {
         </div>
       </section>
 
+      {/* The team behind it — the difference from every other SaaS */}
+      <section id="team" className="sec py-24 bg-white dark:bg-navy-900 text-slate-900 dark:text-white border-b border-line-soft">
+        <div className="wrap max-w-7xl mx-auto px-6">
+          <div className="max-w-3xl mb-12">
+            <span className="font-mono text-[11px] tracking-[0.15em] text-copper uppercase block mb-3">{TEAM_PROMISE.eyebrow}</span>
+            <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight mb-4">
+              A platform with a <span className="text-copper">team behind it</span>
+            </h2>
+            <p className="text-slate-600 dark:text-slate-400">{TEAM_PROMISE.summary}</p>
+          </div>
+          <ScrollReveal>
+            <WaysInCards />
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* Rows: Feature Highlights */}
       <section id="features" className="sec py-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
@@ -479,7 +503,10 @@ export default function Home() {
                 <div className="flex-1 max-w-xl">
                   <Chip className="mb-4">{card.chip}</Chip>
                   <h3 className="font-display font-extrabold text-2xl md:text-3xl tracking-tight mb-4 text-slate-900 dark:text-white">{card.title}</h3>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">{card.desc}</p>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">{card.desc}</p>
+                  <ExpandMore className="mb-5" panelClassName="pb-3">
+                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{card.more}</p>
+                  </ExpandMore>
                   <Link href={card.link} className="inline-flex items-center gap-1 text-copper font-mono text-xs tracking-wider uppercase group">
                     {card.linkText} <span className="group-hover:translate-x-1 transition-transform">→</span>
                   </Link>
@@ -738,7 +765,7 @@ export default function Home() {
             Your business, <span className="text-copper">handled</span>.
           </h2>
           <p className="text-muted text-lg mb-4 max-w-xl mx-auto">
-            Start free — or book a demo and our team has you live within 48 hours.
+            Start free and set yourself up in minutes — or go Managed and our experts build it for you, live within 48 hours of signing.
           </p>
           <p className="font-mono text-[11px] tracking-wide text-copper uppercase mb-8">
             Month-to-month · 30-day money-back guarantee · cancel anytime

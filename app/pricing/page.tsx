@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { ScrollReveal, StaggerGroup } from "@/components/animations";
-import { Chip } from "@/components/shared";
+import { Chip, ExpandMore, WaysInCards } from "@/components/shared";
 import { Button, Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui";
 import { cn } from "@/lib/utils";
 
@@ -15,9 +15,14 @@ type Plan = {
   cta: string;
   ctaLink: string;
   popular: boolean;
-  freeFlag?: string;
+  /** Short pill above the plan name — how this plan goes live. */
+  flag?: string;
+  flagTone?: "green" | "copper";
   features: string[];
 };
+
+/** How many features show before "See all" on a plan card. */
+const FEATURES_SHOWN = 4;
 
 const PLANS: Plan[] = [
   {
@@ -28,7 +33,8 @@ const PLANS: Plan[] = [
     cta: "Start free",
     ctaLink: "/onboarding?plan=free",
     popular: false,
-    freeFlag: "FREE FOREVER · NOT A TRIAL",
+    flag: "FREE FOREVER · NOT A TRIAL",
+    flagTone: "green",
     features: [
       "See your missed-revenue dashboard — missed calls, lapsed clients, and empty slots",
       "Your own numbers, in dollars — not industry averages",
@@ -38,15 +44,19 @@ const PLANS: Plan[] = [
   },
   {
     name: "Starter",
-    who: "The operational core — set up for you in 48 hours.",
+    who: "The operational core — pick your industry snapshot and go live in minutes.",
     price: 97,
     cap: "MONTH-TO-MONTH · CANCEL ANYTIME",
     cta: "Book a demo",
     ctaLink: "/demo",
     popular: false,
+    flag: "SELF-SERVE · LIVE IN MINUTES",
+    flagTone: "copper",
     features: [
       "Full CRM & pipelines",
-      "48-hour concierge setup — our team imports your contacts and turns everything on",
+      "Pre-built industry snapshot — booking, pipelines and automations already configured for your trade",
+      "FYNZ experts on hand — setup questions, configuration changes and troubleshooting handled for you",
+      "Attribution instrumented on day one — source, saved-job value, closed amount, date",
       "24/7 online booking & smart calendar",
       "Payments, invoicing & online store",
       "Missed-call text-back & base automations",
@@ -62,6 +72,8 @@ const PLANS: Plan[] = [
     cta: "Book a demo",
     ctaLink: "/demo",
     popular: true,
+    flag: "SELF-SERVE · LIVE IN MINUTES",
+    flagTone: "copper",
     features: [
       "Everything in Starter",
       "Email marketing & campaigns",
@@ -74,14 +86,18 @@ const PLANS: Plan[] = [
   },
   {
     name: "Managed",
-    who: "Everything in Growth, plus a team that runs it for you.",
+    who: "Everything in Growth, built by our experts to your actual business — live within 48 hours of signing.",
     price: 397,
     cap: "MONTH-TO-MONTH · CANCEL ANYTIME",
     cta: "Book a demo",
     ctaLink: "/demo",
     popular: false,
+    flag: "MANAGED · BUILT FOR YOU IN 48H",
+    flagTone: "copper",
     features: [
       "Everything in Growth",
+      "Human build — configured to how your business actually runs, not a template",
+      "Live within 48 hours of signing, contacts imported and every channel switched on",
       "Done-for-you campaign management",
       "Monitoring & live escalation",
       "Compliance handled for you — texting registration, consent, and opt-outs managed"
@@ -129,9 +145,18 @@ const COMPARISON_MATRIX: { group: string; rows: MatrixRow[] }[] = [
     ]
   },
   {
+    group: "HOW YOU GO LIVE",
+    rows: [
+      { name: "Go-live path", free: "SELF-SERVE", starter: "SELF-SERVE", growth: "SELF-SERVE", managed: "MANAGED" },
+      { name: "Industry snapshot — live in minutes", free: true, starter: true, growth: true, managed: true },
+      { name: "Human build to your business (48h)", free: false, starter: false, growth: false, managed: true },
+      { name: "Expert setup, changes & troubleshooting", free: false, starter: true, growth: true, managed: true },
+      { name: "Attribution instrumented on day one", free: false, starter: true, growth: true, managed: true, link: "/features/reporting" }
+    ]
+  },
+  {
     group: "DONE FOR YOU",
     rows: [
-      { name: "Concierge setup (48h)", free: false, starter: true, growth: true, managed: "WHITE-GLOVE" },
       { name: "Campaign management", free: false, starter: false, growth: false, managed: true, link: "/features/marketing" },
       { name: "Monitoring & live escalation", free: false, starter: false, growth: false, managed: true },
       { name: "Compliance handled", free: false, starter: false, growth: false, managed: true }
@@ -163,8 +188,16 @@ const FAQS = [
     a: "No contract. Every plan is month-to-month with a 30-day money-back guarantee, and you can cancel anytime right from your dashboard."
   },
   {
-    q: "What does concierge setup include?",
-    a: "Within 48 hours of signing up, our team imports your contacts, puts your booking page live, turns on missed-call text-back, and switches on review requests. You start with a working system, not an empty one."
+    q: "What's the difference between Self-Serve and Managed?",
+    a: "Self-Serve is plug-and-play: pick your industry snapshot, provision yourself, and you're live in minutes with a template already configured for your trade — snapshots exist for every industry in our library. Managed is a human build: our experts configure FYNZ to your actual business and hand it over working, live within 48 hours of signing. Either way, the FYNZ team is behind the account."
+  },
+  {
+    q: "Am I on my own after I sign up?",
+    a: "No. Nobody is handed a login and left to work it out. Setup questions, configuration, changes, and troubleshooting are handled by people who know the system. On Managed, that same team also runs your campaigns, monitoring, and compliance."
+  },
+  {
+    q: "How will I know what FYNZ is earning me?",
+    a: "Every paid account is instrumented for attribution on day one. Each lead carries where it came from, the value of the job it saved, the amount that closed, and the date — so you can see what the system earned you, in dollars, on your own dashboard."
   },
   {
     q: "Are there setup fees?",
@@ -209,7 +242,7 @@ export default function PricingPage() {
       <section className="py-16 md:py-24 border-b border-line-soft">
         <div className="wrap max-w-7xl mx-auto px-6">
           <p className="text-center text-muted text-sm md:text-base font-display font-semibold mb-3">
-            Every paid plan is set up for you — live within 48 hours.
+            Two ways in: set yourself up in minutes on any plan — or go Managed and our experts build it for you, live within 48 hours of signing.
           </p>
           <p className="text-center font-mono text-[10px] tracking-wider text-copper uppercase mb-10">
             30-day money-back guarantee · month-to-month · cancel anytime
@@ -235,10 +268,12 @@ export default function PricingPage() {
 
                 <div className="flex flex-col grow">
                   <span className={cn(
-                    "font-mono text-[8.5px] tracking-wider px-2.5 py-1 rounded-md block w-fit mb-4 select-none",
-                    plan.freeFlag ? "text-green bg-green/10 border border-green/30" : "invisible border border-transparent"
+                    "font-mono text-[8.5px] tracking-wider px-2.5 py-1 rounded-md block w-fit mb-4 select-none border",
+                    !plan.flag && "invisible border-transparent",
+                    plan.flag && plan.flagTone === "green" && "text-green bg-green/10 border-green/30",
+                    plan.flag && plan.flagTone !== "green" && "text-copper bg-copper/10 border-copper/30"
                   )}>
-                    {plan.freeFlag || " "}
+                    {plan.flag || " "}
                   </span>
                   <h3 className="font-display font-extrabold text-xl text-white mb-1.5">{plan.name}</h3>
                   <p className="text-slate-300 text-xs leading-relaxed min-h-[48px] mb-6">{plan.who}</p>
@@ -265,25 +300,48 @@ export default function PricingPage() {
                   </Button>
 
                   <ul className="space-y-3.5 text-xs text-slate-300">
-                    {plan.features.map((feat, fidx) => (
+                    {plan.features.slice(0, FEATURES_SHOWN).map((feat, fidx) => (
                       <li key={fidx} className="flex gap-2.5 items-start">
                         <span className="text-copper font-mono text-[10px] shrink-0 mt-0.5">✓</span>
                         <span>{feat}</span>
                       </li>
                     ))}
                   </ul>
+                  {plan.features.length > FEATURES_SHOWN && (
+                    <ExpandMore
+                      className="mt-3.5"
+                      panelClassName="pb-3.5"
+                      moreLabel={`See all ${plan.features.length} features`}
+                      lessLabel="Show less"
+                      toggleClassName="text-[10px]"
+                    >
+                      <ul className="space-y-3.5 text-xs text-slate-300">
+                        {plan.features.slice(FEATURES_SHOWN).map((feat, fidx) => (
+                          <li key={fidx} className="flex gap-2.5 items-start">
+                            <span className="text-copper font-mono text-[10px] shrink-0 mt-0.5">✓</span>
+                            <span>{feat}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </ExpandMore>
+                  )}
                 </div>
               </div>
             ))}
           </StaggerGroup>
 
-          {/* Human-team banner */}
-          <ScrollReveal>
-            <div className="mt-10 bg-navy-900 text-white rounded-[var(--r-lg)] px-8 py-6 text-center">
-              <p className="font-display font-semibold text-sm md:text-base">
-                Real humans set you up on every paid plan — and on Managed, they run your campaigns too.
+          {/* The team behind every plan — two ways in */}
+          <ScrollReveal className="mt-16">
+            <div className="max-w-3xl mb-8">
+              <span className="font-mono text-[9px] tracking-[0.15em] text-copper uppercase block mb-3">Software plus the people who run it</span>
+              <h2 className="font-display font-extrabold text-2xl md:text-3xl tracking-tight mb-3">
+                Every plan has the <span className="text-copper">FYNZ team</span> behind it
+              </h2>
+              <p className="text-muted text-sm md:text-base">
+                You&apos;re not handed a login and left to work it out. Setup, configuration, changes, and troubleshooting are done for you by people who know the system — the only question is how you want to go live.
               </p>
             </div>
+            <WaysInCards />
           </ScrollReveal>
         </div>
       </section>
@@ -433,7 +491,7 @@ export default function PricingPage() {
             One bill. <span className="text-copper font-extrabold">Zero duct tape</span>.
           </h2>
           <p className="text-muted text-lg mb-4 max-w-xl mx-auto leading-relaxed">
-            Start on Free and see what you&apos;re missing, or book a demo and go live in 48 hours. No card on Free, no contract, no eleventh subscription.
+            Start on Free and see what you&apos;re missing, or talk to our team about Managed and go live within 48 hours of signing. No card on Free, no contract, no eleventh subscription.
           </p>
           <p className="font-mono text-[10px] tracking-wider text-copper uppercase mb-8">
             30-day money-back guarantee · month-to-month · cancel anytime

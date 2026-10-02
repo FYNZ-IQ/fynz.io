@@ -24,7 +24,7 @@ const fontMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: "FYNZ — Run your entire business in one place",
   description:
-    "FYNZ is the all-in-one business platform: capture leads, book appointments, sell online, and run operations — with AI employees working 24/7.",
+    "FYNZ is the all-in-one business platform: capture leads, book appointments, sell online, and run operations — with AI employees working 24/7 and a team of FYNZ experts who set it up and run it with you.",
 };
 
 export default function RootLayout({

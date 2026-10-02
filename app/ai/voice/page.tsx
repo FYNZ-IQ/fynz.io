@@ -366,7 +366,7 @@ export default function VoiceAIPage() {
             Never send another caller <span className="text-copper">to voicemail</span>.
           </h2>
           <p className="text-muted text-lg mb-8 max-w-xl mx-auto">
-            Book a demo and hear it answer — your receptionist can be part of your 48-hour setup.
+            Book a demo and hear it answer — on Managed, your receptionist is part of the build our team hands over within 48 hours.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-copper hover:bg-copper/90 text-white font-semibold" render={<Link href="/demo" />}>

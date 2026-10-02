@@ -47,7 +47,7 @@ export default function PrivacyPage() {
       <LegalSection title="How we use information">
         <p>We use personal information to:</p>
         <p>
-          · provide, set up, and support your FYNZ account (including our 48-hour concierge onboarding);<br />
+          · provide, set up, and support your FYNZ account (including onboarding and managed setup by our team);<br />
           · process payments and manage subscriptions;<br />
           · respond to enquiries and provide customer support;<br />
           · send service messages about your account, and — with your consent — marketing communications;<br />

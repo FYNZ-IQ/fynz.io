@@ -5,7 +5,7 @@ import { LegalShell, LegalSection } from "@/components/legal/LegalShell";
 export const metadata: Metadata = {
   title: "About — FYNZ",
   description:
-    "FYNZ is the business operating system for local service businesses — one platform for leads, bookings, payments, and operations, delivered with a human team.",
+    "FYNZ is the business operating system for local service businesses — one platform for leads, bookings, payments, and operations, set up and run with you by a team of FYNZ experts.",
 };
 
 export default function AboutPage() {
@@ -20,12 +20,22 @@ export default function AboutPage() {
         </p>
       </LegalSection>
 
-      <LegalSection title="Software plus humans">
+      <LegalSection title="Software plus the people who run it">
         <p>
-          FYNZ is delivered, not just downloaded. On every paid plan, a human team sets your system up for you —
-          contacts imported, booking page live, missed-call text-back and review requests switched on — with
-          onboarding targeted at <b className="text-ink">48 hours</b>. On the Managed plan, that team also runs
-          your campaigns and monitoring for you.
+          FYNZ is delivered, not just downloaded. Behind every account sits the FYNZ team: clients aren&apos;t handed a
+          login and left to work it out. Setup, configuration, changes, and troubleshooting are done for them by
+          people who know the system.
+        </p>
+        <p>
+          There are two ways in. <b className="text-ink">Self-Serve</b> is plug-and-play — pick your industry
+          snapshot, provision yourself, and you&apos;re live in minutes with a template already configured for your
+          trade; snapshots exist for every industry in our library. <b className="text-ink">Managed</b> is a human
+          build — our experts configure FYNZ to your actual business and hand it over working, live within{" "}
+          <b className="text-ink">48 hours</b> of signing, then run your campaigns, monitoring, and compliance.
+        </p>
+        <p>
+          Every paid account is instrumented for attribution on day one — source, saved-job value, closed amount,
+          date — so you can see what the system earned you, in dollars.
         </p>
       </LegalSection>
 
