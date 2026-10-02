@@ -34,7 +34,9 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - name: Build static export
         env:
-          GITHUB_PAGES: "true"
+          # No GITHUB_PAGES flag: the site is served from the root of the
+          # custom domain in public/CNAME, not a project subpath, so
+          # next.config.ts needs no basePath.
           # Set this repository variable to your deployed onboarding-bridge
           # base URL (e.g. https://bridge.fynz.io). If unset, the wizard
           # renders but submissions show a graceful "not wired up" error.

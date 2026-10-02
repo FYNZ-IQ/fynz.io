@@ -4,21 +4,14 @@ import React, { useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { INDUSTRY_GROUPS } from "@/lib/checkout";
 import { cn } from "@/lib/utils";
+import { PUBLISHED_INDUSTRY_SLUGS } from "@/lib/industries/published";
 
-// Industry keys that have a landing page at /industries/<slug>. Hard-coded
-// (rather than importing lib/industries) to keep all 27 pages' content data
-// out of the homepage bundle. Keys not listed here send the visitor straight
-// into the onboarding wizard with their industry preselected.
-const PAGE_SLUGS = new Set([
-  "salons", "barbershops", "spas", "nail-studios",
-  "clinics", "dental", "medical-clinics", "therapists",
-  "gyms", "fitness", "personal-trainers", "yoga-pilates",
-  "restaurants", "cafes", "bars",
-  "boutiques", "retail", "ecommerce",
-  "accounting", "legal", "coaching",
-  "home-services", "plumbing", "cleaning", "contractors", "automotive",
-  "real-estate",
-]);
+// Industry keys that currently have a live landing page at /industries/<slug>.
+// Sourced from lib/industries/published (slug list only — no page content), so
+// the homepage bundle stays small and this can never drift from the nav.
+// Keys not listed there send the visitor straight into the onboarding wizard
+// with their industry preselected, so hidden verticals still convert.
+const PAGE_SLUGS = new Set(PUBLISHED_INDUSTRY_SLUGS);
 
 // Extra search terms per industry, beyond its label and category.
 const SYNONYMS: Record<string, string> = {

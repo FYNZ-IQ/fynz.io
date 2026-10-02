@@ -1,6 +1,7 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { INDUSTRY_NAV, industryHref } from "@/lib/industries/published";
 
 export function Footer() {
   return (
@@ -34,12 +35,9 @@ export function Footer() {
           
           <div className="flex flex-col">
             <h5 className="font-mono text-[10px] font-semibold tracking-[0.2em] uppercase text-copper mb-4">Who&apos;s it for</h5>
-            <FooterLink href="/emergency">Emergency restoration</FooterLink>
-            <FooterLink href="/industries/salons">Salons &amp; barbershops</FooterLink>
-            <FooterLink href="/industries/clinics">Clinics &amp; dental</FooterLink>
-            <FooterLink href="/industries/fitness">Fitness &amp; gyms</FooterLink>
-            <FooterLink href="/industries/home-services">Home services</FooterLink>
-            <FooterLink href="/industries/real-estate">Real estate</FooterLink>
+            {INDUSTRY_NAV.flatMap((column) => column.entries).map((entry) => (
+              <FooterLink key={entry.slug} href={industryHref(entry.slug)}>{entry.label}</FooterLink>
+            ))}
             <FooterLink href="/industries">All industries</FooterLink>
           </div>
           

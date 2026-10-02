@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { IndustryLanding } from "@/components/industries/IndustryLanding";
-import { getIndustry, getAllIndustrySlugs } from "@/lib/industries";
+import { getIndustry } from "@/lib/industries";
+import { PUBLISHED_INDUSTRY_SLUGS, isIndustryPublished } from "@/lib/industries/published";
 
 export function generateStaticParams() {
-  return getAllIndustrySlugs().map((slug) => ({ slug }));
+  return PUBLISHED_INDUSTRY_SLUGS.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -13,7 +14,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const industry = getIndustry(slug);
+  const industry = isIndustryPublished(slug) ? getIndustry(slug) : undefined;
   if (!industry) return {};
   return {
     title: industry.seoTitle,
@@ -27,7 +28,7 @@ export default async function IndustryPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const industry = getIndustry(slug);
+  const industry = isIndustryPublished(slug) ? getIndustry(slug) : undefined;
   if (!industry) notFound();
   return <IndustryLanding data={industry} />;
 }
